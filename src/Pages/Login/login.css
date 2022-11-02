@@ -1,32 +1,53 @@
 p {
   text-align: justify;
 }
-
-.sign-in-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: stretch;
+.page-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: space-evenly;
   text-align: left;
   background-color: #f5f5f5;
 }
 
-.sign-in-form {
-  display: flex;
-  flex-direction: column;
+.signup-signin-image-container {
+  grid-column: 1;
   justify-content: center;
   align-items: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.sign-in-form-content {
+.signup-signin-image-container > img {
+  object-fit: cover;
+}
+
+.sign-in-container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sign-in-container-content {
+  grid-column: 2;
+  justify-content: center;
+  align-self: center;
   background-color: white;
   width: 400px;
   height: 620px;
-  left: 141px;
-  top: 108px;
   box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
     0px 4px 6px -2px rgba(16, 24, 40, 0.05);
   border-radius: 8px;
   padding: 5rem;
+}
+
+.sign-in-form-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: left;
 }
 
 .sign-in-form-title {
@@ -35,7 +56,7 @@ p {
 }
 
 .forgot-pwd-text {
-  font-size: 12px;
+  font-size: 14px;
   padding-top: 10px;
 }
 
@@ -52,11 +73,11 @@ p {
 .line-or-box {
   padding-top: 15px;
   display: table;
-  width: 310px;
+  width: 100%;
 }
 
 .line-1 {
-  width: 129px;
+  width: 124px;
   height: 0px;
   border: 2px solid #009688;
 }
@@ -82,8 +103,9 @@ p {
 
 .login-apps-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
+  justify-items: center;
+  align-content: space-evenly;
   align-items: center;
 }
 

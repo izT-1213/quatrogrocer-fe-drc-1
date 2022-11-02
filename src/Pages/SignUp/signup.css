@@ -36,7 +36,7 @@ p {
 
 .form-group-mt-3 {
   font-family: "Lexend Deca";
-  font-size: 14px;
+  font-size: 18px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -45,7 +45,7 @@ p {
   background-color: #eeeeee;
   border-radius: 4px;
   height: 40px;
-  width: 310px;
+  width: 100%;
 }
 
 .d-grid-gap-2-mt-3 {
@@ -55,7 +55,7 @@ p {
 
 .signup-signin-btn {
   font-family: "Lexend Deca";
-  font-size: 14px;
+  font-size: 18px;
   color: white;
   display: flex;
   flex-direction: row;
@@ -64,7 +64,7 @@ p {
   padding: 10px 74px;
   gap: 8px;
   height: 40px;
-  width: 310px;
+  width: 100%;
   background-color: #009688;
   border-radius: 4px;
 }
