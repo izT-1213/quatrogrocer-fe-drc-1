@@ -5,8 +5,8 @@ import "../Login/login.css";
 
 function LoginPage() {
   return (
-    <div className="page-container">
-      <div className="signup-signin-image-container">
+    <div className="sign-in-page-container">
+      <div className="signin-image-container">
         <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" />
       </div>
       <div className="sign-in-container">
@@ -15,7 +15,7 @@ function LoginPage() {
             <form className="sign-in-form">
               <h3 className="sign-in-form-title">Welcome Back!</h3>
               <div className="form-group-mt-3">
-                <label>Email address</label>
+                <label>EMAIL</label>
               </div>
               <div>
                 <input
@@ -25,7 +25,7 @@ function LoginPage() {
                 />
               </div>
               <div className="form-group-mt-3">
-                <label>Password</label>
+                <label>PASSWORD</label>
               </div>
               <div>
                 <input
