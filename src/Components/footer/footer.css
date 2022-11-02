@@ -1,0 +1,69 @@
+footer {
+  width: 100%;
+  background-color: rgba(238, 238, 238, 1);
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(37, 37, 37, 1);
+}
+
+a:hover {
+  color: #1b262c;
+}
+
+.footer-container {
+  padding: 40px 60px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  min-height: 15vh;
+}
+
+.company-desc p,
+.page-directory p,
+.policies p,
+.social-media p {
+  font-family: "Lexend Deca";
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.company-desc ul,
+.page-directory ul,
+.policies ul,
+.social-media ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.company-desc ul li,
+.page-directory ul li,
+.policies ul li {
+  list-style: none;
+  font-size: 16px;
+  font-family: "Lexend Deca";
+}
+
+.company-desc ul li:hover,
+.page-directory ul li:hover,
+.policies ul li:hover,
+.social-media ul li:hover {
+  cursor: pointer;
+}
+
+.copyright-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.copyright-content p {
+  font-family: "Lexend Deca";
+  font-size: 16px;
+  color: rgba(37, 37, 37, 1);
+}

@@ -1,0 +1,97 @@
+p {
+  text-align: justify;
+}
+
+.sign-in-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  text-align: left;
+  background-color: #f5f5f5;
+}
+
+.sign-in-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-in-form-content {
+  background-color: white;
+  width: 400px;
+  height: 620px;
+  left: 141px;
+  top: 108px;
+  box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
+    0px 4px 6px -2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
+  padding: 5rem;
+}
+
+.sign-in-form-title {
+  font-family: "Lexend Deca";
+  font-size: 38px;
+}
+
+.forgot-pwd-text {
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+.sign-up-text-center {
+  padding-top: 7px;
+  text-align: center;
+  width: 310px;
+}
+
+.signup-link {
+  color: #009688;
+}
+
+.line-or-box {
+  padding-top: 15px;
+  display: table;
+  width: 310px;
+}
+
+.line-1 {
+  width: 129px;
+  height: 0px;
+  border: 2px solid #009688;
+}
+
+.white-padding {
+  display: table-cell;
+  padding: 10px;
+  background-color: white;
+}
+
+.or-box {
+  color: white;
+  display: table-cell;
+  align-items: center;
+  width: 32px;
+  height: 28px;
+  padding: 4px;
+  gap: 4px;
+  background: #009688;
+  border: 1px solid #009688;
+  border-radius: 3px;
+}
+
+.login-apps-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-apps {
+  display: table;
+}
+
+.login-apps-icons {
+  display: table-cell;
+  font-size: 2.5rem;
+}
