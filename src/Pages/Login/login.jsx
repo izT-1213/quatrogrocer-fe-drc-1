@@ -5,15 +5,15 @@ import "../Login/login.css";
 
 function LoginPage() {
   return (
-    <div className="sign-in-page-container">
-      <div className="signin-image-container">
+    <div className="log-in-page-container">
+      <div className="login-image-container">
         <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" />
       </div>
-      <div className="sign-in-container">
-        <div className="sign-in-container-content">
-          <div className="sign-in-form-content">
-            <form className="sign-in-form">
-              <h3 className="sign-in-form-title">Welcome Back!</h3>
+      <div className="log-in-container">
+        <div className="log-in-container-content">
+          <div className="log-in-form-content">
+            <form className="log-in-form">
+              <h3 className="log-in-form-title">Welcome Back!</h3>
               <div className="form-group-mt-3">
                 <label>EMAIL</label>
               </div>
@@ -21,7 +21,7 @@ function LoginPage() {
                 <input
                   type="email"
                   className="form-control-mt-1"
-                  placeholder="Enter email"
+                  placeholder="random@gmail.com"
                 />
               </div>
               <div className="form-group-mt-3">

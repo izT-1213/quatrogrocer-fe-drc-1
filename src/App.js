@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
-import Nav from "./Components/navbar/Nav.jsx";
-import Footer from "./Components/footer/Footer.jsx";
+import Nav from "./Components/navbar/navbar.jsx";
+import Footer from "./Components/footer/footer.jsx";
 // import MainPage from "./Pages/MainPage";
 // import ProductPage from "./Pages/ProductPage";
 // import BestSellers from "./Pages/BestSellers";
