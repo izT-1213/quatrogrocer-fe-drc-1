@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
 import "../SignUp/signup.css";
@@ -23,16 +23,6 @@ function SignUpPage() {
               </div>
               <div className="form-group-mt-3">
                 <label>PASSWORD</label>
-              </div>
-              <div>
-                <input
-                  type="password"
-                  className="form-control-mt-1"
-                  placeholder="Password"
-                />
-              </div>
-              <div className="form-group-mt-3">
-                <label>CONFIRM PASSWORD</label>
               </div>
               <div>
                 <input

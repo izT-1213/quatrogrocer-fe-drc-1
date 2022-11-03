@@ -39,19 +39,19 @@ p {
   text-align: left;
 }
 
-.sign-up-form-title {
+.sign-up-form-content .sign-up-form-title {
   font-family: "Lexend Deca";
   font-size: 38px;
 }
 
-.form-group-mt-3 {
+.sign-up-form-content .form-group-mt-3 {
   font-family: "Lexend Deca";
   font-size: 18px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.form-control-mt-1 {
+.sign-up-form-content .form-control-mt-1 {
   background-color: #eeeeee;
   border-radius: 4px;
   height: 40px;
@@ -59,12 +59,12 @@ p {
   font-size: 16px;
 }
 
-.d-grid-gap-2-mt-3 {
+.sign-up-form-content .d-grid-gap-2-mt-3 {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.signup-signin-btn {
+.sign-up-form-content .signup-signin-btn {
   font-family: "Lexend Deca";
   font-size: 18px;
   color: white;
@@ -80,13 +80,13 @@ p {
   border-radius: 4px;
 }
 
-.sign-in-text-center {
+.sign-up-form-content .sign-in-text-center {
   padding: 5px;
   text-align: center;
   width: 310px;
 }
 
-.signin-link {
+.sign-up-form-content .signin-link {
   color: #009688;
 }
 
@@ -102,24 +102,24 @@ p {
   object-fit: cover;
 }
 
-.line-or-box {
+.sign-up-form-content .line-or-box {
   display: table;
   width: 100%;
 }
 
-.line-1 {
+.sign-up-form-content .line-1 {
   width: 128px;
   height: 0px;
   border: 2px solid #009688;
 }
 
-.white-padding {
+.sign-up-form-content .white-padding {
   display: table-cell;
   padding: 10px;
   background-color: white;
 }
 
-.or-box {
+.sign-up-form-content .or-box {
   color: white;
   display: table-cell;
   align-items: center;
@@ -132,23 +132,23 @@ p {
   border-radius: 3px;
 }
 
-.login-apps-container {
+.sign-up-form-content .login-apps-container {
   display: flex;
   justify-content: space-evenly;
   align-content: space-evenly;
   align-items: center;
 }
 
-.login-apps {
+.sign-up-form-content .login-apps {
   display: table;
 }
 
-.login-apps-icons {
+.sign-up-form-content .login-apps-icons {
   display: table-cell;
   font-size: 2.5rem;
 }
 
-.tnc {
+.sign-up-container .tnc {
   display: block;
   position: relative;
   padding-left: 26px;
@@ -162,8 +162,7 @@ p {
   font-size: 16px;
 }
 
-/* Hide the browser's default checkbox */
-.tnc input {
+.sign-up-form-content .tnc input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -171,8 +170,7 @@ p {
   width: 0;
 }
 
-/* Create a custom checkbox */
-.checkmark {
+.sign-up-form-content .checkmark {
   position: absolute;
   top: 0;
   left: 0;
@@ -182,30 +180,25 @@ p {
   border-radius: 4px;
 }
 
-/* On mouse-over, add a grey background color */
-.tnc:hover input ~ .checkmark {
+.sign-up-form-content .tnc:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
-/* When the checkbox is checked, add a blue background */
-.tnc input:checked ~ .checkmark {
+.sign-up-form-content .tnc input:checked ~ .checkmark {
   background-color: #009688;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
+.sign-up-form-content .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the checkmark when checked */
-.tnc input:checked ~ .checkmark:after {
+.sign-up-form-content .tnc input:checked ~ .checkmark:after {
   display: block;
 }
 
-/* Style the checkmark/indicator */
-.tnc .checkmark:after {
+.sign-up-form-content .tnc .checkmark:after {
   left: 7px;
   top: 3px;
   width: 5px;
@@ -217,7 +210,7 @@ p {
   transform: rotate(45deg);
 }
 
-.tnc-link {
+.sign-up-form-content .tnc-link {
   color: #009688;
   text-decoration: underline;
 }

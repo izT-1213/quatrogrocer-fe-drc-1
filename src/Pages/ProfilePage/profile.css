@@ -1,0 +1,97 @@
+.profile-page-container {
+  padding: 75px;
+  display: grid;
+  grid-template:
+    "header header header header header"
+    "main main main right right";
+}
+
+.profile-page-container h1 {
+  font-family: "Lexend Deca";
+  color: black;
+  font-size: 44px;
+}
+
+.profile-page-container h3 {
+  font-family: "Lexend Deca";
+  color: black;
+  font-size: 30px;
+}
+
+.profile-page-header {
+  grid-area: header;
+}
+
+.order-history-container {
+  grid-area: main;
+  padding: 10px 10px 10px 0px;
+}
+
+.order-history-container h3 {
+  padding-bottom: 25px;
+}
+
+.account-details-container {
+  grid-area: right;
+  padding: 10px 10px 10px 50px;
+}
+
+.order-history-table-container {
+  padding: 24px;
+  background-color: rgba(250, 250, 250, 1);
+  height: 336px;
+}
+
+.order-history-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 16px;
+}
+
+.order-history-table th {
+  border-bottom: 2px solid black;
+  padding-bottom: 16px;
+}
+
+.order-history-table td {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.account-details-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.account-details-table th {
+  padding: 29px 0px 10px;
+  vertical-align: bottom;
+  border-bottom: 2px solid black;
+  font-weight: 500;
+  text-align: left;
+}
+
+.account-details-table td {
+  padding: 10px 0px 10px;
+  vertical-align: bottom;
+}
+
+.credit-value {
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.RM {
+  padding-left: 48px;
+  font-size: 16px;
+}
+
+.user-name {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.edit-link {
+  font-size: 20px;
+  font-weight: 500;
+}
