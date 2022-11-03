@@ -1,0 +1,35 @@
+@import "../../Scss/colors";
+@import "../../Scss/fonts";
+@import "../../Scss/typography";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  background-color: $primary-color;
+  height: 4.5rem;
+  display: flex;
+
+  .nav-left,
+  .nav-middle,
+  .nav-right {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .nav-middle ul,
+  .nav-right ul {
+    list-style: none;
+    display: flex;
+  }
+
+  .nav-middle ul li {
+    margin-left: 1rem;
+    color: $white-color;
+    font-family: "Lexend Deca";
+  }
+}
