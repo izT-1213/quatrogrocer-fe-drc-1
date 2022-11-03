@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
-import Nav from "./Components/navbar/Nav.jsx";
-import Footer from "./Components/footer/Footer.jsx";
+import Nav from "./Components/navbar/navbar.jsx";
+import Footer from "./Components/footer/footer.jsx";
 // import MainPage from "./Pages/MainPage";
 // import ProductPage from "./Pages/ProductPage";
 // import BestSellers from "./Pages/BestSellers";
@@ -27,7 +27,7 @@ function App() {
           <Route path="/all-new" element={<NewItems />} />
           <Route path="/deals-&-promotions" element={<Deals />} />
           <Route path="/profile" element={<UserProfilePage />}> */}
-          <Route path="signin" element={<LoginPage />} />
+          <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignUpPage />} />
           {/* </Route> */}
         </Routes>
