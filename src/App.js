@@ -6,7 +6,7 @@ import Footer from "./Components/footer/footer.jsx";
 // import BestSellers from "./Pages/BestSellers";
 // import NewItems from "./Pages/NewItems";
 // import Deals from "./Pages/Deals";
-// import UserProfilePage from "./Pages/ProfilePage";
+import UserProfilePage from "./Pages/ProfilePage/profile.jsx";
 import SignUpPage from "./Pages/SignUp/signup.jsx";
 import LoginPage from "./Pages/Login/login.jsx";
 //import CartPage from "./Components/Cart";
@@ -27,9 +27,8 @@ function App() {
           <Route path="/all-new" element={<NewItems />} />
           <Route path="/deals-&-promotions" element={<Deals />} />
           <Route path="/profile" element={<UserProfilePage />}> */}
-          <Route path="login" element={<LoginPage />} />
+          <Route path="signin" element={<LoginPage />} />
           <Route path="signup" element={<SignUpPage />} />
-          {/* </Route> */}
         </Routes>
         <Footer />
       </BrowserRouter>
