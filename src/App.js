@@ -9,6 +9,7 @@ import Footer from "./Components/footer/Footer.jsx";
 // import UserProfilePage from "./Pages/ProfilePage";
 import SignUpPage from "./Pages/SignUp/signup.jsx";
 import LoginPage from "./Pages/Login/login.jsx";
+import ErrorPage from "./Pages/404 Error page/error.jsx";
 //import CartPage from "./Components/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -29,6 +30,7 @@ function App() {
           <Route path="/profile" element={<UserProfilePage />}> */}
           <Route path="signin" element={<LoginPage />} />
           <Route path="signup" element={<SignUpPage />} />
+          <Route path="error" element={<ErrorPage />} />
           {/* </Route> */}
         </Routes>
         <Footer />
