@@ -9,8 +9,7 @@ import "../footer/footer.css";
 
 const Footer = () => {
   const { pathname } = useLocation();
-  if (pathname === "/signup" || "/signin") return null;
-
+  if (pathname === "signup" || "signin") return null;
   return (
     <footer>
       <div className="footer-container">
