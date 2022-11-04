@@ -1,0 +1,35 @@
+.pic {
+  display: flex;
+  flex-direction: column;
+  margin-left: 164px;
+  margin-top: 143px;
+}
+
+.error-image-container{
+}
+.error-msg-container {
+  position: absolute;
+  width: 394px;
+  height: 209px;
+  left: 821px;
+  top: 255px;
+  margin-left: 105px;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 40px;
+  gap: 16px;
+  margin-top:32px;
+
+  position: absolute;
+
+  /* Deep Orange/300 */
+
+  background: #ff8a65;
+  border-radius: 4px;
+  outline-color: #ff8a65;
+}
