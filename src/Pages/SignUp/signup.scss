@@ -83,7 +83,7 @@ p {
           gap: 8px;
           height: 40px;
           width: 100%;
-          background-color: #009688;
+          background-color: $primary-color;
           border-radius: 4px;
         }
 
@@ -94,19 +94,7 @@ p {
         }
 
         .signin-link {
-          color: #009688;
-        }
-
-        .signup-image-container {
-          grid-column: 2;
-          justify-content: center;
-          align-items: center;
-          display: flex;
-          flex-wrap: wrap;
-        }
-
-        .signup-image-container > img {
-          object-fit: cover;
+          color: $primary-color;
         }
 
         .line-or-box {
@@ -117,7 +105,7 @@ p {
         .line-1 {
           width: 128px;
           height: 0px;
-          border: 2px solid #009688;
+          border: 2px solid $primary-color;
         }
 
         .white-padding {
@@ -134,8 +122,8 @@ p {
           height: 28px;
           padding: 4px;
           gap: 4px;
-          background: #009688;
-          border: 1px solid #009688;
+          background: $primary-color;
+          border: 1px solid $primary-color;
           border-radius: 3px;
         }
 
@@ -196,7 +184,13 @@ p {
         }
 
         .tnc input:checked ~ .checkmark {
-          background-color: #009688;
+          background-color: $primary-color;
+        }
+
+        .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
         }
 
         .tnc input:checked ~ .checkmark:after {
@@ -216,10 +210,22 @@ p {
         }
 
         .tnc-link {
-          color: #009688;
+          color: $primary-color;
           text-decoration: underline;
         }
       }
     }
+  }
+
+  .signup-image-container {
+    grid-column: 2;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .signup-image-container > img {
+    object-fit: cover;
   }
 }

@@ -1,119 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+p {
+  margin-top: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
 .profile-page-container {
   padding: 32px 75px;
   display: grid;
-  grid-template:
-    "header header header header header"
-    "main main main right right";
+  grid-template: "header header header header header" "main main main right right";
 }
-
 .profile-page-container h1 {
-  font-family: "Lexend Deca";
-  color: black;
   font-size: 44px;
 }
-
 .profile-page-container h3 {
-  font-family: "Lexend Deca";
-  color: black;
   font-size: 30px;
 }
-
-.profile-page-header {
+.profile-page-container .profile-page-header {
   grid-area: header;
   padding: 8px 0px 30px;
 }
-
-.order-history-container {
+.profile-page-container .order-history-container {
   grid-area: main;
   padding: 10px 10px 10px 0px;
 }
-
-.order-history-container h3 {
+.profile-page-container .order-history-container h3 {
   padding-bottom: 25px;
 }
-
-.account-details-container {
-  grid-area: right;
-  padding: 10px 10px 10px 50px;
-}
-
-.order-history-table-container {
+.profile-page-container .order-history-container .order-history-table-container {
   padding: 24px;
-  background-color: rgba(250, 250, 250, 1);
+  background-color: rgb(250, 250, 250);
   height: 336px;
 }
-
-.order-history-table {
+.profile-page-container .order-history-container .order-history-table-container .order-history-table {
   border-collapse: collapse;
   width: 100%;
   font-size: 16px;
 }
-
-.order-history-table th {
+.profile-page-container .order-history-container .order-history-table-container th {
   border-bottom: 2px solid black;
   padding-bottom: 16px;
 }
-
-.order-history-table td {
+.profile-page-container .order-history-container .order-history-table-container td {
   padding-top: 10px;
   text-align: center;
 }
-
-.account-details-table {
+.profile-page-container .account-details-container {
+  grid-area: right;
+  padding: 10px 10px 10px 50px;
+}
+.profile-page-container .account-details-container .account-details-table {
   width: 100%;
   border-collapse: collapse;
 }
-
-.account-details-table th {
+.profile-page-container .account-details-container .account-details-table th {
   padding: 29px 0px 10px;
   vertical-align: bottom;
   border-bottom: 2px solid black;
   font-weight: 500;
   text-align: left;
 }
-
-.account-details-table td {
-  padding: 6px 0px;
-}
-
-.account-details-table .user-name {
-  padding: 10px 0px;
-  vertical-align: bottom;
-}
-
-.credit-value {
+.profile-page-container .account-details-container .account-details-table th .credit-value {
   font-size: 38px;
   font-weight: bold;
 }
-
-.RM {
+.profile-page-container .account-details-container .account-details-table th .RM {
   padding-left: 48px;
   font-size: 16px;
 }
-
-.user-name {
+.profile-page-container .account-details-container .account-details-table td {
+  padding: 6px 0px;
+}
+.profile-page-container .account-details-container .account-details-table .user-name {
+  padding: 10px 0px;
+  vertical-align: bottom;
+}
+.profile-page-container .account-details-container .account-details-table .user-name {
   font-weight: 500;
   font-size: 24px;
 }
-
-.account-details-table .edit {
+.profile-page-container .account-details-container .account-details-table .edit {
   text-align: right;
 }
-
-.edit-link {
+.profile-page-container .account-details-container .account-details-table .edit-link {
   font-size: 20px;
   font-weight: 500;
   color: black;
 }
-
-.account-details-table .address {
+.profile-page-container .account-details-container .account-details-table .address {
   padding: 3px 0px;
 }
-
-.account-details-table .view-address {
+.profile-page-container .account-details-container .account-details-table .view-address {
   padding: 13px 0px;
 }
-
-.view-address-link {
+.profile-page-container .account-details-container .account-details-table .view-address-link {
   color: black;
-}
+}/*# sourceMappingURL=profile.css.map */
