@@ -1,6 +1,11 @@
 @import "../../Scss/colors";
+@import "../../Scss/fonts";
+@import "../../Scss/typography";
 
-footer {
-  width: 100%;
-  background-color: $grey-tint;
+// Reset All Elements
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
 }

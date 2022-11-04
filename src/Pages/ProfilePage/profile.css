@@ -1,5 +1,5 @@
 .profile-page-container {
-  padding: 75px;
+  padding: 32px 75px;
   display: grid;
   grid-template:
     "header header header header header"
@@ -20,6 +20,7 @@
 
 .profile-page-header {
   grid-area: header;
+  padding: 8px 0px 30px;
 }
 
 .order-history-container {
@@ -72,7 +73,11 @@
 }
 
 .account-details-table td {
-  padding: 10px 0px 10px;
+  padding: 6px 0px;
+}
+
+.account-details-table .user-name {
+  padding: 10px 0px;
   vertical-align: bottom;
 }
 
@@ -91,7 +96,24 @@
   font-size: 24px;
 }
 
+.account-details-table .edit {
+  text-align: right;
+}
+
 .edit-link {
   font-size: 20px;
   font-weight: 500;
+  color: black;
+}
+
+.account-details-table .address {
+  padding: 3px 0px;
+}
+
+.account-details-table .view-address {
+  padding: 13px 0px;
+}
+
+.view-address-link {
+  color: black;
 }

@@ -1,90 +1,96 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import {
-  FaFacebookSquare,
-  FaInstagramSquare,
-  FaTwitterSquare,
-} from "react-icons/fa";
+import logo from "../../Images/teal-logo.svg";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
 import "../footer/footer.css";
 
 const Footer = () => {
-  const { pathname } = useLocation();
-  if (pathname === "signup" || "signin") return null;
   return (
-    <footer>
-      <div className="footer-container">
-        <div className="company-desc">
-          <p>Company</p>
-          <ul>
-            <li>
-              <Link to={"/about"}>About</Link>
-            </li>
-            <li>
-              <Link to={"/career"}>Career With Us</Link>
-            </li>
-          </ul>
+    <div>
+      <footer className="footer">
+        <div className="footer-top-left">
+          <Link to={"/"}>
+            <img
+              src={logo}
+              className="website-logo"
+              alt="Quatro Grocer's Logo"
+            />
+          </Link>
         </div>
 
-        <div className="page-directory">
-          <p>Shop</p>
-          <ul>
-            <li>
-              <Link to={"/marketplace"}>Marketplace</Link>
-            </li>
-            <li>
-              <Link to={"/best-sellers"}>Best Sellers</Link>
-            </li>
-            <li>
-              <Link to={"/all-new"}>All New</Link>
-            </li>
-            <li>
-              <Link to={"/deals-&-promotions"}>Deals & Promotions</Link>
-            </li>
-          </ul>
+        <div className="footer-top-right">
+          <div className="company-desc">
+            <p>COMPANY</p>
+            <ul>
+              <li>
+                <Link to={"/about"}>About</Link>
+              </li>
+              <li>
+                <Link to={"/career"}>Career With Us</Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="page-directory">
+            <p>SHOP</p>
+            <ul>
+              <li>
+                <Link to={"/marketplace"}>Marketplace</Link>
+              </li>
+              <li>
+                <Link to={"/best-sellers"}>Best Sellers</Link>
+              </li>
+              <li>
+                <Link to={"/all-new"}>All New</Link>
+              </li>
+              <li>
+                <Link to={"/deals-&-promotions"}>Deals & Promotions</Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="policies-directory">
+            <p>POLICIES</p>
+            <ul>
+              <li>
+                <Link to={"/refund-policy"}>Refund Policy</Link>
+              </li>
+              <li>
+                <Link to={"/privacy-policy"}>Privacy Policy</Link>
+              </li>
+              <li>
+                <Link to={"/shipping-policy"}>Shopping Policy</Link>
+              </li>
+              <li>
+                <Link to={"/terms-of-service"}>Terms of Services</Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="policies">
-          <p>Policies</p>
-          <ul>
-            <li>
-              <Link to={"/refund-policy"}>Refund Policy</Link>
-            </li>
-            <li>
-              <Link to={"/privacy-policy"}>Privacy Policy</Link>
-            </li>
-            <li>
-              <Link to={"/shipping-policy"}>Shopping Policy</Link>
-            </li>
-            <li>
-              <Link to={"/terms-of-service"}>Terms of Service</Link>
-            </li>
-          </ul>
+        <hr className="line-2" />
+
+        <div className="footer-bottom-left">
+          <p>All Right Reserved 2022 by Quatro Grocer</p>
         </div>
 
-        <div className="social-media">
+        <div className="footer-bottom-right">
           <ul>
             <li>
-              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                <FaInstagramSquare />
-              </a>
+              <InstagramIcon />
             </li>
             <li>
-              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                <FaFacebookSquare />
-              </a>
+              <FacebookIcon />
             </li>
             <li>
-              <a href="https://www.youtube.com/watch?v=bMknfKXIFA8">
-                <FaTwitterSquare />
-              </a>
+              <TwitterIcon />
             </li>
           </ul>
         </div>
-      </div>
-      <div className="copyright-content">
-        <p>All Right Reserved 2022 © by Quatro Grocer</p>
-      </div>
-    </footer>
+      </footer>
+    </div>
   );
 };
 
