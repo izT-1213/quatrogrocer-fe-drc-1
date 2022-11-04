@@ -18,30 +18,55 @@ a:active {
 }
 
 *,
-*::before,
-*::after {
+*::after,
+*::before {
   margin: 0;
   box-sizing: border-box;
 }
 
 nav {
-  background-color: #009688;
   height: 4.5rem;
   display: flex;
+  background-color: #009688;
+  justify-content: space-between;
+  padding: 0 5rem;
 }
-nav .nav-left,
-nav .nav-middle,
-nav .nav-right {
+nav .nav-left {
+  cursor: pointer;
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  color: #ffffff;
+}
+nav .nav-middle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  width: 32%;
+}
+nav .nav-right {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  width: 8%;
 }
 nav .nav-middle ul,
 nav .nav-right ul {
-  list-style: none;
+  padding: 0;
+  width: 100%;
   display: flex;
+  list-style: none;
+  justify-content: space-around;
 }
 nav .nav-middle ul li {
-  margin-left: 1rem;
-  color: #252525;
+  font-size: 1rem;
+  font-weight: 500;
   font-family: "Lexend Deca";
+}
+nav .nav-middle ul li:hover {
+  color: #b2dfdb;
+}
+nav .nav-right ul li:hover {
+  color: #b2dfdb;
 }/*# sourceMappingURL=navbar.css.map */
