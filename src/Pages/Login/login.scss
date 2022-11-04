@@ -1,0 +1,174 @@
+@import "../../Scss/colors";
+@import "../../Scss/fonts";
+@import "../../Scss/typography";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
+p {
+  text-align: justify;
+}
+
+.login-page-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: space-evenly;
+  text-align: left;
+  background-color: #f5f5f5;
+
+  .login-image-container {
+    grid-column: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  .login-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+
+    .login-container-content {
+      grid-column: 2;
+      justify-content: center;
+      align-self: center;
+      background-color: white;
+      width: 400px;
+      height: 620px;
+      box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
+        0px 4px 6px -2px rgba(16, 24, 40, 0.05);
+      border-radius: 8px;
+      padding: 5rem;
+
+      .login-form-content {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        text-align: left;
+
+        .login-form-title {
+          font-family: "Lexend Deca";
+          font-size: 38px;
+          padding-bottom: 10px;
+        }
+
+        .forgot-pwd-text {
+          font-size: 14px;
+          padding-top: 10px;
+        }
+
+        .forgot-pwd-text a {
+          color: black;
+        }
+
+        .sign-up-text-center {
+          padding-top: 7px;
+          text-align: center;
+          width: 310px;
+        }
+
+        .signup-link {
+          color: $primary-color;
+        }
+
+        .line-or-box {
+          display: table;
+          width: 100%;
+        }
+
+        .line-1 {
+          width: 128px;
+          height: 0px;
+          border: 2px solid $primary-color;
+        }
+
+        .white-padding {
+          display: table-cell;
+          padding: 10px;
+          background-color: white;
+        }
+
+        .or-box {
+          color: white;
+          display: table-cell;
+          align-items: center;
+          width: 32px;
+          height: 28px;
+          padding: 4px;
+          gap: 4px;
+          background: $primary-color;
+          border: 1px solid $primary-color;
+          border-radius: 3px;
+        }
+
+        .login-apps-container {
+          display: flex;
+          justify-content: space-evenly;
+          align-content: space-evenly;
+          align-items: center;
+        }
+
+        .login-apps {
+          display: table;
+        }
+
+        .login-apps-icons {
+          display: table-cell;
+          font-size: 2.5rem;
+        }
+
+        .login-apps-icons svg {
+          color: black;
+        }
+
+        .form-group-mt-3 {
+          font-family: "Lexend Deca";
+          font-size: 18px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+
+        .form-control-mt-1 {
+          background-color: #eeeeee;
+          border-radius: 4px;
+          height: 40px;
+          width: 100%;
+          font-size: 16px;
+          padding: 6px;
+        }
+
+        .d-grid-gap-2-mt-3 {
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+
+        .signup-login-btn {
+          font-family: "Lexend Deca";
+          font-size: 18px;
+          color: white;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          padding: 10px 74px;
+          gap: 8px;
+          height: 40px;
+          width: 100%;
+          background-color: $primary-color;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}

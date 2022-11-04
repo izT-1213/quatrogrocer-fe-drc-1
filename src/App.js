@@ -1,12 +1,12 @@
 import logo from "./logo.svg";
-import Nav from "./Components/navbar/Nav.jsx";
-import Footer from "./Components/footer/Footer.jsx";
+import Nav from "./Components/navbar/navbar.jsx";
+import Footer from "./Components/footer/footer.jsx";
 // import MainPage from "./Pages/MainPage";
 // import ProductPage from "./Pages/ProductPage";
 // import BestSellers from "./Pages/BestSellers";
 // import NewItems from "./Pages/NewItems";
 // import Deals from "./Pages/Deals";
-// import UserProfilePage from "./Pages/ProfilePage";
+import UserProfilePage from "./Pages/ProfilePage/profile.jsx";
 import SignUpPage from "./Pages/SignUp/signup.jsx";
 import LoginPage from "./Pages/Login/login.jsx";
 import ErrorPage from "./Pages/404 Error page/error.jsx";
@@ -26,10 +26,11 @@ function App() {
           <Route path="/marketplace" element={<ProductPage />} />
           <Route path="/best-sellers" element={<BestSellers />} />
           <Route path="/all-new" element={<NewItems />} />
-          <Route path="/deals-&-promotions" element={<Deals />} />
-          <Route path="/profile" element={<UserProfilePage />}> */}
-          <Route path="signin" element={<LoginPage />} />
+          <Route path="/deals-&-promotions" element={<Deals />} />*/}
+          <Route path="profile" element={<UserProfilePage />} />
+          <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignUpPage />} />
+
           <Route path="error" element={<ErrorPage />} />
           {/* </Route> */}
         </Routes>
