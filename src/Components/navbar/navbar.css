@@ -18,55 +18,30 @@ a:active {
 }
 
 *,
-*::after,
-*::before {
+*::before,
+*::after {
   margin: 0;
   box-sizing: border-box;
 }
 
 nav {
+  background-color: #009688;
   height: 4.5rem;
   display: flex;
-  background-color: #009688;
-  justify-content: space-between;
-  padding: 0 5rem;
 }
-nav .nav-left {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  color: #ffffff;
-}
-nav .nav-middle {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  color: #ffffff;
-  width: 32%;
-}
+nav .nav-left,
+nav .nav-middle,
 nav .nav-right {
-  cursor: pointer;
   display: flex;
-  align-items: center;
-  color: #ffffff;
-  width: 8%;
+  justify-content: space-around;
 }
 nav .nav-middle ul,
 nav .nav-right ul {
-  padding: 0;
-  width: 100%;
-  display: flex;
   list-style: none;
-  justify-content: space-around;
+  display: flex;
 }
 nav .nav-middle ul li {
-  font-size: 1rem;
-  font-weight: 500;
+  margin-left: 1rem;
+  color: #252525;
   font-family: "Lexend Deca";
-}
-nav .nav-middle ul li:hover {
-  color: #b2dfdb;
-}
-nav .nav-right ul li:hover {
-  color: #b2dfdb;
 }/*# sourceMappingURL=navbar.css.map */
