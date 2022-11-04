@@ -27,7 +27,7 @@ function App() {
           <Route path="/all-new" element={<NewItems />} />
           <Route path="/deals-&-promotions" element={<Deals />} />*/}
           <Route path="profile" element={<UserProfilePage />} />
-          <Route path="signin" element={<LoginPage />} />
+          <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignUpPage />} />
         </Routes>
         <Footer />

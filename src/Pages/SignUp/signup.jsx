@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import IconButton from "@material-ui/core/IconButton";
+import Visibility from "@material-ui/icons/Visibility";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import Input from "@material-ui/core/Input";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
 import "../SignUp/signup.css";
 
 function SignUpPage() {
+  const [values, setValues] = useState({
+    password: "",
+    showPassword: false,
+  });
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const handlePasswordChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
   return (
     <div className="sign-up-page-container">
       <div className="sign-up-container">
@@ -15,8 +37,9 @@ function SignUpPage() {
                 <label>EMAIL</label>
               </div>
               <div>
-                <input
+                <Input
                   type="email"
+                  disableUnderline={true}
                   className="form-control-mt-1"
                   placeholder="Email Address"
                 />
@@ -25,10 +48,27 @@ function SignUpPage() {
                 <label>PASSWORD</label>
               </div>
               <div>
-                <input
-                  type="password"
+                <Input
                   className="form-control-mt-1"
                   placeholder="Password"
+                  type={values.showPassword ? "text" : "password"}
+                  onChange={handlePasswordChange("password")}
+                  value={values.password}
+                  disableUnderline={true}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                      >
+                        {values.showPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  }
                 />
               </div>
               <label class="tnc">
@@ -80,7 +120,7 @@ function SignUpPage() {
               <div className="sign-in-text-center">
                 Already have an account?
                 <a>
-                  <Link to="/signin" className="signin-link">
+                  <Link to="/login" className="signin-link">
                     {" "}
                     Log In
                   </Link>

@@ -44,7 +44,7 @@ function UserProfilePage() {
             </tr>
             <tr>
               <td className="user-name">Steven James</td>
-              <td>
+              <td className="edit">
                 <a>
                   <Link to="/edit-profile" className="edit-link">
                     Edit
@@ -53,13 +53,34 @@ function UserProfilePage() {
               </td>
             </tr>
             <tr>
-              <td>
-                71 Persiaran Tengku Ampuan Rahimah Taman Sri Andalas 41200 Klang
-                Selangor Malaysia
-              </td>
+              <td className="address">71, Persiaran Tengku Ampuan Rahimah</td>
             </tr>
             <tr>
-              <td></td>
+              <td className="address">Taman Sri Andalas</td>
+            </tr>
+            <tr>
+              <td className="address">41200</td>
+            </tr>
+            <tr>
+              <td className="address">Klang</td>
+            </tr>
+            <tr>
+              <td className="address">Selangor</td>
+            </tr>
+            <tr>
+              <td>60186907892</td>
+            </tr>
+            <tr>
+              <td>sjparty@gmail.com</td>
+            </tr>
+            <tr>
+              <td className="view-address">
+                <a>
+                  <Link to="/addresses" className="view-address-link">
+                    View Addresses [1]
+                  </Link>
+                </a>
+              </td>
             </tr>
           </table>
         </div>

@@ -1,48 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+p {
+  margin-top: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
 p {
   text-align: justify;
 }
 
-.sign-in-page-container {
+.login-page-container {
   display: grid;
   grid-template-columns: 50% 50%;
   justify-content: space-evenly;
   text-align: left;
   background-color: #f5f5f5;
 }
-
-.signin-image-container {
+.login-page-container .login-image-container {
   grid-column: 1;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
 }
-
-.signin-image-container > img {
-  object-fit: cover;
+.login-page-container .login-image-container img {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-
-.sign-in-container {
+.login-page-container .login-container {
   justify-content: center;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
 }
-
-.sign-in-container-content {
+.login-page-container .login-container .login-container-content {
   grid-column: 2;
   justify-content: center;
   align-self: center;
   background-color: white;
   width: 400px;
   height: 620px;
-  box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
-    0px 4px 6px -2px rgba(16, 24, 40, 0.05);
+  box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1), 0px 4px 6px -2px rgba(16, 24, 40, 0.05);
   border-radius: 8px;
   padding: 5rem;
 }
-
-.sign-in-form-content {
+.login-page-container .login-container .login-container-content .login-form-content {
   height: 100%;
   width: 100%;
   display: flex;
@@ -50,46 +70,41 @@ p {
   justify-content: space-evenly;
   text-align: left;
 }
-
-.sign-in-form-title {
+.login-page-container .login-container .login-container-content .login-form-content .login-form-title {
   font-family: "Lexend Deca";
   font-size: 38px;
   padding-bottom: 10px;
 }
-
-.forgot-pwd-text {
+.login-page-container .login-container .login-container-content .login-form-content .forgot-pwd-text {
   font-size: 14px;
   padding-top: 10px;
 }
-
-.sign-up-text-center {
+.login-page-container .login-container .login-container-content .login-form-content .forgot-pwd-text a {
+  color: black;
+}
+.login-page-container .login-container .login-container-content .login-form-content .sign-up-text-center {
   padding-top: 7px;
   text-align: center;
   width: 310px;
 }
-
-.signup-link {
+.login-page-container .login-container .login-container-content .login-form-content .signup-link {
   color: #009688;
 }
-
-.line-or-box {
+.login-page-container .login-container .login-container-content .login-form-content .line-or-box {
   display: table;
   width: 100%;
 }
-
-.line-1 {
+.login-page-container .login-container .login-container-content .login-form-content .line-1 {
   width: 128px;
   height: 0px;
   border: 2px solid #009688;
 }
-
-.white-padding {
+.login-page-container .login-container .login-container-content .login-form-content .white-padding {
   display: table-cell;
   padding: 10px;
   background-color: white;
 }
-
-.or-box {
+.login-page-container .login-container .login-container-content .login-form-content .or-box {
   color: white;
   display: table-cell;
   align-items: center;
@@ -101,44 +116,41 @@ p {
   border: 1px solid #009688;
   border-radius: 3px;
 }
-
-.login-apps-container {
+.login-page-container .login-container .login-container-content .login-form-content .login-apps-container {
   display: flex;
   justify-content: space-evenly;
   align-content: space-evenly;
   align-items: center;
 }
-
-.login-apps {
+.login-page-container .login-container .login-container-content .login-form-content .login-apps {
   display: table;
 }
-
-.login-apps-icons {
+.login-page-container .login-container .login-container-content .login-form-content .login-apps-icons {
   display: table-cell;
   font-size: 2.5rem;
 }
-
-.form-group-mt-3 {
+.login-page-container .login-container .login-container-content .login-form-content .login-apps-icons svg {
+  color: black;
+}
+.login-page-container .login-container .login-container-content .login-form-content .form-group-mt-3 {
   font-family: "Lexend Deca";
   font-size: 18px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-
-.form-control-mt-1 {
+.login-page-container .login-container .login-container-content .login-form-content .form-control-mt-1 {
   background-color: #eeeeee;
   border-radius: 4px;
   height: 40px;
   width: 100%;
   font-size: 16px;
+  padding: 6px;
 }
-
-.d-grid-gap-2-mt-3 {
+.login-page-container .login-container .login-container-content .login-form-content .d-grid-gap-2-mt-3 {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-
-.signup-signin-btn {
+.login-page-container .login-container .login-container-content .login-form-content .signup-login-btn {
   font-family: "Lexend Deca";
   font-size: 18px;
   color: white;
@@ -152,4 +164,4 @@ p {
   width: 100%;
   background-color: #009688;
   border-radius: 4px;
-}
+}/*# sourceMappingURL=login.css.map */
