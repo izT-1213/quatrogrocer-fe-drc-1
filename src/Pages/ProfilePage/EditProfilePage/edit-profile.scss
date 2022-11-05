@@ -1,0 +1,48 @@
+@import "../../../Scss/colors";
+@import "../../../Scss/fonts";
+@import "../../../Scss/typography";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
+.edit-profile-page-container {
+  padding: 32px 75px;
+  display: grid;
+  grid-template:
+    "header header header header"
+    "main main right right";
+
+  .edit-account-details-container {
+    grid-area: main;
+    padding: 10px 10px 10px 0px;
+
+    h3 {
+      padding-bottom: 25px;
+    }
+
+    .edit-account-details-table-container {
+      padding: 33px 0;
+
+      .edit-account-details-table {
+        border-collapse: collapse;
+        width: 100%;
+
+        .right-column {
+          padding: 0 56px 0 0;
+        }
+
+        .form-control-mt-1 {
+          background-color: #eeeeee;
+          border-radius: 4px;
+          height: 40px;
+          width: 100%;
+          font-size: 16px;
+          padding: 6px;
+        }
+      }
+    }
+  }
+}
