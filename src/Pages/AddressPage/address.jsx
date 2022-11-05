@@ -1,88 +1,65 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../AddressPage/address.css";
+import { SlArrowLeft } from "react-icons/sl";
+import { AiOutlinePlusCircle } from "react-icons/ai";
 
 function AddressPage() {
   return (
-    <div className="profile-page-container">
-      <div className="profile-page-header">
+    <div className="address-page-container">
+      <div className="address-page-header">
         <h1>My Account</h1>
-      </div>
-      <div className="order-history-container">
-        <h3>Order history</h3>
-        <div className="order-history-table-container">
-          <table className="order-history-table">
-            <thead>
-              <tr>
-                <th>Order ID</th>
-                <th>Date</th>
-                <th>Payment Status</th>
-                <th>Fullfillment Status</th>
-                <th>Total</th>
-              </tr>
-              <tr>
-                <td>BR123</td>
-                <td>3 Nov 2022</td>
-                <td>Completed</td>
-                <td>Completed</td>
-                <td>RM123.00</td>
-              </tr>
-            </thead>
-          </table>
-        </div>
-      </div>
-      <div className="account-details-container">
-        <h3>Account Details</h3>
-        <div>
-          <table className="account-details-table">
-            <tr>
-              <th>
-                Available credits:<text className="RM">RM</text>
-                <text className="credit-value">200</text>
-              </th>
-              <th></th>
-            </tr>
-            <tr>
-              <td className="user-name">Steven James</td>
-              <td className="edit">
-                <a>
-                  <Link to="/edit-profile" className="edit-link">
+        <div className="your-shipping-address-container">
+          <h3>Your Shipping Address</h3>
+          <div className="shipping-details-container">
+            <div className="shipping-details-table">
+              <h3 className="user-name">Steven James (Default)</h3>
+
+              <p className="phone-number">60186907892</p>
+
+              <p className="address">71, Persiaran Tengku Ampuan Rahimah</p>
+
+              <p className="address">Taman Sri Andalas</p>
+
+              <p className="address">41200</p>
+
+              <p className="address">Klang</p>
+
+              <p className="address">Selangor</p>
+
+              <p className="address">Malaysia</p>
+
+              <div className="links">
+                <div className="edit-link-container">
+                  <Link to="/edit-address" className="edit-link">
                     Edit
                   </Link>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td className="address">71, Persiaran Tengku Ampuan Rahimah</td>
-            </tr>
-            <tr>
-              <td className="address">Taman Sri Andalas</td>
-            </tr>
-            <tr>
-              <td className="address">41200</td>
-            </tr>
-            <tr>
-              <td className="address">Klang</td>
-            </tr>
-            <tr>
-              <td className="address">Selangor</td>
-            </tr>
-            <tr>
-              <td>60186907892</td>
-            </tr>
-            <tr>
-              <td>sjparty@gmail.com</td>
-            </tr>
-            <tr>
-              <td className="view-address">
-                <a>
-                  <Link to="/addresses" className="view-address-link">
-                    View Addresses [1]
+                </div>
+
+                <div className="vertical-line">|</div>
+                <div className="delete-btn-container">
+                  <Link to="/delete-address" className="delete-btn">
+                    Delete
                   </Link>
-                </a>
-              </td>
-            </tr>
-          </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="navigation-buttons">
+        <Link to="profile" className="back-to-account">
+          <SlArrowLeft />
+          <h4>Return to Account Details</h4>
+        </Link>
+        <div className="add-address-container">
+          <Link to="add-new-address">
+            <button className="add-address-btn">
+              <AiOutlinePlusCircle />
+              Add New Address
+            </button>
+          </Link>
         </div>
       </div>
     </div>
