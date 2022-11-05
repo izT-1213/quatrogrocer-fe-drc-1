@@ -7,7 +7,6 @@ import Footer from "./Components/footer/footer.jsx";
 // import NewItems from "./Pages/NewItems";
 // import Deals from "./Pages/Deals";
 import UserProfilePage from "./Pages/ProfilePage/profile.jsx";
-import EditProfilePage from "./Pages/ProfilePage/EditProfilePage/edit-profile.jsx";
 import SignUpPage from "./Pages/SignUp/signup.jsx";
 import LoginPage from "./Pages/Login/login.jsx";
 import ErrorPage from "./Pages/404-Error-page/error.jsx";
@@ -30,7 +29,6 @@ function App() {
           <Route path="/all-new" element={<NewItems />} />
           <Route path="/deals-&-promotions" element={<Deals />} />*/}
           <Route path="profile" element={<UserProfilePage />} />
-          <Route path="edit-profile" element={<EditProfilePage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignUpPage />} />
           <Route path="address" element={<AddressPage />} />

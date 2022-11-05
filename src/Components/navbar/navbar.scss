@@ -2,62 +2,34 @@
 @import "../../Scss/fonts";
 @import "../../Scss/typography";
 
-// Reset All Elements
 *,
-*::after,
-*::before {
+*::before,
+*::after {
   margin: 0;
   box-sizing: border-box;
 }
 
-@mixin nav-section {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  color: $white-color;
-}
-
 nav {
+  background-color: $primary-color;
   height: 4.5rem;
   display: flex;
-  background-color: $primary-color;
-  justify-content: space-between;
-  padding: 0 5rem;
 
-  .nav-left {
-    @include nav-section;
-  }
-
-  .nav-middle {
-    @include nav-section;
-    width: 32%;
-  }
-
+  .nav-left,
+  .nav-middle,
   .nav-right {
-    @include nav-section;
-    width: 8%;
+    display: flex;
+    justify-content: space-around;
   }
 
   .nav-middle ul,
   .nav-right ul {
-    padding: 0;
-    width: 100%;
-    display: flex;
     list-style: none;
-    justify-content: space-around;
+    display: flex;
   }
 
   .nav-middle ul li {
-    font-size: 1rem;
-    font-weight: 500;
+    margin-left: 1rem;
+    color: $white-color;
     font-family: "Lexend Deca";
-  }
-
-  .nav-middle ul li:hover {
-    color: $primary-hover-color;
-  }
-
-  .nav-right ul li:hover {
-    color: $primary-hover-color;
   }
 }
