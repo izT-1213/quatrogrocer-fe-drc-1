@@ -20,7 +20,7 @@ function ErrorPage() {
           </Link>
         </div>
       </div>
-      <Footer />
+      
     </div>
   );
 }

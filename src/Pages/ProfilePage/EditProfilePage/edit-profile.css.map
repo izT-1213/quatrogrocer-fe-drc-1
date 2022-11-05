@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"version":3,"sources":[],"names":[],"mappings":"","file":"edit-profile.css"}
-=======
 {"version":3,"sources":["../../../Scss/_fonts.scss","../../../Scss/_typography.scss","edit-profile.css","edit-profile.scss"],"names":[],"mappings":"AAAQ,iIAAA;ACAR;;;EAGE,aAAA;EACA,gBAAA;EACA,gBAAA;ACEF;;ADCA;EACE,aAAA;ACEF;;ADCA;;;EAGE,qBAAA;ACEF;;ACbA;;;EAGE,SAAA;ADgBF;;ACbA;EACE,kBAAA;EACA,aAAA;EACA,oEACE;ADeJ;ACZE;EACE,eAAA;EACA,2BAAA;ADcJ;ACZI;EACE,oBAAA;ADcN;ACXI;EACE,eAAA;ADaN;ACXM;EACE,yBAAA;EACA,WAAA;ADaR;ACXQ;EACE,mBAAA;ADaV;ACVQ;EACE,yBAAA;EACA,kBAAA;EACA,YAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;ADYV","file":"edit-profile.css"}
->>>>>>> e48efdab3f2fe04e2cd9cbf9e03cff777bf02f68
