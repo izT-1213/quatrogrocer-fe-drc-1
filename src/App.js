@@ -6,6 +6,7 @@ import Footer from "./Components/footer/footer.jsx";
 // import BestSellers from "./Pages/BestSellers";
 // import NewItems from "./Pages/NewItems";
 // import Deals from "./Pages/Deals";
+import CheckoutPage from "./Pages/Checkout/checkout";
 import UserProfilePage from "./Pages/ProfilePage/profile.jsx";
 import EditProfilePage from "./Pages/ProfilePage/EditProfilePage/edit-profile.jsx";
 import SignUpPage from "./Pages/SignUp/signup.jsx";
@@ -31,6 +32,7 @@ function App() {
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignUpPage />} />
           <Route path="profile" element={<UserProfilePage />} />
+          <Route path="cart/checkout" element={<CheckoutPage />} />
           <Route path="profile/edit-profile" element={<EditProfilePage />} />
           <Route path="error" element={<ErrorPage />} />
           {/* </Route> */}
