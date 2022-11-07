@@ -74,7 +74,7 @@ p {
         .signup-signin-btn {
           font-family: "Lexend Deca";
           font-size: 18px;
-          color: white;
+          color: $white-color;
           display: flex;
           flex-direction: row;
           justify-content: center;
@@ -83,8 +83,9 @@ p {
           gap: 8px;
           height: 40px;
           width: 100%;
-          background-color: $primary-color;
+          background-color: #009688;
           border-radius: 4px;
+          border: none;
         }
 
         .sign-in-text-center {
@@ -94,7 +95,19 @@ p {
         }
 
         .signin-link {
-          color: $primary-color;
+          color: #009688;
+        }
+
+        .signup-image-container {
+          grid-column: 2;
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .signup-image-container > img {
+          object-fit: cover;
         }
 
         .line-or-box {
@@ -105,7 +118,7 @@ p {
         .line-1 {
           width: 128px;
           height: 0px;
-          border: 2px solid $primary-color;
+          border: 2px solid #009688;
         }
 
         .white-padding {
@@ -122,8 +135,8 @@ p {
           height: 28px;
           padding: 4px;
           gap: 4px;
-          background: $primary-color;
-          border: 1px solid $primary-color;
+          background: #009688;
+          border: 1px solid #009688;
           border-radius: 3px;
         }
 
@@ -184,13 +197,7 @@ p {
         }
 
         .tnc input:checked ~ .checkmark {
-          background-color: $primary-color;
-        }
-
-        .checkmark:after {
-          content: "";
-          position: absolute;
-          display: none;
+          background-color: #009688;
         }
 
         .tnc input:checked ~ .checkmark:after {
@@ -210,7 +217,7 @@ p {
         }
 
         .tnc-link {
-          color: $primary-color;
+          color: #009688;
           text-decoration: underline;
         }
       }
