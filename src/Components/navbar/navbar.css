@@ -63,6 +63,7 @@ nav .nav-middle ul li {
   font-size: 1rem;
   font-weight: 500;
   font-family: "Lexend Deca";
+  line-height: 120%;
 }
 nav .nav-middle ul li:hover {
   color: #b2dfdb;
