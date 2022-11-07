@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+p {
+  margin-top: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+p {
+  margin-top: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
+.address-page-container {
+  justify-content: center;
+  display: flex;
+}
+.address-page-container .address-page-header {
+  flex-direction: column;
+  margin: 72px;
+}
+.address-page-container .address-page-header h1 {
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 44px;
+}
+.address-page-container .address-page-header .your-shipping-address-container h3 {
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 120%;
+  /* identical to box height, or 36px */
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+}
+.address-page-container .address-page-header .shipping-details-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  margin-top: 24px;
+  border-radius: 4px;
+}
+.address-page-container .address-page-header .shipping-details-container .shipping-details-table h3 {
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 120%;
+}
+.address-page-container .address-page-header .shipping-details-container .shipping-details-table p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  /* identical to box height, or 17px */
+}
+.address-page-container .address-page-header .shipping-details-container .links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.address-page-container .address-page-header .shipping-details-container .links .edit-link {
+  margin-right: 8px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 120%;
+}
+.address-page-container .address-page-header .shipping-details-container .links .edit-link:hover {
+  color: #ff8a65;
+}
+.address-page-container .address-page-header .shipping-details-container .links .vertical-line {
+  width: 11px;
+  height: 1px;
+  left: 35px;
+  top: 201px;
+  /* Black */
+  border: 1px solid #252525;
+  transform: rotate(-90deg);
+}
+.address-page-container .address-page-header .shipping-details-container .links .delete-btn {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  margin-left: 8px;
+}
+.address-page-container .address-page-header .shipping-details-container .links .delete-btn:hover {
+  color: #ff8a65;
+}
+.address-page-container .navigation-buttons {
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: 69px;
+  margin-left: 821px;
+}
+.address-page-container .navigation-buttons .back-to-account-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 4px;
+  padding-right: 80px;
+  padding-bottom: 29px;
+}
+.address-page-container .navigation-buttons .back-to-account-container .left-icon {
+  font-size: 10px;
+}
+.address-page-container .navigation-buttons .back-to-account-container .back-to-account-link-container {
+  display: flex;
+  align-items: center;
+}
+.address-page-container .navigation-buttons .back-to-account-container .back-to-account-link-container .back-btn {
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  border: none;
+  background-color: #ffffff;
+}
+.address-page-container .navigation-buttons .back-to-account-container .back-to-account-link-container .back-btn:hover {
+  color: #ff8a65;
+}
+.address-page-container .navigation-buttons .add-address-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 8px;
+  background: #009688;
+  border-radius: 2px;
+  border: none;
+  /*font*/
+  color: #ffffff;
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+}
+.address-page-container .navigation-buttons .add-address-btn:hover {
+  background-color: #ff8a65;
+}/*# sourceMappingURL=address.css.map */
