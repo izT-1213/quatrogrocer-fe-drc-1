@@ -26,24 +26,40 @@ a:active {
 .edit-profile-page-container {
   padding: 32px 75px;
   display: grid;
-  grid-template: "header header header header" "main main right right";
+  grid-template: "header return-cont" "main right" "button button";
+}
+.edit-profile-page-container .profile-page-header h1 {
+  font-size: 44px;
+}
+.edit-profile-page-container .return {
+  grid-area: return-cont;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: 500;
 }
 .edit-profile-page-container .edit-account-details-container {
   grid-area: main;
   padding: 10px 10px 10px 0px;
 }
 .edit-profile-page-container .edit-account-details-container h3 {
-  padding-bottom: 25px;
-}
-.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container {
-  padding: 33px 0;
+  font-size: 30px;
+  padding: 32px 0;
 }
 .edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table {
   border-collapse: collapse;
   width: 100%;
 }
+.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table td {
+  width: auto;
+}
 .edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .right-column {
-  padding: 0 56px 0 0;
+  padding: 10px 5% 0 0;
+  width: 50%;
+}
+.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .left-column {
+  width: 46%;
+  padding: 10px 0 0 0;
 }
 .edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .form-control-mt-1 {
   background-color: #eeeeee;
@@ -52,4 +68,58 @@ a:active {
   width: 100%;
   font-size: 16px;
   padding: 6px;
+}
+.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .change-password {
+  text-align: right;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 5% 0 0;
+}
+.edit-profile-page-container .address-details-container {
+  grid-area: right;
+  padding: 10px 10px 10px 50px;
+}
+.edit-profile-page-container .address-details-container h3 {
+  font-size: 30px;
+  padding: 32px 0;
+}
+.edit-profile-page-container .address-details-container .address-details-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.edit-profile-page-container .address-details-container .address-details-table th {
+  font-size: 24px;
+  padding: 16px 0;
+  text-align: left;
+}
+.edit-profile-page-container .address-details-container .address-details-table td {
+  padding: 6px 0px;
+}
+.edit-profile-page-container .address-details-container .address-details-table .address {
+  padding: 3px 0px;
+}
+.edit-profile-page-container .address-details-container .address-details-table .view-address {
+  padding: 13px 0px;
+}
+.edit-profile-page-container .address-details-container .address-details-table .view-address-link {
+  color: black;
+}
+.edit-profile-page-container .buttons-container {
+  display: flex;
+  justify-content: center;
+  grid-area: button;
+}
+.edit-profile-page-container .buttons-container .cancel {
+  display: flex;
+  padding: 35px 46px;
+  align-items: center;
+}
+.edit-profile-page-container .buttons-container .submit-button-container {
+  padding: 35px 46px;
+}
+.edit-profile-page-container .buttons-container .submit-button-container .submit-edit {
+  height: 40px;
+  width: 105px;
+  border-radius: 3px;
+  background-color: #ff8a65;
 }/*# sourceMappingURL=edit-profile.css.map */

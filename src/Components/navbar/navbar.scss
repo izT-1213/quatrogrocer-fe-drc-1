@@ -54,11 +54,7 @@ nav {
     line-height: 120%;
   }
 
-  .nav-middle ul li:hover {
-    color: $primary-hover-color;
-  }
-
-  .nav-right ul li:hover {
+  .nav-middle ul li:hover .nav-right ul li:hover {
     color: $primary-hover-color;
   }
 }

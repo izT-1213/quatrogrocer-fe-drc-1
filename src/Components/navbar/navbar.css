@@ -46,10 +46,7 @@ nav .nav-middle ul li {
   font-family: "Lexend Deca";
   line-height: 120%;
 }
-nav .nav-middle ul li:hover {
-  color: #b2dfdb;
-}
-nav .nav-right ul li:hover {
+nav .nav-middle ul li:hover .nav-right ul li:hover {
   color: #b2dfdb;
 
 }/*# sourceMappingURL=navbar.css.map */
