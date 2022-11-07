@@ -1,0 +1,138 @@
+@import "../../../Scss/colors";
+@import "../../../Scss/fonts";
+@import "../../../Scss/typography";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
+.edit-profile-page-container {
+  padding: 32px 75px;
+  display: grid;
+  grid-template:
+    "header return-cont"
+    "main right"
+    "button button";
+
+  .profile-page-header {
+    h1 {
+      font-size: 44px;
+    }
+  }
+
+  .return {
+    grid-area: return-cont;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: 500;
+  }
+
+  .edit-account-details-container {
+    grid-area: main;
+    padding: 10px 10px 10px 0px;
+
+    h3 {
+      font-size: 30px;
+      padding: 32px 0;
+    }
+
+    .edit-account-details-table-container {
+      .edit-account-details-table {
+        border-collapse: collapse;
+        width: 100%;
+
+        td {
+          width: auto;
+        }
+
+        .right-column {
+          padding: 10px 5% 0 0;
+          width: 50%;
+        }
+
+        .left-column {
+          width: 46%;
+          padding: 10px 0 0 0;
+        }
+
+        .form-control-mt-1 {
+          background-color: #eeeeee;
+          border-radius: 4px;
+          height: 40px;
+          width: 100%;
+          font-size: 16px;
+          padding: 6px;
+        }
+
+        .change-password {
+          text-align: right;
+          font-size: 14px;
+          font-weight: 500;
+          padding: 10px 5% 0 0;
+        }
+      }
+    }
+  }
+
+  .address-details-container {
+    grid-area: right;
+    padding: 10px 10px 10px 50px;
+
+    h3 {
+      font-size: 30px;
+      padding: 32px 0;
+    }
+
+    .address-details-table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th {
+        font-size: 24px;
+        padding: 16px 0;
+        text-align: left;
+      }
+
+      td {
+        padding: 6px 0px;
+      }
+
+      .address {
+        padding: 3px 0px;
+      }
+
+      .view-address {
+        padding: 13px 0px;
+      }
+
+      .view-address-link {
+        color: black;
+      }
+    }
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    grid-area: button;
+
+    .cancel {
+      display: flex;
+      padding: 35px 46px;
+      align-items: center;
+    }
+
+    .submit-button-container {
+      padding: 35px 46px;
+      .submit-edit {
+        height: 40px;
+        width: 105px;
+        border-radius: 3px;
+        background-color: $secondary-color;
+      }
+    }
+  }
+}

@@ -9,6 +9,7 @@ import Footer from "./Components/footer/footer.jsx";
 import UserProfilePage from "./Pages/ProfilePage/profile.jsx";
 import SignUpPage from "./Pages/SignUp/signup.jsx";
 import LoginPage from "./Pages/Login/login.jsx";
+import ErrorPage from "./Pages/404-Error-page/error.jsx";
 //import CartPage from "./Components/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -27,8 +28,13 @@ function App() {
           <Route path="/all-new" element={<NewItems />} />
           <Route path="/deals-&-promotions" element={<Deals />} />*/}
           <Route path="profile" element={<UserProfilePage />} />
+          <Route path="edit-profile" element={<EditProfilePage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignUpPage />} />
+          <Route path="profile" element={<UserProfilePage />} />
+          <Route path="profile/edit-profile" element={<EditProfilePage />} />
+          <Route path="error" element={<ErrorPage />} />
+          {/* </Route> */}
         </Routes>
         <Footer />
       </BrowserRouter>

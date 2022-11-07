@@ -1,6 +1,89 @@
 @import "../../Scss/colors";
+@import "../../Scss/fonts";
+@import "../../Scss/typography";
+
+// Reset All Elements
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@mixin footer-section {
+  display: flex;
+}
 
 footer {
-  width: 100%;
+  height: 32.875rem;
   background-color: $grey-tint;
+  padding: 0 5rem;
+
+  .footer-top {
+    @include footer-section;
+    justify-content: space-between;
+    padding: 3rem 0 11.313rem 0;
+  }
+
+  .footer-top-right {
+    @include footer-section;
+    width: 40%;
+    justify-content: space-around;
+  }
+
+  .footer-top-right p {
+    font-family: $primary-fonts;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 120%;
+    padding: 0 0 0.5rem 0;
+  }
+
+  .footer-top-right ul {
+    font-family: $secondary-fonts;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-top-right ul li {
+    padding: 1rem 0 0 0;
+  }
+
+  .line-2 {
+    border: 0.125rem solid $black-color;
+  }
+
+  .footer-bottom {
+    @include footer-section;
+    justify-content: space-between;
+    padding: 2rem 0 2.438rem 0;
+  }
+
+  .footer-bottom-left p {
+    font-family: $primary-fonts;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 120%;
+  }
+
+  .footer-bottom-right {
+    width: 8%;
+  }
+
+  .footer-bottom-right ul {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+
+  .footer-bottom-right ul li {
+    cursor: pointer;
+  }
+
+  .footer-bottom-right ul li:hover {
+    color: $primary-color;
+  }
 }

@@ -28,8 +28,16 @@ nav {
   }
 
   .nav-middle ul li {
-    margin-left: 1rem;
-    color: $white-color;
+    font-size: 1rem;
+    font-weight: 500;
     font-family: "Lexend Deca";
+  }
+
+  .nav-middle ul li:hover {
+    color: $primary-hover-color;
+  }
+
+  .nav-right ul li:hover {
+    color: $primary-hover-color;
   }
 }
