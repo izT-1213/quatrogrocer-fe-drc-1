@@ -1,7 +1,6 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Footer from "/home/marianne/Desktop/mei-fe/quatrogrocer-fe-drc/src/Components/footer/footer.jsx";
 
 import "./error.css";
 import pic from "./Error.png";
@@ -20,7 +19,6 @@ function ErrorPage() {
           </Link>
         </div>
       </div>
-      
     </div>
   );
 }
