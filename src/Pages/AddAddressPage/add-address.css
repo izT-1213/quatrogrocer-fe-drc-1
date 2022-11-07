@@ -17,22 +17,10 @@ a:active {
   text-decoration: none;
 }
 
-h1,
-h2,
-h3 {
-  margin-top: 0;
-  font-weight: 700;
-  line-height: 1.1;
-}
-
-p {
-  margin-top: 0;
-}
-
-a,
-a:visited,
-a:active {
-  text-decoration: none;
+*,
+*::before,
+*::after {
+  margin: 0;
 }
 
 .add-address-page-container {
@@ -83,30 +71,35 @@ a:active {
   padding: 0px;
   gap: 16px;
 }
-.add-address-page-container .add-new-address-container .address-form-container .address-form-content .address-form .address-line-1 input {
-  background-color: #fafafa;
+.add-address-page-container .add-new-address-container .address-form-container .address-form-content .address-form label {
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
 }
-.add-address-page-container .add-new-address-container .address-form-container .address-form-content .address-form .address-line-2 input {
-  background-color: #fafafa;
-}
-.add-address-page-container .add-new-address-container .address-form-container .address-form-content .address-form .address-line-3 input {
+.add-address-page-container .add-new-address-container .address-form-container .address-form-content .address-form input {
+  border-radius: 4px;
   background-color: #fafafa;
 }
 .add-address-page-container .add-new-address-container .address-form-container .address-form-content .address-form .postcode-and-state-container {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
   gap: 20px;
-}
-.add-address-page-container .add-new-address-container .address-form-container .address-form-content .address-form .postcode-and-state-container .postcode label {
-  flex-direction: column;
-}
-.add-address-page-container .add-new-address-container .address-form-container .address-form-content .address-form .postcode-and-state-container .postcode input {
-  background-color: #fafafa;
 }
 .add-address-page-container .add-new-address-container .address-form-container .address-form-content .address-form .postcode-and-state-container .state input {
   background-color: #fafafa;
 }
 .add-address-page-container .add-new-address-container .address-form-container .address-form-content .address-form .default-address .checkmark {
   background-color: #fafafa;
+}
+.add-address-page-container .add-new-address-container .address-form-container .address-form-content .address-form .buttons .cancel-btn {
+  background-color: #009688;
+}
+.add-address-page-container .add-new-address-container .address-form-container .address-form-content .address-form .buttons .add-address-btn {
+  background-color: #009688;
 }
 .add-address-page-container .navigation-container {
   display: flex;
@@ -120,7 +113,19 @@ a:active {
 .add-address-page-container .navigation-container .left-icon {
   font-size: 10px;
 }
-.add-address-page-container .navigation-container .return-button {
+.add-address-page-container .navigation-container .back-to-shipping-details-container {
   display: flex;
   align-items: center;
+}
+.add-address-page-container .navigation-container .back-to-shipping-details-container .back-btn {
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  border: none;
+  background-color: #ffffff;
+}
+.add-address-page-container .navigation-container .back-to-shipping-details-container .back-btn:hover {
+  color: #ff8a65;
 }/*# sourceMappingURL=add-address.css.map */
