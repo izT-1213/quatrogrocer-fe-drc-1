@@ -7,6 +7,7 @@ import Footer from "./Components/footer/footer.jsx";
 // import NewItems from "./Pages/NewItems";
 // import Deals from "./Pages/Deals";
 import UserProfilePage from "./Pages/ProfilePage/profile.jsx";
+import EditProfilePage from "./Pages/ProfilePage/EditProfilePage/edit-profile";
 import SignUpPage from "./Pages/SignUp/signup.jsx";
 import LoginPage from "./Pages/Login/login.jsx";
 import ErrorPage from "./Pages/404-Error-page/error.jsx";
