@@ -17,6 +17,24 @@ a:active {
   text-decoration: none;
 }
 
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+p {
+  margin-top: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
 *,
 *::before,
 *::after {
@@ -128,7 +146,7 @@ a:active {
   display: flex;
   align-items: center;
 }
-.address-page-container .navigation-buttons .back-to-account-container .back-to-account-link-container .back-to-account-link {
+.address-page-container .navigation-buttons .back-to-account-container .back-to-account-link-container .back-btn {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
@@ -136,9 +154,8 @@ a:active {
   line-height: 120%;
   border: none;
   background-color: #ffffff;
-  color: #252525;
 }
-.address-page-container .navigation-buttons .back-to-account-container .back-to-account-link-container .back-to-account-link:hover {
+.address-page-container .navigation-buttons .back-to-account-container .back-to-account-link-container .back-btn:hover {
   color: #ff8a65;
 }
 .address-page-container .navigation-buttons .add-address-btn {
@@ -157,10 +174,6 @@ a:active {
   font-weight: 500;
   font-size: 14px;
   line-height: 120%;
-}
-.address-page-container .navigation-buttons .add-address-btn .add-address-link {
-  background-color: #ffffff;
-  color: #252525;
 }
 .address-page-container .navigation-buttons .add-address-btn:hover {
   background-color: #ff8a65;

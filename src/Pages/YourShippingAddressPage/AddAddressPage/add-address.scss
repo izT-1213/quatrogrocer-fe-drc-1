@@ -1,40 +1,130 @@
-@import "../../Scss/colors";
-@import "../../Scss/fonts";
-@import "../../Scss/typography";
+@import "../../../Scss/colors";
+@import "../../../Scss/fonts";
+@import "../../../Scss/typography";
+@import "../../../Scss/components";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+}
 
 .add-address-page-container {
+  margin: 80px;
+
   .my-account-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
     h1 {
+      font-family: "Lexend Deca";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 44px;
+      line-height: 120%;
     }
   }
   .add-new-address-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+
     h2 {
+      font-family: "Lexend Deca";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 30px;
+      line-height: 120%;
     }
     .address-form-container {
+      flex-direction: column;
+      margin-top: 32px;
+      background: $white-color;
+      width: 540px;
+      height: 440px;
+      left: 82px;
+      top: 260px;
+      box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.04),
+        0px 4px 8px -2px rgba(16, 24, 40, 0.04);
+
       .address-form-content {
+        padding: 27px;
         .address-form {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 0px;
+          gap: 16px;
+          label {
+            font-family: "Lexend Deca";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 120%;
+          }
+          input {
+            background-color: $grey-tint;
+          }
           .address-line-1 {
+            background-color: $primary-color;
           }
           .address-line-2 {
+            background-color: $primary-color;
           }
           .address-line-3 {
+            background-color: $primary-color;
           }
-          .postcode {
-          }
-          .state {
+          .postcode-and-state-container {
+            display: flex;
+
+            gap: 20px;
+
+            .postcode {
+              background-color: $primary-color;
+            }
+            .state {
+              input {
+                background-color: $grey-tint;
+              }
+            }
           }
           .default-address {
-            .checkmark{
-
+            .checkmark {
+              background-color: $grey-tint;
             }
           }
 
-          .buttons{
-            .cancel-btn{}
-            .add-address-btn{}
+          .buttons {
+            .cancel-btn {
+              background-color: $primary-color;
+            }
+            .add-address-btn {
+              background-color: $primary-color;
+            }
           }
-          
         }
+      }
+    }
+  }
+  .navigation-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 4px;
+    padding-right: 80px;
+    padding-bottom: 29px;
+
+    .left-icon {
+      font-size: 10px;
+    }
+    .back-to-shipping-details-container {
+      display: flex;
+      align-items: center;
+      .back-btn {
+        background-color: $primary-color;
       }
     }
   }

@@ -16,6 +16,9 @@ import AddAddressPage from "./Pages/YourShippingAddressPage/AddAddressPage/add-a
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
+////encode url
+import React from 'react';
+
 function App() {
   return (
     <div>

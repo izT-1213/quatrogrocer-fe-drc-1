@@ -1,6 +1,7 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
 @import "../../Scss/typography";
+@import "../../Scss/components";
 
 *,
 *::before,
@@ -132,19 +133,8 @@
       .back-to-account-link-container {
         display: flex;
         align-items: center;
-
-        .back-to-account-link {
-          font-family: "Lexend Deca";
-          font-style: normal;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 120%;
-          border: none;
-          background-color: $white-color;
-          color: $black-color;
-          &:hover {
-            color: $secondary-color;
-          }
+        .back-btn {
+          @include return-button;
         }
       }
     }
@@ -165,10 +155,6 @@
       font-size: 14px;
       line-height: 120%;
 
-      .add-address-link {
-        background-color: $white-color;
-        color: $black-color;
-      }
       &:hover {
         background-color: $secondary-color;
       }

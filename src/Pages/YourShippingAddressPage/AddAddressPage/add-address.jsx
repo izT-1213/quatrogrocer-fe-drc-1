@@ -1,20 +1,27 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import React, { useState } from "react";
+// import { Link } from "react-router-dom";
 import Input from "@material-ui/core/Input";
 import "./add-address.css";
-import {
-  allPostcodes,
-  getStates,
-  getCities,
-  getPostcodes,
-  findPostcode,
-} from "malaysia-postcodes";
-import YourShippingAddressPage from "../address";
+import { SlArrowLeft } from "react-icons/sl";
+import { useNavigate } from "react-router-dom";
+// import {
+//   allPostcodes,
+//   getStates,
+//   getCities,
+//   getPostcodes,
+//   findPostcode,
+// } from "malaysia-postcodes";
+// import YourShippingAddressPage from "../address";
 
 function AddAddressPage() {
   function clearInput() {
     document.getElementById("Form").reset();
   }
+
+  function handleAddAddress(){
+
+  }
+  const navigate = useNavigate();
   return (
     <div className="add-address-page-container">
       <div className="my-account-header">
@@ -58,50 +65,58 @@ function AddAddressPage() {
                   id="input"
                 />
               </div>
-              <div className="postcode">
-                <label>Postcode</label>
-              </div>
-              <div>
-                <Input
-                  className="postcode"
-                  type="text"
-                  disableUnderline={true}
-                  id="input"
-                />
-              </div>
-              <div className="state">
-                <label>State</label>
-              </div>
-              <div>
-                <Input
-                  className="state"
-                  type="text"
-                  disableUnderline={true}
-                  id="input"
-                />
+              <div className="postcode-and-state-container">
+                <div className="postcode">
+                  <label>Postcode</label>
+                </div>
+                <div>
+                  <Input
+                    className="postcode"
+                    type="text"
+                    disableUnderline={true}
+                    id="input"
+                  />
+                </div>
+                <div className="state">
+                  <label>State</label>
+                </div>
+                <div>
+                  <Input
+                    className="state"
+                    type="text"
+                    disableUnderline={true}
+                    id="input"
+                  />
+                </div>
               </div>
               <label class="default-address">
                 <input type="checkbox" id="input" />
                 <span class="checkmark"></span> Set as default address
               </label>
               <div className="buttons">
-                <button className="cancel-btn" default-addressonClick={clearInput}>
+                <button
+                  className="cancel-btn"
+                  onClick={clearInput}
+                >
                   Cancel
                 </button>
-                <button className="add-address-btn" /**onClick= */>
-                  <Link to="address">Add Address</Link>
+                <button className="add-address-btn" onClick={handleAddAddress}>
+                  Add Address
                 </button>
               </div>
             </form>
           </div>
         </div>
       </div>
-      <div className="navigation-button">
-        <button className="return-button">
-          <Link to="/address" className="return-to-shipping-details">
+      <div className="navigation-container">
+        <div className="left-icon">
+          <SlArrowLeft />
+        </div>
+        <div className="back-to-shipping-details-container">
+          <button class="back-btn" onClick={() => navigate("/address")}>
             Return to Shipping Details
-          </Link>
-        </button>
+          </button>
+        </div>
       </div>
     </div>
   );

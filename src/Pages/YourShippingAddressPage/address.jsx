@@ -57,10 +57,7 @@ function YourShippingAddressPage() {
             <SlArrowLeft />
           </div>
           <div className="back-to-account-link-container">
-            <button
-              className="back-to-account-link"
-              onClick={() => navigate("/profile")}
-            >
+            <button className="back-btn" onClick={() => navigate("/profile")}>
               Return to Account Details
             </button>
           </div>
