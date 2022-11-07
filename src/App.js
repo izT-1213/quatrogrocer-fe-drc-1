@@ -28,11 +28,10 @@ function App() {
           <Route path="/best-sellers" element={<BestSellers />} />
           <Route path="/all-new" element={<NewItems />} />
           <Route path="/deals-&-promotions" element={<Deals />} />*/}
-          <Route path="profile" element={<UserProfilePage />} />
-          <Route path="edit-profile" element={<EditProfilePage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignUpPage />} />
-
+          <Route path="profile" element={<UserProfilePage />} />
+          <Route path="profile/edit-profile" element={<EditProfilePage />} />
           <Route path="error" element={<ErrorPage />} />
           {/* </Route> */}
         </Routes>

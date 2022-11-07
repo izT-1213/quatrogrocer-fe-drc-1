@@ -33,26 +33,28 @@ p {
   justify-content: space-evenly;
   text-align: left;
   background-color: #f5f5f5;
+  height: calc(100vh - 4.5rem);
 }
 .login-page-container .login-image-container {
   grid-column: 1;
   justify-content: center;
-  align-items: center;
   display: flex;
   flex-wrap: wrap;
 }
 .login-page-container .login-image-container img {
   -o-object-fit: cover;
      object-fit: cover;
+  width: 50vw;
 }
 .login-page-container .login-container {
+  grid-column: 2;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+  width: 49.6vw;
 }
 .login-page-container .login-container .login-container-content {
-  grid-column: 2;
   justify-content: center;
   align-self: center;
   background-color: white;
