@@ -1,0 +1,41 @@
+@import "../../Scss/colors";
+@import "../../Scss/fonts";
+@import "../../Scss/typography";
+
+.add-address-page-container {
+  .my-account-header {
+    h1 {
+    }
+  }
+  .add-new-address-container {
+    h2 {
+    }
+    .address-form-container {
+      .address-form-content {
+        .address-form {
+          .address-line-1 {
+          }
+          .address-line-2 {
+          }
+          .address-line-3 {
+          }
+          .postcode {
+          }
+          .state {
+          }
+          .default-address {
+            .checkmark{
+
+            }
+          }
+
+          .buttons{
+            .cancel-btn{}
+            .add-address-btn{}
+          }
+          
+        }
+      }
+    }
+  }
+}

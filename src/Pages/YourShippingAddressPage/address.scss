@@ -74,6 +74,10 @@
           font-weight: 700;
           font-size: 14px;
           line-height: 120%;
+
+          &:hover {
+            color: $secondary-color;
+          }
         }
 
         .vertical-line {
@@ -96,6 +100,10 @@
           line-height: 120%;
 
           margin-left: 8px;
+
+          &:hover {
+            color: $secondary-color;
+          }
         }
       }
     }
@@ -122,16 +130,18 @@
       }
 
       .back-to-account-link-container {
-        font-family: "Lexend Deca";
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 120%;
-
         display: flex;
         align-items: center;
 
         .back-to-account-link {
+          font-family: "Lexend Deca";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 120%;
+          border: none;
+          background-color: $white-color;
+          color: $black-color;
           &:hover {
             color: $secondary-color;
           }
@@ -155,6 +165,10 @@
       font-size: 14px;
       line-height: 120%;
 
+      .add-address-link {
+        background-color: $white-color;
+        color: $black-color;
+      }
       &:hover {
         background-color: $secondary-color;
       }

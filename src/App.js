@@ -10,7 +10,8 @@ import UserProfilePage from "./Pages/ProfilePage/profile.jsx";
 import SignUpPage from "./Pages/SignUp/signup.jsx";
 import LoginPage from "./Pages/Login/login.jsx";
 import ErrorPage from "./Pages/404-Error-page/error.jsx";
-import AddressPage from "./Pages/AddressPage/address.jsx";
+import YourShippingAddressPage from "./Pages/YourShippingAddressPage/address.jsx";
+import AddAddressPage from "./Pages/YourShippingAddressPage/AddAddressPage/add-address.jsx"
 //import CartPage from "./Components/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -31,7 +32,10 @@ function App() {
           <Route path="profile" element={<UserProfilePage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignUpPage />} />
-          <Route path="address" element={<AddressPage />} />
+          <Route path="address" element={<YourShippingAddressPage />} component={YourShippingAddressPage}/>
+          <Route path="add-address" element={<AddAddressPage />} />
+          
+          
 
           <Route path="error" element={<ErrorPage />} />
           {/* </Route> */}

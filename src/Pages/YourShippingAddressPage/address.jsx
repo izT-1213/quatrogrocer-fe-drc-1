@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../AddressPage/address.css";
+import "./address.css";
 import { SlArrowLeft } from "react-icons/sl";
 import { AiOutlinePlusCircle } from "react-icons/ai";
+//history
+import { useNavigate } from "react-router-dom";
 
-function AddressPage() {
+function YourShippingAddressPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="address-page-container">
       <div className="address-page-header">
@@ -53,21 +57,32 @@ function AddressPage() {
             <SlArrowLeft />
           </div>
           <div className="back-to-account-link-container">
-            <Link to="profile" className="back-to-account-link">
-              <h4>Return to Account Details</h4>
-            </Link>
+            <button
+              className="back-to-account-link"
+              onClick={() => navigate("/profile")}
+            >
+              Return to Account Details
+            </button>
           </div>
         </div>
 
-        <Link to="add-new-address">
-          <button className="add-address-btn">
+        <button
+          className="add-address-btn"
+          onClick={() => navigate("/add-address")}
+        >
+          <AiOutlinePlusCircle />
+          Add New Address
+        </button>
+
+        {/* <button className="add-address-btn">
+          <Link to="/add-address" className="add-address-link">
             <AiOutlinePlusCircle />
             Add New Address
-          </button>
-        </Link>
+          </Link>
+        </button> */}
       </div>
     </div>
   );
 }
 
-export default AddressPage;
+export default YourShippingAddressPage;
