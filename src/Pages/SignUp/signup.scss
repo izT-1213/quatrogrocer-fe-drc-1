@@ -1,9 +1,5 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
-<<<<<<< HEAD
-//@import "../../Scss/typography";
-=======
->>>>>>> 3992f59dd254fe38f0734d033a9e8816404ad393
 
 *,
 *::before,
@@ -101,18 +97,6 @@ p {
           color: #009688;
         }
 
-        .signup-image-container {
-          grid-column: 2;
-          justify-content: center;
-          align-items: center;
-          display: flex;
-          flex-wrap: wrap;
-        }
-
-        .signup-image-container > img {
-          object-fit: cover;
-        }
-
         .line-or-box {
           display: table;
           width: 100%;
@@ -166,15 +150,15 @@ p {
         .tnc {
           display: block;
           position: relative;
-          padding-left: 1.625rem;
-          margin-top: 1rem;
-          margin-bottom: 0.5rem;
+          padding-left: 26px;
+          margin-top: 16px;
+          margin-bottom: 8px;
           cursor: pointer;
           -webkit-user-select: none;
           -moz-user-select: none;
           -ms-user-select: none;
           user-select: none;
-          font-size: 1rem;
+          font-size: 16px;
         }
 
         .tnc input {
@@ -189,10 +173,10 @@ p {
           position: absolute;
           top: 0;
           left: 0;
-          height: 1.125rem;
-          width: 1.125rem;
+          height: 18px;
+          width: 18px;
           background-color: #eee;
-          border-radius: 0.25rem;
+          border-radius: 4px;
         }
 
         .checkmark:after {
@@ -214,12 +198,12 @@ p {
         }
 
         .tnc .checkmark:after {
-          left: 0 0 0 0.438rem;
-          top: 0.188rem 0 0 0;
-          width: 0.313rem;
-          height: 0.625rem;
+          left: 7px;
+          top: 3px;
+          width: 5px;
+          height: 10px;
           border: solid white;
-          border-width: 0 0.188rem 0.188rem 0;
+          border-width: 0 3px 3px 0;
           -webkit-transform: rotate(45deg);
           -ms-transform: rotate(45deg);
           transform: rotate(45deg);
@@ -235,8 +219,6 @@ p {
 
   .signup-image-container {
     grid-column: 2;
-    justify-content: center;
-    align-items: center;
     display: flex;
     flex-wrap: wrap;
   }
