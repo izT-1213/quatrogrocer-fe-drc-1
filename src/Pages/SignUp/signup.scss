@@ -29,12 +29,12 @@ p {
     .sign-up-container-content {
       align-self: center;
       background-color: white;
-      width: 25rem;
-      height: 38.75rem;
+      width: 28.75rem;
+      height: 43.75rem;
       box-shadow: 0rem 0.75rem 1rem -0.25rem rgba(16, 24, 40, 0.1),
         0rem 0.25rem 0.375rem -0.125rem rgba(16, 24, 40, 0.05);
       border-radius: 0.5rem;
-      padding: 5rem;
+      padding: 3.75rem;
 
       .sign-up-form-content {
         height: 100%;
@@ -49,10 +49,24 @@ p {
           font-size: 2.375rem;
         }
 
+        .sign-up-form-table {
+          padding-top: 1rem;
+          font-size: 1.125rem;
+
+          .left-col {
+            padding-right: 0.625rem;
+            padding-bottom: 0.625rem;
+          }
+
+          .right-col {
+            padding-left: 0.625rem;
+            padding-bottom: 0.625rem;
+          }
+        }
+
         .form-group-mt-3 {
           font-family: "Lexend Deca";
           font-size: 1.125rem;
-          padding-top: 0.625rem;
           padding-bottom: 0.625rem;
         }
 
@@ -103,12 +117,12 @@ p {
         }
 
         .line-1 {
-          width: 8rem;
-          height: 0rem;
+          width: 9rem;
           border: 0.125rem solid #009688;
         }
 
         .white-padding {
+          height: 50%;
           display: table-cell;
           padding: 0.625rem;
           background-color: white;

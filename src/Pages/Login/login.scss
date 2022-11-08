@@ -1,9 +1,5 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
-<<<<<<< HEAD
-//@import "../../Scss/typography";
-=======
->>>>>>> 3992f59dd254fe38f0734d033a9e8816404ad393
 
 *,
 *::before,
@@ -47,12 +43,12 @@ p {
       justify-content: center;
       align-self: center;
       background-color: white;
-      width: 400px;
-      height: 620px;
+      width: 28.75rem;
+      height: 43.75rem;
       box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
         0px 4px 6px -2px rgba(16, 24, 40, 0.05);
       border-radius: 8px;
-      padding: 5rem;
+      padding: 3.75rem;
 
       .login-form-content {
         height: 100%;

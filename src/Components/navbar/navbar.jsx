@@ -39,10 +39,12 @@ const Nav = () => {
               <SearchOutlinedIcon />
             </li>
             <li>
-              <AccountCircleOutlinedIcon />
+              <AccountCircleOutlinedIcon onClick={() => navigate("/profile")} />
             </li>
             <li>
-              <ShoppingBagOutlinedIcon />
+              <ShoppingBagOutlinedIcon
+                onClick={() => navigate("/cart/checkout")}
+              />
             </li>
           </ul>
         </div>

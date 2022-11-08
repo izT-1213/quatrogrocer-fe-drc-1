@@ -47,7 +47,7 @@ p {
 }
 .login-page-container .login-image-container img {
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   width: 50vw;
 }
 .login-page-container .login-container {
@@ -62,17 +62,13 @@ p {
   justify-content: center;
   align-self: center;
   background-color: white;
-  width: 400px;
-  height: 620px;
-  box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
-    0px 4px 6px -2px rgba(16, 24, 40, 0.05);
+  width: 28.75rem;
+  height: 43.75rem;
+  box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1), 0px 4px 6px -2px rgba(16, 24, 40, 0.05);
   border-radius: 8px;
-  padding: 5rem;
+  padding: 3.75rem;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content {
+.login-page-container .login-container .login-container-content .login-form-content {
   height: 100%;
   width: 100%;
   display: flex;
@@ -80,78 +76,41 @@ p {
   justify-content: space-evenly;
   text-align: left;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .login-form-title {
+.login-page-container .login-container .login-container-content .login-form-content .login-form-title {
   font-family: "Lexend Deca";
   font-size: 38px;
   padding-bottom: 10px;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .forgot-pwd-text {
+.login-page-container .login-container .login-container-content .login-form-content .forgot-pwd-text {
   font-size: 14px;
   padding-top: 10px;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .forgot-pwd-text
-  a {
+.login-page-container .login-container .login-container-content .login-form-content .forgot-pwd-text a {
   color: black;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .sign-up-text-center {
+.login-page-container .login-container .login-container-content .login-form-content .sign-up-text-center {
   padding-top: 7px;
   text-align: center;
   width: 310px;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .signup-link {
+.login-page-container .login-container .login-container-content .login-form-content .signup-link {
   color: #009688;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .line-or-box {
+.login-page-container .login-container .login-container-content .login-form-content .line-or-box {
   display: table;
   width: 100%;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .line-1 {
+.login-page-container .login-container .login-container-content .login-form-content .line-1 {
   width: 128px;
   height: 0px;
   border: 2px solid #009688;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .white-padding {
+.login-page-container .login-container .login-container-content .login-form-content .white-padding {
   display: table-cell;
   padding: 10px;
   background-color: white;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .or-box {
+.login-page-container .login-container .login-container-content .login-form-content .or-box {
   color: white;
   display: table-cell;
   align-items: center;
@@ -163,54 +122,29 @@ p {
   border: 1px solid #009688;
   border-radius: 3px;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .login-apps-container {
+.login-page-container .login-container .login-container-content .login-form-content .login-apps-container {
   display: flex;
   justify-content: space-evenly;
   align-content: space-evenly;
   align-items: center;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .login-apps {
+.login-page-container .login-container .login-container-content .login-form-content .login-apps {
   display: table;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .login-apps-icons {
+.login-page-container .login-container .login-container-content .login-form-content .login-apps-icons {
   display: table-cell;
   font-size: 2.5rem;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .login-apps-icons
-  svg {
+.login-page-container .login-container .login-container-content .login-form-content .login-apps-icons svg {
   color: black;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .form-group-mt-3 {
+.login-page-container .login-container .login-container-content .login-form-content .form-group-mt-3 {
   font-family: "Lexend Deca";
   font-size: 18px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .form-control-mt-1 {
+.login-page-container .login-container .login-container-content .login-form-content .form-control-mt-1 {
   background-color: #eeeeee;
   border-radius: 4px;
   height: 40px;
@@ -218,19 +152,11 @@ p {
   font-size: 16px;
   padding: 6px;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .d-grid-gap-2-mt-3 {
+.login-page-container .login-container .login-container-content .login-form-content .d-grid-gap-2-mt-3 {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.login-page-container
-  .login-container
-  .login-container-content
-  .login-form-content
-  .signup-login-btn {
+.login-page-container .login-container .login-container-content .login-form-content .signup-login-btn {
   font-family: "Lexend Deca";
   font-size: 18px;
   color: white;
@@ -245,4 +171,4 @@ p {
   background-color: #009688;
   border-radius: 4px;
   border: none;
-} /*# sourceMappingURL=login.css.map */
+}/*# sourceMappingURL=login.css.map */
