@@ -18,6 +18,7 @@ function EditAddressPage() {
   function clearInput() {
     document.getElementById("form").reset();
   }
+
   const navigate = useNavigate();
   return (
     <div className="add-address-page-container">
@@ -92,17 +93,14 @@ function EditAddressPage() {
                   <input type="checkbox" id="input" />
                   <span class="checkmark"></span> Set as default address
                 </label> */}
-                <div class="checkbox-container">
-                  <input class="checkbox" id="input" type="checkbox" />
-                  <label for="default-address">Set as default address</label>
-                </div>
               </form>
               <div className="buttons">
                 <button className="cancel-btn" onClick={clearInput}>
                   Cancel
                 </button>
                 <button
-                  className="add-address-btn" /*onClick={handleAddAddress}*/
+                  className="add-address-btn"
+                  /*onClick={() => navigate("/address")}*/
                 >
                   Update Address
                 </button>
