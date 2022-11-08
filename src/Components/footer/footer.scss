@@ -1,6 +1,5 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
-@import "../../Scss/typography";
 
 // Reset All Elements
 *,
@@ -33,7 +32,7 @@ footer {
 
   .footer-top-right p {
     font-family: $primary-fonts;
-    font-weight: 700;
+    font-weight: map-get($map: $font-weight, $key: "bold");
     font-size: 1.25rem;
     line-height: 120%;
     padding: 0 0 0.5rem 0;
@@ -41,7 +40,7 @@ footer {
 
   .footer-top-right ul {
     font-family: $secondary-fonts;
-    font-weight: 500;
+    font-weight: map-get($map: $font-weight, $key: "medium");
     font-size: 1rem;
     padding: 0;
     list-style: none;
@@ -62,12 +61,12 @@ footer {
   }
 
   .footer-bottom-left p {
-    font-family: $primary-fonts;
-    font-weight: 500;
+    font-family: $secondary-fonts;
+    font-weight: map-get($map: $font-weight, $key: "medium");
     font-size: 1rem;
     line-height: 120%;
   }
-
+  color: $black-color;
   .footer-bottom-right {
     width: 8%;
   }
@@ -81,6 +80,7 @@ footer {
 
   .footer-bottom-right ul li {
     cursor: pointer;
+    color: $black-color;
   }
 
   .footer-bottom-right ul li:hover {
