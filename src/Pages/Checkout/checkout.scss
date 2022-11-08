@@ -1,6 +1,6 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
-@import "../../Scss/typography";
+//@import "../../Scss/typography";
 
 *,
 *::before,
@@ -22,7 +22,7 @@
     justify-content: flex-start;
     align-items: center;
     font-weight: 500;
-    padding: 41px 125px 41px 0;
+    padding: 9px 125px 26px 0;
 
     p {
       padding: 10px;
@@ -35,25 +35,93 @@
     border-radius: 2px;
     box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
       0px 4px 6px -2px rgba(16, 24, 40, 0.05);
+    width: 53.75vw;
+
+    hr {
+      width: 90px;
+      border: 3px solid #009688;
+    }
+
+    h1 {
+      padding-bottom: 16px;
+      font-size: 26px;
+    }
+
+    h2 {
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    h3 {
+      font-size: 22px;
+    }
+
+    .user-name {
+      font-weight: 500;
+      font-size: 24px;
+    }
+
+    .inner-content {
+      padding-top: 16px;
+    }
 
     .contact-info {
-      padding: 40px;
+      padding: 40px 40px 32px 40px;
     }
     .shipping-dets {
-      padding: 40px;
+      padding: 0 40px 32px 40px;
+
+      h3 {
+        padding-bottom: 8px;
+      }
+
+      .user-address-dropdown {
+        border: 1px solid rgba(189, 189, 189, 1);
+        padding: 24px;
+        display: grid;
+        grid-template:
+          "name arrow"
+          "addr arrow"
+          "num arrow";
+
+        .user-name {
+          grid-area: name;
+        }
+
+        .address {
+          grid-area: addr;
+          font-size: 18px;
+        }
+
+        .phone-num {
+          grid-area: num;
+          font-size: 19px;
+        }
+
+        .addr-dropdown-icon {
+          grid-area: arrow;
+          padding: 40px 0 40px 44px;
+        }
+      }
     }
     .payment-dets {
-      padding: 40px;
+      padding: 0 40px 32px 40px;
+
+      .radio-buttom-style {
+        color: $primary-color;
+      }
     }
   }
 
   .order-summary-container {
     grid-area: right;
-    padding: 0 110px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
 
     .order-summary {
-      height: 54.25rem;
-      width: 26.25rem;
+      height: 78.25vh;
+      width: 25.25vw;
       border-radius: 2px;
       background-color: white;
       box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
