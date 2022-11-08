@@ -28,3 +28,7 @@ a:active {
   text-decoration: none;
   color: $black-color;
 }
+
+a:hover {
+  color: $primary-hover-color;
+}
