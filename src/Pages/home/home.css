@@ -1,16 +1,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
-h1,
-h2,
-h3 {
+h1 {
   margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 4rem;
 }
 
-h1,
-h2,
-h3 {
-  margin-top: 0;
+h2 {
+  margin: 0;
+  line-height: 120%;
   font-weight: 700;
-  line-height: 1.1;
+  font-size: 3.5rem;
+}
+
+h3 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.75rem;
+}
+
+h4 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+h5 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 1.875rem;
+}
+
+h6 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 1.75rem;
 }
 
 p {
@@ -24,9 +52,213 @@ a:active {
   color: #252525;
 }
 
+a:hover {
+  color: #b2dfdb;
+}
+
 *,
 *::after,
 *::before {
   margin: 0;
   box-sizing: border-box;
-} /*# sourceMappingURL=home.css.map */
+}
+
+.home-header {
+  height: 60rem;
+  display: flex;
+  background-color: #f8f9fc;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12rem;
+}
+.home-header h1 {
+  text-transform: uppercase;
+  font-family: "Lexend Deca";
+  padding: 0 0 0.5rem 0;
+}
+.home-header p {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 120%;
+  padding: 1rem 0 2.5rem 0;
+}
+.home-header button {
+  cursor: pointer;
+  margin: 0;
+  background-color: #ff8a65;
+  border-style: none;
+  border-radius: 0.25rem;
+  width: 16.25rem;
+  height: 4rem;
+  font-family: "Lexend Deca";
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 120%;
+  color: #ffffff;
+}
+.home-header button:hover {
+  background-color: #ff7043;
+}
+.home-header .home-image-container img {
+  display: flex;
+  height: 60rem;
+}
+
+.today-top-deals {
+  height: 59rem;
+  padding: 0 12rem;
+}
+.today-top-deals .today-top-deals-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 5rem 0 0 0;
+  align-items: baseline;
+}
+.today-top-deals .today-top-deals-title h4 {
+  font-family: "Lexend Deca";
+}
+.today-top-deals .view-more-button {
+  display: flex;
+  color: #009688;
+}
+.today-top-deals .view-more-button p {
+  display: flex;
+  cursor: pointer;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 120%;
+  padding: 0 0.25rem 0 0;
+}
+.today-top-deals hr {
+  margin: 0.75rem 0 0 0;
+  width: 7.5rem;
+  background-color: #009688;
+  border: 3px solid #009688;
+}
+.today-top-deals .today-top-deals-product {
+  display: flex;
+  padding: 2.5rem 0 0 0;
+}
+.today-top-deals .today-top-deals-product .vertical-card {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  width: 25.75rem;
+  height: 43.375rem;
+  border-radius: 0.125rem;
+  background-color: #ffffff;
+}
+.today-top-deals .today-top-deals-product .horizontal-card {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  width: 23.75rem;
+  height: 13.125rem;
+  border-radius: 0.125rem;
+  background-color: #ffffff;
+}
+
+.promotion-banner {
+  height: 17.25rem;
+  display: flex;
+  background-color: #009688;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12rem;
+}
+.promotion-banner .banner-image-container img {
+  display: flex;
+  height: 17.25rem;
+}
+.promotion-banner .promotion-banner-content p {
+  color: #ffffff;
+}
+.promotion-banner .promotion-banner-content .promotion-banner-header {
+  font-family: "Lexend Deca";
+  font-weight: 600;
+  font-size: 1.625rem;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+.promotion-banner .promotion-banner-content .promotion-banner-text {
+  padding: 0.5rem 0 0 0;
+  font-family: "Lexend Deca";
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 120%;
+}
+
+.discount-banner {
+  padding: 3rem 12rem 4rem 12rem;
+}
+.discount-banner .discount-banner-container {
+  height: 6rem;
+  display: flex;
+  background-color: #fedf89;
+  border-radius: 0.125rem;
+}
+.discount-banner p {
+  color: #f04438;
+  font-family: "Poppins";
+  line-height: 120%;
+}
+.discount-banner .discount-text {
+  font-weight: 500;
+  font-size: 1.25rem;
+  padding: 0 2rem 0 0;
+}
+.discount-banner .discount-code {
+  font-weight: 700;
+  font-size: 1.25rem;
+  border: 0.125rem dashed #f04438;
+}
+
+.best-choices {
+  height: 59rem;
+  padding: 0 12rem;
+}
+.best-choices .best-choices-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 5rem 0 0 0;
+  align-items: baseline;
+}
+.best-choices .best-choices-title h4 {
+  font-family: "Lexend Deca";
+}
+.best-choices .view-more-button {
+  display: flex;
+  color: #009688;
+}
+.best-choices .view-more-button p {
+  display: flex;
+  cursor: pointer;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 120%;
+  padding: 0 0.25rem 0 0;
+}
+.best-choices hr {
+  margin: 0.75rem 0 0 0;
+  width: 5rem;
+  background-color: #009688;
+  border: 3px solid #009688;
+}
+.best-choices .best-choices-product {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem 0 0 0;
+}
+.best-choices .best-choices-product .large-horizontal-card {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  width: 45rem;
+  height: 15.5rem;
+  border-radius: 0.125rem;
+  background-color: #ffffff;
+}
+.best-choices .best-choices-product .category-card {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  width: 31.5rem;
+  height: 15.5rem;
+  border-radius: 0.125rem;
+  background-color: #ffffff;
+}/*# sourceMappingURL=home.css.map */
