@@ -1,9 +1,6 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
-<<<<<<< HEAD
-//@import "../../Scss/typography";
-=======
->>>>>>> 3992f59dd254fe38f0734d033a9e8816404ad393
+
 @import "../../Scss/components";
 
 *,
@@ -106,7 +103,7 @@
           margin-left: 8px;
 
           &:hover {
-            color: $secondary-color;
+            color: $primary-hover-color;
           }
         }
       }
@@ -159,7 +156,7 @@
       line-height: 120%;
 
       &:hover {
-        background-color: $secondary-color;
+        background-color: $primary-hover-color;
       }
     }
   }
