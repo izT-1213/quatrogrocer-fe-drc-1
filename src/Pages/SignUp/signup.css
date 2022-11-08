@@ -18,11 +18,7 @@ a:active {
 }
 
 a:hover {
-<<<<<<< HEAD
-  color: #b2dfdb;
-=======
   color: #fafafa;
->>>>>>> 3992f59dd254fe38f0734d033a9e8816404ad393
 }
 
 *,
@@ -55,11 +51,15 @@ p {
   background-color: white;
   width: 400px;
   height: 620px;
-  box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1), 0px 4px 6px -2px rgba(16, 24, 40, 0.05);
+  box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
+    0px 4px 6px -2px rgba(16, 24, 40, 0.05);
   border-radius: 8px;
   padding: 5rem;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content {
   height: 100%;
   width: 100%;
   display: flex;
@@ -67,17 +67,29 @@ p {
   justify-content: space-evenly;
   text-align: left;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-title {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .sign-up-form-title {
   font-family: "Lexend Deca";
   font-size: 38px;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .form-group-mt-3 {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .form-group-mt-3 {
   font-family: "Lexend Deca";
   font-size: 18px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .form-control-mt-1 {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .form-control-mt-1 {
   background-color: #eeeeee;
   border-radius: 4px;
   height: 40px;
@@ -85,11 +97,19 @@ p {
   font-size: 16px;
   padding: 6px;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .d-grid-gap-2-mt-3 {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .d-grid-gap-2-mt-3 {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-signin-btn {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .signup-signin-btn {
   font-family: "Lexend Deca";
   font-size: 18px;
   color: #ffffff;
@@ -105,40 +125,73 @@ p {
   border-radius: 4px;
   border: none;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-in-text-center {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .sign-in-text-center {
   padding: 5px;
   text-align: center;
   width: 310px;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signin-link {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .signin-link {
   color: #009688;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-image-container {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .signup-image-container {
   grid-column: 2;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-image-container > img {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .signup-image-container
+  > img {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .line-or-box {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .line-or-box {
   display: table;
   width: 100%;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .line-1 {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .line-1 {
   width: 128px;
   height: 0px;
   border: 2px solid #009688;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .white-padding {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .white-padding {
   display: table-cell;
   padding: 10px;
   background-color: white;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .or-box {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .or-box {
   color: white;
   display: table-cell;
   align-items: center;
@@ -150,23 +203,46 @@ p {
   border: 1px solid #009688;
   border-radius: 3px;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .login-apps-container {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .login-apps-container {
   display: flex;
   justify-content: space-evenly;
   align-content: space-evenly;
   align-items: center;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .login-apps {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .login-apps {
   display: table;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .login-apps .login-apps-icons {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .login-apps
+  .login-apps-icons {
   display: table-cell;
   font-size: 2.5rem;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .login-apps .login-apps-icons svg {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .login-apps
+  .login-apps-icons
+  svg {
   color: black;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .tnc {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .tnc {
   display: block;
   position: relative;
   padding-left: 26px;
@@ -179,14 +255,23 @@ p {
   user-select: none;
   font-size: 16px;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .tnc input {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .tnc
+  input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
   width: 0;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .checkmark {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .checkmark {
   position: absolute;
   top: 0;
   left: 0;
@@ -195,21 +280,48 @@ p {
   background-color: #eee;
   border-radius: 4px;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .checkmark:after {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .tnc:hover input ~ .checkmark {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .tnc:hover
+  input
+  ~ .checkmark {
   background-color: #ccc;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .tnc input:checked ~ .checkmark {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .tnc
+  input:checked
+  ~ .checkmark {
   background-color: #009688;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .tnc input:checked ~ .checkmark:after {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .tnc
+  input:checked
+  ~ .checkmark:after {
   display: block;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .tnc .checkmark:after {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .tnc
+  .checkmark:after {
   left: 7px;
   top: 3px;
   width: 5px;
@@ -218,7 +330,11 @@ p {
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .tnc-link {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .tnc-link {
   color: #009688;
   text-decoration: underline;
 }
@@ -231,5 +347,5 @@ p {
 }
 .sign-up-page-container .signup-image-container > img {
   -o-object-fit: cover;
-     object-fit: cover;
-}/*# sourceMappingURL=signup.css.map */
+  object-fit: cover;
+} /*# sourceMappingURL=signup.css.map */

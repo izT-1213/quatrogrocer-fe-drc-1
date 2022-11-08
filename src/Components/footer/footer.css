@@ -18,11 +18,7 @@ a:active {
 }
 
 a:hover {
-<<<<<<< HEAD
-  color: #b2dfdb;
-=======
   color: #fafafa;
->>>>>>> 3992f59dd254fe38f0734d033a9e8816404ad393
 }
 
 *,
@@ -94,4 +90,4 @@ footer .footer-bottom-right ul li {
 }
 footer .footer-bottom-right ul li:hover {
   color: #009688;
-}/*# sourceMappingURL=footer.css.map */
+} /*# sourceMappingURL=footer.css.map */
