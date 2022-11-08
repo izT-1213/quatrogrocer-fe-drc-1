@@ -17,6 +17,10 @@ a:active {
   color: #252525;
 }
 
+a:hover {
+  color: #b2dfdb;
+}
+
 *,
 *::after,
 *::before {

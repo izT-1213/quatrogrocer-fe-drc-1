@@ -1,6 +1,6 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
-@import "../../Scss/typography";
+//@import "../../Scss/typography";
 
 *,
 *::before,
@@ -192,12 +192,18 @@ p {
           border-radius: 4px;
         }
 
+        .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
+        }
+
         .tnc:hover input ~ .checkmark {
           background-color: #ccc;
         }
 
         .tnc input:checked ~ .checkmark {
-          background-color: #009688;
+          background-color: $primary-color;
         }
 
         .tnc input:checked ~ .checkmark:after {
