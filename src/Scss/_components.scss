@@ -1,6 +1,5 @@
-@import "../../Scss/colors";
-@import "../../Scss/fonts";
-@import "../../Scss/typography";
+@import "../Scss/colors";
+@import "../Scss/fonts";
 
 @mixin return-button {
   font-family: $primary-fonts;
@@ -12,6 +11,6 @@
   background-color: $white-color;
 
   &:hover {
-    color: $secondary-color;
+    color: $primary-hover-color;
   }
 }

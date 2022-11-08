@@ -15,6 +15,7 @@ import YourShippingAddressPage from "./Pages/YourShippingAddressPage/address.jsx
 import AddAddressPage from "./Pages/AddAddressPage/add-address.jsx";
 import EditAddressPage from "./Pages/EditAddressPage/edit-address.jsx";
 import EditProfilePage from "./Pages/ProfilePage/EditProfilePage/edit-profile.jsx";
+import NoResultPage from "./Pages/NoResultPage/no-result.jsx"
 //import CartPage from "./Components/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -35,7 +36,6 @@ function App() {
           <Route path="/best-sellers" element={<BestSellers />} />
           <Route path="/all-new" element={<NewItems />} />
           <Route path="/deals-&-promotions" element={<Deals />} />*/}
-
           <Route path="profile" element={<UserProfilePage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignUpPage />} />
@@ -46,7 +46,8 @@ function App() {
           />
           <Route path="add-address" element={<AddAddressPage />} />
           <Route path="edit-address" element={<EditAddressPage />} />
-
+          <Route path="no-result" element={<NoResultPage />} />
+          
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignUpPage />} />
           <Route path="profile" element={<UserProfilePage />} />

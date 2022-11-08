@@ -8,6 +8,9 @@ import Input from "@material-ui/core/Input";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
 import "../SignUp/signup.css";
 
+import validator from "validator";
+
+
 function SignUpPage() {
   const [values, setValues] = useState({
     password: "",

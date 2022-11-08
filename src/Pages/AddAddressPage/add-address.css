@@ -2,8 +2,7 @@
 h1,
 h2,
 h3 {
-  margin-top: 0;
-  font-weight: 700;
+  margin: 0;
   line-height: 1.1;
 }
 
@@ -16,6 +15,10 @@ a:visited,
 a:active {
   text-decoration: none;
   color: #252525;
+}
+
+a:hover {
+  color: #b2dfdb;
 }
 
 *,
@@ -148,8 +151,8 @@ a:active {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding: 0px;
-  gap: 48px;
+  padding: 0rem;
+  gap: 3rem;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .cancel-btn {
   background-color: transparent;
@@ -157,7 +160,7 @@ a:active {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 120%;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn {
@@ -166,16 +169,16 @@ a:active {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   color: #ffffff;
   line-height: 120%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 8px 24px;
-  gap: 8px;
-  border-radius: 2px;
+  padding: 0.5rem 1.5rem;
+  gap: 0.5rem;
+  border-radius: 0.125;
 }
 .add-address-page-container .navigation-container {
   display: flex;
@@ -184,13 +187,13 @@ a:active {
   justify-items: flex-end;
 }
 .add-address-page-container .navigation-container .left-icon {
-  font-size: 10px;
+  font-size: 0.625rem;
 }
 .add-address-page-container .navigation-container .back-btn {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 120%;
   border: none;
   background-color: #ffffff;

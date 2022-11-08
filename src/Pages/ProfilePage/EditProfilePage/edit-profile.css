@@ -3,13 +3,6 @@ h1,
 h2,
 h3 {
   margin: 0;
-}
-
-h1,
-h2,
-h3 {
-  margin-top: 0;
-  font-weight: 700;
   line-height: 1.1;
 }
 
@@ -22,6 +15,10 @@ a:visited,
 a:active {
   text-decoration: none;
   color: #252525;
+}
+
+a:hover {
+  color: #b2dfdb;
 }
 
 *,
@@ -129,4 +126,5 @@ a:active {
   width: 105px;
   border-radius: 3px;
   background-color: #ff8a65;
+  border: none;
 }/*# sourceMappingURL=edit-profile.css.map */
