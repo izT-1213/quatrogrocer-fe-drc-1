@@ -51,7 +51,8 @@ p {
   background-color: white;
   width: 25rem;
   height: 38.75rem;
-  box-shadow: 0rem 0.75rem 1rem -0.25rem rgba(16, 24, 40, 0.1), 0rem 0.25rem 0.375rem -0.125rem rgba(16, 24, 40, 0.05);
+  box-shadow: 0rem 0.75rem 1rem -0.25rem rgba(16, 24, 40, 0.1),
+    0rem 0.25rem 0.375rem -0.125rem rgba(16, 24, 40, 0.05);
   border-radius: 0.5rem;
   padding: 5rem;
 }
@@ -96,19 +97,13 @@ p {
   font-size: 1rem;
   padding: 0.375rem;
 }
-<<<<<<< HEAD
 .sign-up-page-container
   .sign-up-container
   .sign-up-container-content
   .sign-up-form-content
   .d-grid-gap-2-mt-3 {
-  padding-top: 10px;
-  padding-bottom: 10px;
-=======
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .d-grid-gap-2-mt-3 {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
->>>>>>> 5ecb70e7a84cd10edb4cabfdcd1d46fb7ef28860
 }
 .sign-up-page-container
   .sign-up-container
@@ -130,17 +125,12 @@ p {
   border-radius: 0.25rem;
   border: none;
 }
-<<<<<<< HEAD
 .sign-up-page-container
   .sign-up-container
   .sign-up-container-content
   .sign-up-form-content
   .sign-in-text-center {
-  padding: 5px;
-=======
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-in-text-center {
   padding: 0.313rem;
->>>>>>> 5ecb70e7a84cd10edb4cabfdcd1d46fb7ef28860
   text-align: center;
   width: 19.375rem;
 }
@@ -179,21 +169,14 @@ p {
   display: table;
   width: 100%;
 }
-<<<<<<< HEAD
 .sign-up-page-container
   .sign-up-container
   .sign-up-container-content
   .sign-up-form-content
   .line-1 {
-  width: 128px;
-  height: 0px;
-  border: 2px solid #009688;
-=======
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .line-1 {
   width: 8rem;
   height: 0rem;
   border: 0.125rem solid #009688;
->>>>>>> 5ecb70e7a84cd10edb4cabfdcd1d46fb7ef28860
 }
 .sign-up-page-container
   .sign-up-container
@@ -333,24 +316,16 @@ p {
   ~ .checkmark:after {
   display: block;
 }
-<<<<<<< HEAD
 .sign-up-page-container
   .sign-up-container
   .sign-up-container-content
   .sign-up-form-content
   .tnc
   .checkmark:after {
-  left: 7px;
-  top: 3px;
-  width: 5px;
-  height: 10px;
-=======
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .tnc .checkmark:after {
   left: 0 0 0 0.438rem;
   top: 0.188rem 0 0 0;
   width: 0.313rem;
   height: 0.625rem;
->>>>>>> 5ecb70e7a84cd10edb4cabfdcd1d46fb7ef28860
   border: solid white;
   border-width: 0 0.188rem 0.188rem 0;
   transform: rotate(45deg);
