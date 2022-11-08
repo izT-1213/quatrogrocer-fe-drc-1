@@ -2,8 +2,7 @@
 h1,
 h2,
 h3 {
-  margin-top: 0;
-  font-weight: 700;
+  margin: 0;
   line-height: 1.1;
 }
 
@@ -15,6 +14,11 @@ a,
 a:visited,
 a:active {
   text-decoration: none;
+  color: #252525;
+}
+
+a:hover {
+  color: #fafafa;
 }
 
 *,
@@ -84,7 +88,7 @@ p {
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-signin-btn {
   font-family: "Lexend Deca";
   font-size: 18px;
-  color: white;
+  color: #ffffff;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -95,6 +99,7 @@ p {
   width: 100%;
   background-color: #009688;
   border-radius: 4px;
+  border: none;
 }
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-in-text-center {
   padding: 5px;

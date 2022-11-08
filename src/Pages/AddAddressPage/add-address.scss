@@ -1,0 +1,235 @@
+@import "../../Scss/colors";
+@import "../../Scss/fonts";
+@import "../../Scss/typography";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
+.add-address-page-container {
+  margin: 80px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  .container-1 {
+    flex-direction: column;
+
+    .my-account-header {
+      h1 {
+        font-family: "Lexend Deca";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 44px;
+        line-height: 120%;
+      }
+    }
+    .add-new-address-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 32px;
+
+      h2 {
+        font-family: "Lexend Deca";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 120%;
+      }
+      .address-form-container {
+        margin-top: 32px;
+        background: $white-color;
+        width: 540px;
+        height: 440px;
+        left: 82px;
+        top: 260px;
+        box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.04),
+          0px 4px 8px -2px rgba(16, 24, 40, 0.04);
+
+        .address-form-content {
+          padding: 27px;
+          .address-form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px;
+            gap: 16px;
+            padding-bottom: 16px;
+
+            label {
+              font-family: "Lexend Deca";
+              font-style: normal;
+              font-weight: 500;
+              font-size: 14px;
+              line-height: 120%;
+            }
+
+            .address-line-container {
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+
+              input[type="text"] {
+                border-radius: 4px;
+                background-color: $grey-tint;
+                width: 460px;
+              }
+
+              .address-line-1 {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+              }
+              .address-line-2 {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+              }
+              .address-line-3 {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+              }
+            }
+
+            .postcode-and-state-container {
+              display: flex;
+              flex-direction: row;
+
+              input {
+                border-radius: 4px;
+                background-color: $grey-tint;
+                width: 220px;
+              }
+            }
+
+            .checkbox-container {
+              display: flex;
+              justify-content: space-between;
+              gap: 5px;
+
+              input[type="checkbox"] {
+                appearance: none;
+                background-color: $white-color;
+                margin: 0;
+                font: inherit;
+                color: currentColor;
+                width: 1em;
+                height: 1em;
+                border: 0.15em solid currentColor;
+                border-radius: 0.15em;
+                transform: translateY(-0.075em);
+                border-color: $primary-color;
+                cursor: pointer;
+
+                
+                &:checked {
+                  background-color: $secondary-color;
+                  
+                }
+              }
+
+              label {
+                font-family: "Lexend Deca";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 120%;
+              }
+            }
+
+            // .default-address {
+            //   display: flex;
+            //   align-content: center;
+            //   gap: 4px;
+            //   margin-top: 16px;
+            //   margin-bottom: 16px;
+
+            // input[type="checkbox"] {
+            //   appearance: none;
+            //   background-color: $white-color;
+            //   margin: 0;
+            //   font: inherit;
+            //   color: currentColor;
+            //   width: 1em;
+            //   height: 1em;
+            //   border: 0.15em solid currentColor;
+            //   border-radius: 0.15em;
+            //   transform: translateY(-0.075em);
+            //   border-color: $primary-color;
+            //   cursor: pointer;
+            // }
+
+            //   .checkmark {
+            // font-family: "Lexend Deca";
+            // font-style: normal;
+            // font-weight: 500;
+            // font-size: 12px;
+            // line-height: 120%;
+            //   }
+            // }
+          }
+          .buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            padding: 0px;
+            gap: 48px;
+            .cancel-btn {
+              background-color: transparent;
+              border: none;
+              font-family: "Lexend Deca";
+              font-style: normal;
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 120%;
+            }
+            .add-address-btn {
+              background-color: $secondary-color;
+              border: none;
+              font-family: "Lexend Deca";
+              font-style: normal;
+              font-weight: 500;
+              font-size: 16px;
+              color: $white-color;
+              line-height: 120%;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              padding: 8px 24px;
+              gap: 8px;
+              border-radius: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .navigation-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: flex-end;
+
+    .left-icon {
+      font-size: 10px;
+    }
+
+    .back-btn {
+      font-family: $primary-fonts;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 120%;
+      border: none;
+      background-color: $white-color;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+}

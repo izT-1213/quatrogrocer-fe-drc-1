@@ -1,35 +1,75 @@
-.pic {
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+p {
+  margin-top: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
+.error-image-container {
+  justify-content: center;
+  align-items: center;
   display: flex;
-  flex-direction: column;
-  margin-left: 164px;
-  margin-top: 143px;
+  flex-wrap: wrap;
+  position: center;
+  padding-top: 143px;
 }
-
-.error-image-container{
+.error-image-container .pic {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-.error-msg-container {
-  position: absolute;
-  width: 394px;
-  height: 209px;
-  left: 821px;
-  top: 255px;
-  margin-left: 105px;
+.error-image-container .error-msg-container {
+  padding-left: 105px;
 }
-
-.button {
+.error-image-container .error-msg-container h2 {
+  padding-bottom: 8px;
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 120%;
+  display: flex;
+  align-items: center;
+}
+.error-image-container .error-msg-container p {
+  font-family: "Lexend Deca";
+  font-size: 20px;
+  padding-bottom: 4px;
+}
+.error-image-container .error-msg-container .button-container {
+  padding-top: 32px;
+}
+.error-image-container .error-msg-container .button-container .button {
+  padding: 16px 40px;
+  font-family: "Lexend Deca";
+  background-color: #ff8a65;
+  border-radius: 4px;
+  border: none;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 16px 40px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
   gap: 16px;
-  margin-top:32px;
-
   position: absolute;
-
-  /* Deep Orange/300 */
-
-  background: #ff8a65;
-  border-radius: 4px;
-  outline-color: #ff8a65;
-}
+  box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1), 0px 4px 6px -2px rgba(16, 24, 40, 0.05);
+}/*# sourceMappingURL=error.css.map */
