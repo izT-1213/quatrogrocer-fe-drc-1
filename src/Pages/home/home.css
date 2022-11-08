@@ -3,13 +3,6 @@ h1,
 h2,
 h3 {
   margin: 0;
-}
-
-h1,
-h2,
-h3 {
-  margin-top: 0;
-  font-weight: 700;
   line-height: 1.1;
 }
 
@@ -24,9 +17,17 @@ a:active {
   color: #252525;
 }
 
+a:hover {
+<<<<<<< HEAD
+  color: #b2dfdb;
+=======
+  color: #fafafa;
+>>>>>>> 3992f59dd254fe38f0734d033a9e8816404ad393
+}
+
 *,
 *::after,
 *::before {
   margin: 0;
   box-sizing: border-box;
-} /*# sourceMappingURL=home.css.map */
+}/*# sourceMappingURL=home.css.map */

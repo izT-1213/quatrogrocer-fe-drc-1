@@ -18,7 +18,9 @@ a:active {
 }
 
 a:hover {
+
   color: #b2dfdb;
+
 }
 
 *,
@@ -46,7 +48,9 @@ a:hover {
 .add-address-page-container .container-1 .add-new-address-container {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+
+  margin-top: 2rem 0 0 0;
+
 }
 .add-address-page-container .container-1 .add-new-address-container h2 {
   font-family: "Lexend Deca";
@@ -56,13 +60,15 @@ a:hover {
   line-height: 120%;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container {
-  margin-top: 2rem;
+
+  margin-top: 2rem 0 0 0;
   background: #ffffff;
   width: 33.75rem;
   height: 27.5rem;
-  left: 5.125rem;
-  top: 16.25rem;
-  box-shadow: 0 0.5rem 1rem -0.25rem rgba(16, 24, 40, 0.04), 0 0.25rem 0.5rem -0.125rem rgba(16, 24, 40, 0.04);
+  left: 0 0 0 5.125rem;
+  top: 16.25rem 0 0 0;
+  box-shadow: 0rem 0.5rem 1rem -0.25rem rgba(16, 24, 40, 0.04), 0px 0.25rem 0.5rem -0.125rem rgba(16, 24, 40, 0.04);
+
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content {
   padding: 1.688rem;
@@ -71,7 +77,9 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px;
+
+  padding: 0rem;
+
   gap: 1rem;
   padding-bottom: 1rem;
 }
@@ -95,7 +103,9 @@ a:hover {
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-1 {
   display: flex;
   flex-direction: column;
-  gap: 0.25;
+
+  gap: 0.25rem;
+
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-2 {
   display: flex;
@@ -151,7 +161,9 @@ a:hover {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding: 0rem;
+
+  padding: 3rem;
+
   gap: 3rem;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .cancel-btn {
@@ -187,17 +199,19 @@ a:hover {
   justify-items: flex-end;
 }
 .add-address-page-container .navigation-container .left-icon {
-  font-size: 10px;
+  font-size: 0.625rem;
 }
 .add-address-page-container .navigation-container .back-btn {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 120%;
   border: none;
   background-color: #ffffff;
 }
 .add-address-page-container .navigation-container .back-btn:hover {
-  color: #b2dfdb;
+
+  color: #ff8a65;
+
 }/*# sourceMappingURL=edit-address.css.map */

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 // import { Link } from "react-router-dom";
 import Input from "@material-ui/core/Input";
 import "./edit-address.css";
@@ -18,6 +18,7 @@ function EditAddressPage() {
   function clearInput() {
     document.getElementById("form").reset();
   }
+
   const navigate = useNavigate();
   return (
     <div className="add-address-page-container">
@@ -26,7 +27,7 @@ function EditAddressPage() {
           <h1>My Account</h1>
         </div>
         <div className="add-new-address-container">
-          <h2>Add New Address</h2>
+          <h2>Edit Address</h2>
           <div className="address-form-container">
             <div className="address-form-content">
               <form className="address-form" id="form">
@@ -38,6 +39,7 @@ function EditAddressPage() {
                       disableUnderline={true}
                       className="address-line-1"
                       id="input"
+                      defaultValue="71, Persiaran Tengku Ampuan Rahmia"
                     />
                   </div>
 
@@ -48,6 +50,7 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
+                      defaultValue="Taman Sri Andalas"
                     />
                   </div>
 
@@ -58,6 +61,7 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
+                      defaultValue="Klang"
                     />
                   </div>
                 </div>
@@ -70,6 +74,7 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
+                      defaultValue="41200"
                     />
                   </div>
 
@@ -80,6 +85,7 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
+                      defaultValue="Selangor"
                     />
                   </div>
                 </div>
@@ -87,19 +93,16 @@ function EditAddressPage() {
                   <input type="checkbox" id="input" />
                   <span class="checkmark"></span> Set as default address
                 </label> */}
-                <div class="checkbox-container">
-                  <input class="checkbox" id="input" type="checkbox" />
-                  <label for="default-address">Set as default address</label>
-                </div>
               </form>
               <div className="buttons">
                 <button className="cancel-btn" onClick={clearInput}>
                   Cancel
                 </button>
                 <button
-                  className="add-address-btn" /*onClick={handleAddAddress}*/
+                  className="add-address-btn"
+                  /*onClick={() => navigate("/address")}*/
                 >
-                  Add Address
+                  Update Address
                 </button>
               </div>
             </div>

@@ -17,6 +17,10 @@ a:active {
   color: #252525;
 }
 
+a:hover {
+  color: #fafafa;
+}
+
 *,
 *::after,
 *::before {
@@ -63,8 +67,10 @@ nav .nav-middle ul li {
   font-size: 1rem;
   font-weight: 500;
   font-family: "Lexend Deca";
-  line-height: 120%;
+}
+nav .nav-middle ul li:hover {
+  color: #fafafa;
 }
 nav .nav-middle ul li:hover .nav-right ul li:hover {
   color: #ffffff;
-}/*# sourceMappingURL=navbar.css.map */
+} /*# sourceMappingURL=navbar.css.map */
