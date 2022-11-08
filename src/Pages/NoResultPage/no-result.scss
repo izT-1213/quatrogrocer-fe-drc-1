@@ -1,6 +1,4 @@
 @import "../../Scss/colors";
-@import "../../Scss/components";
-@import "../../Scss/fonts";
 
 .page-container {
   display: flex;
@@ -24,7 +22,7 @@
     line-height: 120%;
   }
 
-  .back-btn {
+  button {
     margin: 1.5rem 0 0 0;
     font-style: normal;
     font-weight: 700;
