@@ -1,5 +1,6 @@
 @import "../../../Scss/colors";
 @import "../../../Scss/fonts";
+@import "../../../Scss/typography";
 
 *,
 *::before,
@@ -131,7 +132,6 @@
         width: 105px;
         border-radius: 3px;
         background-color: $secondary-color;
-        border: none; 
       }
     }
   }

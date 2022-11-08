@@ -17,10 +17,6 @@ a:active {
   color: #252525;
 }
 
-a:hover {
-  color: #b2dfdb;
-}
-
 *,
 *::after,
 *::before {
@@ -32,6 +28,7 @@ footer {
   height: 32.875rem;
   background-color: #fafafa;
   padding: 0 5rem;
+  color: #252525;
   color: #252525;
 }
 footer .footer-top {
