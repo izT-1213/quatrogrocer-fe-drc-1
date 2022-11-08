@@ -28,7 +28,7 @@ a:hover {
 }
 
 .add-address-page-container {
-  margin: 80px;
+  margin: 5rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -40,86 +40,86 @@ a:hover {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 700;
-  font-size: 44px;
+  font-size: 2.75rem;
   line-height: 120%;
 }
 .add-address-page-container .container-1 .add-new-address-container {
   display: flex;
   flex-direction: column;
-  margin-top: 32px;
+  margin-top: 2rem 0 0 0;
 }
 .add-address-page-container .container-1 .add-new-address-container h2 {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 1.875rem;
   line-height: 120%;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container {
-  margin-top: 32px;
+  margin-top: 2rem 0 0 0;
   background: #ffffff;
-  width: 540px;
-  height: 440px;
-  left: 82px;
-  top: 260px;
-  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.04), 0px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  width: 33.75rem;
+  height: 27.5rem;
+  left: 0 0 0 5.125rem;
+  top: 16.25rem 0 0 0;
+  box-shadow: 0rem 0.5rem 1rem -0.25rem rgba(16, 24, 40, 0.04), 0px 0.25rem 0.5rem -0.125rem rgba(16, 24, 40, 0.04);
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content {
-  padding: 27px;
+  padding: 1.688rem;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px;
-  gap: 16px;
-  padding-bottom: 16px;
+  padding: 0rem;
+  gap: 1rem;
+  padding-bottom: 1rem;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form label {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 120%;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container input[type=text] {
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background-color: #fafafa;
-  width: 460px;
+  width: 28.75rem;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-1 {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-2 {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-3 {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .postcode-and-state-container {
   display: flex;
   flex-direction: row;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .postcode-and-state-container input {
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background-color: #fafafa;
-  width: 220px;
+  width: 13.75rem;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container {
   display: flex;
   justify-content: space-between;
-  gap: 5px;
+  gap: 0.313rem;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container input[type=checkbox] {
   -webkit-appearance: none;
@@ -129,11 +129,11 @@ a:hover {
   margin: 0;
   font: inherit;
   color: currentColor;
-  width: 1em;
-  height: 1em;
-  border: 0.15em solid currentColor;
-  border-radius: 0.15em;
-  transform: translateY(-0.075em);
+  width: 1rem;
+  height: 1rem;
+  border: 0.15rem solid currentColor;
+  border-radius: 0.15rem;
+  transform: translateY(-0.075rem);
   border-color: #009688;
   cursor: pointer;
 }
@@ -151,8 +151,8 @@ a:hover {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding: 0px;
-  gap: 48px;
+  padding: 3rem;
+  gap: 3rem;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .cancel-btn {
   background-color: transparent;
@@ -160,7 +160,7 @@ a:hover {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 120%;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn {
@@ -169,16 +169,16 @@ a:hover {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   color: #ffffff;
   line-height: 120%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 8px 24px;
-  gap: 8px;
-  border-radius: 2px;
+  padding: 0.5rem 1.5rem;
+  gap: 0.5rem;
+  border-radius: 0.125rem;
 }
 .add-address-page-container .navigation-container {
   display: flex;
@@ -187,13 +187,13 @@ a:hover {
   justify-items: flex-end;
 }
 .add-address-page-container .navigation-container .left-icon {
-  font-size: 10px;
+  font-size: 0.625rem;
 }
 .add-address-page-container .navigation-container .back-btn {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 120%;
   border: none;
   background-color: #ffffff;
