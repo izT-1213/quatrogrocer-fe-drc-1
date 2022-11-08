@@ -14,6 +14,7 @@ import LoginPage from "./Pages/Login/login.jsx";
 import ErrorPage from "./Pages/404-Error-page/error.jsx";
 import YourShippingAddressPage from "./Pages/YourShippingAddressPage/address.jsx";
 import AddAddressPage from "./Pages/AddAddressPage/add-address.jsx";
+import NoResultPage from "./Pages/NoResultPage/no-result";
 
 import EditAddressPage from "./Pages/EditAddressPage/edit-address.jsx";
 
@@ -52,6 +53,7 @@ function App() {
           <Route path="cart/checkout" element={<CheckoutPage />} />{" "}
           <Route path="profile/edit-profile" element={<EditProfilePage />} />
           <Route path="error" element={<ErrorPage />} />
+          <Route path="no-result" element={<NoResultPage />} />
           {/* </Route> */}
         </Routes>
         <Footer />
