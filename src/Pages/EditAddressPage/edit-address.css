@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+p {
+  margin-top: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #252525;
+}
+
+a:hover {
+  color: #fafafa;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
+.add-address-page-container {
+  margin: 80px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.add-address-page-container .container-1 {
+  flex-direction: column;
+}
+.add-address-page-container .container-1 .my-account-header h1 {
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 120%;
+}
+.add-address-page-container .container-1 .add-new-address-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+}
+.add-address-page-container .container-1 .add-new-address-container h2 {
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 120%;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container {
+  margin-top: 32px;
+  background: #ffffff;
+  width: 540px;
+  height: 440px;
+  left: 82px;
+  top: 260px;
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.04), 0px 4px 8px -2px rgba(16, 24, 40, 0.04);
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content {
+  padding: 27px;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+  padding-bottom: 16px;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form label {
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container input[type=text] {
+  border-radius: 4px;
+  background-color: #fafafa;
+  width: 460px;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-3 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .postcode-and-state-container {
+  display: flex;
+  flex-direction: row;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .postcode-and-state-container input {
+  border-radius: 4px;
+  background-color: #fafafa;
+  width: 220px;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #ffffff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1em;
+  height: 1em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  border-color: #009688;
+  cursor: pointer;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container input[type=checkbox]:checked {
+  background-color: #ff8a65;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container label {
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 120%;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0px;
+  gap: 48px;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .cancel-btn {
+  background-color: transparent;
+  border: none;
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn {
+  background-color: #ff8a65;
+  border: none;
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #ffffff;
+  line-height: 120%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+  gap: 8px;
+  border-radius: 2px;
+}
+.add-address-page-container .navigation-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: flex-end;
+}
+.add-address-page-container .navigation-container .left-icon {
+  font-size: 10px;
+}
+.add-address-page-container .navigation-container .back-btn {
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  border: none;
+  background-color: #ffffff;
+}
+.add-address-page-container .navigation-container .back-btn:hover {
+  color: #ff8a65;
+}/*# sourceMappingURL=edit-address.css.map */

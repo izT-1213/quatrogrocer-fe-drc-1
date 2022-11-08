@@ -18,7 +18,11 @@ a:active {
 }
 
 a:hover {
+<<<<<<< HEAD
   color: #b2dfdb;
+=======
+  color: #fafafa;
+>>>>>>> 3992f59dd254fe38f0734d033a9e8816404ad393
 }
 
 *,
@@ -67,7 +71,9 @@ nav .nav-middle ul li {
   font-size: 1rem;
   font-weight: 500;
   font-family: "Lexend Deca";
-  line-height: 120%;
+}
+nav .nav-middle ul li:hover {
+  color: #fafafa;
 }
 nav .nav-middle ul li:hover .nav-right ul li:hover {
   color: #ffffff;

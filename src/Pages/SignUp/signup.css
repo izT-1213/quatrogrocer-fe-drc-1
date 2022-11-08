@@ -18,7 +18,11 @@ a:active {
 }
 
 a:hover {
+<<<<<<< HEAD
   color: #b2dfdb;
+=======
+  color: #fafafa;
+>>>>>>> 3992f59dd254fe38f0734d033a9e8816404ad393
 }
 
 *,
@@ -221,11 +225,11 @@ p {
 .sign-up-page-container .signup-image-container {
   grid-column: 2;
   justify-content: center;
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
 }
-.sign-up-page-container .signup-image-container img {
-  width: 49.6vw;
+.sign-up-page-container .signup-image-container > img {
   -o-object-fit: cover;
      object-fit: cover;
 }/*# sourceMappingURL=signup.css.map */

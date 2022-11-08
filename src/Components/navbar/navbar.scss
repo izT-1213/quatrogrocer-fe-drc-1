@@ -49,8 +49,11 @@ nav {
   .nav-middle ul li {
     font-size: 1rem;
     font-weight: 500;
-    font-family: $primary-fonts;
-    line-height: 120%;
+    font-family: "Lexend Deca";
+  }
+
+  .nav-middle ul li:hover {
+    color: $grey-tint;
   }
 
   .nav-middle ul li:hover .nav-right ul li:hover {
