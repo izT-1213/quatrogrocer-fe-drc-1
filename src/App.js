@@ -14,7 +14,8 @@ import LoginPage from "./Pages/Login/login.jsx";
 import ErrorPage from "./Pages/404-Error-page/error.jsx";
 import YourShippingAddressPage from "./Pages/YourShippingAddressPage/address.jsx";
 import AddAddressPage from "./Pages/AddAddressPage/add-address.jsx";
-import ShippingEditPage from "./Pages/EditShipping/editshipping.jsx";
+
+import EditAddressPage from "./Pages/EditAddressPage/edit-address.jsx";
 
 //import CartPage from "./Components/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -47,7 +48,7 @@ function App() {
             component={YourShippingAddressPage}
           />
           <Route path="add-address" element={<AddAddressPage />} />
-          <Route path="edit-shipping-address" element={<ShippingEditPage />} />
+          <Route path="edit-address" element={<EditAddressPage />} />
           <Route path="cart/checkout" element={<CheckoutPage />} />{" "}
           <Route path="profile/edit-profile" element={<EditProfilePage />} />
           <Route path="error" element={<ErrorPage />} />
