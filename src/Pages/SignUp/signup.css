@@ -3,13 +3,6 @@ h1,
 h2,
 h3 {
   margin: 0;
-}
-
-h1,
-h2,
-h3 {
-  margin-top: 0;
-  font-weight: 700;
   line-height: 1.1;
 }
 
@@ -22,6 +15,10 @@ a:visited,
 a:active {
   text-decoration: none;
   color: #252525;
+}
+
+a:hover {
+  color: #fafafa;
 }
 
 *,
@@ -219,11 +216,11 @@ p {
 .sign-up-page-container .signup-image-container {
   grid-column: 2;
   justify-content: center;
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
 }
-.sign-up-page-container .signup-image-container img {
-  width: 49.6vw;
+.sign-up-page-container .signup-image-container > img {
   -o-object-fit: cover;
      object-fit: cover;
 }/*# sourceMappingURL=signup.css.map */

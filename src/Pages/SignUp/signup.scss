@@ -1,6 +1,5 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
-@import "../../Scss/typography";
 
 *,
 *::before,
@@ -227,12 +226,12 @@ p {
   .signup-image-container {
     grid-column: 2;
     justify-content: center;
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
+  }
 
-    img {
-      width: 49.6vw;
-      object-fit: cover;
-    }
+  .signup-image-container > img {
+    object-fit: cover;
   }
 }

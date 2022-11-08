@@ -2,8 +2,7 @@
 h1,
 h2,
 h3 {
-  margin-top: 0;
-  font-weight: 700;
+  margin: 0;
   line-height: 1.1;
 }
 
@@ -16,6 +15,10 @@ a:visited,
 a:active {
   text-decoration: none;
   color: #252525;
+}
+
+a:hover {
+  color: #fafafa;
 }
 
 *,
@@ -197,4 +200,4 @@ a:active {
 }
 .add-address-page-container .navigation-container .back-btn:hover {
   color: #ff8a65;
-}/*# sourceMappingURL=add-address.css.map */
+}/*# sourceMappingURL=edit-address.css.map */
