@@ -15,7 +15,6 @@ a,
 a:visited,
 a:active {
   text-decoration: none;
-  color: black;
 }
 
 *,
@@ -58,7 +57,7 @@ footer .footer-top-right ul li {
   padding: 1rem 0 0 0;
 }
 footer .line-2 {
-  border: 0.125rem solid #252525;
+  border: 0.125rem solid #ffffff;
 }
 footer .footer-bottom {
   display: flex;
@@ -85,4 +84,4 @@ footer .footer-bottom-right ul li {
 }
 footer .footer-bottom-right ul li:hover {
   color: #009688;
-} /*# sourceMappingURL=footer.css.map */
+}/*# sourceMappingURL=footer.css.map */
