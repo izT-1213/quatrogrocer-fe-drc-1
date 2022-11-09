@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import IconButton from "@material-ui/core/IconButton";
-import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Input from "@material-ui/core/Input";
+import dayjs from "dayjs";
+import { TextField, FormControl, Select, MenuItem } from "@mui/material";
+import { IconButton, InputAdornment, Input } from "@material-ui/core";
+import { Visibility, VisibilityOff } from "@material-ui/icons";
+import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
 import "../SignUp/signup.css";
 
 function SignUpPage() {
+  const color = "#009688";
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
@@ -26,6 +28,18 @@ function SignUpPage() {
     setValues({ ...values, [prop]: event.target.value });
   };
 
+  const [value, setValue] = React.useState(dayjs("2014-08-18T21:11:54"));
+
+  const handleChange = (newValue) => {
+    setValue(newValue);
+  };
+
+  const [gender, setGender] = React.useState("");
+
+  const handleChangeGender = (event) => {
+    setGender(event.target.value);
+  };
+
   return (
     <div className="sign-up-page-container">
       <div className="sign-up-container">
@@ -33,15 +47,93 @@ function SignUpPage() {
           <div className="sign-up-form-content">
             <form className="sign-up-form">
               <h3 className="sign-up-form-title">Sign Up</h3>
+              <div className="sign-up-form-table">
+                <tr>
+                  <td className="left-col">FIRST NAME</td>
+                  <td className="right-col">LAST NAME</td>
+                </tr>
+                <tr>
+                  <td className="left-col">
+                    <Input
+                      type="string"
+                      disableUnderline={true}
+                      className="form-control-mt-1"
+                      placeholder="John"
+                    />
+                  </td>
+                  <td className="right-col">
+                    <Input
+                      type="string"
+                      disableUnderline={true}
+                      className="form-control-mt-1"
+                      placeholder="Doe"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td className="left-col">GENDER</td>
+                  <td className="right-col">DATE OF BIRTH</td>
+                </tr>
+                <tr>
+                  <td className="left-col">
+                    <FormControl fullWidth>
+                      <Select
+                        variant="standard"
+                        labelId="demo-simple-select-label"
+                        className="form-control-mt-1"
+                        disableUnderline={true}
+                        id="demo-simple-select"
+                        value={gender}
+                        onChange={handleChangeGender}
+                      >
+                        <MenuItem value={"female"}>Female</MenuItem>
+                        <MenuItem value={"male"}>Male</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </td>
+                  <td className="right-col">
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DesktopDatePicker
+                        className="form-control-mt-1"
+                        InputProps={{ disableUnderline: true }}
+                        inputFormat="MM/DD/YYYY"
+                        value={value}
+                        onChange={handleChange}
+                        // PaperProps={{
+                        //   sx: {
+                        //     "& .MuiPickersDay-root": {
+                        //       "&.Mui-selected": {
+                        //         backgroundColor: { backgroundColor: color },
+                        //       },
+                        //     },
+                        //     "& .MuiPickersMonth-root": {
+                        //       "&.Mui-selected": {
+                        //         backgroundColor: { backgroundColor: color },
+                        //       },
+                        //     },
+                        //   },
+                        // }}
+                        renderInput={(params) => (
+                          <TextField
+                            variant="standard"
+                            {...params}
+                            sx={{ button: { color } }}
+                          />
+                        )}
+                        views={["year", "month", "day"]}
+                      />
+                    </LocalizationProvider>
+                  </td>
+                </tr>
+              </div>
               <div className="form-group-mt-3">
                 <label>EMAIL</label>
               </div>
               <div>
                 <Input
-                  type="email"
+                  type=""
                   disableUnderline={true}
                   className="form-control-mt-1"
-                  placeholder="Email Address"
                 />
               </div>
               <div className="form-group-mt-3">

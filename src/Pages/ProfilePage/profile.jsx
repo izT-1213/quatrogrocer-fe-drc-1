@@ -46,7 +46,7 @@ function UserProfilePage() {
               <td className="user-name">Steven James</td>
               <td className="edit">
                 <a>
-                  <Link to="/edit-profile" className="edit-link">
+                  <Link to="/profile/edit-profile" className="edit-link">
                     Edit
                   </Link>
                 </a>
@@ -76,7 +76,7 @@ function UserProfilePage() {
             <tr>
               <td className="view-address">
                 <a>
-                  <Link to="/addresses" className="view-address-link">
+                  <Link to="/profile/addresses" className="view-address-link">
                     View Addresses [1]
                   </Link>
                 </a>

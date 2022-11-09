@@ -1,16 +1,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
-h1,
-h2,
-h3 {
+h1 {
   margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 4rem;
 }
 
-h1,
-h2,
-h3 {
-  margin-top: 0;
+h2 {
+  margin: 0;
+  line-height: 120%;
   font-weight: 700;
-  line-height: 1.1;
+  font-size: 3.5rem;
+}
+
+h3 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.75rem;
+}
+
+h4 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.125rem;
+}
+
+h5 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+h6 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 1.75rem;
 }
 
 p {
@@ -24,6 +52,10 @@ a:active {
   color: #252525;
 }
 
+a:hover {
+  color: #fafafa;
+}
+
 *,
 *::before,
 *::after {
@@ -31,32 +63,129 @@ a:active {
 }
 
 .edit-profile-page-container {
-  padding: 32px 75px;
+  padding: 2.188rem 4.688rem;
   display: grid;
-  grid-template: "header header header header" "main main right right";
+  grid-template: "header return-cont" "main right" "button button";
+}
+.edit-profile-page-container .profile-page-header h1 {
+  font-size: 2.75rem;
+}
+.edit-profile-page-container .return {
+  grid-area: return-cont;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: 500;
 }
 .edit-profile-page-container .edit-account-details-container {
   grid-area: main;
-  padding: 10px 10px 10px 0px;
+  padding: 0.625rem 0.625rem 0.625rem 0rem;
 }
 .edit-profile-page-container .edit-account-details-container h3 {
-  padding-bottom: 25px;
-}
-.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container {
-  padding: 33px 0;
+  font-size: 1.875rem;
+  padding: 2rem 0;
 }
 .edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table {
   border-collapse: collapse;
   width: 100%;
 }
+.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table td {
+  width: auto;
+}
 .edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .right-column {
-  padding: 0 56px 0 0;
+  padding: 0.625rem 5% 0 0;
+  width: 50%;
+}
+.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .left-column {
+  width: 46%;
+  padding: 0.625rem 0 0 0;
 }
 .edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .form-control-mt-1 {
   background-color: #eeeeee;
-  border-radius: 4px;
-  height: 40px;
+  border-radius: 0.25rem;
+  height: 2.5rem;
   width: 100%;
+  font-size: 1rem;
+  padding: 0.375;
+}
+.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .change-password {
+  text-align: right;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.625rem 5% 0 0;
+}
+.edit-profile-page-container .address-details-container {
+  grid-area: right;
+  padding: 0.625rem 0.625rem 0.625rem 3.125rem;
+}
+.edit-profile-page-container .address-details-container h3 {
+  font-size: 1.875rem;
+  padding: 2rem 0;
+}
+.edit-profile-page-container .address-details-container .address-details-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.edit-profile-page-container .address-details-container .address-details-table th {
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  text-align: left;
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 120%;
+}
+.edit-profile-page-container .address-details-container .address-details-table td {
+  padding: 0.375rem 0rem;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  /* or 17px */
+}
+.edit-profile-page-container .address-details-container .address-details-table .address {
+  padding: 0.188rem 0rem;
+}
+.edit-profile-page-container .address-details-container .address-details-table .view-address {
+  padding: 0.813rem 0rem;
+}
+.edit-profile-page-container .address-details-container .address-details-table .view-address-link {
+  color: black;
+}
+.edit-profile-page-container .buttons-container {
+  display: flex;
+  justify-content: center;
+  grid-area: button;
+}
+.edit-profile-page-container .buttons-container .cancel {
+  display: flex;
+  padding: 2.188rem 2.875rem;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 500;
   font-size: 16px;
-  padding: 6px;
+  line-height: 120%;
+}
+.edit-profile-page-container .buttons-container .submit-button-container {
+  padding: 2.188rem 2.875rem;
+}
+.edit-profile-page-container .buttons-container .submit-button-container .submit-edit {
+  height: 2.5rem;
+  width: 6.563rem;
+  border-radius: 0.188rem;
+  background-color: #ff8a65;
+  border: none;
+  cursor: pointer;
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  color: #ffffff;
 }/*# sourceMappingURL=edit-profile.css.map */

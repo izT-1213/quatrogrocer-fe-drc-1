@@ -1,0 +1,162 @@
+@import "../../Scss/colors";
+@import "../../Scss/fonts";
+@import "../../Scss/components";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
+.address-page-container {
+  justify-content: center;
+  display: flex;
+
+  .address-page-header {
+    flex-direction: column;
+    margin: 72px;
+
+    h1 {
+      font-family: $primary-fonts;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 44px;
+    }
+
+    .your-shipping-address-container {
+      h3 {
+        font-family: $primary-fonts;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 120%;
+        /* identical to box height, or 36px */
+
+        display: flex;
+        flex-direction: column;
+        margin-top: 32px;
+      }
+    }
+    .shipping-details-container {
+      display: flex;
+      flex-direction: column;
+      justify-items: flex-start;
+
+      margin-top: 24px;
+      border-radius: 4px;
+      .shipping-details-table {
+        h3 {
+          font-family: $primary-fonts;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 120%;
+        }
+
+        p {
+          font-family: "Poppins";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 120%;
+          /* identical to box height, or 17px */
+        }
+      }
+      .links {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .edit-link {
+          margin-right: 8px;
+          font-family: "Poppins";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 120%;
+
+          &:hover {
+            color: $secondary-color;
+          }
+        }
+
+        .vertical-line {
+          width: 11px;
+          height: 1px;
+          left: 35px;
+          top: 201px;
+
+          /* Black */
+
+          border: 1px solid #252525;
+          transform: rotate(-90deg);
+        }
+
+        .delete-btn {
+          font-family: "Poppins";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 120%;
+
+          margin-left: 8px;
+
+          &:hover {
+            color: $primary-hover-color;
+          }
+        }
+      }
+    }
+  }
+  .navigation-buttons {
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 69px;
+    margin-left: 821px;
+
+    // align-self: flex-start;
+    // justify-self: flex-end;
+    .back-to-account-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px;
+      gap: 4px;
+      padding-right: 80px;
+      padding-bottom: 29px;
+
+      .left-icon {
+        font-size: 10px;
+      }
+
+      .back-to-account-link-container {
+        display: flex;
+        align-items: center;
+        .back-btn {
+          @include return-button;
+        }
+      }
+    }
+    .add-address-btn {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 16px;
+      gap: 8px;
+      background: #009688;
+      border-radius: 2px;
+      border: none;
+      /*font*/
+      color: $white-color;
+      font-family: $primary-fonts;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 120%;
+
+      &:hover {
+        background-color: $primary-hover-color;
+      }
+    }
+  }
+}
