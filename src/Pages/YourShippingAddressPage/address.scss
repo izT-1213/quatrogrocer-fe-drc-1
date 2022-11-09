@@ -103,7 +103,7 @@
           margin-left: 8px;
 
           &:hover {
-            color: $primary-hover-color;
+            color: $secondary-hover-color;
           }
         }
       }
@@ -121,21 +121,17 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      padding: 0px;
+      padding: 0px 80px 29px 0;
       gap: 4px;
-      padding-right: 80px;
-      padding-bottom: 29px;
 
       .left-icon {
-        font-size: 10px;
+        font-size: 0.625rem;
       }
 
-      .back-to-account-link-container {
+      .back-btn {
         display: flex;
         align-items: center;
-        .back-btn {
-          @include return-button;
-        }
+        @include return-button;
       }
     }
     .add-address-btn {
@@ -144,7 +140,7 @@
       align-items: flex-start;
       padding: 16px;
       gap: 8px;
-      background: #009688;
+      background: $primary-color;
       border-radius: 2px;
       border: none;
       /*font*/
@@ -156,7 +152,7 @@
       line-height: 120%;
 
       &:hover {
-        background-color: $primary-hover-color;
+        background-color: $secondary-hover-color;
       }
     }
   }

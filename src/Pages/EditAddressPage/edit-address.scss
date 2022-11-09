@@ -1,5 +1,6 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
+@import "../../Scss/components";
 
 *,
 *::before,
@@ -7,7 +8,7 @@
   margin: 0;
 }
 
-.add-address-page-container {
+.edit-address-page-container {
   margin: 5rem;
   display: flex;
   align-items: flex-start;
@@ -17,6 +18,7 @@
     flex-direction: column;
 
     .my-account-header {
+      padding: 1rem 0 1rem 0;
       h1 {
         font-family: "Lexend Deca";
         font-style: normal;
@@ -25,11 +27,11 @@
         line-height: 120%;
       }
     }
-    .add-new-address-container {
+    .edit-new-address-container {
       display: flex;
       flex-direction: column;
 
-      margin-top: 2rem 0 0 0;
+      padding: 0 0 1rem 0;
       h2 {
         font-family: "Lexend Deca";
         font-style: normal;
@@ -38,7 +40,7 @@
         line-height: 120%;
       }
       .address-form-container {
-        margin-top: 2rem 0 0 0;
+        margin: 2rem 0 0 0;
         background: $white-color;
         width: 33.75rem;
         height: 27.5rem;
@@ -57,7 +59,7 @@
             padding: 0rem;
 
             gap: 1rem;
-            padding-bottom: 1rem;
+            padding: 0 0 1rem 0;
 
             label {
               font-family: "Lexend Deca";
@@ -107,38 +109,69 @@
               }
             }
 
-            .checkbox-container {
-              display: flex;
-              justify-content: space-between;
-              gap: 0.313rem;
+            // .default {
+            //   display: block;
+            //   padding-left: 26px;
+            //   // margin-top: 16px;
+            //   // margin-bottom: 8px;
+            //   position: relative;
+            //   cursor: pointer;
+            //   -webkit-user-select: none;
+            //   -moz-user-select: none;
+            //   -ms-user-select: none;
+            //   user-select: none;
 
-              input[type="checkbox"] {
-                appearance: none;
-                background-color: $white-color;
-                margin: 0;
-                font: inherit;
-                color: currentColor;
-                width: 1rem;
-                height: 1rem;
-                border: 0.15rem solid currentColor;
-                border-radius: 0.15rem;
-                transform: translateY(-0.075rem);
-                border-color: $primary-color;
-                cursor: pointer;
+            //   // label {
+            //   font-family: "Lexend Deca";
+            //   font-style: normal;
+            //   font-weight: 500;
+            //   font-size: 0.9rem;
+            //   line-height: 120%;
 
-                &:checked {
-                  background-image: $secondary-color;
-                }
-              }
+            //   // }
+            // }
 
-              label {
-                font-family: "Lexend Deca";
-                font-style: normal;
-                font-weight: 500;
-                font-size: 0.75rem;
-                line-height: 120%;
-              }
-            }
+            // .default input {
+            //   position: absolute;
+            //   opacity: 0;
+            //   cursor: pointer;
+            //   height: 0;
+            //   width: 0;
+            // }
+            // .checkmark {
+            //   position: absolute;
+            //   top: 0;
+            //   left: 0;
+            //   height: 18px;
+            //   width: 18px;
+            //   background-color: #eee;
+            //   border-radius: 4px;
+            // }
+            // .checkmark:after {
+            //   content: "";
+            //   position: absolute;
+            //   display: none;
+            // }
+            // .default:hover input ~ .checkmark {
+            //   background-color: #ccc;
+            // }
+            // .default input:checked ~ .checkmark {
+            //   background-color: $primary-color;
+            // }
+            // .default input:checked ~ .checkmark:after {
+            //   display: block;
+            // }
+            // .default .checkmark:after {
+            //   left: 7px;
+            //   top: 3px;
+            //   width: 5px;
+            //   height: 10px;
+            //   border: solid white;
+            //   border-width: 0 3px 3px 0;
+            //   -webkit-transform: rotate(45deg);
+            //   -ms-transform: rotate(45deg);
+            //   transform: rotate(45deg);
+            // }
           }
           .buttons {
             display: flex;
@@ -190,17 +223,7 @@
     }
 
     .back-btn {
-      font-family: $primary-fonts;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 0.875rem;
-      line-height: 120%;
-      border: none;
-      background-color: $white-color;
-
-      &:hover {
-        color: $primary-hover-color;
-      }
+      @include return-button;
     }
   }
 }

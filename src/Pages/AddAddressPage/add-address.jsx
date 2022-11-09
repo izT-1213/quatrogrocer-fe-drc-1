@@ -84,12 +84,11 @@ function AddAddressPage() {
                   </div>
                 </div>
 
-                <div class="checkbox-container">
-                  <label class="default">
-                    <input type="checkbox" />
-                    <span class="checkmark"></span> Set as default address
-                  </label>
-                </div>
+                <label class="default">
+                  <input class="checkbox" id="input" type="checkbox" />
+                  <span class="checkmark"></span>
+                  Set as default address
+                </label>
               </form>
               <div className="buttons">
                 <button className="cancel-btn" onClick={clearInput}>
@@ -110,7 +109,7 @@ function AddAddressPage() {
           <SlArrowLeft />
         </div>
 
-        <button class="back-btn" onClick={() => navigate("/address")}>
+        <button className="back-btn" onClick={() => navigate("/address")}>
           Return to Shipping Details
         </button>
       </div>
