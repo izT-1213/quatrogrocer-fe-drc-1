@@ -151,36 +151,59 @@ a:hover {
   background-color: #fafafa;
   width: 220px;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 5px;
-}
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container input[type=checkbox] {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background-color: #ffffff;
-  margin: 0;
-  font: inherit;
-  color: currentColor;
-  width: 1em;
-  height: 1em;
-  border: 0.15em solid currentColor;
-  border-radius: 0.15em;
-  transform: translateY(-0.075em);
-  border-color: #009688;
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .default {
+  display: block;
+  padding-left: 26px;
+  position: relative;
   cursor: pointer;
-}
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container input[type=checkbox]:checked {
-  background-color: #ff8a65;
-}
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container label {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 0.9rem;
   line-height: 120%;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .default input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+  border-radius: 4px;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .default:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .default input:checked ~ .checkmark {
+  background-color: #009688;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .default input:checked ~ .checkmark:after {
+  display: block;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .default .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons {
   display: flex;
@@ -197,6 +220,9 @@ a:hover {
   font-weight: 500;
   font-size: 1rem;
   line-height: 120%;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .cancel-btn:hover {
+  color: #ff7043;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn {
   background-color: #ff8a65;
@@ -215,6 +241,9 @@ a:hover {
   gap: 0.5rem;
   border-radius: 0.125;
 }
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn:hover {
+  background-color: #ff7043;
+}
 .add-address-page-container .navigation-container {
   display: flex;
   flex-direction: row;
@@ -228,11 +257,12 @@ a:hover {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: 14px;
   line-height: 120%;
   border: none;
-  background-color: #ffffff;
+  background-color: transparent;
+  color: #252525;
 }
 .add-address-page-container .navigation-container .back-btn:hover {
-  color: #ff8a65;
+  color: #ff7043;
 }/*# sourceMappingURL=add-address.css.map */

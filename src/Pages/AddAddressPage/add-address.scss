@@ -1,6 +1,6 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
-//@import "../../Scss/typography";
+@import "../../Scss/components";
 
 *,
 *::before,
@@ -105,69 +105,69 @@
               }
             }
 
-            .checkbox-container {
-              display: flex;
-              justify-content: space-between;
-              gap: 5px;
+            .default {
+              display: block;
+              padding-left: 26px;
+              // margin-top: 16px;
+              // margin-bottom: 8px;
+              position: relative;
+              cursor: pointer;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
 
-              input[type="checkbox"] {
-                appearance: none;
-                background-color: $white-color;
-                margin: 0;
-                font: inherit;
-                color: currentColor;
-                width: 1em;
-                height: 1em;
-                border: 0.15em solid currentColor;
-                border-radius: 0.15em;
-                transform: translateY(-0.075em);
-                border-color: $primary-color;
-                cursor: pointer;
+              // label {
+              font-family: "Lexend Deca";
+              font-style: normal;
+              font-weight: 500;
+              font-size: 0.9rem;
+              line-height: 120%;
 
-                &:checked {
-                  background-color: $secondary-color;
-                }
-              }
-
-              label {
-                font-family: "Lexend Deca";
-                font-style: normal;
-                font-weight: 500;
-                font-size: 12px;
-                line-height: 120%;
-              }
+              // }
             }
 
-            // .default-address {
-            //   display: flex;
-            //   align-content: center;
-            //   gap: 4px;
-            //   margin-top: 16px;
-            //   margin-bottom: 16px;
-
-            // input[type="checkbox"] {
-            //   appearance: none;
-            //   background-color: $white-color;
-            //   margin: 0;
-            //   font: inherit;
-            //   color: currentColor;
-            //   width: 1em;
-            //   height: 1em;
-            //   border: 0.15em solid currentColor;
-            //   border-radius: 0.15em;
-            //   transform: translateY(-0.075em);
-            //   border-color: $primary-color;
-            //   cursor: pointer;
-            // }
-
-            //   .checkmark {
-            // font-family: "Lexend Deca";
-            // font-style: normal;
-            // font-weight: 500;
-            // font-size: 12px;
-            // line-height: 120%;
-            //   }
-            // }
+            .default input {
+              position: absolute;
+              opacity: 0;
+              cursor: pointer;
+              height: 0;
+              width: 0;
+            }
+            .checkmark {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 18px;
+              width: 18px;
+              background-color: #eee;
+              border-radius: 4px;
+            }
+            .checkmark:after {
+              content: "";
+              position: absolute;
+              display: none;
+            }
+            .default:hover input ~ .checkmark {
+              background-color: #ccc;
+            }
+            .default input:checked ~ .checkmark {
+              background-color: $primary-color;
+            }
+            .default input:checked ~ .checkmark:after {
+              display: block;
+            }
+            .default .checkmark:after {
+              left: 7px;
+              top: 3px;
+              width: 5px;
+              height: 10px;
+              border: solid white;
+              border-width: 0 3px 3px 0;
+              -webkit-transform: rotate(45deg);
+              -ms-transform: rotate(45deg);
+              transform: rotate(45deg);
+            }
           }
           .buttons {
             display: flex;
@@ -183,6 +183,9 @@
               font-weight: 500;
               font-size: 1rem;
               line-height: 120%;
+              &:hover {
+                color: $secondary-hover-color;
+              }
             }
             .add-address-btn {
               background-color: $secondary-color;
@@ -200,6 +203,9 @@
               padding: 0.5rem 1.5rem;
               gap: 0.5rem;
               border-radius: 0.125;
+              &:hover {
+                background-color: $secondary-hover-color;
+              }
             }
           }
         }
@@ -217,17 +223,7 @@
     }
 
     .back-btn {
-      font-family: $primary-fonts;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 0.875rem;
-      line-height: 120%;
-      border: none;
-      background-color: $white-color;
-
-      &:hover {
-        color: $secondary-color;
-      }
+      @include return-button;
     }
   }
 }
