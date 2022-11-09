@@ -11,7 +11,7 @@
 }
 
 .home-header {
-  height: 60rem;
+  height: calc(100vh - 4.5rem);
   display: flex;
   background-color: $bluegrey-tint;
   justify-content: space-between;
@@ -54,12 +54,12 @@
 
   .home-image-container img {
     display: flex;
-    height: 60rem;
+    height: calc(100vh - 4.5rem);
   }
 }
 
 .today-top-deals {
-  height: 59rem;
+  height: 100vh;
   padding: 0 12rem;
 
   .today-top-deals-title {

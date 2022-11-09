@@ -1,0 +1,123 @@
+@import "../../Scss/colors";
+@import "../../Scss/fonts";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
+.profile-page-container {
+  padding: 32px 75px;
+  display: grid;
+  grid-template:
+    "header header header header header"
+    "main main main right right";
+
+  h1 {
+    font-size: 44px;
+  }
+  h3 {
+    font-size: 30px;
+  }
+
+  .profile-page-header {
+    grid-area: header;
+    padding: 8px 0px 30px;
+  }
+
+  .order-history-container {
+    grid-area: main;
+    padding: 10px 10px 10px 0px;
+
+    h3 {
+      padding-bottom: 25px;
+    }
+
+    .order-history-table-container {
+      padding: 24px;
+      background-color: rgba(250, 250, 250, 1);
+      height: 336px;
+
+      .order-history-table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 16px;
+      }
+
+      th {
+        border-bottom: 2px solid black;
+        padding-bottom: 16px;
+      }
+
+      td {
+        padding-top: 10px;
+        text-align: center;
+      }
+    }
+  }
+
+  .account-details-container {
+    grid-area: right;
+    padding: 10px 10px 10px 50px;
+
+    .account-details-table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th {
+        padding: 29px 0px 10px;
+        vertical-align: bottom;
+        border-bottom: 2px solid black;
+        font-weight: 500;
+        text-align: left;
+
+        .credit-value {
+          font-size: 38px;
+          font-weight: bold;
+        }
+
+        .RM {
+          padding-left: 48px;
+          font-size: 16px;
+        }
+      }
+
+      td {
+        padding: 6px 0px;
+      }
+
+      .user-name {
+        padding: 10px 0px;
+        vertical-align: bottom;
+      }
+
+      .user-name {
+        font-weight: 500;
+        font-size: 24px;
+      }
+
+      .edit {
+        text-align: right;
+      }
+
+      .edit-link {
+        font-size: 20px;
+        font-weight: 500;
+        color: black;
+      }
+
+      .address {
+        padding: 3px 0px;
+      }
+
+      .view-address {
+        padding: 13px 0px;
+      }
+
+      .view-address-link {
+        color: black;
+      }
+    }
+  }
+}
