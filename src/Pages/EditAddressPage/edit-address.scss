@@ -38,7 +38,6 @@
         line-height: 120%;
       }
       .address-form-container {
-
         margin-top: 2rem 0 0 0;
         background: $white-color;
         width: 33.75rem;
@@ -47,7 +46,6 @@
         top: 16.25rem 0 0 0;
         box-shadow: 0rem 0.5rem 1rem -0.25rem rgba(16, 24, 40, 0.04),
           0px 0.25rem 0.5rem -0.125rem rgba(16, 24, 40, 0.04);
-
 
         .address-form-content {
           padding: 1.688rem;
@@ -85,7 +83,6 @@
                 flex-direction: column;
 
                 gap: 0.25rem;
-
               }
               .address-line-2 {
                 display: flex;
@@ -130,7 +127,7 @@
                 cursor: pointer;
 
                 &:checked {
-                  background-color: $secondary-color;
+                  background-image: $secondary-color;
                 }
               }
 
@@ -142,37 +139,6 @@
                 line-height: 120%;
               }
             }
-
-            // .default-address {
-            //   display: flex;
-            //   align-content: center;
-            //   gap: 4px;
-            //   margin-top: 16px;
-            //   margin-bottom: 16px;
-
-            // input[type="checkbox"] {
-            //   appearance: none;
-            //   background-color: $white-color;
-            //   margin: 0;
-            //   font: inherit;
-            //   color: currentColor;
-            //   width: 1em;
-            //   height: 1em;
-            //   border: 0.15em solid currentColor;
-            //   border-radius: 0.15em;
-            //   transform: translateY(-0.075em);
-            //   border-color: $primary-color;
-            //   cursor: pointer;
-            // }
-
-            //   .checkmark {
-            // font-family: "Lexend Deca";
-            // font-style: normal;
-            // font-weight: 500;
-            // font-size: 12px;
-            // line-height: 120%;
-            //   }
-            // }
           }
           .buttons {
             display: flex;
@@ -191,7 +157,7 @@
               font-size: 1rem;
               line-height: 120%;
             }
-            .add-address-btn {
+            .update-address-btn {
               background-color: $secondary-color;
               border: none;
               font-family: "Lexend Deca";
