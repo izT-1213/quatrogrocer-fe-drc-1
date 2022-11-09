@@ -138,7 +138,7 @@ a:hover {
   cursor: pointer;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container input[type=checkbox]:checked {
-  background-color: #ff8a65;
+  background-image: #ff8a65;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container label {
   font-family: "Lexend Deca";
@@ -163,7 +163,7 @@ a:hover {
   font-size: 1rem;
   line-height: 120%;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .update-address-btn {
   background-color: #ff8a65;
   border: none;
   font-family: "Lexend Deca";

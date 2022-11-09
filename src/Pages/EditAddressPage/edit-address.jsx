@@ -4,17 +4,9 @@ import Input from "@material-ui/core/Input";
 import "./edit-address.css";
 import { SlArrowLeft } from "react-icons/sl";
 import { useNavigate } from "react-router-dom";
-// import {
-//   allPostcodes,
-//   getStates,
-//   getCities,
-//   getPostcodes,
-//   findPostcode,
-// } from "malaysia-postcodes";
-// import YourShippingAddressPage from "../address";
 
 function EditAddressPage() {
-  // function handleAddAddress() {}
+  
   function clearInput() {
     document.getElementById("form").reset();
   }
@@ -99,7 +91,7 @@ function EditAddressPage() {
                   Cancel
                 </button>
                 <button
-                  className="add-address-btn"
+                  className="update-address-btn"
                   /*onClick={() => navigate("/address")}*/
                 >
                   Update Address

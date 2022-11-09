@@ -9,6 +9,8 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import "../EditProfilePage/edit-profile.css";
 
 function EditProfilePage() {
+
+ 
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
@@ -39,7 +41,7 @@ function EditProfilePage() {
       <div className="edit-account-details-container">
         <h3>Account Details</h3>
         <div className="edit-account-details-table-container">
-          <table className="edit-account-details-table">
+          <table className="edit-account-details-table" id="table">
             <tr className="input-label">
               <td className="right-column">First Name</td>
               <td className="left-column">Last Name</td>
@@ -175,7 +177,9 @@ function EditProfilePage() {
         </div>
       </div>
       <div className="buttons-container">
-        <div className="cancel">Cancel</div>
+        <button className="cancel" >
+          Cancel
+        </button>
         <div className="submit-button-container">
           <button className="submit-edit" type="submit">
             Submit
