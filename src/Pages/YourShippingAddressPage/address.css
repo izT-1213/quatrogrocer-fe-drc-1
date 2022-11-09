@@ -143,7 +143,7 @@ a:hover {
   margin-left: 8px;
 }
 .address-page-container .address-page-header .shipping-details-container .links .delete-btn:hover {
-  color: #b2dfdb;
+  color: #ff7043;
 }
 .address-page-container .navigation-buttons {
   flex-direction: column;
@@ -155,29 +155,26 @@ a:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px;
+  padding: 0px 80px 29px 0;
   gap: 4px;
-  padding-right: 80px;
-  padding-bottom: 29px;
 }
 .address-page-container .navigation-buttons .back-to-account-container .left-icon {
-  font-size: 10px;
+  font-size: 0.625rem;
 }
-.address-page-container .navigation-buttons .back-to-account-container .back-to-account-link-container {
+.address-page-container .navigation-buttons .back-to-account-container .back-btn {
   display: flex;
   align-items: center;
-}
-.address-page-container .navigation-buttons .back-to-account-container .back-to-account-link-container .back-btn {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 120%;
   border: none;
-  background-color: #ffffff;
+  background-color: transparent;
+  color: #252525;
 }
-.address-page-container .navigation-buttons .back-to-account-container .back-to-account-link-container .back-btn:hover {
-  color: #ff8a65;
+.address-page-container .navigation-buttons .back-to-account-container .back-btn:hover {
+  color: #ff7043;
 }
 .address-page-container .navigation-buttons .add-address-btn {
   display: flex;
@@ -197,5 +194,5 @@ a:hover {
   line-height: 120%;
 }
 .address-page-container .navigation-buttons .add-address-btn:hover {
-  background-color: #b2dfdb;
+  background-color: #ff7043;
 }/*# sourceMappingURL=address.css.map */

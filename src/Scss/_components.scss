@@ -52,9 +52,10 @@
   font-size: 14px;
   line-height: 120%;
   border: none;
-  background-color: $white-color;
+  background-color: transparent;
+  color: $black-color;
 
   &:hover {
-    color: $secondary-color;
+    color: $secondary-hover-color;
   }
 }
