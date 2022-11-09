@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import Nav from "./Components/navbar/navbar.jsx";
 import Footer from "./Components/footer/footer.jsx";
 import Home from "./Pages/home/home.jsx";
@@ -26,7 +25,6 @@ import "./App.css";
 import React from "react";
 
 function App() {
-
   return (
     <div>
       <BrowserRouter>
@@ -44,15 +42,15 @@ function App() {
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignUpPage />} />
           <Route path="profile" element={<UserProfilePage />} />
-          <Route
-            path="address"
-            element={<YourShippingAddressPage />}
-            component={YourShippingAddressPage}
-          />
+          <Route path="address" element={<YourShippingAddressPage />} />
           <Route path="add-address" element={<AddAddressPage />} />
           <Route path="edit-address" element={<EditAddressPage />} />
           <Route path="cart/checkout" element={<CheckoutPage />} />{" "}
           <Route path="profile/edit-profile" element={<EditProfilePage />} />
+          <Route
+            path="profile/addresses"
+            element={<YourShippingAddressPage />}
+          />
           <Route path="error" element={<ErrorPage />} />
           <Route path="no-result" element={<NoResultPage />} />
           <Route path="product-detail" element={<ProductDetailsPage />} />
