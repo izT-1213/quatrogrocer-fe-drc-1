@@ -53,11 +53,7 @@ a:active {
 }
 
 a:hover {
-<<<<<<< HEAD
   color: #fafafa;
-=======
-  color: #b2dfdb;
->>>>>>> fe7b17f51ec2e64f017f392f804687cf6b20bdf8
 }
 
 *,
@@ -65,8 +61,6 @@ a:hover {
 *::before {
   margin: 0;
   box-sizing: border-box;
-<<<<<<< HEAD
-=======
 }
 
 .home-header {
@@ -311,5 +305,4 @@ a:hover {
 .services-content .services-content-container-title h4 {
   justify-content: center;
   color: #ffffff;
->>>>>>> fe7b17f51ec2e64f017f392f804687cf6b20bdf8
 }/*# sourceMappingURL=home.css.map */

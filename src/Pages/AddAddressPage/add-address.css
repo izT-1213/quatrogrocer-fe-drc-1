@@ -1,9 +1,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
-h1,
-h2,
+h1 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+h2 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+
 h3 {
   margin: 0;
-  line-height: 1.1;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.75rem;
+}
+
+h4 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.125rem;
+}
+
+h5 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+h6 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 1.75rem;
 }
 
 p {
@@ -121,31 +156,57 @@ a:hover {
   justify-content: space-between;
   gap: 5px;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container input[type=checkbox] {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background-color: #ffffff;
-  margin: 0;
-  font: inherit;
-  color: currentColor;
-  width: 1em;
-  height: 1em;
-  border: 0.15em solid currentColor;
-  border-radius: 0.15em;
-  transform: translateY(-0.075em);
-  border-color: #009688;
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default {
+  display: block;
+  position: relative;
+  padding-left: 26px;
+  margin-top: 16px;
+  margin-bottom: 8px;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 16px;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container input[type=checkbox]:checked {
-  background-color: #ff8a65;
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container label {
-  font-family: "Lexend Deca";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 120%;
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+  border-radius: 4px;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default input:checked ~ .checkmark {
+  background-color: #009688;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default input:checked ~ .checkmark:after {
+  display: block;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons {
   display: flex;

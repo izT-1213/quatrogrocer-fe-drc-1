@@ -15,7 +15,7 @@ import ErrorPage from "./Pages/404-Error-page/error.jsx";
 import YourShippingAddressPage from "./Pages/YourShippingAddressPage/address.jsx";
 import AddAddressPage from "./Pages/AddAddressPage/add-address.jsx";
 import NoResultPage from "./Pages/NoResultPage/no-result";
-
+import ProductDetailsPage from "./Pages/ProductDetailsPage/product-detail-page";
 import EditAddressPage from "./Pages/EditAddressPage/edit-address.jsx";
 
 //import CartPage from "./Components/Cart";
@@ -55,6 +55,7 @@ function App() {
           <Route path="profile/edit-profile" element={<EditProfilePage />} />
           <Route path="error" element={<ErrorPage />} />
           <Route path="no-result" element={<NoResultPage />} />
+          <Route path="product-detail" element={<ProductDetailsPage />} />
           {/* </Route> */}
         </Routes>
         <Footer />

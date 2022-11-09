@@ -1,6 +1,5 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
-//@import "../../Scss/typography";
 
 *,
 *::before,
@@ -110,64 +109,68 @@
               justify-content: space-between;
               gap: 5px;
 
-              input[type="checkbox"] {
-                appearance: none;
-                background-color: $white-color;
-                margin: 0;
-                font: inherit;
-                color: currentColor;
-                width: 1em;
-                height: 1em;
-                border: 0.15em solid currentColor;
-                border-radius: 0.15em;
-                transform: translateY(-0.075em);
-                border-color: $primary-color;
+              .default {
+                display: block;
+                position: relative;
+                padding-left: 26px;
+                margin-top: 16px;
+                margin-bottom: 8px;
                 cursor: pointer;
-
-                &:checked {
-                  background-color: $secondary-color;
-                }
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                font-size: 16px;
               }
 
-              label {
-                font-family: "Lexend Deca";
-                font-style: normal;
-                font-weight: 500;
-                font-size: 12px;
-                line-height: 120%;
+              .default input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+              }
+
+              .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 18px;
+                width: 18px;
+                background-color: #eee;
+                border-radius: 4px;
+              }
+
+              .checkmark:after {
+                content: "";
+                position: absolute;
+                display: none;
+              }
+
+              .default:hover input ~ .checkmark {
+                background-color: #ccc;
+              }
+
+              .default input:checked ~ .checkmark {
+                background-color: $primary-color;
+              }
+
+              .default input:checked ~ .checkmark:after {
+                display: block;
+              }
+
+              .default .checkmark:after {
+                left: 7px;
+                top: 3px;
+                width: 5px;
+                height: 10px;
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
               }
             }
-
-            // .default-address {
-            //   display: flex;
-            //   align-content: center;
-            //   gap: 4px;
-            //   margin-top: 16px;
-            //   margin-bottom: 16px;
-
-            // input[type="checkbox"] {
-            //   appearance: none;
-            //   background-color: $white-color;
-            //   margin: 0;
-            //   font: inherit;
-            //   color: currentColor;
-            //   width: 1em;
-            //   height: 1em;
-            //   border: 0.15em solid currentColor;
-            //   border-radius: 0.15em;
-            //   transform: translateY(-0.075em);
-            //   border-color: $primary-color;
-            //   cursor: pointer;
-            // }
-
-            //   .checkmark {
-            // font-family: "Lexend Deca";
-            // font-style: normal;
-            // font-weight: 500;
-            // font-size: 12px;
-            // line-height: 120%;
-            //   }
-            // }
           }
           .buttons {
             display: flex;
