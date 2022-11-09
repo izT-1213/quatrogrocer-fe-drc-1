@@ -1,9 +1,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
-h1,
-h2,
+h1 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+h2 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+
 h3 {
   margin: 0;
-  line-height: 1.1;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.75rem;
+}
+
+h4 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.125rem;
+}
+
+h5 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+h6 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 1.75rem;
 }
 
 p {
@@ -18,7 +53,7 @@ a:active {
 }
 
 a:hover {
-  color: #fafafa;
+  color: #b2dfdb;
 }
 
 *,
@@ -33,7 +68,7 @@ nav {
   display: flex;
   background-color: #009688;
   justify-content: space-between;
-  padding: 0 5rem;
+  padding: 0 12rem;
 }
 nav .nav-left {
   cursor: pointer;
@@ -46,7 +81,7 @@ nav .nav-middle {
   display: flex;
   align-items: center;
   color: #ffffff;
-  width: 32%;
+  width: 34%;
 }
 nav .nav-right {
   cursor: pointer;
@@ -61,7 +96,7 @@ nav .nav-right ul {
   width: 100%;
   display: flex;
   list-style: none;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 nav .nav-middle ul li {
   font-size: 1rem;
@@ -73,4 +108,4 @@ nav .nav-middle ul li:hover {
 }
 nav .nav-middle ul li:hover .nav-right ul li:hover {
   color: #ffffff;
-}/*# sourceMappingURL=navbar.css.map */
+} /*# sourceMappingURL=navbar.css.map */

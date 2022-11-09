@@ -1,17 +1,46 @@
-@import "../../Scss/colors";
-@import "../../Scss/fonts";
-@import "../../Scss/typography";
+@import "./colors";
 
-@mixin return-button {
-  font-family: $primary-fonts;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 120%;
-  border: none;
+@mixin card-drop-shadow {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02),
+    4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+}
+
+@mixin vertical-card {
+  @include card-drop-shadow;
+  width: 25.75rem;
+  height: 43.375rem;
+  border-radius: 0.125rem;
   background-color: $white-color;
+}
 
-  &:hover {
-    color: $secondary-color;
-  }
+@mixin small-horizontal-card {
+  @include card-drop-shadow;
+  width: 23.75rem;
+  height: 13.125rem;
+  border-radius: 0.125rem;
+  background-color: $white-color;
+}
+
+@mixin medium-horizotal-card {
+  @include card-drop-shadow;
+  width: 28.75rem;
+  height: 13.125rem;
+  border-radius: 0.125rem;
+  background-color: $white-color;
+}
+
+@mixin large-horizontal-card {
+  @include card-drop-shadow;
+  width: 45rem;
+  height: 15.5rem;
+  border-radius: 0.125rem;
+  background-color: $white-color;
+}
+
+@mixin category-card {
+  @include card-drop-shadow;
+  width: 31.5rem;
+  height: 15.5rem;
+  border-radius: 0.125rem;
+  background-color: $white-color;
 }

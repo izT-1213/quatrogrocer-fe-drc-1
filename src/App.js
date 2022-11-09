@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import Nav from "./Components/navbar/navbar.jsx";
 import Footer from "./Components/footer/footer.jsx";
-// import MainPage from "./Pages/MainPage";
+import Home from "./Pages/home/home.jsx";
 // import ProductPage from "./Pages/ProductPage";
 // import BestSellers from "./Pages/BestSellers";
 // import NewItems from "./Pages/NewItems";
@@ -32,12 +32,12 @@ function App() {
         <Nav />
 
         <Routes>
-          {/* <Route path="/" element={<MainPage />} />
-          <Route path="/main-page" element={<MainPage />} />
+          {/*<Route path="/main-page" element={<MainPage />} />
           <Route path="/marketplace" element={<ProductPage />} />
           <Route path="/best-sellers" element={<BestSellers />} />
           <Route path="/all-new" element={<NewItems />} />
           <Route path="/deals-&-promotions" element={<Deals />} />*/}
+          <Route path="/" element={<Home />} />
           <Route path="profile" element={<UserProfilePage />} />
           <Route path="edit-profile" element={<EditProfilePage />} />
           <Route path="login" element={<LoginPage />} />

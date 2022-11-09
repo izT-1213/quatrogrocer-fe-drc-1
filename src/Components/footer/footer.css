@@ -1,9 +1,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
-h1,
-h2,
+h1 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+h2 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+
 h3 {
   margin: 0;
-  line-height: 1.1;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.75rem;
+}
+
+h4 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.125rem;
+}
+
+h5 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+h6 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 1.75rem;
 }
 
 p {
@@ -18,7 +53,7 @@ a:active {
 }
 
 a:hover {
-  color: #fafafa;
+  color: #b2dfdb;
 }
 
 *,
@@ -31,7 +66,7 @@ a:hover {
 footer {
   height: 32.875rem;
   background-color: #fafafa;
-  padding: 0 5rem;
+  padding: 0 12rem;
   color: #252525;
 }
 footer .footer-top {
@@ -41,7 +76,7 @@ footer .footer-top {
 }
 footer .footer-top-right {
   display: flex;
-  width: 40%;
+  width: 44%;
   justify-content: space-around;
 }
 footer .footer-top-right p {
@@ -90,4 +125,4 @@ footer .footer-bottom-right ul li {
 }
 footer .footer-bottom-right ul li:hover {
   color: #009688;
-}/*# sourceMappingURL=footer.css.map */
+} /*# sourceMappingURL=footer.css.map */
