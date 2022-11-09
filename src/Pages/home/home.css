@@ -53,7 +53,9 @@ a:active {
 }
 
 a:hover {
+
   color: #b2dfdb;
+
 }
 
 *,
@@ -311,4 +313,6 @@ a:hover {
 .services-content .services-content-container-title h4 {
   justify-content: center;
   color: #ffffff;
+
 } /*# sourceMappingURL=home.css.map */
+

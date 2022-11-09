@@ -1,6 +1,6 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
-//@import "../../Scss/typography";
+@import "../../Scss/components";
 
 *,
 *::before,
@@ -42,22 +42,20 @@
         margin-top: 32px;
         background: $white-color;
         width: 540px;
-        height: 440px;
+        height: 480px;
         left: 82px;
         top: 260px;
         box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.04),
           0px 4px 8px -2px rgba(16, 24, 40, 0.04);
 
         .address-form-content {
-          padding: 27px;
+          padding: 3rem 0 0 0;
           .address-form {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            padding: 0px;
-            gap: 16px;
-            padding-bottom: 16px;
-
+            padding: 0 0 1.5rem 0;
+            gap: 1.5rem;
             label {
               font-family: "Lexend Deca";
               font-style: normal;
@@ -69,10 +67,10 @@
             .address-line-container {
               display: flex;
               flex-direction: column;
-              gap: 20px;
+              gap: 1.5rem;
 
               input[type="text"] {
-                border-radius: 4px;
+                border-radius: 0.5rem;
                 background-color: $grey-tint;
                 width: 460px;
               }
@@ -80,17 +78,17 @@
               .address-line-1 {
                 display: flex;
                 flex-direction: column;
-                gap: 4px;
+                gap: 1rem;
               }
               .address-line-2 {
                 display: flex;
                 flex-direction: column;
-                gap: 4px;
+                gap: 1rem;
               }
               .address-line-3 {
                 display: flex;
                 flex-direction: column;
-                gap: 4px;
+                gap: 1rem;
               }
             }
 
@@ -99,7 +97,7 @@
               flex-direction: row;
 
               input {
-                border-radius: 4px;
+                border-radius: 1rem;
                 background-color: $grey-tint;
                 width: 220px;
               }
@@ -108,73 +106,77 @@
             .checkbox-container {
               display: flex;
               justify-content: space-between;
-              gap: 5px;
+              gap: 1rem;
 
-              input[type="checkbox"] {
-                appearance: none;
-                background-color: $white-color;
-                margin: 0;
-                font: inherit;
-                color: currentColor;
-                width: 1em;
-                height: 1em;
-                border: 0.15em solid currentColor;
-                border-radius: 0.15em;
-                transform: translateY(-0.075em);
-                border-color: $primary-color;
+              .default {
+                display: block;
+                position: relative;
+                padding-left: 26px;
+                margin-top: 16px;
+                margin-bottom: 8px;
                 cursor: pointer;
-
-                &:checked {
-                  background-color: $secondary-color;
-                }
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                font-size: 16px;
               }
 
-              label {
-                font-family: "Lexend Deca";
-                font-style: normal;
-                font-weight: 500;
-                font-size: 12px;
-                line-height: 120%;
+              .default input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+              }
+
+              .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 18px;
+                width: 18px;
+                background-color: #eee;
+                border-radius: 4px;
+              }
+
+              .checkmark:after {
+                content: "";
+                position: absolute;
+                display: none;
+              }
+
+              .default:hover input ~ .checkmark {
+                background-color: #ccc;
+              }
+
+              .default input:checked ~ .checkmark {
+                background-color: $primary-color;
+              }
+
+              .default input:checked ~ .checkmark:after {
+                display: block;
+              }
+
+              .default .checkmark:after {
+                left: 7px;
+                top: 3px;
+                width: 5px;
+                height: 10px;
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
               }
             }
-
-            // .default-address {
-            //   display: flex;
-            //   align-content: center;
-            //   gap: 4px;
-            //   margin-top: 16px;
-            //   margin-bottom: 16px;
-
-            // input[type="checkbox"] {
-            //   appearance: none;
-            //   background-color: $white-color;
-            //   margin: 0;
-            //   font: inherit;
-            //   color: currentColor;
-            //   width: 1em;
-            //   height: 1em;
-            //   border: 0.15em solid currentColor;
-            //   border-radius: 0.15em;
-            //   transform: translateY(-0.075em);
-            //   border-color: $primary-color;
-            //   cursor: pointer;
-            // }
-
-            //   .checkmark {
-            // font-family: "Lexend Deca";
-            // font-style: normal;
-            // font-weight: 500;
-            // font-size: 12px;
-            // line-height: 120%;
-            //   }
-            // }
           }
           .buttons {
             display: flex;
             flex-direction: row;
             justify-content: flex-end;
-            padding: 0rem;
-            gap: 3rem;
+            // padding: 0;
+            // gap: 1rem;
             .cancel-btn {
               background-color: transparent;
               border: none;
@@ -217,17 +219,7 @@
     }
 
     .back-btn {
-      font-family: $primary-fonts;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 0.875rem;
-      line-height: 120%;
-      border: none;
-      background-color: $white-color;
-
-      &:hover {
-        color: $secondary-color;
-      }
+      @include back-btn;
     }
   }
 }

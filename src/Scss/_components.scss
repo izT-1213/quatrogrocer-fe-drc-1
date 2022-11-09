@@ -44,3 +44,17 @@
   border-radius: 0.125rem;
   background-color: $white-color;
 }
+
+@mixin return-button {
+  font-family: $primary-fonts;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  border: none;
+  background-color: $white-color;
+
+  &:hover {
+    color: $secondary-color;
+  }
+}
