@@ -5,6 +5,11 @@
     4px 4px 8px -2px rgba(16, 24, 40, 0.04);
 }
 
+@mixin side-nav-shadow {
+  box-shadow: 10px 0px 16px -4px rgba(16, 24, 40, 0.04),
+    4px 0px 8px -2px rgba(16, 24, 40, 0.04);
+}
+
 @mixin vertical-card {
   @include card-drop-shadow;
   width: 25.75rem;
@@ -45,17 +50,9 @@
   background-color: $white-color;
 }
 
-@mixin return-button {
-  font-family: $primary-fonts;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 120%;
-  border: none;
-  background-color: transparent;
-  color: $black-color;
-
-  &:hover {
-    color: $secondary-hover-color;
-  }
+@mixin category-card-wrapper {
+  width: 31.5rem;
+  height: 15.5rem;
+  border-radius: 0.125rem;
+  background-color: $black-color;
 }

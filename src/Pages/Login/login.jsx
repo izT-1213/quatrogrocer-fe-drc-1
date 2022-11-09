@@ -79,7 +79,7 @@ function LoginPage() {
               </p>
               <div className="d-grid-gap-2-mt-3">
                 <button type="submit" className="signup-login-btn">
-                  Submit
+                  Log In
                 </button>
               </div>
               <div className="line-or-box">

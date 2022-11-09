@@ -1,0 +1,10 @@
+@import "../../Scss/colors";
+@import "../../Scss/fonts";
+@import "../../Scss/components";
+
+// Reset All Elements
+*,
+*::after,
+*::before {
+  margin: 0;
+}

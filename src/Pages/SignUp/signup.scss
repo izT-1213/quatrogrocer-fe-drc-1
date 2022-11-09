@@ -45,29 +45,46 @@ p {
         text-align: left;
 
         .sign-up-form-title {
-          font-family: "Lexend Deca";
+          font-family: $primary-fonts;
           font-size: 2.375rem;
         }
 
         .sign-up-form-table {
-          padding-top: 1rem;
-          font-size: 1.125rem;
+          padding-top: 1.25rem;
+          font-size: 0.875rem;
+          font-family: $primary-fonts;
+          font-weight: map-get($map: $font-weight, $key: "medium");
+
+          .left-col-line-1 {
+            padding: 0 0.625rem 0.25rem 0;
+          }
+
+          .right-col-line-1 {
+            padding: 0 0 0.25rem 0.625rem;
+          }
+
+          .left-col-line-2 {
+            padding: 1rem 0.625rem 0.25rem 0;
+          }
+
+          .right-col-line-2 {
+            padding: 1rem 0 0.25rem 0.625rem;
+          }
 
           .left-col {
-            padding-right: 0.625rem;
-            padding-bottom: 0.625rem;
+            padding: 0 0.625rem 0 0;
           }
 
           .right-col {
-            padding-left: 0.625rem;
-            padding-bottom: 0.625rem;
+            padding: 0 0 0 0.625rem;
           }
         }
 
         .form-group-mt-3 {
-          font-family: "Lexend Deca";
-          font-size: 1.125rem;
-          padding-bottom: 0.625rem;
+          font-family: $primary-fonts;
+          font-weight: map-get($map: $font-weight, $key: "medium");
+          font-size: 0.875rem;
+          padding: 0.75rem 0 0.25rem;
         }
 
         .form-control-mt-1 {
@@ -80,13 +97,13 @@ p {
         }
 
         .d-grid-gap-2-mt-3 {
-          padding-top: 0.625rem;
-          padding-bottom: 0.625rem;
+          padding: 1.5rem 0;
         }
 
         .signup-signin-btn {
-          font-family: "Lexend Deca";
-          font-size: 1.125rem;
+          font-family: $primary-fonts;
+          font-weight: map-get($map: $font-weight, $key: "medium");
+          font-size: 1rem;
           color: $white-color;
           display: flex;
           flex-direction: row;
@@ -96,19 +113,22 @@ p {
           gap: 0.5rem;
           height: 2.5rem;
           width: 100%;
-          background-color: #009688;
+          background-color: $primary-color;
           border-radius: 0.25rem;
           border: none;
         }
 
         .sign-in-text-center {
-          padding: 0.313rem;
+          font-size: 1rem;
+          font-family: $secondary-fonts;
+          font-weight: map-get($map: $font-weight, $key: "light");
+          // padding: 0.313rem;
           text-align: center;
           width: 19.375rem;
         }
 
         .signin-link {
-          color: #009688;
+          color: $primary-color;
         }
 
         .line-or-box {
@@ -118,7 +138,7 @@ p {
 
         .line-1 {
           width: 9rem;
-          border: 0.125rem solid #009688;
+          border: 0.125rem solid $primary-color;
         }
 
         .white-padding {
@@ -129,16 +149,19 @@ p {
         }
 
         .or-box {
-          color: white;
+          color: $white-color;
           display: table-cell;
           align-items: center;
           width: 2rem;
           height: 1.75rem;
           padding: 0.25rem;
           gap: 0.25rem;
-          background: #009688;
-          border: 0.063rem solid #009688;
+          background: $primary-color;
+          border: 0.063rem solid $primary-color;
           border-radius: 0.188rem;
+          font-family: $primary-fonts;
+          font-size: 1rem;
+          font-weight: map-get($map: $font-weight, $key: "medium");
         }
 
         .login-apps-container {
@@ -153,10 +176,10 @@ p {
 
           .login-apps-icons {
             display: table-cell;
-            font-size: 2.5rem;
+            font-size: 1.5rem;
 
             svg {
-              color: black;
+              color: $black-color;
             }
           }
         }
@@ -164,15 +187,16 @@ p {
         .tnc {
           display: block;
           position: relative;
-          padding-left: 26px;
-          margin-top: 16px;
-          margin-bottom: 8px;
+          padding: 0 0 0 1.625rem;
+          margin: 0.5rem 0 0 0;
           cursor: pointer;
           -webkit-user-select: none;
           -moz-user-select: none;
           -ms-user-select: none;
           user-select: none;
-          font-size: 16px;
+          font-size: 0.875rem;
+          font-family: $primary-fonts;
+          font-weight: map-get($map: $font-weight, $key: "medium");
         }
 
         .tnc input {
@@ -189,7 +213,7 @@ p {
           left: 0;
           height: 18px;
           width: 18px;
-          background-color: #eee;
+          border: 0.125rem solid $primary-color;
           border-radius: 4px;
         }
 
@@ -200,7 +224,7 @@ p {
         }
 
         .tnc:hover input ~ .checkmark {
-          background-color: #ccc;
+          background-color: $grey-tint;
         }
 
         .tnc input:checked ~ .checkmark {
@@ -212,8 +236,8 @@ p {
         }
 
         .tnc .checkmark:after {
-          left: 7px;
-          top: 3px;
+          left: 5px;
+          top: 1px;
           width: 5px;
           height: 10px;
           border: solid white;
@@ -224,7 +248,7 @@ p {
         }
 
         .tnc-link {
-          color: #009688;
+          color: $primary-color;
           text-decoration: underline;
         }
       }

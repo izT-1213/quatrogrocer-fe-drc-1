@@ -76,7 +76,10 @@ a:hover {
   font-weight: 700;
   font-size: 44px;
 }
-.address-page-container .address-page-header .your-shipping-address-container h3 {
+.address-page-container
+  .address-page-header
+  .your-shipping-address-container
+  h3 {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 600;
@@ -94,14 +97,22 @@ a:hover {
   margin-top: 24px;
   border-radius: 4px;
 }
-.address-page-container .address-page-header .shipping-details-container .shipping-details-table h3 {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .shipping-details-table
+  h3 {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 120%;
 }
-.address-page-container .address-page-header .shipping-details-container .shipping-details-table p {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .shipping-details-table
+  p {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
@@ -109,12 +120,19 @@ a:hover {
   line-height: 120%;
   /* identical to box height, or 17px */
 }
-.address-page-container .address-page-header .shipping-details-container .links {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .links {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.address-page-container .address-page-header .shipping-details-container .links .edit-link {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .links
+  .edit-link {
   margin-right: 8px;
   font-family: "Poppins";
   font-style: normal;
@@ -122,10 +140,18 @@ a:hover {
   font-size: 14px;
   line-height: 120%;
 }
-.address-page-container .address-page-header .shipping-details-container .links .edit-link:hover {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .links
+  .edit-link:hover {
   color: #ff8a65;
 }
-.address-page-container .address-page-header .shipping-details-container .links .vertical-line {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .links
+  .vertical-line {
   width: 11px;
   height: 1px;
   left: 35px;
@@ -134,7 +160,11 @@ a:hover {
   border: 1px solid #252525;
   transform: rotate(-90deg);
 }
-.address-page-container .address-page-header .shipping-details-container .links .delete-btn {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .links
+  .delete-btn {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
@@ -142,8 +172,12 @@ a:hover {
   line-height: 120%;
   margin-left: 8px;
 }
-.address-page-container .address-page-header .shipping-details-container .links .delete-btn:hover {
-  color: #ff7043;
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .links
+  .delete-btn:hover {
+  color: #ff8a65;
 }
 .address-page-container .navigation-buttons {
   flex-direction: column;
@@ -158,12 +192,24 @@ a:hover {
   padding: 0px 80px 29px 0;
   gap: 4px;
 }
-.address-page-container .navigation-buttons .back-to-account-container .left-icon {
-  font-size: 0.625rem;
+.address-page-container
+  .navigation-buttons
+  .back-to-account-container
+  .left-icon {
+  font-size: 10px;
 }
-.address-page-container .navigation-buttons .back-to-account-container .back-btn {
+.address-page-container
+  .navigation-buttons
+  .back-to-account-container
+  .back-to-account-link-container {
   display: flex;
   align-items: center;
+}
+.address-page-container
+  .navigation-buttons
+  .back-to-account-container
+  .back-to-account-link-container
+  .back-btn {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
@@ -173,8 +219,12 @@ a:hover {
   background-color: transparent;
   color: #252525;
 }
-.address-page-container .navigation-buttons .back-to-account-container .back-btn:hover {
-  color: #ff7043;
+.address-page-container
+  .navigation-buttons
+  .back-to-account-container
+  .back-to-account-link-container
+  .back-btn:hover {
+  color: #ff8a65;
 }
 .address-page-container .navigation-buttons .add-address-btn {
   display: flex;
@@ -194,5 +244,5 @@ a:hover {
   line-height: 120%;
 }
 .address-page-container .navigation-buttons .add-address-btn:hover {
-  background-color: #ff7043;
-}/*# sourceMappingURL=address.css.map */
+  background-color: #ff8a65;
+} /*# sourceMappingURL=address.css.map */

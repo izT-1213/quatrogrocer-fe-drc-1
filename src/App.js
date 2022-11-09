@@ -1,6 +1,6 @@
 import Nav from "./Components/navbar/navbar.jsx";
 import Footer from "./Components/footer/footer.jsx";
-import Home from "./Pages/home/home.jsx";
+import Home from "./Pages/Home/home.jsx";
 // import ProductPage from "./Pages/ProductPage";
 // import BestSellers from "./Pages/BestSellers";
 // import NewItems from "./Pages/NewItems";

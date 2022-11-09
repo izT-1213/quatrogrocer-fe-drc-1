@@ -26,7 +26,6 @@ const Nav = () => {
           <ul>
             <li onClick={() => navigate("/marketplace")}>Marketplace</li>
             <li onClick={() => navigate("/best-sellers")}>Best Sellers</li>
-            <li onClick={() => navigate("/all-new")}>All New</li>
             <li onClick={() => navigate("/deals-&-promotions")}>
               Deals & Promotions
             </li>
