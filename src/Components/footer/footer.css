@@ -53,7 +53,7 @@ a:active {
 }
 
 a:hover {
-  color: #fafafa;
+  color: #009688;
 }
 
 *,
@@ -66,8 +66,8 @@ a:hover {
 footer {
   height: 32.875rem;
   background-color: #fafafa;
-  padding: 0 12rem;
   color: #252525;
+  padding: 0 19.5rem;
   color: #252525;
 }
 footer .footer-top {
@@ -77,7 +77,7 @@ footer .footer-top {
 }
 footer .footer-top-right {
   display: flex;
-  width: 44%;
+  width: 60%;
   justify-content: space-around;
 }
 footer .footer-top-right p {

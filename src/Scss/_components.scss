@@ -49,3 +49,10 @@
   border-radius: 0.125rem;
   background-color: $white-color;
 }
+
+@mixin category-card-wrapper {
+  width: 31.5rem;
+  height: 15.5rem;
+  border-radius: 0.125rem;
+  background-color: $black-color;
+}

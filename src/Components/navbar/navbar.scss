@@ -21,7 +21,7 @@ nav {
   display: flex;
   background-color: $primary-color;
   justify-content: space-between;
-  padding: 0 12rem;
+  padding: 0 19.5rem;
 
   .nav-left {
     @include nav-section;
@@ -34,7 +34,7 @@ nav {
 
   .nav-right {
     @include nav-section;
-    width: 8%;
+    width: 10%;
   }
 
   .nav-middle ul,
