@@ -24,14 +24,14 @@ h4 {
   margin: 0;
   line-height: 120%;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 2.125rem;
 }
 
 h5 {
   margin: 0;
   line-height: 120%;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 2rem;
 }
 
 h6 {
@@ -163,6 +163,7 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   padding: 0 12rem;
+  margin: 0 0 3rem 0;
 }
 .promotion-banner .banner-image-container img {
   display: flex;
@@ -187,13 +188,16 @@ a:hover {
 }
 
 .discount-banner {
-  padding: 3rem 12rem 4rem 12rem;
+  padding: 0rem 12rem;
 }
 .discount-banner .discount-banner-container {
   height: 6rem;
   display: flex;
   background-color: #fedf89;
+  width: 100%;
   border-radius: 0.125rem;
+  justify-content: center;
+  align-items: center;
 }
 .discount-banner p {
   color: #f04438;
@@ -209,10 +213,12 @@ a:hover {
   font-weight: 700;
   font-size: 1.25rem;
   border: 0.125rem dashed #f04438;
+  border-radius: 0.125rem;
+  padding: 0.5rem 1.5rem;
 }
 
 .best-choices {
-  height: 59rem;
+  height: 48.5rem;
   padding: 0 12rem;
 }
 .best-choices .best-choices-title {
@@ -243,22 +249,60 @@ a:hover {
   background-color: #009688;
   border: 3px solid #009688;
 }
-.best-choices .best-choices-product {
+.best-choices .best-choices-product-1 {
   display: flex;
   justify-content: space-between;
   padding: 2.5rem 0 0 0;
 }
-.best-choices .best-choices-product .large-horizontal-card {
+.best-choices .best-choices-product-1 .large-horizontal-card {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   width: 45rem;
   height: 15.5rem;
   border-radius: 0.125rem;
   background-color: #ffffff;
 }
-.best-choices .best-choices-product .category-card {
+.best-choices .best-choices-product-1 .category-card {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   width: 31.5rem;
   height: 15.5rem;
   border-radius: 0.125rem;
   background-color: #ffffff;
+}
+.best-choices .best-choices-product-2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem 0 4rem 0;
+}
+.best-choices .best-choices-product-2 .large-horizontal-card {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  width: 45rem;
+  height: 15.5rem;
+  border-radius: 0.125rem;
+  background-color: #ffffff;
+}
+.best-choices .best-choices-product-2 .category-card {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  width: 31.5rem;
+  height: 15.5rem;
+  border-radius: 0.125rem;
+  background-color: #ffffff;
+}
+
+.services-content {
+  padding: 0 12rem;
+}
+.services-content hr {
+  border: 0.125rem solid #9e9e9e;
+  margin: 0 0 4rem 0;
+}
+.services-content .services-content-container {
+  height: 39rem;
+  display: flex;
+  margin: 0 0 4rem 0;
+  background-color: #ff8a65;
+  border-radius: 0.125rem;
+}
+.services-content .services-content-container-title h4 {
+  justify-content: center;
+  color: #ffffff;
 }/*# sourceMappingURL=home.css.map */

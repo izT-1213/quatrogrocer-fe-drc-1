@@ -70,7 +70,7 @@ function Home() {
         </div>
         <hr></hr>
 
-        <div className="best-choices-product">
+        <div className="best-choices-product-1">
           <div className="large-horizontal-card">
             <p>hello world</p>
           </div>
@@ -79,13 +79,23 @@ function Home() {
           </div>
         </div>
 
-        <div className="best-choices-product">
+        <div className="best-choices-product-2">
           <div className="category-card">
             <p>hello world</p>
           </div>
           <div className="large-horizontal-card">
             <p>hello world</p>
           </div>
+        </div>
+      </div>
+
+      <div className="services-content">
+        <hr></hr>
+        <div className="services-content-container">
+          <div className="services-content-container-title">
+            <h4>Start Shopping With Us</h4>
+          </div>
+          <div className="services-content-container-text"></div>
         </div>
       </div>
     </div>

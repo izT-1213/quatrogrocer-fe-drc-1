@@ -116,6 +116,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 12rem;
+  margin: 0 0 3rem 0;
 
   .banner-image-container img {
     display: flex;
@@ -146,13 +147,16 @@
 }
 
 .discount-banner {
-  padding: 3rem 12rem 4rem 12rem;
+  padding: 0rem 12rem;
 
   .discount-banner-container {
     height: 6rem;
     display: flex;
     background-color: $warning-color;
+    width: 100%;
     border-radius: 0.125rem;
+    justify-content: center;
+    align-items: center;
   }
 
   p {
@@ -171,11 +175,13 @@
     font-weight: map-get($map: $font-weight, $key: "bold");
     font-size: 1.25rem;
     border: 0.125rem dashed $error-color;
+    border-radius: 0.125rem;
+    padding: 0.5rem 1.5rem;
   }
 }
 
 .best-choices {
-  height: 59rem;
+  height: 48.5rem;
   padding: 0 12rem;
 
   .best-choices-title {
@@ -211,7 +217,7 @@
     border: 3px solid $primary-color;
   }
 
-  .best-choices-product {
+  .best-choices-product-1 {
     display: flex;
     justify-content: space-between;
     padding: 2.5rem 0 0 0;
@@ -223,5 +229,41 @@
     .category-card {
       @include category-card;
     }
+  }
+
+  .best-choices-product-2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 2.5rem 0 4rem 0;
+
+    .large-horizontal-card {
+      @include large-horizontal-card;
+    }
+
+    .category-card {
+      @include category-card;
+    }
+  }
+}
+
+.services-content {
+  padding: 0 12rem;
+
+  hr {
+    border: 0.125rem solid $grey-color;
+    margin: 0 0 4rem 0;
+  }
+
+  .services-content-container {
+    height: 39rem;
+    display: flex;
+    margin: 0 0 4rem 0;
+    background-color: $secondary-color;
+    border-radius: 0.125rem;
+  }
+
+  .services-content-container-title h4 {
+    justify-content: center;
+    color: $white-color;
   }
 }
