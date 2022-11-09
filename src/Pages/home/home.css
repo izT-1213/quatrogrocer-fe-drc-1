@@ -53,7 +53,9 @@ a:active {
 }
 
 a:hover {
-  color: #fafafa;
+
+  color: #b2dfdb;
+
 }
 
 *,
@@ -142,14 +144,16 @@ a:hover {
   padding: 2.5rem 0 0 0;
 }
 .today-top-deals .today-top-deals-product .vertical-card {
-  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02),
+    4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   width: 25.75rem;
   height: 43.375rem;
   border-radius: 0.125rem;
   background-color: #ffffff;
 }
 .today-top-deals .today-top-deals-product .horizontal-card {
-  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02),
+    4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   width: 23.75rem;
   height: 13.125rem;
   border-radius: 0.125rem;
@@ -255,14 +259,16 @@ a:hover {
   padding: 2.5rem 0 0 0;
 }
 .best-choices .best-choices-product-1 .large-horizontal-card {
-  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02),
+    4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   width: 45rem;
   height: 15.5rem;
   border-radius: 0.125rem;
   background-color: #ffffff;
 }
 .best-choices .best-choices-product-1 .category-card {
-  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02),
+    4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   width: 31.5rem;
   height: 15.5rem;
   border-radius: 0.125rem;
@@ -274,14 +280,16 @@ a:hover {
   padding: 2.5rem 0 4rem 0;
 }
 .best-choices .best-choices-product-2 .large-horizontal-card {
-  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02),
+    4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   width: 45rem;
   height: 15.5rem;
   border-radius: 0.125rem;
   background-color: #ffffff;
 }
 .best-choices .best-choices-product-2 .category-card {
-  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02),
+    4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   width: 31.5rem;
   height: 15.5rem;
   border-radius: 0.125rem;
@@ -305,4 +313,6 @@ a:hover {
 .services-content .services-content-container-title h4 {
   justify-content: center;
   color: #ffffff;
-}/*# sourceMappingURL=home.css.map */
+
+} /*# sourceMappingURL=home.css.map */
+
