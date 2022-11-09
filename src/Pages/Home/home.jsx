@@ -1,6 +1,9 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
+import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
+import AutorenewOutlinedIcon from "@mui/icons-material/AutorenewOutlined";
 import "./home.css";
 
 function Home() {
@@ -65,6 +68,7 @@ function Home() {
             Super discount for your first purchase!
           </p>
           <p className="discount-code">First2GQ</p>
+          <p className="discount-notes">Apply discount code in checkout.</p>
         </div>
       </div>
 
@@ -107,34 +111,39 @@ function Home() {
         <hr></hr>
       </div>
 
-      <div className="services-content">
-        <div className="services-content-container">
-          <div className="services-content-title">
+      <div className="services">
+        <div className="services-container">
+          <div className="services-title">
             <h4>Start Shopping With Us</h4>
           </div>
 
-          {/* <div className="services">
+          <div className="services-content">
             <div className="services-1">
+              <LocalOfferOutlinedIcon></LocalOfferOutlinedIcon>
               <p className="services-title">Monthly Exciting Sales</p>
               <p className="services-text">
-                Limited time promotio every month!
+                Limited time promotion every month!
               </p>
             </div>
-            <div className="services-2">
-              <p className="services-title">Monthly Exciting Sales</p>
-              <p className="services-text">
-                Limited time promotio every month!
-              </p>
-            </div>
-            <div className="services-3">
-              <p className="services-title">Monthly Exciting Sales</p>
-              <p className="services-text">
-                Limited time promotio every month!
-              </p>
-            </div>
-          </div> */}
 
-          <button>Shop Now</button>
+            <div className="services-2">
+              <PaymentOutlinedIcon></PaymentOutlinedIcon>
+              <p className="services-title">Secure Payment</p>
+              <p className="services-text">Worry free checkout!</p>
+            </div>
+
+            <div className="services-3">
+              <AutorenewOutlinedIcon></AutorenewOutlinedIcon>
+              <p className="services-title">Easy Returns & Refunds</p>
+              <p className="services-text">
+                We got you cover without the hassle!
+              </p>
+            </div>
+          </div>
+
+          <div className="shop-now-button">
+            <button>Shop Now</button>
+          </div>
         </div>
       </div>
     </div>
