@@ -83,13 +83,12 @@ function AddAddressPage() {
                     />
                   </div>
                 </div>
-                {/* <label class="default-address">
-                  <input type="checkbox" id="input" />
-                  <span class="checkmark"></span> Set as default address
-                </label> */}
+
                 <div class="checkbox-container">
-                  <input class="checkbox" id="input" type="checkbox" />
-                  <label for="default-address">Set as default address</label>
+                  <label class="default">
+                    <input type="checkbox" />
+                    <span class="checkmark"></span> Set as default address
+                  </label>
                 </div>
               </form>
               <div className="buttons">

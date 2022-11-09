@@ -49,10 +49,3 @@
   border-radius: 0.125rem;
   background-color: $white-color;
 }
-
-@mixin side-nav {
-  @include side-nav-shadow;
-  width: 18.563rem;
-  height: 85rem;
-  background-color: $white-color;
-}
