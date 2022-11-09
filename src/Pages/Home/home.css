@@ -142,16 +142,46 @@ a:hover {
   padding: 2.5rem 0 0 0;
 }
 .today-top-deals .today-top-deals-product .vertical-card {
-  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02),
-    4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  display: grid;
+  grid-template-areas: "image image image" "name name name" "price price button";
   width: 25.75rem;
   height: 43.375rem;
   border-radius: 0.125rem;
   background-color: #ffffff;
+  padding: 33px 26px 66px 26px;
+}
+.today-top-deals .today-top-deals-product .vertical-card .product-image {
+  grid-area: image;
+}
+.today-top-deals .today-top-deals-product .vertical-card .product-image img {
+  width: 22.5rem;
+  height: 27.438rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.today-top-deals .today-top-deals-product .vertical-card .product-name {
+  grid-area: name;
+}
+.today-top-deals .today-top-deals-product .vertical-card .product-price {
+  grid-area: price;
+  align-self: flex-end;
+}
+.today-top-deals .today-top-deals-product .vertical-card .button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.today-top-deals .today-top-deals-product .vertical-card .button-container .add-to-cart-btn {
+  border: none;
+  border-radius: 3px;
+  background-color: #009688;
+  height: 4rem;
+  width: 4rem;
+  grid-area: button;
+  align-self: flex-end;
 }
 .today-top-deals .today-top-deals-product .horizontal-card {
-  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02),
-    4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   width: 23.75rem;
   height: 13.125rem;
   border-radius: 0.125rem;
@@ -259,16 +289,14 @@ a:hover {
   padding: 2.5rem 0 0 0;
 }
 .best-choices .best-choices-product-1 .large-horizontal-card {
-  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02),
-    4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   width: 45rem;
   height: 15.5rem;
   border-radius: 0.125rem;
   background-color: #ffffff;
 }
 .best-choices .best-choices-product-1 .category-card {
-  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02),
-    4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   width: 31.5rem;
   height: 15.5rem;
   border-radius: 0.125rem;
@@ -285,8 +313,7 @@ a:hover {
   padding: 2.5rem 0 4rem 0;
 }
 .best-choices .best-choices-product-2 .category-card {
-  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02),
-    4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   width: 31.5rem;
   height: 15.5rem;
   border-radius: 0.125rem;
@@ -298,8 +325,7 @@ a:hover {
   margin: -3rem 0 0 0;
 }
 .best-choices .best-choices-product-2 .large-horizontal-card {
-  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02),
-    4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   width: 45rem;
   height: 15.5rem;
   border-radius: 0.125rem;
@@ -325,4 +351,4 @@ a:hover {
 .services-content .services-content-title h4 {
   color: #ffffff;
   padding: 4rem 0 0 0;
-} /*# sourceMappingURL=home.css.map */
+}/*# sourceMappingURL=home.css.map */

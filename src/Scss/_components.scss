@@ -12,10 +12,48 @@
 
 @mixin vertical-card {
   @include card-drop-shadow;
+  display: grid;
+  grid-template-areas:
+    "image image image"
+    "name name name"
+    "price price button";
   width: 25.75rem;
   height: 43.375rem;
   border-radius: 0.125rem;
   background-color: $white-color;
+  padding: 33px 26px 66px 26px;
+
+  .product-image {
+    grid-area: image;
+    img {
+      width: 22.5rem;
+      height: 27.438rem;
+      object-fit: cover;
+    }
+  }
+
+  .product-name {
+    grid-area: name;
+  }
+
+  .product-price {
+    grid-area: price;
+    align-self: flex-end;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    .add-to-cart-btn {
+      border: none;
+      border-radius: 3px;
+      background-color: $primary-color;
+      height: 4rem;
+      width: 4rem;
+      grid-area: button;
+      align-self: flex-end;
+    }
+  }
 }
 
 @mixin small-horizontal-card {

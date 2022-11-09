@@ -38,7 +38,16 @@ function Home() {
         <hr></hr>
 
         <div className="today-top-deals-product">
-          <div className="vertical-card"></div>
+          <div className="vertical-card">
+            <div className="product-image">
+              <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+            </div>
+            <p className="product-name">Farm Fresh Pure Milk 2L</p>
+            <p className="product-price">RM15.45</p>
+            <div className="button-container">
+              <button className="add-to-cart-btn" />
+            </div>
+          </div>
           <div className="horizontal-card"></div>
         </div>
       </div>
