@@ -261,6 +261,12 @@
         width: 31.5rem;
         margin: -14rem 0 0 0;
       }
+
+      ._5bXm4 {
+        font-family: $primary-fonts;
+        font-weight: map-get($map: $font-weight, $key: "bold");
+        text-transform: uppercase;
+      }
     }
   }
 
@@ -276,6 +282,12 @@
       img {
         width: 31.563rem;
         margin: -3rem 0 0 0;
+      }
+
+      ._5bXm4 {
+        font-family: $primary-fonts;
+        font-weight: map-get($map: $font-weight, $key: "bold");
+        text-transform: uppercase;
       }
     }
 

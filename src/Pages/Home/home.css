@@ -400,6 +400,11 @@ a:hover {
   width: 31.5rem;
   margin: -14rem 0 0 0;
 }
+.best-choices .best-choices-product-1 .category-card ._5bXm4 {
+  font-family: "Lexend Deca";
+  font-weight: 700;
+  text-transform: uppercase;
+}
 .best-choices .best-choices-product-2 {
   display: flex;
   justify-content: space-between;
@@ -416,6 +421,11 @@ a:hover {
 .best-choices .best-choices-product-2 .category-card img {
   width: 31.563rem;
   margin: -3rem 0 0 0;
+}
+.best-choices .best-choices-product-2 .category-card ._5bXm4 {
+  font-family: "Lexend Deca";
+  font-weight: 700;
+  text-transform: uppercase;
 }
 .best-choices .best-choices-product-2 .large-horizontal-card {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);

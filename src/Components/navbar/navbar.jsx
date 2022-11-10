@@ -10,7 +10,7 @@ const Nav = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="nav-container">
       <nav className="nav">
         <div className="nav-left">
           <Link to={"/"}>

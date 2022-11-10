@@ -63,47 +63,47 @@ a:hover {
   box-sizing: border-box;
 }
 
-nav {
+.nav-container nav {
   height: 4.5rem;
   display: flex;
   background-color: #009688;
   justify-content: space-between;
   padding: 0 19.5rem;
 }
-nav .nav-left {
+.nav-container nav .nav-left {
   cursor: pointer;
   display: flex;
   align-items: center;
   color: #ffffff;
 }
-nav .nav-middle {
+.nav-container nav .nav-middle {
   cursor: pointer;
   display: flex;
   align-items: center;
   color: #ffffff;
   width: 34%;
 }
-nav .nav-right {
+.nav-container nav .nav-right {
   cursor: pointer;
   display: flex;
   align-items: center;
   color: #ffffff;
   width: 10%;
 }
-nav .nav-middle ul,
-nav .nav-right ul {
+.nav-container nav .nav-middle ul,
+.nav-container nav .nav-right ul {
   padding: 0;
   width: 100%;
   display: flex;
   list-style: none;
   justify-content: space-between;
 }
-nav .nav-middle ul li {
+.nav-container nav .nav-middle ul li {
+  font-family: "Lexend Deca";
   font-size: 1rem;
   font-weight: 500;
-  font-family: "Lexend Deca";
 }
-nav .nav-middle ul li:hover,
-nav .nav-right ul li:hover {
+.nav-container nav .nav-middle ul li:hover,
+.nav-container nav .nav-right ul li:hover {
   color: #b2dfdb;
 }/*# sourceMappingURL=navbar.css.map */
