@@ -1,0 +1,615 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
+h1 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+h2 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+
+h3 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.75rem;
+}
+
+h4 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.125rem;
+}
+
+h5 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+h6 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #252525;
+}
+
+a:hover {
+  color: #009688;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+}
+
+.home-header {
+  height: calc(100vh - 4.5rem);
+  display: flex;
+  background-color: #f8f9fc;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 19.5rem;
+}
+.home-header h1 {
+  text-transform: uppercase;
+  font-family: "Lexend Deca";
+  padding: 0 0 0.5rem 0;
+}
+.home-header p {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 120%;
+  padding: 1rem 0 2.5rem 0;
+}
+.home-header button {
+  cursor: pointer;
+  margin: 0;
+  background-color: #ff8a65;
+  border-style: none;
+  border-radius: 0.25rem;
+  width: 16.25rem;
+  height: 4rem;
+  font-family: "Lexend Deca";
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  line-height: 120%;
+  color: #ffffff;
+}
+.home-header button:hover {
+  background-color: #ff5722;
+}
+.home-header .home-image-container img {
+  display: flex;
+  height: calc(100vh - 4.5rem);
+}
+
+.today-top-deals {
+  height: 59rem;
+  padding: 0 19.5rem;
+}
+.today-top-deals .today-top-deals-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 5rem 0 0 0;
+  align-items: baseline;
+}
+.today-top-deals .today-top-deals-title h4 {
+  font-family: "Lexend Deca";
+}
+.today-top-deals .view-more-button {
+  display: flex;
+  color: #009688;
+}
+.today-top-deals .view-more-button p {
+  display: flex;
+  cursor: pointer;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 120%;
+  padding: 0 0.25rem 0 0;
+}
+.today-top-deals hr {
+  margin: 0.75rem 0 0 0;
+  width: 7.5rem;
+  background-color: #009688;
+  border: 3px solid #009688;
+}
+.today-top-deals .today-top-deals-product {
+  display: flex;
+  padding: 2.5rem 0 0 0;
+}
+.today-top-deals .today-top-deals-product .vertical-card {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  display: grid;
+  grid-template-areas: "image image image" "name name name" "price price button";
+  width: 25.75rem;
+  height: 43.375rem;
+  border-radius: 0.125rem;
+  background-color: #ffffff;
+  padding: 33px 26px 66px 26px;
+}
+.today-top-deals .today-top-deals-product .vertical-card .product-image {
+  grid-area: image;
+}
+.today-top-deals .today-top-deals-product .vertical-card .product-image img {
+  width: 22.5rem;
+  height: 27.438rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.25rem;
+}
+.today-top-deals .today-top-deals-product .vertical-card .product-name {
+  grid-area: name;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 28.8px;
+}
+.today-top-deals .today-top-deals-product .vertical-card .product-price {
+  grid-area: price;
+  align-self: flex-end;
+  color: #ff8a65;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 28.8px;
+}
+.today-top-deals .today-top-deals-product .vertical-card .product-price .RM {
+  font-size: 20px;
+  font-weight: 500;
+  color: black;
+}
+.today-top-deals .today-top-deals-product .vertical-card .button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.today-top-deals .today-top-deals-product .vertical-card .button-container .add-to-cart-btn {
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #009688;
+  height: 4rem;
+  width: 4rem;
+  grid-area: button;
+  align-self: flex-end;
+}
+.today-top-deals .today-top-deals-product .vertical-card .button-container .add-to-cart-btn .cart-icon {
+  color: #ffffff;
+  font-size: 1.75rem;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container {
+  padding-left: 3rem;
+  width: 100%;
+  height: 100%;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .right-col-cards {
+  border-right: 1.688rem solid transparent;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .left-col-cards {
+  border-left: 1.688rem solid transparent;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  display: grid;
+  grid-template-areas: "image name name" "image name name" "image price button";
+  width: 100%;
+  height: 100%;
+  border-radius: 0.125rem;
+  background-color: #ffffff;
+  padding: 1.875rem 1.5rem;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-image {
+  grid-area: image;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-image img {
+  width: 7.5rem;
+  height: 9.375rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.25rem;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-name {
+  padding-left: 24px;
+  grid-area: name;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 19.2px;
+  text-align: left;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-price {
+  padding-left: 24px;
+  grid-area: price;
+  align-self: flex-end;
+  color: #ff8a65;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 26px;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-price .RM {
+  line-height: 19px;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .button-container .add-to-cart-btn {
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #009688;
+  height: 2.5rem;
+  width: 2.5rem;
+  grid-area: button;
+  align-self: flex-end;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .button-container .add-to-cart-btn .cart-icon {
+  color: #ffffff;
+  font-size: 1.25rem;
+}
+
+.promotion-banner {
+  height: 17.25rem;
+  display: flex;
+  background-color: #009688;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 19.5rem;
+  margin: 0 0 3rem 0;
+  overflow-y: clip;
+}
+.promotion-banner .banner-image-container img {
+  display: flex;
+  height: 31.25rem;
+  margin: -8rem 0 0 0;
+}
+.promotion-banner .promotion-banner-content p {
+  color: #ffffff;
+}
+.promotion-banner .promotion-banner-content .promotion-banner-header {
+  font-family: "Lexend Deca";
+  font-weight: 600;
+  font-size: 1.625rem;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+.promotion-banner .promotion-banner-content .promotion-banner-text {
+  padding: 0.5rem 0 0 0;
+  font-family: "Lexend Deca";
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 120%;
+}
+
+.discount-banner {
+  padding: 0rem 19.5rem;
+}
+.discount-banner .discount-banner-container {
+  position: relative;
+  height: 6rem;
+  display: flex;
+  background-color: #fedf89;
+  width: 100%;
+  border-radius: 0.25rem;
+  justify-content: center;
+  align-items: center;
+}
+.discount-banner .discount-banner-container .discount-text {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 120%;
+  color: #f04438;
+  padding: 0 2rem 0 0;
+}
+.discount-banner .discount-banner-container .discount-code {
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 120%;
+  color: #f04438;
+  border: 0.125rem dashed #f04438;
+  border-radius: 0.125rem;
+  padding: 0.5rem 1.5rem;
+}
+.discount-banner .discount-banner-container .discount-notes {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 120%;
+  padding: 0 0.5rem 0.5em 0;
+}
+
+.best-choices {
+  height: 48.5rem;
+  padding: 0 19.5rem;
+}
+.best-choices .best-choices-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 5rem 0 0 0;
+  align-items: baseline;
+}
+.best-choices .best-choices-title h4 {
+  font-family: "Lexend Deca";
+}
+.best-choices .view-more-button {
+  display: flex;
+  color: #009688;
+}
+.best-choices .view-more-button p {
+  display: flex;
+  cursor: pointer;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 120%;
+  padding: 0 0.25rem 0 0;
+}
+.best-choices hr {
+  margin: 0.75rem 0 0 0;
+  width: 5rem;
+  background-color: #009688;
+  border: 3px solid #009688;
+}
+.best-choices .best-choices-product-1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem 0 0 0;
+}
+.best-choices .best-choices-product-1 .large-horizontal-card {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  width: 45rem;
+  height: 15.5rem;
+  display: grid;
+  grid-template-areas: "image name name" "image price button";
+  grid-template-columns: 45% 27.5% 27.5%;
+  grid-template-rows: 50% 50%;
+  border-radius: 0.125rem;
+  background-color: #ffffff;
+  padding: 1.125rem 1.313rem;
+}
+.best-choices .best-choices-product-1 .large-horizontal-card .product-image {
+  grid-area: image;
+}
+.best-choices .best-choices-product-1 .large-horizontal-card .product-image img {
+  width: 17.875rem;
+  height: 13.25rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.25rem;
+}
+.best-choices .best-choices-product-1 .large-horizontal-card .product-name {
+  grid-area: name;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28.8px;
+  text-align: left;
+  align-self: center;
+}
+.best-choices .best-choices-product-1 .large-horizontal-card .product-price {
+  grid-area: price;
+  align-self: flex-end;
+  color: #ff8a65;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 28.8px;
+}
+.best-choices .best-choices-product-1 .large-horizontal-card .product-price .RM {
+  line-height: 19px;
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+}
+.best-choices .best-choices-product-1 .large-horizontal-card .button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.best-choices .best-choices-product-1 .large-horizontal-card .button-container .add-to-cart-btn {
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #009688;
+  height: 4rem;
+  width: 4rem;
+  grid-area: button;
+  align-self: flex-end;
+}
+.best-choices .best-choices-product-1 .large-horizontal-card .button-container .add-to-cart-btn .cart-icon {
+  color: #ffffff;
+  font-size: 1.75rem;
+}
+.best-choices .best-choices-product-1 .category-card {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  width: 31.5rem;
+  height: 15.5rem;
+  border-radius: 0.125rem;
+  background-color: #ffffff;
+  overflow-y: clip;
+}
+.best-choices .best-choices-product-1 .category-card img {
+  width: 31.5rem;
+  margin: -14rem 0 0 0;
+}
+.best-choices .best-choices-product-2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem 0 4rem 0;
+}
+.best-choices .best-choices-product-2 .category-card {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  width: 31.5rem;
+  height: 15.5rem;
+  border-radius: 0.125rem;
+  background-color: #ffffff;
+  overflow-y: clip;
+}
+.best-choices .best-choices-product-2 .category-card img {
+  width: 31.563rem;
+  margin: -3rem 0 0 0;
+}
+.best-choices .best-choices-product-2 .large-horizontal-card {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  width: 45rem;
+  height: 15.5rem;
+  display: grid;
+  grid-template-areas: "image name name" "image price button";
+  grid-template-columns: 45% 27.5% 27.5%;
+  grid-template-rows: 50% 50%;
+  border-radius: 0.125rem;
+  background-color: #ffffff;
+  padding: 1.125rem 1.313rem;
+}
+.best-choices .best-choices-product-2 .large-horizontal-card .product-image {
+  grid-area: image;
+}
+.best-choices .best-choices-product-2 .large-horizontal-card .product-image img {
+  width: 17.875rem;
+  height: 13.25rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.25rem;
+}
+.best-choices .best-choices-product-2 .large-horizontal-card .product-name {
+  grid-area: name;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28.8px;
+  text-align: left;
+  align-self: center;
+}
+.best-choices .best-choices-product-2 .large-horizontal-card .product-price {
+  grid-area: price;
+  align-self: flex-end;
+  color: #ff8a65;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 28.8px;
+}
+.best-choices .best-choices-product-2 .large-horizontal-card .product-price .RM {
+  line-height: 19px;
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+}
+.best-choices .best-choices-product-2 .large-horizontal-card .button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.best-choices .best-choices-product-2 .large-horizontal-card .button-container .add-to-cart-btn {
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #009688;
+  height: 4rem;
+  width: 4rem;
+  grid-area: button;
+  align-self: flex-end;
+}
+.best-choices .best-choices-product-2 .large-horizontal-card .button-container .add-to-cart-btn .cart-icon {
+  color: #ffffff;
+  font-size: 1.75rem;
+}
+
+.separator {
+  padding: 0 19.5rem;
+}
+.separator hr {
+  border: 0.125rem solid #9e9e9e;
+}
+
+.services {
+  padding: 4rem 19.5rem 0;
+}
+.services .services-container {
+  height: 29rem;
+  background-color: #ff8a65;
+  border-radius: 0.125rem;
+  margin: 0 0 4rem 0;
+}
+.services .services-title h4 {
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  padding: 4rem 0 0 0;
+}
+.services .services-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 6.5rem;
+  padding: 3.5rem 0 3.5rem 0;
+}
+.services .services-content .services-1,
+.services .services-content .services-2,
+.services .services-content .services-3 {
+  display: block;
+  justify-content: center;
+  text-align: center;
+}
+.services .services-content svg {
+  font-size: 2.5rem;
+  color: #ffffff;
+}
+.services .services-content .services-title {
+  padding: 1rem 0;
+  font-family: "Lexend Deca";
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 120%;
+  text-align: center;
+  color: #ffffff;
+}
+.services .services-content .services-text {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 120%;
+  text-align: center;
+  color: #ffffff;
+}
+.services .shop-now-button {
+  display: flex;
+  justify-content: center;
+}
+.services .shop-now-button button {
+  cursor: pointer;
+  margin: 0;
+  background-color: #009688;
+  border-style: none;
+  border-radius: 0.25rem;
+  width: 16.25rem;
+  height: 4rem;
+  font-family: "Lexend Deca";
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  line-height: 120%;
+  color: #ffffff;
+  box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.04), 0px 4px 6px -2px rgba(16, 24, 40, 0.05);
+}
+.services .shop-now-button button:hover {
+  background-color: #00796b;
+}/*# sourceMappingURL=home.css.map */

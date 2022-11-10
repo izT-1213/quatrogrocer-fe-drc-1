@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./address.css";
 import { SlArrowLeft } from "react-icons/sl";
 import { AiOutlinePlusCircle } from "react-icons/ai";
+import "./address.css";
 //history
 import { useNavigate } from "react-router-dom";
 
@@ -56,11 +56,10 @@ function YourShippingAddressPage() {
           <div className="left-icon">
             <SlArrowLeft />
           </div>
-          <div className="back-to-account-link-container">
-            <button className="back-btn" onClick={() => navigate("/profile")}>
-              Return to Account Details
-            </button>
-          </div>
+
+          <button className="back-btn" onClick={() => navigate("/profile")}>
+            Return to Account Details
+          </button>
         </div>
 
         <button

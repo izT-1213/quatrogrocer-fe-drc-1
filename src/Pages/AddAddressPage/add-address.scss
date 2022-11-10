@@ -1,6 +1,8 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
 
+@import "../../Scss/components";
+
 *,
 *::before,
 *::after {
@@ -128,104 +130,125 @@
                 }
               }
 
-              label {
+              .default {
+                display: block;
+                padding-left: 26px;
+                // margin-top: 16px;
+                // margin-bottom: 8px;
+                position: relative;
+                cursor: pointer;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+
+                // label {
                 font-family: "Lexend Deca";
                 font-style: normal;
                 font-weight: 500;
-                font-size: 12px;
+                font-size: 0.9rem;
                 line-height: 120%;
+
+                // }
+              }
+
+              .default input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+              }
+              .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 18px;
+                width: 18px;
+                background-color: #eee;
+                border-radius: 4px;
+              }
+              .checkmark:after {
+                content: "";
+                position: absolute;
+                display: none;
+              }
+              .default:hover input ~ .checkmark {
+                background-color: #ccc;
+              }
+              .default input:checked ~ .checkmark {
+                background-color: $primary-color;
+              }
+              .default input:checked ~ .checkmark:after {
+                display: block;
+              }
+              .default .checkmark:after {
+                left: 7px;
+                top: 3px;
+                width: 5px;
+                height: 10px;
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
               }
             }
-
-            // .default-address {
-            //   display: flex;
-            //   align-content: center;
-            //   gap: 4px;
-            //   margin-top: 16px;
-            //   margin-bottom: 16px;
-
-            // input[type="checkbox"] {
-            //   appearance: none;
-            //   background-color: $white-color;
-            //   margin: 0;
-            //   font: inherit;
-            //   color: currentColor;
-            //   width: 1em;
-            //   height: 1em;
-            //   border: 0.15em solid currentColor;
-            //   border-radius: 0.15em;
-            //   transform: translateY(-0.075em);
-            //   border-color: $primary-color;
-            //   cursor: pointer;
-            // }
-
-            //   .checkmark {
-            // font-family: "Lexend Deca";
-            // font-style: normal;
-            // font-weight: 500;
-            // font-size: 12px;
-            // line-height: 120%;
-            //   }
-            // }
-          }
-          .buttons {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            padding: 0px;
-            gap: 48px;
-            .cancel-btn {
-              background-color: transparent;
-              border: none;
-              font-family: "Lexend Deca";
-              font-style: normal;
-              font-weight: 500;
-              font-size: 16px;
-              line-height: 120%;
-            }
-            .add-address-btn {
-              background-color: $secondary-color;
-              border: none;
-              font-family: "Lexend Deca";
-              font-style: normal;
-              font-weight: 500;
-              font-size: 16px;
-              color: $white-color;
-              line-height: 120%;
+            .buttons {
               display: flex;
               flex-direction: row;
-              justify-content: center;
-              align-items: center;
-              padding: 8px 24px;
-              gap: 8px;
-              border-radius: 2px;
+              justify-content: flex-end;
+              padding: 0rem;
+              gap: 3rem;
+              .cancel-btn {
+                background-color: transparent;
+                border: none;
+                font-family: "Lexend Deca";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 1rem;
+                line-height: 120%;
+                &:hover {
+                  color: $secondary-hover-color;
+                }
+              }
+              .add-address-btn {
+                background-color: $secondary-color;
+                border: none;
+                font-family: "Lexend Deca";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 1rem;
+                color: $white-color;
+                line-height: 120%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                padding: 0.5rem 1.5rem;
+                gap: 0.5rem;
+                border-radius: 0.125;
+                &:hover {
+                  background-color: $secondary-hover-color;
+                }
+              }
             }
           }
         }
       }
     }
-  }
-  .navigation-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-items: flex-end;
+    .navigation-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-items: flex-end;
 
-    .left-icon {
-      font-size: 10px;
-    }
+      .left-icon {
+        font-size: 0.625rem;
+      }
 
-    .back-btn {
-      font-family: $primary-fonts;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 120%;
-      border: none;
-      background-color: $white-color;
-
-      &:hover {
-        color: $secondary-color;
+      .back-btn {
+        @include return-button;
       }
     }
   }

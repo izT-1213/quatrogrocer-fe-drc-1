@@ -1,9 +1,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
-h1,
-h2,
+h1 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+h2 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+
 h3 {
   margin: 0;
-  line-height: 1.1;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.75rem;
+}
+
+h4 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.125rem;
+}
+
+h5 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+h6 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 1.75rem;
 }
 
 p {
@@ -18,7 +53,7 @@ a:active {
 }
 
 a:hover {
-  color: #fafafa;
+  color: #009688;
 }
 
 *,
@@ -27,36 +62,39 @@ a:hover {
   margin: 0;
 }
 
-.add-address-page-container {
+.edit-address-page-container {
   margin: 5rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 }
-.add-address-page-container .container-1 {
+.edit-address-page-container .container-1 {
   flex-direction: column;
 }
-.add-address-page-container .container-1 .my-account-header h1 {
+.edit-address-page-container .container-1 .my-account-header {
+  padding: 1rem 0 1rem 0;
+}
+.edit-address-page-container .container-1 .my-account-header h1 {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 700;
   font-size: 2.75rem;
   line-height: 120%;
 }
-.add-address-page-container .container-1 .add-new-address-container {
+.edit-address-page-container .container-1 .edit-new-address-container {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem 0 0 0;
+  padding: 0 0 1rem 0;
 }
-.add-address-page-container .container-1 .add-new-address-container h2 {
+.edit-address-page-container .container-1 .edit-new-address-container h2 {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 600;
   font-size: 1.875rem;
   line-height: 120%;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container {
-  margin-top: 2rem 0 0 0;
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container {
+  margin: 2rem 0 0 0;
   background: #ffffff;
   width: 33.75rem;
   height: 27.5rem;
@@ -64,97 +102,66 @@ a:hover {
   top: 16.25rem 0 0 0;
   box-shadow: 0rem 0.5rem 1rem -0.25rem rgba(16, 24, 40, 0.04), 0px 0.25rem 0.5rem -0.125rem rgba(16, 24, 40, 0.04);
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content {
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content {
   padding: 1.688rem;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form {
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 0rem;
   gap: 1rem;
-  padding-bottom: 1rem;
+  padding: 0 0 1rem 0;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form label {
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form label {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 120%;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container {
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form .address-line-container {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container input[type=text] {
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form .address-line-container input[type=text] {
   border-radius: 0.25rem;
   background-color: #fafafa;
   width: 28.75rem;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-1 {
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-1 {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-2 {
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-2 {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-3 {
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-3 {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .postcode-and-state-container {
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form .postcode-and-state-container {
   display: flex;
   flex-direction: row;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .postcode-and-state-container input {
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form .postcode-and-state-container input {
   border-radius: 0.25rem;
   background-color: #fafafa;
   width: 13.75rem;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.313rem;
-}
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container input[type=checkbox] {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background-color: #ffffff;
-  margin: 0;
-  font: inherit;
-  color: currentColor;
-  width: 1rem;
-  height: 1rem;
-  border: 0.15rem solid currentColor;
-  border-radius: 0.15rem;
-  transform: translateY(-0.075rem);
-  border-color: #009688;
-  cursor: pointer;
-}
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container input[type=checkbox]:checked {
-  background-color: #ff8a65;
-}
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container label {
-  font-family: "Lexend Deca";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 120%;
-}
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons {
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .buttons {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   padding: 3rem;
   gap: 3rem;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .cancel-btn {
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .buttons .cancel-btn {
   background-color: transparent;
   border: none;
   font-family: "Lexend Deca";
@@ -163,7 +170,7 @@ a:hover {
   font-size: 1rem;
   line-height: 120%;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn {
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .buttons .update-address-btn {
   background-color: #ff8a65;
   border: none;
   font-family: "Lexend Deca";
@@ -180,24 +187,25 @@ a:hover {
   gap: 0.5rem;
   border-radius: 0.125rem;
 }
-.add-address-page-container .navigation-container {
+.edit-address-page-container .navigation-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-items: flex-end;
 }
-.add-address-page-container .navigation-container .left-icon {
+.edit-address-page-container .navigation-container .left-icon {
   font-size: 0.625rem;
 }
-.add-address-page-container .navigation-container .back-btn {
+.edit-address-page-container .navigation-container .back-btn {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: 14px;
   line-height: 120%;
   border: none;
-  background-color: #ffffff;
+  background-color: transparent;
+  color: #252525;
 }
-.add-address-page-container .navigation-container .back-btn:hover {
-  color: #ff8a65;
+.edit-address-page-container .navigation-container .back-btn:hover {
+  color: #ff7043;
 }/*# sourceMappingURL=edit-address.css.map */

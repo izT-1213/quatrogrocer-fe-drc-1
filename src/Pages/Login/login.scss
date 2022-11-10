@@ -43,12 +43,12 @@ p {
       justify-content: center;
       align-self: center;
       background-color: white;
-      width: 400px;
-      height: 620px;
+      width: 28.75rem;
+      height: 43.75rem;
       box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
         0px 4px 6px -2px rgba(16, 24, 40, 0.05);
       border-radius: 8px;
-      padding: 5rem;
+      padding: 3.75rem;
 
       .login-form-content {
         height: 100%;
@@ -59,14 +59,16 @@ p {
         text-align: left;
 
         .login-form-title {
-          font-family: "Lexend Deca";
+          font-family: $primary-fonts;
           font-size: 38px;
-          padding-bottom: 10px;
+          padding: 0 0 0.5rem 0;
         }
 
         .forgot-pwd-text {
-          font-size: 14px;
-          padding-top: 10px;
+          font-family: $primary-fonts;
+          font-weight: map-get($map: $font-weight, $key: "medium");
+          font-size: 0.875rem;
+          padding: 0.5rem 0 0 0;
         }
 
         .forgot-pwd-text a {
@@ -74,9 +76,11 @@ p {
         }
 
         .sign-up-text-center {
-          padding-top: 7px;
+          font-size: 1rem;
+          font-family: $secondary-fonts;
+          font-weight: map-get($map: $font-weight, $key: "light");
           text-align: center;
-          width: 310px;
+          width: 19.375rem;
         }
 
         .signup-link {
@@ -101,19 +105,23 @@ p {
         }
 
         .or-box {
-          color: white;
+          color: $white-color;
           display: table-cell;
           align-items: center;
-          width: 32px;
-          height: 28px;
-          padding: 4px;
-          gap: 4px;
+          width: 2rem;
+          height: 1.75rem;
+          padding: 0.25rem;
+          gap: 0.25rem;
           background: $primary-color;
-          border: 1px solid $primary-color;
-          border-radius: 3px;
+          border: 0.063rem solid $primary-color;
+          border-radius: 0.188rem;
+          font-family: $primary-fonts;
+          font-size: 1rem;
+          font-weight: map-get($map: $font-weight, $key: "medium");
         }
 
         .login-apps-container {
+          height: 3.125rem;
           display: flex;
           justify-content: space-evenly;
           align-content: space-evenly;
@@ -122,22 +130,21 @@ p {
 
         .login-apps {
           display: table;
-        }
 
-        .login-apps-icons {
-          display: table-cell;
-          font-size: 2.5rem;
-        }
+          .login-apps-icons {
+            display: table-cell;
+            font-size: 1.5rem;
 
-        .login-apps-icons svg {
-          color: black;
+            svg {
+              color: $black-color;
+            }
+          }
         }
 
         .form-group-mt-3 {
-          font-family: "Lexend Deca";
-          font-size: 18px;
-          padding-top: 10px;
-          padding-bottom: 10px;
+          font-family: $primary-fonts;
+          font-size: 0.875rem;
+          padding: 1rem 0 0.25rem;
         }
 
         .form-control-mt-1 {
@@ -150,14 +157,15 @@ p {
         }
 
         .d-grid-gap-2-mt-3 {
-          padding-top: 10px;
-          padding-bottom: 10px;
+          padding: 1.5rem 0;
         }
 
         .signup-login-btn {
-          font-family: "Lexend Deca";
-          font-size: 18px;
-          color: white;
+          font-family: $primary-fonts;
+          font-size: 1rem;
+          font-weight: map-get($map: $font-weight, $key: "medium");
+          text-transform: uppercase;
+          color: $white-color;
           display: flex;
           flex-direction: row;
           justify-content: center;

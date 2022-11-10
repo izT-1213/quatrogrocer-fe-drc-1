@@ -1,0 +1,380 @@
+@import "../../Scss/colors";
+@import "../../Scss/fonts";
+@import "../../Scss/components";
+
+// Reset All Elements
+*,
+*::after,
+*::before {
+  margin: 0;
+}
+
+.home-header {
+  height: calc(100vh - 4.5rem);
+  display: flex;
+  background-color: $bluegrey-tint;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 19.5rem;
+
+  h1 {
+    text-transform: uppercase;
+    font-family: $primary-fonts;
+    padding: 0 0 0.5rem 0;
+  }
+
+  p {
+    font-family: $secondary-fonts;
+    font-weight: map-get($map: $font-weight, $key: "medium");
+    font-size: 1.25rem;
+    line-height: 120%;
+    padding: 1rem 0 2.5rem 0;
+  }
+
+  button {
+    cursor: pointer;
+    margin: 0;
+    background-color: $secondary-color;
+    border-style: none;
+    border-radius: 0.25rem;
+    width: 16.25rem;
+    height: 4rem;
+    //Button Text Styling
+    font-family: $primary-fonts;
+    font-weight: map-get($map: $font-weight, $key: "bold");
+    font-size: 1rem;
+    text-transform: uppercase;
+    line-height: 120%;
+    color: $white-color;
+  }
+
+  button:hover {
+    background-color: $secondary-hover-color;
+  }
+
+  .home-image-container img {
+    display: flex;
+    height: calc(100vh - 4.5rem);
+  }
+}
+
+.today-top-deals {
+  height: 59rem;
+  padding: 0 19.5rem;
+
+  .today-top-deals-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 5rem 0 0 0;
+    align-items: baseline;
+
+    h4 {
+      font-family: $primary-fonts;
+    }
+  }
+
+  .view-more-button {
+    display: flex;
+    color: $primary-color;
+
+    p {
+      display: flex;
+      cursor: pointer;
+      font-family: $secondary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      font-size: 1.25rem;
+      line-height: 120%;
+      padding: 0 0.25rem 0 0;
+    }
+  }
+
+  hr {
+    margin: 0.75rem 0 0 0;
+    width: 7.5rem;
+    background-color: $primary-color;
+    border: 3px solid $primary-color;
+  }
+
+  .today-top-deals-product {
+    display: flex;
+    padding: 2.5rem 0 0 0;
+
+    .vertical-card {
+      @include vertical-card;
+    }
+
+    .horizontal-cards-container {
+      padding-left: 3rem;
+      width: 100%;
+      height: 100%;
+
+      .right-col-cards {
+        border-right: 1.688rem solid transparent;
+      }
+
+      .left-col-cards {
+        border-left: 1.688rem solid transparent;
+      }
+      .horizontal-card {
+        @include small-horizontal-card;
+      }
+    }
+  }
+}
+
+.promotion-banner {
+  height: 17.25rem;
+  display: flex;
+  background-color: $primary-color;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 19.5rem;
+  margin: 0 0 3rem 0;
+  overflow-y: clip;
+
+  .banner-image-container img {
+    display: flex;
+    height: 31.25rem;
+    margin: -8rem 0 0 0;
+  }
+
+  .promotion-banner-content {
+    p {
+      color: $white-color;
+    }
+
+    .promotion-banner-header {
+      font-family: $primary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "semibold");
+      font-size: 1.625rem;
+      line-height: 120%;
+      text-transform: uppercase;
+    }
+
+    .promotion-banner-text {
+      padding: 0.5rem 0 0 0;
+      font-family: $primary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      font-size: 0.875rem;
+      line-height: 120%;
+    }
+  }
+}
+
+.discount-banner {
+  padding: 0rem 19.5rem;
+
+  .discount-banner-container {
+    position: relative;
+    height: 6rem;
+    display: flex;
+    background-color: $warning-color;
+    width: 100%;
+    border-radius: 0.25rem;
+    justify-content: center;
+    align-items: center;
+
+    .discount-text {
+      font-family: $secondary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      font-size: 1.25rem;
+      line-height: 120%;
+      color: $error-color;
+      padding: 0 2rem 0 0;
+    }
+
+    .discount-code {
+      font-family: $secondary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "bold");
+      font-size: 1.25rem;
+      line-height: 120%;
+      color: $error-color;
+      border: 0.125rem dashed $error-color;
+      border-radius: 0.125rem;
+      padding: 0.5rem 1.5rem;
+    }
+
+    .discount-notes {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-family: $secondary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      font-size: 0.75rem;
+      line-height: 120%;
+      padding: 0 0.5rem 0.5em 0;
+    }
+  }
+}
+
+.best-choices {
+  height: 48.5rem;
+  padding: 0 19.5rem;
+
+  .best-choices-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 5rem 0 0 0;
+    align-items: baseline;
+
+    h4 {
+      font-family: $primary-fonts;
+    }
+  }
+
+  .view-more-button {
+    display: flex;
+    color: $primary-color;
+
+    p {
+      display: flex;
+      cursor: pointer;
+      font-family: $secondary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      font-size: 1.25rem;
+      line-height: 120%;
+      padding: 0 0.25rem 0 0;
+    }
+  }
+
+  hr {
+    margin: 0.75rem 0 0 0;
+    width: 5rem;
+    background-color: $primary-color;
+    border: 3px solid $primary-color;
+  }
+
+  .best-choices-product-1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 2.5rem 0 0 0;
+
+    .large-horizontal-card {
+      @include large-horizontal-card;
+    }
+
+    .category-card {
+      @include category-card;
+      overflow-y: clip;
+
+      img {
+        width: 31.5rem;
+        margin: -14rem 0 0 0;
+      }
+    }
+  }
+
+  .best-choices-product-2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 2.5rem 0 4rem 0;
+
+    .category-card {
+      @include category-card;
+      overflow-y: clip;
+
+      img {
+        width: 31.563rem;
+        margin: -3rem 0 0 0;
+      }
+    }
+
+    .large-horizontal-card {
+      @include large-horizontal-card;
+    }
+  }
+}
+
+.separator {
+  padding: 0 19.5rem;
+
+  hr {
+    border: 0.125rem solid $grey-color;
+  }
+}
+
+.services {
+  padding: 4rem 19.5rem 0;
+
+  .services-container {
+    height: 29rem;
+    background-color: $secondary-color;
+    border-radius: 0.125rem;
+    margin: 0 0 4rem 0;
+  }
+
+  .services-title h4 {
+    display: flex;
+    justify-content: center;
+    color: $white-color;
+    padding: 4rem 0 0 0;
+  }
+
+  .services-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 6.5rem;
+    padding: 3.5rem 0 3.5rem 0;
+
+    .services-1,
+    .services-2,
+    .services-3 {
+      display: block;
+      justify-content: center;
+      text-align: center;
+    }
+
+    svg {
+      font-size: 2.5rem;
+      color: $white-color;
+    }
+
+    .services-title {
+      padding: 1rem 0;
+      font-family: $primary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "bold");
+      font-size: 1.5rem;
+      line-height: 120%;
+      text-align: center;
+      color: $white-color;
+    }
+
+    .services-text {
+      font-family: $secondary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      font-size: 1rem;
+      line-height: 120%;
+      text-align: center;
+      color: $white-color;
+    }
+  }
+
+  .shop-now-button {
+    display: flex;
+    justify-content: center;
+
+    button {
+      cursor: pointer;
+      margin: 0;
+      background-color: $primary-color;
+      border-style: none;
+      border-radius: 0.25rem;
+      width: 16.25rem;
+      height: 4rem;
+      //Button Text Styling
+      font-family: $primary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "bold");
+      font-size: 1rem;
+      text-transform: uppercase;
+      line-height: 120%;
+      color: $white-color;
+      box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.04),
+        0px 4px 6px -2px rgba(16, 24, 40, 0.05);
+    }
+
+    button:hover {
+      background-color: $primary-hover-dark-color;
+    }
+  }
+}

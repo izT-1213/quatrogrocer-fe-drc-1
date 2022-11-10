@@ -4,29 +4,20 @@ import Input from "@material-ui/core/Input";
 import "./edit-address.css";
 import { SlArrowLeft } from "react-icons/sl";
 import { useNavigate } from "react-router-dom";
-// import {
-//   allPostcodes,
-//   getStates,
-//   getCities,
-//   getPostcodes,
-//   findPostcode,
-// } from "malaysia-postcodes";
-// import YourShippingAddressPage from "../address";
 
 function EditAddressPage() {
-  // function handleAddAddress() {}
   function clearInput() {
     document.getElementById("form").reset();
   }
 
   const navigate = useNavigate();
   return (
-    <div className="add-address-page-container">
+    <div className="edit-address-page-container">
       <div className="container-1">
         <div className="my-account-header">
           <h1>My Account</h1>
         </div>
-        <div className="add-new-address-container">
+        <div className="edit-new-address-container">
           <h2>Edit Address</h2>
           <div className="address-form-container">
             <div className="address-form-content">
@@ -65,7 +56,6 @@ function EditAddressPage() {
                     />
                   </div>
                 </div>
-
                 <div className="postcode-and-state-container">
                   <div className="postcode">
                     <label>Postcode</label>
@@ -89,9 +79,10 @@ function EditAddressPage() {
                     />
                   </div>
                 </div>
-                {/* <label class="default-address">
-                  <input type="checkbox" id="input" />
-                  <span class="checkmark"></span> Set as default address
+                {/* <label class="default">
+                  <input class="checkbox" id="input" type="checkbox" />
+                  <span class="checkmark"></span>
+                  Set as default address
                 </label> */}
               </form>
               <div className="buttons">
@@ -99,7 +90,7 @@ function EditAddressPage() {
                   Cancel
                 </button>
                 <button
-                  className="add-address-btn"
+                  className="update-address-btn"
                   /*onClick={() => navigate("/address")}*/
                 >
                   Update Address

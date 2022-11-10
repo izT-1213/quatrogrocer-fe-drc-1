@@ -16,7 +16,8 @@
 footer {
   height: 32.875rem;
   background-color: $grey-tint;
-  padding: 0 5rem;
+  color: $black-color;
+  padding: 0 19.5rem;
 
   .footer-top {
     @include footer-section;
@@ -26,7 +27,7 @@ footer {
 
   .footer-top-right {
     @include footer-section;
-    width: 40%;
+    width: 60%;
     justify-content: space-around;
   }
 

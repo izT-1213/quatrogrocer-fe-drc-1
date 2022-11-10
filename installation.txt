@@ -7,3 +7,5 @@ npm install react-icons --save
 npm i malaysia-postcodes
 npm install react-hooks
 npm i use-history
+
+npm install --save image-overlay-react --force
