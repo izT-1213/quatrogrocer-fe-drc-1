@@ -26,9 +26,7 @@ function ProductPage() {
         </div>
 
         <div className="product-section">
-          <div className="carousel">
-            <h1>carousel</h1>
-          </div>
+          <div className="img-holder"></div>
         </div>
       </div>
     </div>

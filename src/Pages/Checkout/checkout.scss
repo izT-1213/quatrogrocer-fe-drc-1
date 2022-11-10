@@ -8,7 +8,7 @@
 }
 
 .checkout-page-container {
-  padding: 2rem 4.688rem;
+  padding: 2rem 19.5rem;
   display: grid;
   grid-template:
     "header header"
@@ -21,7 +21,6 @@
     justify-content: flex-start;
     align-items: center;
     font-weight: 500;
-
     padding: 1.063rem 0 2rem 0;
 
     p {
@@ -32,15 +31,16 @@
   .shipping-payment-content-container {
     grid-area: main;
     background-color: white;
-    height: 78.25vh;
+    height: 110vh;
     border-radius: 2px;
     box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
       0px 4px 6px -2px rgba(16, 24, 40, 0.05);
-    width: 53.75vw;
+    width: 40vw;
+    padding: 2.5rem;
 
     hr {
       width: 90px;
-      border: 3px solid #009688;
+      border: 3px solid $primary-color;
     }
 
     h1 {
@@ -67,10 +67,20 @@
     }
 
     .contact-info {
-      padding: 40px 40px 32px 40px;
+      padding-bottom: 32px;
+
+      .email-addr {
+        padding-top: 4px;
+        font-size: 17px;
+      }
+
+      .phone-num {
+        padding-top: 4px;
+        font-size: 19px;
+      }
     }
     .shipping-dets {
-      padding: 0 40px 32px 40px;
+      padding-bottom: 32px;
 
       h3 {
         padding-bottom: 8px;
@@ -78,7 +88,7 @@
 
       .user-address-dropdown {
         border: 1px solid rgba(189, 189, 189, 1);
-        padding: 24px;
+        padding: 24px 24px 14px 24px;
         display: grid;
         grid-template:
           "name arrow"
@@ -101,72 +111,226 @@
 
         .addr-dropdown-icon {
           grid-area: arrow;
-          padding: 40px 0 40px 44px;
+          padding: 32px 0 32px 44px;
+          .expand-arrow {
+            font-size: 40px;
+          }
         }
       }
     }
     .payment-dets {
-      padding: 0 40px 32px 40px;
+      padding-bottom: 32px;
 
-      .radio-buttom-style {
+      .radio-button-style {
         color: $primary-color;
+      }
+
+      .inner-content {
+        .radio-content {
+          padding-top: 0.5rem;
+          .MuiFormControlLabel-label {
+            font-size: 20px;
+            font-weight: 500;
+          }
+          .options {
+            border: 1px solid rgba(189, 189, 189, 1);
+            display: flex;
+            align-items: center;
+            padding: 16px 36px 16px 25.5px;
+          }
+          .quatro-creds {
+            border: 1px solid rgba(189, 189, 189, 1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 36px 16px 25.5px;
+
+            .credit-balance {
+              font-size: 20px;
+              font-weight: 300;
+            }
+          }
+        }
+      }
+    }
+
+    .order-submit {
+      button {
+        width: 100%;
+        height: 4.5rem;
+        border-radius: 0.188rem;
+        background-color: $primary-color;
+        border: none;
+        cursor: pointer;
+        font-family: "Lexend Deca";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 120%;
+        color: $white-color;
       }
     }
   }
 
   .order-summary-container {
     grid-area: right;
-
     display: flex;
     justify-content: flex-end;
-    padding-right: 20px;
 
     .order-summary {
-      height: 78.25vh;
-      width: 25.25vw;
+      height: 110vh;
+      width: 25vw;
       border-radius: 2px;
-
       background-color: white;
       box-shadow: 0rem 0.75rem 1rem -0.25rem rgba(16, 24, 40, 0.1),
         0rem 0.25rem 0.375rem -0.125rem rgba(16, 24, 40, 0.05);
 
       h3 {
         padding: 2.5rem;
+        font-size: 24px;
       }
 
       .cart-content {
-        padding: 0 0 1.5rem 2.5rem;
+        padding: 0 2.5rem 1.5rem 2.5rem;
+        height: 42%;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        .product-card {
+          display: grid;
+          grid-template:
+            "image name name name"
+            "image price price price"
+            "image quantity quantity quantity"
+            "image del del del";
+          box-shadow: 0rem 0.75rem 1rem -0.25rem rgba(16, 24, 40, 0.1),
+            0rem 0.25rem 0.375rem -0.125rem rgba(16, 24, 40, 0.05);
+          padding: 0.75rem;
+          font-size: 1.05rem;
+          width: 25.25rem;
+          height: 7.13rem;
+
+          .product-image {
+            grid-area: image;
+            height: 5.62rem;
+            width: 5.62rem;
+            align-self: center;
+            img {
+              height: inherit;
+              width: inherit;
+              object-fit: cover;
+            }
+          }
+
+          .product-name {
+            grid-area: name;
+          }
+
+          .product-price {
+            grid-area: price;
+          }
+
+          .quantity-adjust {
+            grid-area: quantity;
+            display: flex;
+            justify-content: flex-end;
+
+            .quantity-value {
+              align-self: center;
+              padding: 0 1.125rem;
+            }
+          }
+
+          .del {
+            grid-area: del;
+            font-size: 14px;
+            text-decoration: underline;
+          }
+        }
       }
 
       .vouchers {
         padding: 2.5rem;
-        display: flex;
-        .voucher-texts {
-          width: 21.25rem;
-          height: 3.125rem;
-          .title {
-            padding: 0.563rem 0 0 1.438rem;
-            font-weight: 500;
-            font-size: 0.875rem;
+
+        .voucher-box {
+          display: grid;
+          box-shadow: 0rem 0.75rem 1rem -0.25rem rgba(16, 24, 40, 0.1),
+            0rem 0.25rem 0.375rem -0.125rem rgba(16, 24, 40, 0.05);
+          grid-template: "input button";
+
+          .voucher-texts {
+            grid-area: input;
+            width: 21.25rem;
+            height: 3.125rem;
+            .title {
+              padding: 0.563rem 0 0 1.438rem;
+              font-weight: 500;
+              font-size: 0.875rem;
+            }
+            .desc {
+              width: 100%;
+              padding: 0 0 0 1.438rem;
+              font-weight: 300;
+              font-size: 0.875rem;
+            }
+            .input {
+              width: 100%;
+              padding: 0 0 0 1.438rem;
+              font-weight: 300;
+              font-size: 1.75rem;
+
+              .MuiInputBase-input {
+                padding: 0;
+                height: 3.125rem;
+              }
+            }
           }
-          .desc {
-            width: 100%;
-            padding: 0 0 0 1.438rem;
-            font-weight: 300;
-            font-size: 0.875rem;
+          .voucher-arrow {
+            grid-area: button;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 0px;
+            gap: 0.5rem;
+            color: white;
+            background-color: $secondary-color;
+            width: 3.625rem;
+            height: 3.125rem;
           }
         }
-        .voucher-arrow {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          padding: 0px;
-          gap: 0.5rem;
-          color: white;
-          background-color: $secondary-color;
-          width: 4.625rem;
-          height: 3.125rem;
+      }
+
+      .total {
+        padding: 2.5rem;
+
+        table {
+          height: 100%;
+          width: 100%;
+          padding: 1.5rem 0px 0.5rem 0;
+          text-align: right;
+          border-collapse: collapse;
+
+          .left-col {
+            font-size: 1.125rem;
+            font-weight: 500;
+          }
+
+          .right-col {
+            .RM {
+              font-size: 1.125rem;
+              font-weight: 500;
+            }
+            .RM-value {
+              font-size: 1.75rem;
+              font-weight: 700;
+              line-height: 2.1rem;
+            }
+          }
+
+          .total-row {
+            border-top: 0.125rem solid black;
+          }
         }
       }
     }

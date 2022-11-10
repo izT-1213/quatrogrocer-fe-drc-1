@@ -1,14 +1,126 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
-import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
-import AutorenewOutlinedIcon from "@mui/icons-material/AutorenewOutlined";
+import { useNavigate, Link } from "react-router-dom";
+import {
+  ArrowRightAlt,
+  AddShoppingCart,
+  LocalOfferOutlinedIcon,
+  PaymentOutlinedIcon,
+  AutorenewOutlinedIcon,
+} from "@mui/icons-material";
 import "./home.css";
 
 function Home() {
   const navigate = useNavigate();
+
+  //need to do function to map api product here
+  const HorCardContainer = () => (
+    <div>
+      <table className="horizontal-cards-container">
+        <tr>
+          <td className="right-col-cards">
+            <div className="horizontal-card">
+              <div className="product-image">
+                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+              </div>
+              <p className="product-name">Farm Fresh Pure Milk 2L</p>
+              <p className="product-price">
+                <text className="RM">RM</text> 15.45
+              </p>
+              <div className="button-container">
+                <button className="add-to-cart-btn">
+                  <AddShoppingCart className="cart-icon" />
+                </button>
+              </div>
+            </div>
+          </td>
+          <td className="left-col-cards">
+            <div className="horizontal-card">
+              <div className="product-image">
+                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+              </div>
+              <p className="product-name">Farm Fresh Pure Milk 2L</p>
+              <p className="product-price">
+                <text className="RM">RM</text> 15.45
+              </p>
+              <div className="button-container">
+                <button className="add-to-cart-btn">
+                  <AddShoppingCart className="cart-icon" />
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td className="right-col-cards">
+            <div className="horizontal-card">
+              <div className="product-image">
+                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+              </div>
+              <p className="product-name">Farm Fresh Pure Milk 2L</p>
+              <p className="product-price">
+                <text className="RM">RM</text> 15.45
+              </p>
+              <div className="button-container">
+                <button className="add-to-cart-btn">
+                  <AddShoppingCart className="cart-icon" />
+                </button>
+              </div>
+            </div>
+          </td>
+          <td className="left-col-cards">
+            <div className="horizontal-card">
+              <div className="product-image">
+                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+              </div>
+              <p className="product-name">Farm Fresh Pure Milk 2L</p>
+              <p className="product-price">
+                <text className="RM">RM</text> 15.45
+              </p>
+              <div className="button-container">
+                <button className="add-to-cart-btn">
+                  <AddShoppingCart className="cart-icon" />
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td className="right-col-cards">
+            <div className="horizontal-card">
+              <div className="product-image">
+                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+              </div>
+              <p className="product-name">Farm Fresh Pure Milk 2L</p>
+              <p className="product-price">
+                <text className="RM">RM</text> 15.45
+              </p>
+              <div className="button-container">
+                <button className="add-to-cart-btn">
+                  <AddShoppingCart className="cart-icon" />
+                </button>
+              </div>
+            </div>
+          </td>
+          <td className="left-col-cards">
+            <div className="horizontal-card">
+              <div className="product-image">
+                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+              </div>
+              <p className="product-name">Farm Fresh Pure Milk 2L</p>
+              <p className="product-price">
+                <text className="RM">RM</text> 15.45
+              </p>
+              <div className="button-container">
+                <button className="add-to-cart-btn">
+                  <AddShoppingCart className="cart-icon" />
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  );
 
   return (
     <div>
@@ -36,14 +148,27 @@ function Home() {
           <h4>Today's Top Deals</h4>
           <div className="view-more-button">
             <p onClick={() => navigate("/deals-&-promotions")}>View More</p>
-            <ArrowRightAltIcon></ArrowRightAltIcon>
+            <ArrowRightAlt />
           </div>
         </div>
         <hr></hr>
 
         <div className="today-top-deals-product">
-          <div className="vertical-card"></div>
-          <div className="horizontal-card"></div>
+          <div className="vertical-card">
+            <div className="product-image">
+              <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+            </div>
+            <p className="product-name">Farm Fresh Pure Milk 2L</p>
+            <p className="product-price">
+              <text className="RM">RM</text> 15.45
+            </p>
+            <div className="button-container">
+              <button className="add-to-cart-btn">
+                <AddShoppingCart className="cart-icon" />
+              </button>
+            </div>
+          </div>
+          <HorCardContainer />
         </div>
       </div>
 
@@ -78,7 +203,7 @@ function Home() {
           <h4>Best Choices</h4>
           <div className="view-more-button">
             <p onClick={() => navigate("/best-sellers")}>View More</p>
-            <ArrowRightAltIcon></ArrowRightAltIcon>
+            <ArrowRightAlt />
           </div>
         </div>
         <hr></hr>

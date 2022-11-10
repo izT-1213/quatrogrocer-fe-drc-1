@@ -10,7 +10,7 @@
 }
 
 .home-header {
-  height: 60rem;
+  height: calc(100vh - 4.5rem);
   display: flex;
   background-color: $bluegrey-tint;
   justify-content: space-between;
@@ -54,7 +54,7 @@
 
   .home-image-container img {
     display: flex;
-    height: 60rem;
+    height: calc(100vh - 4.5rem);
   }
 }
 
@@ -103,8 +103,21 @@
       @include vertical-card;
     }
 
-    .horizontal-card {
-      @include small-horizontal-card;
+    .horizontal-cards-container {
+      padding-left: 3rem;
+      width: 100%;
+      height: 100%;
+
+      .right-col-cards {
+        border-right: 1.688rem solid transparent;
+      }
+
+      .left-col-cards {
+        border-left: 1.688rem solid transparent;
+      }
+      .horizontal-card {
+        @include small-horizontal-card;
+      }
     }
   }
 }

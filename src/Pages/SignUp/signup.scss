@@ -258,9 +258,11 @@ p {
     grid-column: 2;
     display: flex;
     flex-wrap: wrap;
-  }
+    width: 49.6vw;
 
-  .signup-image-container > img {
-    object-fit: cover;
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
   }
 }

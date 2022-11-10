@@ -189,10 +189,8 @@ a:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px;
+  padding: 0px 80px 29px 0;
   gap: 4px;
-  padding-right: 80px;
-  padding-bottom: 29px;
 }
 .address-page-container
   .navigation-buttons
@@ -218,7 +216,8 @@ a:hover {
   font-size: 14px;
   line-height: 120%;
   border: none;
-  background-color: #ffffff;
+  background-color: transparent;
+  color: #252525;
 }
 .address-page-container
   .navigation-buttons

@@ -63,7 +63,7 @@ a:hover {
 }
 
 .home-header {
-  height: 60rem;
+  height: calc(100vh - 4.5rem);
   display: flex;
   background-color: #f8f9fc;
   justify-content: space-between;
@@ -102,7 +102,7 @@ a:hover {
 }
 .home-header .home-image-container img {
   display: flex;
-  height: 60rem;
+  height: calc(100vh - 4.5rem);
 }
 
 .today-top-deals {
@@ -143,17 +143,130 @@ a:hover {
 }
 .today-top-deals .today-top-deals-product .vertical-card {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  display: grid;
+  grid-template-areas: "image image image" "name name name" "price price button";
   width: 25.75rem;
   height: 43.375rem;
   border-radius: 0.125rem;
   background-color: #ffffff;
+  padding: 33px 26px 66px 26px;
 }
-.today-top-deals .today-top-deals-product .horizontal-card {
+.today-top-deals .today-top-deals-product .vertical-card .product-image {
+  grid-area: image;
+}
+.today-top-deals .today-top-deals-product .vertical-card .product-image img {
+  width: 22.5rem;
+  height: 27.438rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.25rem;
+}
+.today-top-deals .today-top-deals-product .vertical-card .product-name {
+  grid-area: name;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 28.8px;
+}
+.today-top-deals .today-top-deals-product .vertical-card .product-price {
+  grid-area: price;
+  align-self: flex-end;
+  color: #ff8a65;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 28.8px;
+}
+.today-top-deals .today-top-deals-product .vertical-card .product-price .RM {
+  font-size: 20px;
+  font-weight: 500;
+  color: black;
+}
+.today-top-deals .today-top-deals-product .vertical-card .button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.today-top-deals .today-top-deals-product .vertical-card .button-container .add-to-cart-btn {
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #009688;
+  height: 4rem;
+  width: 4rem;
+  grid-area: button;
+  align-self: flex-end;
+}
+.today-top-deals .today-top-deals-product .vertical-card .button-container .add-to-cart-btn .cart-icon {
+  color: #ffffff;
+  font-size: 1.75rem;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container {
+  padding-left: 3rem;
+  width: 100%;
+  height: 100%;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .right-col-cards {
+  border-right: 1.688rem solid transparent;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .left-col-cards {
+  border-left: 1.688rem solid transparent;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
-  width: 23.75rem;
-  height: 13.125rem;
+  display: grid;
+  grid-template-areas: "image name name" "image name name" "image price button";
+  width: 100%;
+  height: 100%;
   border-radius: 0.125rem;
   background-color: #ffffff;
+  padding: 1.875rem 1.5rem;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-image {
+  grid-area: image;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-image img {
+  width: 7.5rem;
+  height: 9.375rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.25rem;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-name {
+  padding-left: 24px;
+  grid-area: name;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 19.2px;
+  text-align: left;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-price {
+  padding-left: 24px;
+  grid-area: price;
+  align-self: flex-end;
+  color: #ff8a65;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 26px;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-price .RM {
+  line-height: 19px;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .button-container .add-to-cart-btn {
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #009688;
+  height: 2.5rem;
+  width: 2.5rem;
+  grid-area: button;
+  align-self: flex-end;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .button-container .add-to-cart-btn .cart-icon {
+  color: #ffffff;
+  font-size: 1.25rem;
 }
 
 .promotion-banner {

@@ -276,8 +276,10 @@ p {
   grid-column: 2;
   display: flex;
   flex-wrap: wrap;
+  width: 49.6vw;
 }
-.sign-up-page-container .signup-image-container > img {
+.sign-up-page-container .signup-image-container img {
   -o-object-fit: cover;
      object-fit: cover;
+  width: 100%;
 }/*# sourceMappingURL=signup.css.map */
