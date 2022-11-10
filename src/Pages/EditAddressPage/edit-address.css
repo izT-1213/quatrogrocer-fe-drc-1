@@ -200,12 +200,11 @@ a:hover {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 120%;
   border: none;
-  background-color: transparent;
-  color: #252525;
+  background-color: #ffffff;
 }
 .edit-address-page-container .navigation-container .back-btn:hover {
-  color: #ff7043;
+  color: #ff8a65;
 }/*# sourceMappingURL=edit-address.css.map */

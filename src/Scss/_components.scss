@@ -92,7 +92,7 @@
     grid-area: image;
     img {
       width: 7.5rem;
-      height: 9.375rem; 
+      height: 9.375rem;
       object-fit: cover;
       border-radius: 0.25rem;
     }
@@ -240,4 +240,18 @@
   width: 61.75rem;
   height: 22rem;
   border-radius: 0.25rem;
+}
+
+@mixin return-button {
+  font-family: $primary-fonts;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 120%;
+  border: none;
+  background-color: $white-color;
+
+  &:hover {
+    color: $secondary-color;
+  }
 }
