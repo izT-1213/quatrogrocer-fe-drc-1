@@ -1,5 +1,6 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
@@ -142,7 +143,7 @@ function Home() {
           </div>
 
           <div className="shop-now-button">
-            <button>Shop Now</button>
+            <button onClick={() => navigate("/marketplace")}>Shop Now</button>
           </div>
         </div>
       </div>

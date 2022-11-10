@@ -1,7 +1,7 @@
 import Nav from "./Components/navbar/navbar.jsx";
 import Footer from "./Components/footer/footer.jsx";
 import Home from "./Pages/Home/home.jsx";
-// import ProductPage from "./Pages/ProductPage";
+import ProductPage from "./Pages/ProductPage/product-page.jsx";
 // import BestSellers from "./Pages/BestSellers";
 // import NewItems from "./Pages/NewItems";
 // import Deals from "./Pages/Deals";
@@ -32,10 +32,10 @@ function App() {
 
         <Routes>
           {/*<Route path="/main-page" element={<MainPage />} />
-          <Route path="/marketplace" element={<ProductPage />} />
           <Route path="/best-sellers" element={<BestSellers />} />
           <Route path="/all-new" element={<NewItems />} />
-          <Route path="/deals-&-promotions" element={<Deals />} />*/}
+        <Route path="/deals-&-promotions" element={<Deals />} />*/}
+          <Route path="/marketplace" element={<ProductPage />} />
           <Route path="/" element={<Home />} />
           <Route path="profile" element={<UserProfilePage />} />
           <Route path="edit-profile" element={<EditProfilePage />} />
