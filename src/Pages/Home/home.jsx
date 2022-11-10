@@ -124,6 +124,23 @@ function Home() {
     </div>
   );
 
+  const LargeHorCard = () => (
+    <div className="large-horizontal-card">
+      <div className="product-image">
+        <img src="https://images.unsplash.com/photo-1621378580414-421cba519671?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" />
+      </div>
+      <p className="product-name">Pickle Jar 500GMS</p>
+      <p className="product-price">
+        <text className="RM">RM</text> 15.45
+      </p>
+      <div className="button-container">
+        <button className="add-to-cart-btn">
+          <AddShoppingCart className="cart-icon" />
+        </button>
+      </div>
+    </div>
+  );
+
   return (
     <div>
       <div className="home-header">
@@ -195,7 +212,7 @@ function Home() {
           <p className="discount-text">
             Super discount for your first purchase!
           </p>
-          <p className="discount-code">First2GQ</p>
+          <p className="discount-code">First2QG</p>
           <p className="discount-notes">Apply discount code in checkout.</p>
         </div>
       </div>
@@ -211,9 +228,7 @@ function Home() {
         <hr></hr>
 
         <div className="best-choices-product-1">
-          <div className="large-horizontal-card">
-            <p>hello world</p>
-          </div>
+          <LargeHorCard />
           <div className="category-card">
             <ImgOverlay
               imgSrc="https://images.unsplash.com/photo-1582401656496-9d75f95f9018?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80"
@@ -245,9 +260,7 @@ function Home() {
               Meat
             </ImgOverlay>
           </div>
-          <div className="large-horizontal-card">
-            <p>hello world</p>
-          </div>
+          <LargeHorCard />
         </div>
       </div>
 

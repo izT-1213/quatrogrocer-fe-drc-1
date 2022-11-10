@@ -1,101 +1,190 @@
-import React from "react";
-import { useLocation, Link } from "react-router-dom";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import React, { useState } from "react";
+import {
+  ArrowForwardIos,
+  AddBoxOutlined,
+  IndeterminateCheckBoxOutlined,
+  AddShoppingCart,
+} from "@mui/icons-material";
+
+import img from "../../Images/milk.jpg";
+
 import "../ProductDetailsPage/product-detail-page.css";
 
 function ProductDetailsPage() {
+  var parentDirectory = "Marketplace";
+  var childDirectory = "Dairy";
+  var itemName = "Farm Fresh Pure Fresh Milk 2L";
+  var newPrice = 15.45;
+  var oldPrice = 16;
+  var percentage = 35;
+  var description =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris in aliquam sem fringilla ut morbi tincidunt augue. Mattis molestie a iaculis at erat pellentesque adipiscing.";
+
+  const [counter, setCounter] = useState(1);
+  const handleAdd = () => {
+    setCounter(counter + 1);
+  };
+  const handleSub = () => {
+    if (counter !== 1) {
+      setCounter(counter - 1);
+    }
+  };
+
   return (
-    <div>
-      <div className="home-header">
-        <div className="home-header-content">
-          <h1>Fresh.</h1>
-          <h1>Healthy.</h1>
-          <h1>Convenient.</h1>
-          <p>
-            Stay home, we always deliver a service <br></br> more than you
-            expected.
-          </p>
-          <button>SHOP NOW</button>
-        </div>
-
-        <div className="home-image-container">
-          <img src="https://images.unsplash.com/photo-1584473457406-6240486418e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" />
-        </div>
+    <div className="item-details-page-container">
+      <div className="product-directory">
+        <p>{parentDirectory}</p>
+        <ArrowForwardIos sx={{ fontSize: "14px" }} /> <p>{childDirectory}</p>
       </div>
-      <div className="today-top-deals">
-        <div className="today-top-deals-title">
-          <h4>Today's Top Deals</h4>
-          <div className="view-more-button">
-            <p>View More</p>
-            <ArrowRightAltIcon></ArrowRightAltIcon>
+      <div className="above-container">
+        <div className="image-container">
+          <div className="discount-percentage">
+            <text>{percentage}% OFF</text>
+          </div>
+          <img src={img} alt={itemName}></img>
+        </div>
+        <div className="item-info-container">
+          <div className="item-info">
+            <p className="item-name">{itemName}</p>
+            <p className="description-header">Description</p>
+            <p className="description">{description}</p>
+          </div>
+          <hr></hr>
+          <div className="actions">
+            <div className="price-quantity">
+              <div className="only-price">
+                <p className="new-price">
+                  Price:<p className="RM">RM</p>
+                  <p className="price-value">{newPrice}</p>
+                </p>
+                <p className="old-price">
+                  <strike>RM{oldPrice}</strike>
+                </p>
+              </div>
+
+              <div className="quantity-adjust">
+                <p className="quantity-header">Quantity:</p>
+                <div className="quantity-container">
+                  <IndeterminateCheckBoxOutlined
+                    onClick={handleSub}
+                    className="minus-btn"
+                  />
+                  <div className="quantity-value">{counter}</div>
+                  <AddBoxOutlined onClick={handleAdd} className="plus-btn" />
+                </div>
+              </div>
+            </div>
+            <button className="add-to-cart">ADD TO CART</button>
           </div>
         </div>
+      </div>
+      <hr></hr>
+      <div className="suggestions">
+        <p className="suggestion-header">Customer Also Bought</p>
         <hr></hr>
-
-        <div className="today-top-deals-product">
-          <div className="vertical-card"></div>
-          <div className="horizontal-card"></div>
-        </div>
-      </div>
-
-      <div className="promotion-banner">
-        <div className="banner-image-container">
-          <img src="https://images.unsplash.com/photo-1487646709898-58d3c6e8d886?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
-        </div>
-
-        <div className="promotion-banner-content">
-          <p className="promotion-banner-header">
-            Purchase Min. RM60 And Above<br></br>To Get Free Delivery
-          </p>
-          <p className="promotion-banner-text">Terms and condition apply</p>
-        </div>
-      </div>
-
-      <div className="discount-banner">
-        <div className="discount-banner-container">
-          <p className="discount-text">
-            Super discount for your first purchase!
-          </p>
-          <p className="discount-code">First2GQ</p>
-        </div>
-      </div>
-
-      <div className="best-choices">
-        <div className="best-choices-title">
-          <h4>Best Choices</h4>
-          <div className="view-more-button">
-            <p>View More</p>
-            <ArrowRightAltIcon></ArrowRightAltIcon>
-          </div>
-        </div>
-        <hr></hr>
-
-        <div className="best-choices-product-1">
-          <div className="large-horizontal-card">
-            <p>hello world</p>
-          </div>
-          <div className="category-card">
-            <p>hello world</p>
-          </div>
-        </div>
-
-        <div className="best-choices-product-2">
-          <div className="category-card">
-            <p>hello world</p>
-          </div>
-          <div className="large-horizontal-card">
-            <p>hello world</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="services-content">
-        <hr></hr>
-        <div className="services-content-container">
-          <div className="services-content-container-title">
-            <h4>Start Shopping With Us</h4>
-          </div>
-          <div className="services-content-container-text"></div>
+        <div className="product-list-container">
+          <table className="horizontal-cards-container">
+            <tbody>
+              <td className="right-col-cards">
+                <div className="horizontal-card">
+                  <div className="product-image">
+                    <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                  </div>
+                  <p className="product-name">Farm Fresh Pure Milk 2L</p>
+                  <p className="product-price">
+                    <text className="RM">RM</text> 15.45
+                  </p>
+                  <div className="button-container">
+                    <button className="add-to-cart-btn">
+                      <AddShoppingCart className="cart-icon" />
+                    </button>
+                  </div>
+                </div>
+              </td>
+              <td className="mid-col-cards">
+                <div className="horizontal-card">
+                  <div className="product-image">
+                    <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                  </div>
+                  <p className="product-name">Farm Fresh Pure Milk 2L</p>
+                  <p className="product-price">
+                    <text className="RM">RM</text> 15.45
+                  </p>
+                  <div className="button-container">
+                    <button className="add-to-cart-btn">
+                      <AddShoppingCart className="cart-icon" />
+                    </button>
+                  </div>
+                </div>
+              </td>
+              <td className="left-col-cards">
+                <div className="horizontal-card">
+                  <div className="product-image">
+                    <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                  </div>
+                  <p className="product-name">Farm Fresh Pure Milk 2L</p>
+                  <p className="product-price">
+                    <text className="RM">RM</text> 15.45
+                  </p>
+                  <div className="button-container">
+                    <button className="add-to-cart-btn">
+                      <AddShoppingCart className="cart-icon" />
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tbody>
+            <tr>
+              <td className="right-col-cards">
+                <div className="horizontal-card">
+                  <div className="product-image">
+                    <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                  </div>
+                  <p className="product-name">Farm Fresh Pure Milk 2L</p>
+                  <p className="product-price">
+                    <text className="RM">RM</text> 15.45
+                  </p>
+                  <div className="button-container">
+                    <button className="add-to-cart-btn">
+                      <AddShoppingCart className="cart-icon" />
+                    </button>
+                  </div>
+                </div>
+              </td>
+              <td className="mid-col-cards">
+                <div className="horizontal-card">
+                  <div className="product-image">
+                    <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                  </div>
+                  <p className="product-name">Farm Fresh Pure Milk 2L</p>
+                  <p className="product-price">
+                    <text className="RM">RM</text> 15.45
+                  </p>
+                  <div className="button-container">
+                    <button className="add-to-cart-btn">
+                      <AddShoppingCart className="cart-icon" />
+                    </button>
+                  </div>
+                </div>
+              </td>
+              <td className="left-col-cards">
+                <div className="horizontal-card">
+                  <div className="product-image">
+                    <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                  </div>
+                  <p className="product-name">Farm Fresh Pure Milk 2L</p>
+                  <p className="product-price">
+                    <text className="RM">RM</text> 15.45
+                  </p>
+                  <div className="button-container">
+                    <button className="add-to-cart-btn">
+                      <AddShoppingCart className="cart-icon" />
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>

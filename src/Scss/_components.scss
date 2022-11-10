@@ -156,8 +156,69 @@
   @include card-drop-shadow;
   width: 45rem;
   height: 15.5rem;
+  display: grid;
+  grid-template-areas:
+    "image name name"
+    "image price button";
+  grid-template-columns: 45% 27.5% 27.5%;
+  grid-template-rows: 50% 50%;
   border-radius: 0.125rem;
   background-color: $white-color;
+  padding: 1.125rem 1.313rem;
+
+  .product-image {
+    grid-area: image;
+    img {
+      width: 17.875rem;
+      height: 13.25rem;
+      object-fit: cover;
+      border-radius: 0.25rem;
+    }
+  }
+
+  .product-name {
+    grid-area: name;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.8px;
+    text-align: left;
+    align-self: center;
+  }
+
+  .product-price {
+    grid-area: price;
+    align-self: flex-end;
+    color: $secondary-color;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 28.8px;
+
+    .RM {
+      line-height: 19px;
+      font-size: 18px;
+      font-weight: 500;
+      color: black;
+    }
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    .add-to-cart-btn {
+      border: none;
+      border-radius: 0.25rem;
+      background-color: $primary-color;
+      height: 4rem;
+      width: 4rem;
+      grid-area: button;
+      align-self: flex-end;
+
+      .cart-icon {
+        color: $white-color;
+        font-size: 1.75rem;
+      }
+    }
+  }
 }
 
 @mixin category-card {
@@ -179,4 +240,18 @@
   width: 61.75rem;
   height: 22rem;
   border-radius: 0.25rem;
+}
+
+@mixin return-button {
+  font-family: $primary-fonts;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 120%;
+  border: none;
+  background-color: $white-color;
+
+  &:hover {
+    color: $secondary-color;
+  }
 }
