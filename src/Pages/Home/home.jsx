@@ -3,10 +3,11 @@ import { useNavigate, Link } from "react-router-dom";
 import {
   ArrowRightAlt,
   AddShoppingCart,
-  LocalOfferOutlinedIcon,
-  PaymentOutlinedIcon,
-  AutorenewOutlinedIcon,
+  LocalOfferOutlined,
+  PaymentOutlined,
+  AutorenewOutlined,
 } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 import "./home.css";
 
 function Home() {
@@ -245,7 +246,7 @@ function Home() {
 
           <div className="services-content">
             <div className="services-1">
-              <LocalOfferOutlinedIcon></LocalOfferOutlinedIcon>
+              <LocalOfferOutlined></LocalOfferOutlined>
               <p className="services-title">Monthly Exciting Sales</p>
               <p className="services-text">
                 Limited time promotion every month!
@@ -253,13 +254,13 @@ function Home() {
             </div>
 
             <div className="services-2">
-              <PaymentOutlinedIcon></PaymentOutlinedIcon>
+              <PaymentOutlined></PaymentOutlined>
               <p className="services-title">Secure Payment</p>
               <p className="services-text">Worry free checkout!</p>
             </div>
 
             <div className="services-3">
-              <AutorenewOutlinedIcon></AutorenewOutlinedIcon>
+              <AutorenewOutlined></AutorenewOutlined>
               <p className="services-title">Easy Returns & Refunds</p>
               <p className="services-text">
                 We got you cover without the hassle!
