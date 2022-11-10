@@ -165,6 +165,7 @@
   padding: 0rem 19.5rem;
 
   .discount-banner-container {
+    position: relative;
     height: 6rem;
     display: flex;
     background-color: $warning-color;
@@ -172,26 +173,37 @@
     border-radius: 0.25rem;
     justify-content: center;
     align-items: center;
-  }
 
-  p {
-    color: $error-color;
-    font-family: $secondary-fonts;
-    line-height: 120%;
-  }
+    .discount-text {
+      font-family: $secondary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      font-size: 1.25rem;
+      line-height: 120%;
+      color: $error-color;
+      padding: 0 2rem 0 0;
+    }
 
-  .discount-text {
-    font-weight: map-get($map: $font-weight, $key: "medium");
-    font-size: 1.25rem;
-    padding: 0 2rem 0 0;
-  }
+    .discount-code {
+      font-family: $secondary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "bold");
+      font-size: 1.25rem;
+      line-height: 120%;
+      color: $error-color;
+      border: 0.125rem dashed $error-color;
+      border-radius: 0.125rem;
+      padding: 0.5rem 1.5rem;
+    }
 
-  .discount-code {
-    font-weight: map-get($map: $font-weight, $key: "bold");
-    font-size: 1.25rem;
-    border: 0.125rem dashed $error-color;
-    border-radius: 0.125rem;
-    padding: 0.5rem 1.5rem;
+    .discount-notes {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-family: $secondary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      font-size: 0.75rem;
+      line-height: 120%;
+      padding: 0 0.5rem 0.5em 0;
+    }
   }
 }
 
@@ -281,18 +293,88 @@
   }
 }
 
-.services-content {
+.services {
   padding: 4rem 19.5rem 0;
 
-  .services-content-container {
-    height: 39rem;
+  .services-container {
+    height: 29rem;
     background-color: $secondary-color;
     border-radius: 0.125rem;
     margin: 0 0 4rem 0;
   }
 
-  .services-content-title h4 {
+  .services-title h4 {
+    display: flex;
+    justify-content: center;
     color: $white-color;
     padding: 4rem 0 0 0;
+  }
+
+  .services-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 6.5rem;
+    padding: 3.5rem 0 3.5rem 0;
+
+    .services-1,
+    .services-2,
+    .services-3 {
+      display: block;
+      justify-content: center;
+      text-align: center;
+    }
+
+    svg {
+      font-size: 2.5rem;
+      color: $white-color;
+    }
+
+    .services-title {
+      padding: 1rem 0;
+      font-family: $primary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "bold");
+      font-size: 1.5rem;
+      line-height: 120%;
+      text-align: center;
+      color: $white-color;
+    }
+
+    .services-text {
+      font-family: $secondary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      font-size: 1rem;
+      line-height: 120%;
+      text-align: center;
+      color: $white-color;
+    }
+  }
+
+  .shop-now-button {
+    display: flex;
+    justify-content: center;
+
+    button {
+      cursor: pointer;
+      margin: 0;
+      background-color: $primary-color;
+      border-style: none;
+      border-radius: 0.25rem;
+      width: 16.25rem;
+      height: 4rem;
+      //Button Text Styling
+      font-family: $primary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "bold");
+      font-size: 1rem;
+      text-transform: uppercase;
+      line-height: 120%;
+      color: $white-color;
+      box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.04),
+        0px 4px 6px -2px rgba(16, 24, 40, 0.05);
+    }
+
+    button:hover {
+      background-color: $primary-hover-dark-color;
+    }
   }
 }

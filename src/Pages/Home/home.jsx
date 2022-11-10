@@ -1,6 +1,12 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { ArrowRightAlt, AddShoppingCart } from "@mui/icons-material";
+import {
+  ArrowRightAlt,
+  AddShoppingCart,
+  LocalOfferOutlined,
+  PaymentOutlined,
+  AutorenewOutlined,
+} from "@mui/icons-material";
 import "./home.css";
 
 function Home() {
@@ -116,6 +122,23 @@ function Home() {
     </div>
   );
 
+  const LargeHorCard = () => (
+    <div className="large-horizontal-card">
+      <div className="product-image">
+        <img src="https://images.unsplash.com/photo-1621378580414-421cba519671?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" />
+      </div>
+      <p className="product-name">Pickle Jar 500GMS</p>
+      <p className="product-price">
+        <text className="RM">RM</text> 15.45
+      </p>
+      <div className="button-container">
+        <button className="add-to-cart-btn">
+          <AddShoppingCart className="cart-icon" />
+        </button>
+      </div>
+    </div>
+  );
+
   return (
     <div>
       <div className="home-header">
@@ -187,7 +210,8 @@ function Home() {
           <p className="discount-text">
             Super discount for your first purchase!
           </p>
-          <p className="discount-code">First2GQ</p>
+          <p className="discount-code">First2QG</p>
+          <p className="discount-notes">Apply discount code in checkout.</p>
         </div>
       </div>
 
@@ -202,9 +226,7 @@ function Home() {
         <hr></hr>
 
         <div className="best-choices-product-1">
-          <div className="large-horizontal-card">
-            <p>hello world</p>
-          </div>
+          <LargeHorCard />
           <div className="category-card">
             <img
               src="https://images.unsplash.com/photo-1582401656496-9d75f95f9018?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80"
@@ -220,9 +242,7 @@ function Home() {
               alt="raw-meat-img"
             />
           </div>
-          <div className="large-horizontal-card">
-            <p>hello world</p>
-          </div>
+          <LargeHorCard />
         </div>
       </div>
 
@@ -230,34 +250,39 @@ function Home() {
         <hr></hr>
       </div>
 
-      <div className="services-content">
-        <div className="services-content-container">
-          <div className="services-content-title">
+      <div className="services">
+        <div className="services-container">
+          <div className="services-title">
             <h4>Start Shopping With Us</h4>
           </div>
 
-          {/* <div className="services">
+          <div className="services-content">
             <div className="services-1">
+              <LocalOfferOutlined></LocalOfferOutlined>
               <p className="services-title">Monthly Exciting Sales</p>
               <p className="services-text">
-                Limited time promotio every month!
+                Limited time promotion every month!
               </p>
             </div>
-            <div className="services-2">
-              <p className="services-title">Monthly Exciting Sales</p>
-              <p className="services-text">
-                Limited time promotio every month!
-              </p>
-            </div>
-            <div className="services-3">
-              <p className="services-title">Monthly Exciting Sales</p>
-              <p className="services-text">
-                Limited time promotio every month!
-              </p>
-            </div>
-          </div> */}
 
-          <button>Shop Now</button>
+            <div className="services-2">
+              <PaymentOutlined></PaymentOutlined>
+              <p className="services-title">Secure Payment</p>
+              <p className="services-text">Worry free checkout!</p>
+            </div>
+
+            <div className="services-3">
+              <AutorenewOutlined></AutorenewOutlined>
+              <p className="services-title">Easy Returns & Refunds</p>
+              <p className="services-text">
+                We got you cover without the hassle!
+              </p>
+            </div>
+          </div>
+
+          <div className="shop-now-button">
+            <button onClick={() => navigate("/marketplace")}>Shop Now</button>
+          </div>
         </div>
       </div>
     </div>

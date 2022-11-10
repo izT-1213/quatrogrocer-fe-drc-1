@@ -1,7 +1,7 @@
 import Nav from "./Components/navbar/navbar.jsx";
 import Footer from "./Components/footer/footer.jsx";
 import Home from "./Pages/Home/home.jsx";
-// import ProductPage from "./Pages/ProductPage";
+import ProductPage from "./Pages/ProductPage/product-page.jsx";
 // import BestSellers from "./Pages/BestSellers";
 // import NewItems from "./Pages/NewItems";
 // import Deals from "./Pages/Deals";
@@ -16,6 +16,8 @@ import AddAddressPage from "./Pages/AddAddressPage/add-address.jsx";
 import NoResultPage from "./Pages/NoResultPage/no-result";
 import ProductDetailsPage from "./Pages/ProductDetailsPage/product-detail-page";
 import EditAddressPage from "./Pages/EditAddressPage/edit-address.jsx";
+
+import PaymentSuccessPage from "./Pages/PaymentSuccessPage/payment-success.jsx";
 
 //import CartPage from "./Components/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -40,10 +42,10 @@ function App() {
 
         <Routes>
           {/*<Route path="/main-page" element={<MainPage />} />
-          <Route path="/marketplace" element={<ProductPage />} />
           <Route path="/best-sellers" element={<BestSellers />} />
           <Route path="/all-new" element={<NewItems />} />
-          <Route path="/deals-&-promotions" element={<Deals />} />*/}
+        <Route path="/deals-&-promotions" element={<Deals />} />*/}
+          <Route path="/marketplace" element={<ProductPage />} />
           <Route path="/" element={<Home />} />
           <Route path="profile" element={<UserProfilePage />} />
           <Route path="edit-profile" element={<EditProfilePage />} />
@@ -60,8 +62,12 @@ function App() {
             element={<YourShippingAddressPage />}
           />
           <Route path="error" element={<ErrorPage />} />
+
+          <Route path="payment-success" element={<PaymentSuccessPage />} />
+
           <Route path="no-result" element={<NoResultPage />} />
           <Route path="product-detail" element={<ProductDetailsPage />} />
+
           {/* </Route> */}
         </Routes>
         <Footer />

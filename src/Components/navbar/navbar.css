@@ -103,9 +103,7 @@ nav .nav-middle ul li {
   font-weight: 500;
   font-family: "Lexend Deca";
 }
-nav .nav-middle ul li:hover {
-  color: #fafafa;
-}
-nav .nav-middle ul li:hover .nav-right ul li:hover {
-  color: #ffffff;
+nav .nav-middle ul li:hover,
+nav .nav-right ul li:hover {
+  color: #b2dfdb;
 }/*# sourceMappingURL=navbar.css.map */
