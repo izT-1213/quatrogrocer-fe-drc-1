@@ -249,7 +249,7 @@
     }
 
     .product-list-container {
-      margin: 2.5rem 0;
+      margin: 4rem 0;
       padding: 1.5rem 1.875rem;
       background-color: $bluegrey-tint;
       box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.04),
@@ -258,31 +258,25 @@
 
       display: flex;
       flex-direction: column;
-      .row {
-        display: flex;
-        flex-direction: row;
-        .product-card {
-          display: flex;
-          padding: 1.875rem 1.5rem;
-          .product-image {
-            width: 1rem;
-            height: 1rem;
-            img {
-              object-fit: cover;
-            }
-          }
-          .info {
-            .product-name {
-            }
 
-            .product-oldPrice {
-            }
-            .product-newPrice {
-            }
+      .horizontal-cards-container {
+        width: 100%;
+        height: 100%;
+        padding: 1rem 0;
+        border-spacing: 1rem 1rem;
 
-            .add-btn {
-            }
-          }
+        .right-col-cards {
+          border-right: 1.688rem solid transparent;
+        }
+        .mid-col-cards {
+          border-right: 1.688rem solid transparent;
+        }
+
+        .left-col-cards {
+          border-left: 1.688rem solid transparent;
+        }
+        .horizontal-card {
+          @include small-horizontal-card;
         }
       }
     }

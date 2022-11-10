@@ -1,6 +1,6 @@
 import Nav from "./Components/navbar/navbar.jsx";
 import Footer from "./Components/footer/footer.jsx";
-import Home from "./Pages/home/home.jsx";
+import Home from "./Pages/Home/home.jsx";
 // import ProductPage from "./Pages/ProductPage";
 // import BestSellers from "./Pages/BestSellers";
 // import NewItems from "./Pages/NewItems";
@@ -45,7 +45,7 @@ function App() {
           <Route path="address" element={<YourShippingAddressPage />} />
           <Route path="add-address" element={<AddAddressPage />} />
           <Route path="edit-address" element={<EditAddressPage />} />
-          <Route path="cart/checkout" element={<CheckoutPage />} />{" "}
+          <Route path="cart/checkout" element={<CheckoutPage />} />
           <Route path="profile/edit-profile" element={<EditProfilePage />} />
           <Route
             path="profile/addresses"

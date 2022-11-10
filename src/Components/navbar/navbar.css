@@ -53,7 +53,7 @@ a:active {
 }
 
 a:hover {
-  color: #fafafa;
+  color: #009688;
 }
 
 *,
@@ -68,7 +68,7 @@ nav {
   display: flex;
   background-color: #009688;
   justify-content: space-between;
-  padding: 0 12rem;
+  padding: 0 19.5rem;
 }
 nav .nav-left {
   cursor: pointer;
@@ -88,7 +88,7 @@ nav .nav-right {
   display: flex;
   align-items: center;
   color: #ffffff;
-  width: 8%;
+  width: 10%;
 }
 nav .nav-middle ul,
 nav .nav-right ul {

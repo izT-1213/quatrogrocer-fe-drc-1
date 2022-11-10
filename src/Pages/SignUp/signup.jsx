@@ -49,8 +49,8 @@ function SignUpPage() {
               <h3 className="sign-up-form-title">Sign Up</h3>
               <div className="sign-up-form-table">
                 <tr>
-                  <td className="left-col">FIRST NAME</td>
-                  <td className="right-col">LAST NAME</td>
+                  <td className="left-col-line-1">FIRST NAME</td>
+                  <td className="right-col-line-1">LAST NAME</td>
                 </tr>
                 <tr>
                   <td className="left-col">
@@ -71,8 +71,8 @@ function SignUpPage() {
                   </td>
                 </tr>
                 <tr>
-                  <td className="left-col">GENDER</td>
-                  <td className="right-col">DATE OF BIRTH</td>
+                  <td className="left-col-line-2">GENDER</td>
+                  <td className="right-col-line-2">DATE OF BIRTH</td>
                 </tr>
                 <tr>
                   <td className="left-col">
@@ -86,8 +86,9 @@ function SignUpPage() {
                         value={gender}
                         onChange={handleChangeGender}
                       >
-                        <MenuItem value={"female"}>Female</MenuItem>
                         <MenuItem value={"male"}>Male</MenuItem>
+                        <MenuItem value={"female"}>Female</MenuItem>
+                        <MenuItem value={"others"}>Others</MenuItem>
                       </Select>
                     </FormControl>
                   </td>

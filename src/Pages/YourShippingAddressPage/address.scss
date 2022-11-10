@@ -1,6 +1,5 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
-
 @import "../../Scss/components";
 
 *,
@@ -18,7 +17,7 @@
     margin: 72px;
 
     h1 {
-      font-family: "Lexend Deca";
+      font-family: $primary-fonts;
       font-style: normal;
       font-weight: 700;
       font-size: 44px;
@@ -26,7 +25,7 @@
 
     .your-shipping-address-container {
       h3 {
-        font-family: "Lexend Deca";
+        font-family: $primary-fonts;
         font-style: normal;
         font-weight: 600;
         font-size: 30px;
@@ -47,7 +46,7 @@
       border-radius: 4px;
       .shipping-details-table {
         h3 {
-          font-family: "Lexend Deca";
+          font-family: $primary-fonts;
           font-style: normal;
           font-weight: 500;
           font-size: 24px;
@@ -145,7 +144,7 @@
       border: none;
       /*font*/
       color: $white-color;
-      font-family: "Lexend Deca";
+      font-family: $primary-fonts;
       font-style: normal;
       font-weight: 500;
       font-size: 14px;
