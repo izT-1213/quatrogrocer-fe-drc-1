@@ -7,7 +7,6 @@ import {
   PaymentOutlined,
   AutorenewOutlined,
 } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
 import "./home.css";
 
 function Home() {
