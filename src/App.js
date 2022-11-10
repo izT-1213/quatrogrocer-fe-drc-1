@@ -17,12 +17,22 @@ import NoResultPage from "./Pages/NoResultPage/no-result";
 import ProductDetailsPage from "./Pages/ProductDetailsPage/product-detail-page";
 import EditAddressPage from "./Pages/EditAddressPage/edit-address.jsx";
 
+import PaymentSuccessPage from "./Pages/PaymentSuccessPage/payment-success.jsx";
+
 //import CartPage from "./Components/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
 ////encode url
 import React from "react";
+
+function getCurrentURL() {
+  return window.location.href;
+}
+const url = getCurrentURL();
+console.log(url);
+console.log(encodeURI(url));
+console.log(encodeURIComponent(url));
 
 function App() {
   return (
@@ -52,8 +62,12 @@ function App() {
             element={<YourShippingAddressPage />}
           />
           <Route path="error" element={<ErrorPage />} />
+
+          <Route path="payment-success" element={<PaymentSuccessPage />} />
+
           <Route path="no-result" element={<NoResultPage />} />
           <Route path="product-detail" element={<ProductDetailsPage />} />
+
           {/* </Route> */}
         </Routes>
         <Footer />

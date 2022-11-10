@@ -53,7 +53,7 @@ a:active {
 }
 
 a:hover {
-  color: #fafafa;
+  color: #009688;
 }
 
 *,
@@ -151,7 +151,31 @@ a:hover {
   background-color: #fafafa;
   width: 220px;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .default {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #ffffff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1em;
+  height: 1em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  border-color: #009688;
+  cursor: pointer;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container input[type=checkbox]:checked {
+  background-color: #ff8a65;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default {
   display: block;
   padding-left: 26px;
   position: relative;
@@ -166,14 +190,14 @@ a:hover {
   font-size: 0.9rem;
   line-height: 120%;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .default input {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
   width: 0;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkmark {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .checkmark {
   position: absolute;
   top: 0;
   left: 0;
@@ -182,21 +206,21 @@ a:hover {
   background-color: #eee;
   border-radius: 4px;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkmark:after {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .default:hover input ~ .checkmark {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default:hover input ~ .checkmark {
   background-color: #ccc;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .default input:checked ~ .checkmark {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default input:checked ~ .checkmark {
   background-color: #009688;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .default input:checked ~ .checkmark:after {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default input:checked ~ .checkmark:after {
   display: block;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .default .checkmark:after {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default .checkmark:after {
   left: 7px;
   top: 3px;
   width: 5px;
@@ -205,14 +229,14 @@ a:hover {
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .buttons {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   padding: 0rem;
   gap: 3rem;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .cancel-btn {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .buttons .cancel-btn {
   background-color: transparent;
   border: none;
   font-family: "Lexend Deca";
@@ -221,10 +245,10 @@ a:hover {
   font-size: 1rem;
   line-height: 120%;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .cancel-btn:hover {
-  color: #ff7043;
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .buttons .cancel-btn:hover {
+  color: #ff5722;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .buttons .add-address-btn {
   background-color: #ff8a65;
   border: none;
   font-family: "Lexend Deca";
@@ -241,28 +265,27 @@ a:hover {
   gap: 0.5rem;
   border-radius: 0.125;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn:hover {
-  background-color: #ff7043;
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .buttons .add-address-btn:hover {
+  background-color: #ff5722;
 }
-.add-address-page-container .navigation-container {
+.add-address-page-container .container-1 .navigation-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-items: flex-end;
 }
-.add-address-page-container .navigation-container .left-icon {
+.add-address-page-container .container-1 .navigation-container .left-icon {
   font-size: 0.625rem;
 }
-.add-address-page-container .navigation-container .back-btn {
+.add-address-page-container .container-1 .navigation-container .back-btn {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 120%;
   border: none;
-  background-color: transparent;
-  color: #252525;
+  background-color: #ffffff;
 }
-.add-address-page-container .navigation-container .back-btn:hover {
-  color: #ff7043;
+.add-address-page-container .container-1 .navigation-container .back-btn:hover {
+  color: #ff8a65;
 }/*# sourceMappingURL=add-address.css.map */
