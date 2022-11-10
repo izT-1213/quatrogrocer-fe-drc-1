@@ -103,8 +103,21 @@
       @include vertical-card;
     }
 
-    .horizontal-card {
-      @include small-horizontal-card;
+    .horizontal-cards-container {
+      padding-left: 3rem;
+      width: 100%;
+      height: 100%;
+
+      .right-col-cards {
+        border-right: 1.688rem solid transparent;
+      }
+
+      .left-col-cards {
+        border-left: 1.688rem solid transparent;
+      }
+      .horizontal-card {
+        @include small-horizontal-card;
+      }
     }
   }
 }

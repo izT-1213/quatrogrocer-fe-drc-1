@@ -29,16 +29,30 @@
       width: 22.5rem;
       height: 27.438rem;
       object-fit: cover;
+      border-radius: 0.25rem;
     }
   }
 
   .product-name {
     grid-area: name;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 28.8px;
   }
 
   .product-price {
     grid-area: price;
     align-self: flex-end;
+    color: $secondary-color;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 28.8px;
+
+    .RM {
+      font-size: 20px;
+      font-weight: 500;
+      color: black;
+    }
   }
 
   .button-container {
@@ -46,22 +60,88 @@
     justify-content: flex-end;
     .add-to-cart-btn {
       border: none;
-      border-radius: 3px;
+      border-radius: 0.25rem;
       background-color: $primary-color;
       height: 4rem;
       width: 4rem;
       grid-area: button;
       align-self: flex-end;
+
+      .cart-icon {
+        color: $white-color;
+        font-size: 1.75rem;
+      }
     }
   }
 }
 
 @mixin small-horizontal-card {
   @include card-drop-shadow;
-  width: 23.75rem;
-  height: 13.125rem;
+  display: grid;
+  grid-template-areas:
+    "image name name"
+    "image name name"
+    "image price button";
+  width: 100%;
+  height: 100%;
   border-radius: 0.125rem;
   background-color: $white-color;
+  padding: 1.875rem 1.5rem;
+
+  .product-image {
+    grid-area: image;
+    img {
+      width: 7.5rem;
+      height: 9.375rem;
+      object-fit: cover;
+      border-radius: 0.25rem;
+    }
+  }
+
+  .product-name {
+    padding-left: 24px;
+    grid-area: name;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 19.2px;
+    text-align: left;
+  }
+
+  .product-price {
+    padding-left: 24px;
+    grid-area: price;
+    align-self: flex-end;
+    color: $secondary-color;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 26px;
+
+    .RM {
+      line-height: 19px;
+      font-size: 16px;
+      font-weight: 500;
+      color: black;
+    }
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    .add-to-cart-btn {
+      border: none;
+      border-radius: 0.25rem;
+      background-color: $primary-color;
+      height: 2.5rem;
+      width: 2.5rem;
+      grid-area: button;
+      align-self: flex-end;
+
+      .cart-icon {
+        color: $white-color;
+        font-size: 1.25rem;
+      }
+    }
+  }
 }
 
 @mixin medium-horizotal-card {
