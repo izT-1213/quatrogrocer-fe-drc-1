@@ -1,6 +1,5 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
-@import "../../Scss/typography";
 
 *,
 *::before,
@@ -124,10 +123,8 @@
                 border-color: $primary-color;
                 cursor: pointer;
 
-                
                 &:checked {
                   background-color: $secondary-color;
-                  
                 }
               }
 

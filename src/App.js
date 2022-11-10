@@ -17,6 +17,8 @@ import AddAddressPage from "./Pages/AddAddressPage/add-address.jsx";
 
 import EditAddressPage from "./Pages/EditAddressPage/edit-address.jsx";
 
+import PaymentSuccessPage from "./Pages/PaymentSuccessPage/payment-success.jsx";
+
 //import CartPage from "./Components/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -52,6 +54,7 @@ function App() {
           <Route path="cart/checkout" element={<CheckoutPage />} />{" "}
           <Route path="profile/edit-profile" element={<EditProfilePage />} />
           <Route path="error" element={<ErrorPage />} />
+          <Route path="payment-success" element={<PaymentSuccessPage />} />
           {/* </Route> */}
         </Routes>
         <Footer />
