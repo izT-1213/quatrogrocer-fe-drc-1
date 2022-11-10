@@ -119,11 +119,11 @@ p {
         }
 
         .sign-in-text-center {
+          width: 100%;
           font-size: 1rem;
           font-family: $secondary-fonts;
           font-weight: map-get($map: $font-weight, $key: "light");
           text-align: center;
-          width: 19.375rem;
         }
 
         .signin-link {

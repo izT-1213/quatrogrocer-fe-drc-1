@@ -161,11 +161,11 @@ p {
   border: none;
 }
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-in-text-center {
+  width: 100%;
   font-size: 1rem;
   font-family: "Poppins";
   font-weight: 300;
   text-align: center;
-  width: 19.375rem;
 }
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signin-link {
   color: #009688;

@@ -174,3 +174,9 @@
   border-radius: 0.125rem;
   background-color: $black-color;
 }
+
+@mixin carousel-holder {
+  width: 61.75rem;
+  height: 22rem;
+  border-radius: 0.25rem;
+}
