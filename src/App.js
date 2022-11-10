@@ -45,7 +45,7 @@ function App() {
           <Route path="address" element={<YourShippingAddressPage />} />
           <Route path="add-address" element={<AddAddressPage />} />
           <Route path="edit-address" element={<EditAddressPage />} />
-          <Route path="cart/checkout" element={<CheckoutPage />} />{" "}
+          <Route path="cart/checkout" element={<CheckoutPage />} />
           <Route path="profile/edit-profile" element={<EditProfilePage />} />
           <Route
             path="profile/addresses"
