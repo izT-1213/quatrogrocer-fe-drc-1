@@ -62,6 +62,10 @@ a:hover {
   margin: 0;
 }
 
+.large-horizontal-card .product-name p {
+  font-family: "Lexend Deca";
+}
+
 .home-header {
   height: calc(100vh - 4.5rem);
   display: flex;
@@ -131,6 +135,9 @@ a:hover {
   line-height: 120%;
   padding: 0 0.25rem 0 0;
 }
+.today-top-deals .view-more-button:hover {
+  color: #00796b;
+}
 .today-top-deals hr {
   margin: 0.75rem 0 0 0;
   width: 7.5rem;
@@ -163,22 +170,25 @@ a:hover {
 }
 .today-top-deals .today-top-deals-product .vertical-card .product-name {
   grid-area: name;
+  font-family: "Lexend Deca";
   font-size: 26px;
   font-weight: 500;
-  line-height: 28.8px;
+  line-height: 120%;
 }
 .today-top-deals .today-top-deals-product .vertical-card .product-price {
   grid-area: price;
   align-self: flex-end;
   color: #ff8a65;
-  font-size: 28px;
-  font-weight: bold;
-  line-height: 28.8px;
+  font-family: "Lexend Deca";
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 120%;
 }
 .today-top-deals .today-top-deals-product .vertical-card .product-price .RM {
-  font-size: 20px;
+  font-family: "Lexend Deca";
+  font-size: 1.25rem;
   font-weight: 500;
-  color: black;
+  color: #252525;
 }
 .today-top-deals .today-top-deals-product .vertical-card .button-container {
   display: flex;
@@ -195,7 +205,7 @@ a:hover {
 }
 .today-top-deals .today-top-deals-product .vertical-card .button-container .add-to-cart-btn .cart-icon {
   color: #ffffff;
-  font-size: 1.75rem;
+  font-size: 2 rem;
 }
 .today-top-deals .today-top-deals-product .horizontal-cards-container {
   padding-left: 3rem;
@@ -212,8 +222,8 @@ a:hover {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   display: grid;
   grid-template-areas: "image name name" "image name name" "image price button";
-  width: 100%;
-  height: 100%;
+  width: 23.75rem;
+  height: 13.125rem;
   border-radius: 0.125rem;
   background-color: #ffffff;
   padding: 1.875rem 1.5rem;
@@ -229,27 +239,30 @@ a:hover {
   border-radius: 0.25rem;
 }
 .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-name {
-  padding-left: 24px;
   grid-area: name;
-  font-size: 18px;
+  font-family: "Lexend Deca";
   font-weight: 500;
-  line-height: 19.2px;
+  font-size: 1.125rem;
+  line-height: 120%;
   text-align: left;
+  padding-left: 1.5rem;
 }
 .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-price {
-  padding-left: 24px;
   grid-area: price;
-  align-self: flex-end;
   color: #ff8a65;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 26px;
+  font-family: "Lexend Deca";
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 120%;
+  align-self: flex-end;
+  padding-left: 1.5rem;
 }
 .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-price .RM {
-  line-height: 19px;
-  font-size: 16px;
+  font-family: "Lexend Deca";
   font-weight: 500;
-  color: black;
+  font-size: 1rem;
+  line-height: 120%;
+  color: #252525;
 }
 .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .button-container {
   display: flex;
@@ -265,8 +278,8 @@ a:hover {
   align-self: flex-end;
 }
 .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .button-container .add-to-cart-btn .cart-icon {
+  font-size: 1.5rem;
   color: #ffffff;
-  font-size: 1.25rem;
 }
 
 .promotion-banner {
@@ -370,6 +383,9 @@ a:hover {
   line-height: 120%;
   padding: 0 0.25rem 0 0;
 }
+.best-choices .view-more-button:hover {
+  color: #00796b;
+}
 .best-choices hr {
   margin: 0.75rem 0 0 0;
   width: 5rem;
@@ -405,25 +421,27 @@ a:hover {
 }
 .best-choices .best-choices-product-1 .large-horizontal-card .product-name {
   grid-area: name;
-  font-size: 24px;
+  font-family: "Lexend Deca";
+  font-size: 1.5rem;
   font-weight: 500;
-  line-height: 28.8px;
+  line-height: 120%;
   text-align: left;
   align-self: center;
 }
 .best-choices .best-choices-product-1 .large-horizontal-card .product-price {
   grid-area: price;
+  font-family: "Lexend Deca";
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 120%;
   align-self: flex-end;
   color: #ff8a65;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 28.8px;
 }
 .best-choices .best-choices-product-1 .large-horizontal-card .product-price .RM {
-  line-height: 19px;
-  font-size: 18px;
+  font-size: 1.5rem;
   font-weight: 500;
-  color: black;
+  color: #252525;
+  line-height: 120%;
 }
 .best-choices .best-choices-product-1 .large-horizontal-card .button-container {
   display: flex;
@@ -440,7 +458,7 @@ a:hover {
 }
 .best-choices .best-choices-product-1 .large-horizontal-card .button-container .add-to-cart-btn .cart-icon {
   color: #ffffff;
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 .best-choices .best-choices-product-1 .category-card {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
@@ -505,25 +523,27 @@ a:hover {
 }
 .best-choices .best-choices-product-2 .large-horizontal-card .product-name {
   grid-area: name;
-  font-size: 24px;
+  font-family: "Lexend Deca";
+  font-size: 1.5rem;
   font-weight: 500;
-  line-height: 28.8px;
+  line-height: 120%;
   text-align: left;
   align-self: center;
 }
 .best-choices .best-choices-product-2 .large-horizontal-card .product-price {
   grid-area: price;
+  font-family: "Lexend Deca";
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 120%;
   align-self: flex-end;
   color: #ff8a65;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 28.8px;
 }
 .best-choices .best-choices-product-2 .large-horizontal-card .product-price .RM {
-  line-height: 19px;
-  font-size: 18px;
+  font-size: 1.5rem;
   font-weight: 500;
-  color: black;
+  color: #252525;
+  line-height: 120%;
 }
 .best-choices .best-choices-product-2 .large-horizontal-card .button-container {
   display: flex;
@@ -540,7 +560,7 @@ a:hover {
 }
 .best-choices .best-choices-product-2 .large-horizontal-card .button-container .add-to-cart-btn .cart-icon {
   color: #ffffff;
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 
 .separator {
