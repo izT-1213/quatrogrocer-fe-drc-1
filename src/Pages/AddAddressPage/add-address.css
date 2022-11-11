@@ -127,20 +127,19 @@ a:hover {
   background-color: #fafafa;
   width: 460px;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-1 {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-2 {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-1,
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-2,
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-3 {
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-1 .address-input,
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-2 .address-input,
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-3 .address-input {
+  font-size: 1rem;
+  padding: 0.375rem;
+  background-color: #fafafa;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .postcode-and-state-container {
   display: flex;
@@ -150,6 +149,7 @@ a:hover {
   border-radius: 4px;
   background-color: #fafafa;
   width: 220px;
+  padding: 0.375rem;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container {
   display: flex;

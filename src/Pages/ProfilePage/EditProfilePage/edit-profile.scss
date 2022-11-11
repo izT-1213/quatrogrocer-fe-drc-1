@@ -141,6 +141,10 @@
       font-weight: 500;
       font-size: 16px;
       line-height: 120%;
+
+      &:hover {
+        color: $primary-hover-dark-color;
+      }
     }
 
     .submit-button-container {
