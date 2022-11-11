@@ -171,6 +171,7 @@ a:hover {
   line-height: 120%;
   border: none;
   background-color: #ffffff;
+  color: #252525;
 }
 .address-page-container .navigation-buttons .back-to-account-container .back-btn:hover {
   color: #ff8a65;

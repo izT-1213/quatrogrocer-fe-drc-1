@@ -285,6 +285,7 @@ a:hover {
   line-height: 120%;
   border: none;
   background-color: #ffffff;
+  color: #252525;
 }
 .add-address-page-container .container-1 .navigation-container .back-btn:hover {
   color: #ff8a65;
