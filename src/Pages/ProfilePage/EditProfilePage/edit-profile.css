@@ -169,6 +169,9 @@ a:hover {
   font-size: 16px;
   line-height: 120%;
 }
+.edit-profile-page-container .buttons-container .cancel:hover {
+  color: #00796b;
+}
 .edit-profile-page-container .buttons-container .submit-button-container {
   padding: 2.188rem 2.875rem;
 }

@@ -63,7 +63,10 @@ function App() {
           />
           <Route path="error" element={<ErrorPage />} />
 
-          <Route path="payment-success" element={<PaymentSuccessPage />} />
+          <Route
+            path="cart/checkout/payment-success"
+            element={<PaymentSuccessPage />}
+          />
 
           <Route path="no-result" element={<NoResultPage />} />
           <Route path="product-detail" element={<ProductDetailsPage />} />

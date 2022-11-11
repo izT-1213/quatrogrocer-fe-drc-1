@@ -145,8 +145,8 @@ function Home() {
     <div>
       <div className="home-header">
         <div className="home-header-content">
+          <h1>Easy.</h1>
           <h1>Fresh.</h1>
-          <h1>Healthy.</h1>
           <h1>Convenient.</h1>
           <p>
             Stay home, we always deliver a service <br></br> more than you

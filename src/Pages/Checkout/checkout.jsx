@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "@material-ui/core/Input";
 import { RadioGroup, FormControlLabel, Radio } from "@mui/material";
 import {
@@ -13,6 +13,7 @@ import {
 import "../Checkout/checkout.css";
 
 function CheckoutPage() {
+  const navigate = useNavigate();
   const [showVoucherInput, setVoucherInput] = useState(false);
   const ref = useRef(null);
   const handleClickOutside = (event) => {
@@ -114,7 +115,10 @@ function CheckoutPage() {
           </div>
         </div>
         <div className="order-submit">
-          <button type="submit"> Place Order </button>
+          <button type="submit" onClick={() => navigate("payment-success")}>
+            {" "}
+            Place Order{" "}
+          </button>
         </div>
       </div>
       <div className="order-summary-container">

@@ -22,11 +22,12 @@ function PaymentSuccessPage() {
   var subtotal = 20.18;
   var shipping = 6.0;
   var total = 26.18;
+
   return (
     <div className="page-container">
       <div className="page-header">
         <h1>Payment Success!</h1>
-        <button className="back-btn">
+        <button className="back-btn" onClick={() => navigate("../")}>
           <SlArrowLeft />
           Return to Home
         </button>
@@ -63,7 +64,7 @@ function PaymentSuccessPage() {
                   <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" />
                 </div>
                 <p className="product-name">{itemName}</p>
-                <p className="product-price">RM {itemPrice}</p>
+                <p className="product-price">RM {itemPrice.toFixed(2)}</p>
                 <div className="quantity">
                   <p className="product-quantity">Quantity: {itemQuantity}</p>
                 </div>
@@ -73,7 +74,7 @@ function PaymentSuccessPage() {
                   <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" />
                 </div>
                 <p className="product-name">{itemName}</p>
-                <p className="product-price">RM {itemPrice}</p>
+                <p className="product-price">RM {itemPrice.toFixed(2)}</p>
                 <div className="quantity">
                   <p className="product-quantity">Quantity: {itemQuantity}</p>
                 </div>
@@ -84,14 +85,14 @@ function PaymentSuccessPage() {
                 <text className="title">Subtotal: RM</text>
                 <span className="value">
                   {"  "}
-                  {subtotal}
+                  {subtotal.toFixed(2)}
                 </span>
               </div>
               <div>
                 <text className="title">Shipping: RM</text>
                 <span className="value">
                   {"  "}
-                  {shipping}
+                  {shipping.toFixed(2)}
                 </span>
               </div>
               <hr></hr>
@@ -99,7 +100,7 @@ function PaymentSuccessPage() {
                 <text className="title">Total: RM</text>
                 <span className="value">
                   {"  "}
-                  {total}
+                  {total.toFixed(2)}
                 </span>
               </div>
             </div>

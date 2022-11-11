@@ -31,11 +31,11 @@ function AddAddressPage() {
               <form className="address-form" id="form">
                 <div className="address-line-container">
                   <div className="address-line-1">
-                    <label>Address Line 1</label>
+                    <label>Address Line 1 *</label>
                     <Input
                       type="text"
                       disableUnderline={true}
-                      className="address-line-1"
+                      className="address-input"
                       id="input"
                     />
                   </div>
@@ -43,17 +43,16 @@ function AddAddressPage() {
                   <div className="address-line-2">
                     <label>Address Line 2</label>
                     <Input
-                      className="address-line-2"
+                      className="address-input"
                       type="text"
                       disableUnderline={true}
                       id="input"
                     />
                   </div>
-
                   <div className="address-line-3">
                     <label>Address Line 3</label>
                     <Input
-                      className="address-line-3"
+                      className="address-input"
                       type="text"
                       disableUnderline={true}
                       id="input"
@@ -63,9 +62,9 @@ function AddAddressPage() {
 
                 <div className="postcode-and-state-container">
                   <div className="postcode">
-                    <label>Postcode</label>
+                    <label>Postcode *</label>
                     <Input
-                      className="postcode"
+                      className="postcode-input"
                       type="text"
                       disableUnderline={true}
                       id="input"
@@ -73,9 +72,9 @@ function AddAddressPage() {
                   </div>
 
                   <div className="state">
-                    <label>State</label>
+                    <label>State *</label>
                     <Input
-                      className="state"
+                      className="state-input"
                       type="text"
                       disableUnderline={true}
                       id="input"
@@ -95,7 +94,8 @@ function AddAddressPage() {
                   Cancel
                 </button>
                 <button
-                  className="add-address-btn" /*onClick={handleAddAddress}*/
+                  className="add-address-btn"
+                  type="submit" /*onClick={handleAddAddress}*/
                 >
                   Add Address
                 </button>

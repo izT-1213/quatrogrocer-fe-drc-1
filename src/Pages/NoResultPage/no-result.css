@@ -1,37 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
+h1 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+h2 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+
+h3 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.75rem;
+}
+
+h4 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.125rem;
+}
+
+h5 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+h6 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #252525;
+}
+
+a:hover {
+  color: #009688;
+}
+
 .page-container {
   display: flex;
   flex-direction: column;
-  padding: 8rem;
+  height: 45rem;
+  padding: 0 19.5rem;
 }
-.page-container .page-header {
+.page-container .page-header p {
   font-family: "Lexend Deca";
-  font-style: normal;
   font-weight: 600;
   font-size: 1.75rem;
   line-height: 120%;
-  padding: 0 0 1rem 0;
+  padding: 4rem 0 0 0;
 }
-.page-container .page-content {
+.page-container .page-content p {
   font-family: "Poppins";
-  font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 120%;
+  padding: 1rem 0 1.5rem 0;
 }
-.page-container button {
-  margin: 1.5rem 0 0 0;
-  font-style: normal;
+.page-container .back-btn button {
+  cursor: pointer;
+  font-family: "Lexend Deca";
   font-weight: 700;
   font-size: 1rem;
   line-height: 120%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  color: #ffffff;
   align-items: center;
   padding: 1rem 2.5rem;
   gap: 1rem;
   background-color: #ff8a65;
   border: none;
-  color: #ffffff;
-  border-radius: 4px;
+  border-radius: 0.25rem;
+}
+.page-container .back-btn button:hover {
+  background-color: #ff5722;
 }/*# sourceMappingURL=no-result.css.map */
