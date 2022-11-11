@@ -9,8 +9,6 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import "../EditProfilePage/edit-profile.css";
 
 function EditProfilePage() {
-
- 
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
@@ -43,18 +41,18 @@ function EditProfilePage() {
         <div className="edit-account-details-table-container">
           <table className="edit-account-details-table" id="table">
             <tr className="input-label">
-              <td className="right-column">First Name</td>
-              <td className="left-column">Last Name</td>
+              <td className="left-column">First Name</td>
+              <td className="right-column">Last Name</td>
             </tr>
             <tr>
-              <td className="right-column">
+              <td className="left-column">
                 <Input
                   type="string"
                   disableUnderline={true}
                   className="form-control-mt-1"
                 />
               </td>
-              <td className="left-column">
+              <td className="right-column">
                 <Input
                   type="string"
                   disableUnderline={true}
@@ -63,18 +61,18 @@ function EditProfilePage() {
               </td>
             </tr>
             <tr className="input-label">
-              <td className="right-column">Email</td>
-              <td className="left-column">Phone Number</td>
+              <td className="left-column">Email</td>
+              <td className="right-column">Phone Number</td>
             </tr>
             <tr>
-              <td className="right-column">
+              <td className="left-column">
                 <Input
                   type="string"
                   disableUnderline={true}
                   className="form-control-mt-1"
                 />
               </td>
-              <td className="left-column">
+              <td className="right-column">
                 <Input
                   type="string"
                   disableUnderline={true}
@@ -83,18 +81,18 @@ function EditProfilePage() {
               </td>
             </tr>
             <tr className="input-label">
-              <td className="right-column">Gender</td>
-              <td className="left-column">Date Of Birth</td>
+              <td className="left-column">Gender</td>
+              <td className="right-column">Date Of Birth</td>
             </tr>
             <tr>
-              <td className="right-column">
+              <td className="left-column">
                 <Input
                   type="string"
                   disableUnderline={true}
                   className="form-control-mt-1"
                 />
               </td>
-              <td className="left-column">
+              <td className="right-column">
                 <Input
                   type="string"
                   disableUnderline={true}
@@ -103,9 +101,33 @@ function EditProfilePage() {
               </td>
             </tr>
             <tr className="input-label">
-              <td className="right-column">Password</td>
+              <td className="left-column">Old Password</td>
+              <td className="right-column">New Password</td>
             </tr>
             <tr>
+              <td className="left-column">
+                <Input
+                  className="form-control-mt-1"
+                  type={values.showPassword ? "text" : "password"}
+                  onChange={handlePasswordChange("password")}
+                  value={values.password}
+                  disableUnderline={true}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                      >
+                        {values.showPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+              </td>
               <td className="right-column">
                 <Input
                   className="form-control-mt-1"
@@ -129,9 +151,6 @@ function EditProfilePage() {
                   }
                 />
               </td>
-            </tr>
-            <tr>
-              <td className="change-password">Change password</td>
             </tr>
           </table>
         </div>
@@ -177,9 +196,7 @@ function EditProfilePage() {
         </div>
       </div>
       <div className="buttons-container">
-        <button className="cancel" >
-          Cancel
-        </button>
+        <button className="cancel">Cancel</button>
         <div className="submit-button-container">
           <button className="submit-edit" type="submit">
             Submit

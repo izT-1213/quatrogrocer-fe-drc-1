@@ -63,7 +63,7 @@ a:hover {
 }
 
 .add-address-page-container {
-  margin: 80px;
+  margin: 40px 19.5rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -156,25 +156,6 @@ a:hover {
   justify-content: space-between;
   gap: 5px;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container input[type=checkbox] {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background-color: #ffffff;
-  margin: 0;
-  font: inherit;
-  color: currentColor;
-  width: 1em;
-  height: 1em;
-  border: 0.15em solid currentColor;
-  border-radius: 0.15em;
-  transform: translateY(-0.075em);
-  border-color: #009688;
-  cursor: pointer;
-}
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container input[type=checkbox]:checked {
-  background-color: #ff8a65;
-}
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default {
   display: block;
   padding-left: 26px;
@@ -203,7 +184,6 @@ a:hover {
   left: 0;
   height: 18px;
   width: 18px;
-  background-color: #eee;
   border-radius: 4px;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .checkmark:after {
@@ -212,7 +192,7 @@ a:hover {
   display: none;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color: #fafafa;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default input:checked ~ .checkmark {
   background-color: #009688;
@@ -221,8 +201,8 @@ a:hover {
   display: block;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .checkbox-container .default .checkmark:after {
-  left: 7px;
-  top: 3px;
+  left: 6px;
+  top: 2px;
   width: 5px;
   height: 10px;
   border: solid white;
@@ -268,24 +248,16 @@ a:hover {
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .buttons .add-address-btn:hover {
   background-color: #ff5722;
 }
-.add-address-page-container .container-1 .navigation-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.add-address-page-container .navigation-container {
   justify-items: flex-end;
 }
-.add-address-page-container .container-1 .navigation-container .left-icon {
-  font-size: 0.625rem;
-}
-.add-address-page-container .container-1 .navigation-container .back-btn {
-  font-family: "Lexend Deca";
-  font-style: normal;
+.add-address-page-container .navigation-container .return {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 120%;
-  border: none;
-  background-color: #ffffff;
+  padding-bottom: 1.875rem;
 }
-.add-address-page-container .container-1 .navigation-container .back-btn:hover {
-  color: #ff8a65;
+.add-address-page-container .navigation-container .return:hover {
+  color: #00796b;
 }/*# sourceMappingURL=add-address.css.map */

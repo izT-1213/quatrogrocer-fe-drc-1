@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Input from "@material-ui/core/Input";
-import "./add-address.css";
-import { SlArrowLeft } from "react-icons/sl";
+import "../AddAddressPage/add-address.css";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useNavigate } from "react-router-dom";
 // import {
 //   allPostcodes,
@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 //   getPostcodes,
 //   findPostcode,
 // } from "malaysia-postcodes";
-// import YourShippingAddressPage from "../address";
 
 function AddAddressPage() {
   // function handleAddAddress() {}
@@ -83,12 +82,13 @@ function AddAddressPage() {
                     />
                   </div>
                 </div>
-
-                <label class="default">
-                  <input class="checkbox" id="input" type="checkbox" />
-                  <span class="checkmark"></span>
-                  Set as default address
-                </label>
+                <div className="checkbox-container">
+                  <label class="default">
+                    <input type="checkbox" />
+                    <span class="checkmark"></span>
+                    Set as default address
+                  </label>
+                </div>
               </form>
               <div className="buttons">
                 <button className="cancel-btn" onClick={clearInput}>
@@ -105,13 +105,12 @@ function AddAddressPage() {
         </div>
       </div>
       <div className="navigation-container">
-        <div className="left-icon">
-          <SlArrowLeft />
+        <div className="return">
+          <ArrowBackIosIcon />
+          <p>
+            <Link to={"/profile"}>Return to Shipping Details</Link>
+          </p>
         </div>
-
-        <button className="back-btn" onClick={() => navigate("/address")}>
-          Return to Shipping Details
-        </button>
       </div>
     </div>
   );
