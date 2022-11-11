@@ -6,13 +6,19 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
+import LoginFunc from "../../function.jsx";
 import "../Login/login.css";
 
 function LoginPage() {
+  const [usernameLogin, setUsernameLogin] = useState("");
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
   });
+
+  const login = () => {
+    LoginFunc(usernameLogin, values);
+  };
 
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
@@ -45,6 +51,9 @@ function LoginPage() {
                   disableUnderline={true}
                   className="form-control-mt-1"
                   placeholder="Email Address"
+                  onChange={(e) => {
+                    setUsernameLogin(e.target.value);
+                  }}
                 />
               </div>
               <div className="form-group-mt-3">
@@ -78,7 +87,11 @@ function LoginPage() {
                 <a href="#">Forgot password?</a>
               </p>
               <div className="d-grid-gap-2-mt-3">
-                <button type="submit" className="signup-login-btn">
+                <button
+                  type="submit"
+                  className="signup-login-btn"
+                  onClick={login}
+                >
                   Log In
                 </button>
               </div>

@@ -1,17 +1,13 @@
 import React, { useState } from "react";
+import Axios from "axios";
 
 function LoginFunc(username, pass) {
-  const [usernameLogin, setUsernameLogin] = useState("");
-  const [passwordLogin, setPasswordLogin] = useState("");
-
-  const login = () => {
-    Axios.post("http://localhost:3001//quatro_user/login", {
-      username: usernameLogin,
-      password: passwordLogin,
-    }).then((response) => {
-      console.log(response);
-    });
-  };
+  Axios.post("http://localhost:3001//quatro_user/login", {
+    username: username,
+    password: pass,
+  }).then((response) => {
+    console.log(response);
+  });
 }
 
 function RegisterFunc(username, pass) {
@@ -27,3 +23,5 @@ function RegisterFunc(username, pass) {
     });
   };
 }
+
+export default LoginFunc;
