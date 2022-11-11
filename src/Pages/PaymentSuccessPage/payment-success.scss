@@ -1,6 +1,5 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
-@import "../../Scss/components";
 
 *,
 *::before,
@@ -8,246 +7,220 @@
   margin: 0;
 }
 
-.page-container {
-  padding: 3rem 8rem;
-  .page-header {
+.payment-success-page-container {
+  margin: 5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  .container-1 {
     display: flex;
-    justify-content: space-between;
-    font-family: "Lexend Deca";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 44px;
-    line-height: 120%;
-    color: $primary-color;
-    .back-btn {
-      @include return-button;
-    }
-  }
-  .main-container {
-    background-color: $bluegrey-tint;
-    padding: 2rem 3.5rem;
+    flex-direction: column;
 
-    .header-order-summary {
-      font-family: "Poppins";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 24px;
-      line-height: 120%;
-
-      margin: 0 0 1rem 0;
+    .payment-success-header {
+      h1 {
+        font-family: "Lexend Deca";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2.75rem;
+        line-height: 120%;
+        color: $primary-color;
+      }
     }
-    .content {
+    .navigation-container {
       display: flex;
-      justify-content: space-between;
 
-      .shipping-details-container {
-        box-shadow: 0px 2px 12px -4px rgba(16, 24, 40, 0.04),
-          0px 4px 6px -2px rgba(16, 24, 40, 0.04);
-        border-radius: 2px;
+      align-items: center;
+
+      .left-icon {
+        font-size: 0.625rem;
+      }
+
+      .back-btn {
+        font-family: $primary-fonts;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 0.875rem;
+        line-height: 120%;
+        border: none;
         background-color: $white-color;
 
-        width: fit-content;
-        height: fit-content;
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+    }
+    .order-summary-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: rem 0 0 0;
+      background-color: #f8f9fc;
+      padding: 32px 40px;
+      width: 1280px;
+      height: 598px;
 
-        .details-content {
-          display: flex;
-          flex-direction: column;
-          padding: 1.5rem 4.05rem 1.5rem 1.5rem;
+      h2 {
+        font-family: "Lexend Deca";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.875rem;
+        line-height: 120%;
+      }
 
-          .header-shipping-details {
-            font-family: "Lexend Deca";
-            font-style: normal;
-            font-weight: 700;
-            font-size: 20px;
-            line-height: 120%;
+      .order-form-container {
+        display: flex;
+        gap: 6rem;
+        margin-top: 2rem 0 0 0;
 
-            padding: 0.5rem 0;
-          }
+        // width: 33.75rem;
+        // height: 27.5rem;
+        width: auto;
+        height: auto;
+        left: 0 0 0 5.125rem;
+        top: 16.25rem 0 0 0;
 
-          .content-shipping-details {
-            .name {
+        .order-form-content {
+          padding: 1.688rem;
+          background: $white-color;
+          box-shadow: 0rem 0.5rem 1rem -0.25rem rgba(16, 24, 40, 0.04),
+            0px 0.25rem 0.5rem -0.125rem rgba(16, 24, 40, 0.04);
+          width: fit-content;
+          height: fit-content;
+          .order-form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0rem;
+            gap: 1rem;
+            padding-bottom: 1rem;
+
+            label {
               font-family: "Lexend Deca";
               font-style: normal;
               font-weight: 500;
-              font-size: 20px;
+              font-size: 0.875rem;
               line-height: 120%;
+            }
 
-              padding: 0.5rem 0;
+            .order-line-container {
+              display: flex;
+              flex-direction: column;
+              gap: 1.25rem;
+
+              .order-line-1 {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+              }
             }
-            .address {
-              padding: 0.5rem 0;
-              font-family: "Lexend Deca";
-              font-style: normal;
-              font-weight: 300;
-              font-size: 14px;
-              line-height: 120%;
-            }
-            .number {
-              padding: 0.5rem 0;
-              font-family: "Lexend Deca";
-              font-style: normal;
-              font-weight: 300;
-              font-size: 16px;
-              line-height: 120%;
-            }
+
+            // .default-address {
+            //   display: flex;
+            //   align-content: center;
+            //   gap: 4px;
+            //   margin-top: 16px;
+            //   margin-bottom: 16px;
+
+            // input[type="checkbox"] {
+            //   appearance: none;
+            //   background-color: $white-color;
+            //   margin: 0;
+            //   font: inherit;
+            //   color: currentColor;
+            //   width: 1em;
+            //   height: 1em;
+            //   border: 0.15em solid currentColor;
+            //   border-radius: 0.15em;
+            //   transform: translateY(-0.075em);
+            //   border-color: $primary-color;
+            //   cursor: pointer;
+            // }
+
+            //   .checkmark {
+            // font-family: "Lexend Deca";
+            // font-style: normal;
+            // font-weight: 500;
+            // font-size: 12px;
+            // line-height: 120%;
+            //   }
+            // }
           }
         }
       }
-    }
-    .order-summary {
-      .cart-content {
+      .column {
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
-        gap: 2rem;
-        .product-card {
-          display: grid;
-          grid-template:
-            "image name name name"
-            "image price price price"
-            "image quantity quantity quantity";
+        gap: 4rem;
+        .order-form-content-1 {
+          padding: 1.688rem;
+          background: $white-color;
+          box-shadow: 0rem 0.5rem 1rem -0.25rem rgba(16, 24, 40, 0.04),
+            0px 0.25rem 0.5rem -0.125rem rgba(16, 24, 40, 0.04);
+          .order-form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0rem;
+            gap: 1rem;
+            padding-bottom: 1rem;
 
-          box-shadow: 0rem 0.75rem 1rem -0.25rem rgba(16, 24, 40, 0.1),
-            0rem 0.25rem 0.375rem -0.125rem rgba(16, 24, 40, 0.05);
-          padding: 0.75rem;
-          font-size: 1.05rem;
-          width: 25.25rem;
-          height: 7.13rem;
-          background-color: $white-color;
-          .product-image {
-            grid-area: image;
-            height: 5.62rem;
-            width: 5.62rem;
-            align-self: center;
-            img {
-              height: inherit;
-              width: inherit;
-              object-fit: cover;
+            label {
+              font-family: "Lexend Deca";
+              align-items: flex-end;
+              font-style: normal;
+              font-weight: 500;
+              font-size: 0.875rem;
+              line-height: 120%;
+            }
+
+            .order-line-container {
+              display: flex;
+              flex-direction: column;
+              gap: 1.25rem;
+
+              .order-line-1 {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+              }
             }
           }
         }
-        .product-name {
-          font-family: "Lexend Deca";
-          font-style: normal;
-          font-weight: 500;
-          font-size: 16px;
-          line-height: 120%;
-          grid-area: name;
-        }
+        .order-form-content-2 {
+          padding: 1.688rem;
+          background: $white-color;
+          box-shadow: 0rem 0.5rem 1rem -0.25rem rgba(16, 24, 40, 0.04),
+            0px 0.25rem 0.5rem -0.125rem rgba(16, 24, 40, 0.04);
+          .order-form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0rem;
+            gap: 1rem;
+            padding-bottom: 1rem;
 
-        .product-price {
-          font-family: "Lexend Deca";
-          font-style: normal;
-          font-weight: 500;
-          font-size: 16px;
-          line-height: 120%;
-          grid-area: price;
-        }
+            label {
+              font-family: "Lexend Deca";
+              font-style: normal;
+              font-weight: 500;
+              font-size: 0.875rem;
+              line-height: 120%;
+            }
 
-        .quantity {
-          font-family: "Lexend Deca";
-          font-style: normal;
-          font-weight: 500;
-          font-size: 16px;
-          line-height: 120%;
-          grid-area: quantity;
-          display: flex;
-          justify-content: flex-end;
-          .product-quantity {
-            align-self: center;
-            padding: 0 1.125rem;
+            .order-line-container {
+              display: flex;
+              flex-direction: column;
+              gap: 1.25rem;
+
+              .order-line-1 {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+              }
+            }
           }
-        }
-      }
-      .calculation {
-        padding: 5rem 0 0 0;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 1rem;
-
-        .title {
-          font-family: "Lexend Deca";
-          font-style: normal;
-          font-weight: 500;
-          font-size: 16px;
-          line-height: 120%;
-        }
-        .value {
-          font-family: "Lexend Deca";
-          font-style: normal;
-          font-weight: 700;
-          font-size: 28px;
-          line-height: 120%;
-        }
-
-        hr {
-          width: 480px;
         }
       }
     }
   }
 }
-
-//   .order-summary {
-//     height: 110vh;
-//     width: 25vw;
-//     border-radius: 2px;
-//     background-color: white;
-//     box-shadow: 0rem 0.75rem 1rem -0.25rem rgba(16, 24, 40, 0.1),
-//       0rem 0.25rem 0.375rem -0.125rem rgba(16, 24, 40, 0.05);
-
-//     .cart-content {
-//       padding: 0 2.5rem 1.5rem 2.5rem;
-//       height: 42%;
-//       overflow-x: hidden;
-//       overflow-y: auto;
-
-//       .product-card {
-//         display: grid;
-//         grid-template:
-//           "image name name name"
-//           "image price price price"
-//           "image quantity quantity quantity"
-//           "image del del del";
-//         box-shadow: 0rem 0.75rem 1rem -0.25rem rgba(16, 24, 40, 0.1),
-//           0rem 0.25rem 0.375rem -0.125rem rgba(16, 24, 40, 0.05);
-//         padding: 0.75rem;
-//         font-size: 1.05rem;
-//         width: 25.25rem;
-//         height: 7.13rem;
-
-//         .product-image {
-//           grid-area: image;
-//           height: 5.62rem;
-//           width: 5.62rem;
-//           align-self: center;
-//           img {
-//             height: inherit;
-//             width: inherit;
-//             object-fit: cover;
-//           }
-//         }
-
-// .product-name {
-//   grid-area: name;
-// }
-
-// .product-price {
-//   grid-area: price;
-// }
-
-// .quantity {
-//   grid-area: quantity;
-//   display: flex;
-//   justify-content: flex-end;
-
-//           .product-quantity {
-//             align-self: center;
-//             padding: 0 1.125rem;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
