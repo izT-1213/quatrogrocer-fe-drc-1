@@ -209,14 +209,14 @@ a:hover {
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .buttons {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   padding: 0rem;
   gap: 3rem;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .buttons .cancel-btn {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .cancel-btn {
   background-color: transparent;
   border: none;
   font-family: "Lexend Deca";
@@ -225,10 +225,10 @@ a:hover {
   font-size: 1rem;
   line-height: 120%;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .buttons .cancel-btn:hover {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .cancel-btn:hover {
   color: #ff5722;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .buttons .add-address-btn {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn {
   background-color: #ff8a65;
   border: none;
   font-family: "Lexend Deca";
@@ -245,7 +245,7 @@ a:hover {
   gap: 0.5rem;
   border-radius: 0.125;
 }
-.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .address-form .buttons .add-address-btn:hover {
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn:hover {
   background-color: #ff5722;
 }
 .add-address-page-container .navigation-container {

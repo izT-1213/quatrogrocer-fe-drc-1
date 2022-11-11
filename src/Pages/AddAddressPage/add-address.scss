@@ -169,43 +169,44 @@
                 transform: rotate(45deg);
               }
             }
-            .buttons {
+          }
+          .buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            padding: 0rem;
+            gap: 3rem;
+
+            .cancel-btn {
+              background-color: transparent;
+              border: none;
+              font-family: "Lexend Deca";
+              font-style: normal;
+              font-weight: 500;
+              font-size: 1rem;
+              line-height: 120%;
+              &:hover {
+                color: $secondary-hover-color;
+              }
+            }
+            .add-address-btn {
+              background-color: $secondary-color;
+              border: none;
+              font-family: "Lexend Deca";
+              font-style: normal;
+              font-weight: 500;
+              font-size: 1rem;
+              color: $white-color;
+              line-height: 120%;
               display: flex;
               flex-direction: row;
-              justify-content: flex-end;
-              padding: 0rem;
-              gap: 3rem;
-              .cancel-btn {
-                background-color: transparent;
-                border: none;
-                font-family: "Lexend Deca";
-                font-style: normal;
-                font-weight: 500;
-                font-size: 1rem;
-                line-height: 120%;
-                &:hover {
-                  color: $secondary-hover-color;
-                }
-              }
-              .add-address-btn {
-                background-color: $secondary-color;
-                border: none;
-                font-family: "Lexend Deca";
-                font-style: normal;
-                font-weight: 500;
-                font-size: 1rem;
-                color: $white-color;
-                line-height: 120%;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                padding: 0.5rem 1.5rem;
-                gap: 0.5rem;
-                border-radius: 0.125;
-                &:hover {
-                  background-color: $secondary-hover-color;
-                }
+              justify-content: center;
+              align-items: center;
+              padding: 0.5rem 1.5rem;
+              gap: 0.5rem;
+              border-radius: 0.125;
+              &:hover {
+                background-color: $secondary-hover-color;
               }
             }
           }

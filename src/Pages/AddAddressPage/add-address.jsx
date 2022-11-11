@@ -94,7 +94,8 @@ function AddAddressPage() {
                   Cancel
                 </button>
                 <button
-                  className="add-address-btn" /*onClick={handleAddAddress}*/
+                  className="add-address-btn"
+                  type="submit" /*onClick={handleAddAddress}*/
                 >
                   Add Address
                 </button>
