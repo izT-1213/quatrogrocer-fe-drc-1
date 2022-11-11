@@ -84,9 +84,17 @@ a:hover {
   border: none;
   background-color: #ffffff;
   color: #252525;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: 500;
+  padding: 0 0 0 0;
 }
 .page-container .page-header .back-btn:hover {
   color: #ff8a65;
+}
+.page-container .page-header .back-btn:hover {
+  color: #00796b;
 }
 .page-container .main-container {
   background-color: #f8f9fc;

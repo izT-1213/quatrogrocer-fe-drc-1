@@ -27,7 +27,7 @@ function PaymentSuccessPage() {
     <div className="page-container">
       <div className="page-header">
         <h1>Payment Success!</h1>
-        <button className="back-btn">
+        <button className="back-btn" onClick={() => navigate("../")}>
           <SlArrowLeft />
           Return to Home
         </button>
