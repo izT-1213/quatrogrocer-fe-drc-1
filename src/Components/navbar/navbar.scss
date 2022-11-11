@@ -16,44 +16,46 @@
   color: $white-color;
 }
 
-nav {
-  height: 4.5rem;
-  display: flex;
-  background-color: $primary-color;
-  justify-content: space-between;
-  padding: 0 19.5rem;
-
-  .nav-left {
-    @include nav-section;
-  }
-
-  .nav-middle {
-    @include nav-section;
-    width: 34%;
-  }
-
-  .nav-right {
-    @include nav-section;
-    width: 10%;
-  }
-
-  .nav-middle ul,
-  .nav-right ul {
-    padding: 0;
-    width: 100%;
+.nav-container {
+  nav {
+    height: 4.5rem;
     display: flex;
-    list-style: none;
+    background-color: $primary-color;
     justify-content: space-between;
-  }
+    padding: 0 19.5rem;
 
-  .nav-middle ul li {
-    font-size: 1rem;
-    font-weight: 500;
-    font-family: $primary-fonts;
-  }
+    .nav-left {
+      @include nav-section;
+    }
 
-  .nav-middle ul li:hover,
-  .nav-right ul li:hover {
-    color: $primary-hover-light-color;
+    .nav-middle {
+      @include nav-section;
+      width: 34%;
+    }
+
+    .nav-right {
+      @include nav-section;
+      width: 10%;
+    }
+
+    .nav-middle ul,
+    .nav-right ul {
+      padding: 0;
+      width: 100%;
+      display: flex;
+      list-style: none;
+      justify-content: space-between;
+    }
+
+    .nav-middle ul li {
+      font-family: $primary-fonts;
+      font-size: 1rem;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+    }
+
+    .nav-middle ul li:hover,
+    .nav-right ul li:hover {
+      color: $primary-hover-light-color;
+    }
   }
 }

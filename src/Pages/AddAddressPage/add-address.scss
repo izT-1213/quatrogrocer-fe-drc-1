@@ -9,7 +9,7 @@
 }
 
 .add-address-page-container {
-  margin: 80px;
+  margin: 40px 19.5rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -110,30 +110,9 @@
               justify-content: space-between;
               gap: 5px;
 
-              input[type="checkbox"] {
-                appearance: none;
-                background-color: $white-color;
-                margin: 0;
-                font: inherit;
-                color: currentColor;
-                width: 1em;
-                height: 1em;
-                border: 0.15em solid currentColor;
-                border-radius: 0.15em;
-                transform: translateY(-0.075em);
-                border-color: $primary-color;
-                cursor: pointer;
-
-                &:checked {
-                  background-color: $secondary-color;
-                }
-              }
-
               .default {
                 display: block;
                 padding-left: 26px;
-                // margin-top: 16px;
-                // margin-bottom: 8px;
                 position: relative;
                 cursor: pointer;
                 -webkit-user-select: none;
@@ -147,8 +126,6 @@
                 font-weight: 500;
                 font-size: 0.9rem;
                 line-height: 120%;
-
-                // }
               }
 
               .default input {
@@ -158,13 +135,13 @@
                 height: 0;
                 width: 0;
               }
+
               .checkmark {
                 position: absolute;
                 top: 0;
                 left: 0;
                 height: 18px;
                 width: 18px;
-                background-color: #eee;
                 border-radius: 4px;
               }
               .checkmark:after {
@@ -173,7 +150,7 @@
                 display: none;
               }
               .default:hover input ~ .checkmark {
-                background-color: #ccc;
+                background-color: $grey-tint;
               }
               .default input:checked ~ .checkmark {
                 background-color: $primary-color;
@@ -182,8 +159,8 @@
                 display: block;
               }
               .default .checkmark:after {
-                left: 7px;
-                top: 3px;
+                left: 6px;
+                top: 2px;
                 width: 5px;
                 height: 10px;
                 border: solid white;
@@ -236,18 +213,19 @@
         }
       }
     }
-    .navigation-container {
+  }
+  .navigation-container {
+    justify-items: flex-end;
+
+    .return {
       display: flex;
-      flex-direction: row;
+      justify-content: flex-end;
       align-items: center;
-      justify-items: flex-end;
+      font-weight: 500;
+      padding-bottom: 1.875rem;
 
-      .left-icon {
-        font-size: 0.625rem;
-      }
-
-      .back-btn {
-        @include return-button;
+      &:hover {
+        color: $primary-hover-dark-color;
       }
     }
   }

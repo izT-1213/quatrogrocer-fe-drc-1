@@ -139,6 +139,8 @@ a:hover {
   border-radius: 0.5rem;
   z-index: 1;
   margin: 2rem 2.6rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .item-details-page-container .above-container .item-info-container {
   height: -webkit-fit-content;
@@ -331,8 +333,8 @@ a:hover {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   display: grid;
   grid-template-areas: "image name name" "image name name" "image price button";
-  width: 100%;
-  height: 100%;
+  width: 23.75rem;
+  height: 13.125rem;
   border-radius: 0.125rem;
   background-color: #ffffff;
   padding: 1.875rem 1.5rem;
@@ -348,27 +350,30 @@ a:hover {
   border-radius: 0.25rem;
 }
 .item-details-page-container .suggestions .product-list-container .horizontal-cards-container .horizontal-card .product-name {
-  padding-left: 24px;
   grid-area: name;
-  font-size: 18px;
+  font-family: "Lexend Deca";
   font-weight: 500;
-  line-height: 19.2px;
+  font-size: 1.125rem;
+  line-height: 120%;
   text-align: left;
+  padding-left: 1.5rem;
 }
 .item-details-page-container .suggestions .product-list-container .horizontal-cards-container .horizontal-card .product-price {
-  padding-left: 24px;
   grid-area: price;
-  align-self: flex-end;
   color: #ff8a65;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 26px;
+  font-family: "Lexend Deca";
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 120%;
+  align-self: flex-end;
+  padding-left: 1.5rem;
 }
 .item-details-page-container .suggestions .product-list-container .horizontal-cards-container .horizontal-card .product-price .RM {
-  line-height: 19px;
-  font-size: 16px;
+  font-family: "Lexend Deca";
   font-weight: 500;
-  color: black;
+  font-size: 1rem;
+  line-height: 120%;
+  color: #252525;
 }
 .item-details-page-container .suggestions .product-list-container .horizontal-cards-container .horizontal-card .button-container {
   display: flex;
@@ -384,6 +389,6 @@ a:hover {
   align-self: flex-end;
 }
 .item-details-page-container .suggestions .product-list-container .horizontal-cards-container .horizontal-card .button-container .add-to-cart-btn .cart-icon {
+  font-size: 1.5rem;
   color: #ffffff;
-  font-size: 1.25rem;
 }/*# sourceMappingURL=product-detail-page.css.map */

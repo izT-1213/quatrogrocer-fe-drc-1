@@ -35,23 +35,26 @@
 
   .product-name {
     grid-area: name;
+    font-family: $primary-fonts;
     font-size: 26px;
-    font-weight: 500;
-    line-height: 28.8px;
+    font-weight: map-get($map: $font-weight, $key: "medium");
+    line-height: 120%;
   }
 
   .product-price {
     grid-area: price;
     align-self: flex-end;
     color: $secondary-color;
-    font-size: 28px;
-    font-weight: bold;
-    line-height: 28.8px;
+    font-family: $primary-fonts;
+    font-size: 1.75rem;
+    font-weight: map-get($map: $font-weight, $key: "bold");
+    line-height: 120%;
 
     .RM {
-      font-size: 20px;
-      font-weight: 500;
-      color: black;
+      font-family: $primary-fonts;
+      font-size: 1.25rem;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      color: $black-color;
     }
   }
 
@@ -69,7 +72,7 @@
 
       .cart-icon {
         color: $white-color;
-        font-size: 1.75rem;
+        font-size: 2 rem;
       }
     }
   }
@@ -82,8 +85,8 @@
     "image name name"
     "image name name"
     "image price button";
-  width: 100%;
-  height: 100%;
+  width: 23.75rem;
+  height: 13.125rem;
   border-radius: 0.125rem;
   background-color: $white-color;
   padding: 1.875rem 1.5rem;
@@ -99,28 +102,31 @@
   }
 
   .product-name {
-    padding-left: 24px;
     grid-area: name;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 19.2px;
+    font-family: $primary-fonts;
+    font-weight: map-get($map: $font-weight, $key: "medium");
+    font-size: 1.125rem;
+    line-height: 120%;
     text-align: left;
+    padding-left: 1.5rem;
   }
 
   .product-price {
-    padding-left: 24px;
     grid-area: price;
-    align-self: flex-end;
     color: $secondary-color;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 26px;
+    font-family: $primary-fonts;
+    font-weight: map-get($map: $font-weight, $key: "bold");
+    font-size: 1.5rem;
+    line-height: 120%;
+    align-self: flex-end;
+    padding-left: 1.5rem;
 
     .RM {
-      line-height: 19px;
-      font-size: 16px;
-      font-weight: 500;
-      color: black;
+      font-family: $primary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      font-size: 1rem;
+      line-height: 120%;
+      color: $black-color;
     }
   }
 
@@ -137,8 +143,8 @@
       align-self: flex-end;
 
       .cart-icon {
+        font-size: 1.5rem;
         color: $white-color;
-        font-size: 1.25rem;
       }
     }
   }
@@ -178,26 +184,28 @@
 
   .product-name {
     grid-area: name;
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 28.8px;
+    font-family: $primary-fonts;
+    font-size: 1.5rem;
+    font-weight: map-get($map: $font-weight, $key: "medium");
+    line-height: 120%;
     text-align: left;
     align-self: center;
   }
 
   .product-price {
     grid-area: price;
+    font-family: $primary-fonts;
+    font-size: 2rem;
+    font-weight: map-get($map: $font-weight, $key: "bold");
+    line-height: 120%;
     align-self: flex-end;
     color: $secondary-color;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 28.8px;
 
     .RM {
-      line-height: 19px;
-      font-size: 18px;
-      font-weight: 500;
-      color: black;
+      font-size: 1.5rem;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      color: $black-color;
+      line-height: 120%;
     }
   }
 
@@ -215,7 +223,7 @@
 
       .cart-icon {
         color: $white-color;
-        font-size: 1.75rem;
+        font-size: 2rem;
       }
     }
   }

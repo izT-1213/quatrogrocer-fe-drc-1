@@ -70,9 +70,9 @@ a:hover {
 
 .side-nav {
   height: 100%;
-  width: 18.563rem;
+  width: 27.56rem;
   background-color: #ffffff;
-  box-shadow: 10px 0px 16px -4px rgba(16, 24, 40, 0.04), 4px 0px 8px -2px rgba(16, 24, 40, 0.04);
+  box-shadow: 0.625rem 0 1rem -0.25rem rgba(16, 24, 40, 0.04), 0.25rem 0 0.5rem -0.125rem rgba(16, 24, 40, 0.04);
 }
 .side-nav .side-nav-title h4 {
   font-family: "Lexend Deca";
@@ -99,4 +99,25 @@ a:hover {
 .product-section {
   height: 100%;
   padding: 3.5rem 0 0 5rem;
+}
+.product-section .carousel {
+  height: 22.063rem;
+  border-radius: 0.5rem;
+}
+.product-section .carousel .carousel-images {
+  display: flex;
+  height: 22.063rem;
+  justify-content: center;
+}
+.product-section .carousel .carousel-images img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.product-section .carousel .carousel-images .carousel-category {
+  position: absolute;
+  align-self: center;
+  color: #ffffff;
+  font-size: 56px;
+  font-weight: 700;
+  text-shadow: 2px 2px #252525;
 }/*# sourceMappingURL=product-page.css.map */

@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { ImgOverlay } from "image-overlay-react";
 import {
   ArrowRightAlt,
   AddShoppingCart,
@@ -7,6 +8,7 @@ import {
   PaymentOutlined,
   AutorenewOutlined,
 } from "@mui/icons-material";
+import "image-overlay-react/dist/index.css";
 import "./home.css";
 
 function Home() {
@@ -228,19 +230,35 @@ function Home() {
         <div className="best-choices-product-1">
           <LargeHorCard />
           <div className="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1582401656496-9d75f95f9018?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80"
+            <ImgOverlay
+              imgSrc="https://images.unsplash.com/photo-1582401656496-9d75f95f9018?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80"
               alt="cereal-img"
-            />
+              bgColor="rgb(37, 37, 37, 0.5)"
+              position="right"
+              width="100%"
+              height="100%"
+              fSize="3.5rem"
+              fColor="white"
+            >
+              Cereal
+            </ImgOverlay>
           </div>
         </div>
 
         <div className="best-choices-product-2">
           <div className="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            <ImgOverlay
+              imgSrc="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
               alt="raw-meat-img"
-            />
+              bgColor="rgb(37, 37, 37, 0.5)"
+              position="left"
+              width="100%"
+              height="100%"
+              fSize="3.5rem"
+              fColor="white"
+            >
+              Meat
+            </ImgOverlay>
           </div>
           <LargeHorCard />
         </div>
