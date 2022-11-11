@@ -76,6 +76,7 @@
 
     h4 {
       font-family: $primary-fonts;
+      color: $black-color;
     }
   }
 
@@ -125,6 +126,7 @@
       .left-col-cards {
         border-left: 1.688rem solid transparent;
       }
+
       .horizontal-card {
         @include small-horizontal-card;
       }
@@ -229,6 +231,7 @@
 
     h4 {
       font-family: $primary-fonts;
+      color: $black-color;
     }
   }
 
