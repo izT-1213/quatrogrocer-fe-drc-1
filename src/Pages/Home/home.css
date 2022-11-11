@@ -121,6 +121,7 @@ a:hover {
 }
 .today-top-deals .today-top-deals-title h4 {
   font-family: "Lexend Deca";
+  color: #252525;
 }
 .today-top-deals .view-more-button {
   display: flex;
@@ -369,6 +370,7 @@ a:hover {
 }
 .best-choices .best-choices-title h4 {
   font-family: "Lexend Deca";
+  color: #252525;
 }
 .best-choices .view-more-button {
   display: flex;

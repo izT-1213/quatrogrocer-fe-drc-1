@@ -150,12 +150,76 @@
   }
 }
 
-@mixin medium-horizotal-card {
+@mixin medium-horizontal-card {
   @include card-drop-shadow;
+  display: grid;
+  grid-template-areas:
+    "image name name"
+    "image name name"
+    "image price button";
   width: 28.75rem;
   height: 13.125rem;
   border-radius: 0.125rem;
   background-color: $white-color;
+  padding: 1.875rem 2.313rem;
+
+  .product-image {
+    grid-area: image;
+    img {
+      width: 7.5rem;
+      height: 9.375rem;
+      object-fit: cover;
+      border-radius: 0.25rem;
+    }
+  }
+
+  .product-name {
+    grid-area: name;
+    font-family: $primary-fonts;
+    font-weight: map-get($map: $font-weight, $key: "medium");
+    font-size: 1.25rem;
+    line-height: 120%;
+    text-align: left;
+    padding-left: 2rem;
+  }
+
+  .product-price {
+    grid-area: price;
+    color: $secondary-color;
+    font-family: $primary-fonts;
+    font-weight: map-get($map: $font-weight, $key: "bold");
+    font-size: 1.5rem;
+    line-height: 120%;
+    align-self: flex-end;
+    padding-left: 2rem;
+
+    .RM {
+      font-family: $primary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      font-size: 1rem;
+      line-height: 120%;
+      color: $black-color;
+    }
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    .add-to-cart-btn {
+      border: none;
+      border-radius: 0.25rem;
+      background-color: $primary-color;
+      height: 2.5rem;
+      width: 2.5rem;
+      grid-area: button;
+      align-self: flex-end;
+
+      .cart-icon {
+        font-size: 1.5rem;
+        color: $white-color;
+      }
+    }
+  }
 }
 
 @mixin large-horizontal-card {

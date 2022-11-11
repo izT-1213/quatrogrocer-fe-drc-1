@@ -76,4 +76,36 @@
       }
     }
   }
+
+  .product-section-title {
+    h5 {
+      font-family: $primary-fonts;
+      color: $black-color;
+      padding: 3rem 0 1rem 0;
+    }
+  }
+
+  hr {
+    width: 6.25rem;
+    background-color: $primary-color;
+    border: 3px solid $primary-color;
+  }
+
+  .product-cards {
+    height: 43.375rem;
+    padding: 2rem 0 0;
+
+    .right-col-cards {
+      border-right: 3.938rem solid transparent;
+      border-bottom: 2rem solid transparent;
+    }
+
+    .left-col-cards {
+      border-bottom: 2rem solid transparent;
+    }
+
+    .medium-horizontal-card {
+      @include medium-horizontal-card;
+    }
+  }
 }
