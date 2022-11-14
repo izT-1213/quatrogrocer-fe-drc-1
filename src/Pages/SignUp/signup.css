@@ -140,6 +140,10 @@ p {
   font-size: 1rem;
   padding: 0.375rem;
 }
+.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .form-control-mt-1 .MuiSelect-select {
+  padding-right: 0;
+  min-width: 4.899rem;
+}
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .d-grid-gap-2-mt-3 {
   padding: 1.5rem 0;
 }
