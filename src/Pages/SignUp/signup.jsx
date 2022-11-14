@@ -7,14 +7,20 @@ import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
+import { RegisterFunc } from "../../function.jsx";
 import "../SignUp/signup.css";
 
 function SignUpPage() {
   const color = "#009688";
+  const [usernameReg, setUsernameReg] = useState("");
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
   });
+
+  const register = () => {
+    RegisterFunc(usernameReg, values.password.toString());
+  };
 
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
@@ -135,6 +141,9 @@ function SignUpPage() {
                   type=""
                   disableUnderline={true}
                   className="form-control-mt-1"
+                  onChange={(e) => {
+                    setUsernameReg(e.target.value);
+                  }}
                 />
               </div>
               <div className="form-group-mt-3">
@@ -174,7 +183,11 @@ function SignUpPage() {
                 </a>
               </label>
               <div className="d-grid-gap-2-mt-3">
-                <button type="submit" className="signup-signin-btn">
+                <button
+                  type="submit"
+                  className="signup-signin-btn"
+                  onClick={register}
+                >
                   SIGN UP
                 </button>
               </div>

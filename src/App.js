@@ -5,6 +5,7 @@ import ProductPage from "./Pages/ProductPage/product-page.jsx";
 // import BestSellers from "./Pages/BestSellers";
 // import NewItems from "./Pages/NewItems";
 // import Deals from "./Pages/Deals";
+import AboutPage from "./Pages/About/about.jsx";
 import CheckoutPage from "./Pages/Checkout/checkout";
 import UserProfilePage from "./Pages/ProfilePage/profile.jsx";
 import EditProfilePage from "./Pages/ProfilePage/EditProfilePage/edit-profile.jsx";
@@ -46,8 +47,9 @@ function App() {
           <Route path="/best-sellers" element={<BestSellers />} />
           <Route path="/all-new" element={<NewItems />} />
         <Route path="/deals-&-promotions" element={<Deals />} />*/}
-          <Route path="/marketplace" element={<ProductPage />} />
           <Route path="/" element={<Home />} />
+          <Route path="marketplace" element={<ProductPage />} />
+          <Route path="about" element={<AboutPage />} />
           <Route path="profile" element={<UserProfilePage />} />
           <Route path="edit-profile" element={<EditProfilePage />} />
           <Route path="login" element={<LoginPage />} />

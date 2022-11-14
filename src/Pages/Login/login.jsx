@@ -6,18 +6,19 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
-import LoginFunc from "../../function.jsx";
+import { LoginFunc } from "../../function.jsx";
 import "../Login/login.css";
 
 function LoginPage() {
-  const [usernameLogin, setUsernameLogin] = useState("");
+  const [emailLogin, setEmailLogin] = useState("");
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
   });
 
-  const login = () => {
-    LoginFunc(usernameLogin, values);
+  const login = (e) => {
+    e.preventDefault();
+    LoginFunc(emailLogin, values.password.toString());
   };
 
   const handleClickShowPassword = () => {
@@ -52,7 +53,7 @@ function LoginPage() {
                   className="form-control-mt-1"
                   placeholder="Email Address"
                   onChange={(e) => {
-                    setUsernameLogin(e.target.value);
+                    setEmailLogin(e.target.value);
                   }}
                 />
               </div>
