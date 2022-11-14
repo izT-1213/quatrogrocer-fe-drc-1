@@ -63,11 +63,11 @@ a:hover {
 }
 
 .about-page {
-  height: 100rem;
+  height: 145em;
   padding: 0 19.5rem;
 }
 .about-page .about-content {
-  height: 35%;
+  height: 15%;
 }
 .about-page .about-content .about-content-title h3 {
   font-family: "Lexend Deca";
@@ -95,12 +95,12 @@ a:hover {
   flex-direction: column;
   position: relative;
   max-height: 53.125rem;
-  max-width: 58.5rem;
+  max-width: 62.5rem;
   -webkit-animation: loadProfileAnimation 0.6s ease-in-out;
           animation: loadProfileAnimation 0.6s ease-in-out;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  padding: 0 0 4rem 0;
+  padding: 0 0 5rem 0;
 }
 .about-page .developers-content .profile-bg {
   position: absolute;

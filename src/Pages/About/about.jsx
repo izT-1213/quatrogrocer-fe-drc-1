@@ -49,8 +49,8 @@ function AboutPage() {
             <section className="profile-container">
               <aside className="profile-image"></aside>
               <section className="profile-info">
-                <h4 className="first-name">Hassif</h4>
-                <h4 className="second-name">Imran</h4>
+                <h4 className="first-name">Nurul</h4>
+                <h4 className="second-name">Izzati</h4>
                 <h6>About</h6>
                 <p>
                   Hello there! I'm Hassif, currently taking the roles as
@@ -65,8 +65,40 @@ function AboutPage() {
             <section className="profile-container">
               <aside className="profile-image"></aside>
               <section className="profile-info">
-                <h4 className="first-name">Hassif</h4>
-                <h4 className="second-name">Imran</h4>
+                <h4 className="first-name">Marianne</h4>
+                <h4 className="second-name">Wong</h4>
+                <h6>About</h6>
+                <p>
+                  Hello there! I'm Hassif, currently taking the roles as
+                  cyber-security engineer and backend engineer for this project.
+                </p>
+              </section>
+            </section>
+          </div>
+
+          <div className="profile">
+            <div className="profile-bg"></div>
+            <section className="profile-container">
+              <aside className="profile-image"></aside>
+              <section className="profile-info">
+                <h4 className="first-name">Shin</h4>
+                <h4 className="second-name">Cheng</h4>
+                <h6>About</h6>
+                <p>
+                  Hello there! I'm Hassif, currently taking the roles as
+                  cyber-security engineer and backend engineer for this project.
+                </p>
+              </section>
+            </section>
+          </div>
+
+          <div className="profile">
+            <div className="profile-bg"></div>
+            <section className="profile-container">
+              <aside className="profile-image"></aside>
+              <section className="profile-info">
+                <h4 className="first-name">Sheng</h4>
+                <h4 className="second-name">Yuan</h4>
                 <h6>About</h6>
                 <p>
                   Hello there! I'm Hassif, currently taking the roles as

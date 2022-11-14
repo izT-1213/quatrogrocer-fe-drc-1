@@ -10,12 +10,12 @@
 }
 
 .about-page {
-  height: 100rem;
+  height: 145em;
   // display: flex;
   padding: 0 19.5rem;
 
   .about-content {
-    height: 35%;
+    height: 15%;
 
     .about-content-title {
       h3 {
@@ -55,10 +55,10 @@
       flex-direction: column;
       position: relative;
       max-height: 53.125rem;
-      max-width: 58.5rem;
+      max-width: 62.5rem;
       animation: loadProfileAnimation 0.6s ease-in-out;
       animation-fill-mode: both;
-      padding: 0 0 4rem 0;
+      padding: 0 0 5rem 0;
     }
 
     .profile-bg {
