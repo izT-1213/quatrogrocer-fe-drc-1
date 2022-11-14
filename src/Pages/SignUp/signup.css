@@ -159,6 +159,7 @@ p {
   background-color: #009688;
   border-radius: 0.25rem;
   border: none;
+  cursor: pointer;
 }
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-in-text-center {
   width: 100%;
