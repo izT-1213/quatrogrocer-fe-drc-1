@@ -145,8 +145,8 @@ function Home() {
     <div>
       <div className="home-header">
         <div className="home-header-content">
-          <h1>Easy.</h1>
           <h1>Fresh.</h1>
+          <h1>Healthy.</h1>
           <h1>Convenient.</h1>
           <p>
             Stay home, we always deliver a service <br></br> more than you
@@ -155,12 +155,7 @@ function Home() {
           <button onClick={() => navigate("/marketplace")}>Shop Now</button>
         </div>
 
-        <div className="home-image-container">
-          {/* <img
-            src="https://images.unsplash.com/photo-1584473457406-6240486418e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-            alt="grocery-bag-img"
-          /> */}
-        </div>
+        <div className="home-image-container"></div>
       </div>
       <div className="today-top-deals">
         <div className="today-top-deals-title">
