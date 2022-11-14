@@ -63,11 +63,11 @@ a:hover {
 }
 
 .about-page {
-  height: 70rem;
+  height: 100rem;
   padding: 0 19.5rem;
 }
 .about-page .about-content {
-  height: 50%;
+  height: 35%;
 }
 .about-page .about-content .about-content-title h3 {
   font-family: "Lexend Deca";
@@ -89,20 +89,20 @@ a:hover {
   width: 10rem;
 }
 .about-page .developers-content .profile {
-  font-size: 1.25 rem;
+  font-size: 1.25rem;
   font-family: "Lexend Deca";
   display: flex;
   flex-direction: column;
   position: relative;
-  max-height: 46.875rem;
-  max-width: 56.25rem;
-  -webkit-animation: loadProfile 0.6s ease-in-out;
-          animation: loadProfile 0.6s ease-in-out;
+  max-height: 53.125rem;
+  max-width: 58.5rem;
+  -webkit-animation: loadProfileAnimation 0.6s ease-in-out;
+          animation: loadProfileAnimation 0.6s ease-in-out;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
+  padding: 0 0 4rem 0;
 }
 .about-page .developers-content .profile-bg {
-  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   position: absolute;
   bottom: 0;
   right: 0;
@@ -113,6 +113,8 @@ a:hover {
   z-index: -1;
 }
 .about-page .developers-content .profile-container {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  border-radius: 0.25rem;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -124,11 +126,10 @@ a:hover {
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   position: relative;
-  border-radius: 0.5rem;
-  box-shadow: 0 25px 45px -20px rgba(255, 0, 47, 0.55), inset 0 0px 120px rgba(255, 0, 47, 0.75);
-  width: 45%;
+  border-radius: 0.625rem;
+  box-shadow: 0 1.563rem 2.813rem -1.25rem rgba(255, 138, 101, 0.25), inset 0 0 7.5rem rgba(255, 138, 101, 0.45);
+  width: 35%;
   flex: none;
-  background-image: url("https://zephyo.github.io/22Days/code/3/graphics/profile.png");
   background-size: cover;
   background-position: center;
 }
@@ -137,31 +138,107 @@ a:hover {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 10px;
-  background-color: #ff2256;
+  border-radius: 0.75rem;
+  background-color: #ff8a65;
   opacity: 0.8;
   mix-blend-mode: screen;
 }
 .about-page .developers-content .profile-info {
-  margin-top: 120px;
-  padding: 8% 8% 2% 8%;
+  margin-top: 140px;
+  padding: 4% 6% 2%;
   position: relative;
 }
-.about-page .developers-content .profile-info h5 {
-  padding: 0.7rem 0;
+.about-page .developers-content .profile-info h4 {
+  padding: 0.5rem 0;
   position: absolute;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
+  text-transform: uppercase;
 }
 .about-page .developers-content .profile-info .first-name {
-  -webkit-animation: titleEffect 1s cubic-bezier(0, 0.2, 0.4, 1);
-          animation: titleEffect 1s cubic-bezier(0, 0.2, 0.4, 1);
+  -webkit-animation: nameEffect 1s cubic-bezier(0, 0.2, 0.4, 1);
+          animation: nameEffect 1s cubic-bezier(0, 0.2, 0.4, 1);
   top: -115px;
-  left: -85px;
+  left: -65px;
 }
 .about-page .developers-content .profile-info .second-name {
-  -webkit-animation: titleEffect 1s cubic-bezier(0, 0, 0.3, 1);
-          animation: titleEffect 1s cubic-bezier(0, 0, 0.3, 1);
+  -webkit-animation: nameEffect 1s cubic-bezier(0, 0, 0.3, 1);
+          animation: nameEffect 1s cubic-bezier(0, 0, 0.3, 1);
   top: -50px;
-  left: -45px;
+  left: -25px;
+}
+.about-page .developers-content .profile-info h6 {
+  font-family: "Lexend Deca";
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  padding: 0 0 0.825rem 0;
+}
+.about-page .developers-content .profile-info p {
+  font-family: "Poppins";
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 160%;
+  padding: 0 0 0.75rem 0;
+}
+@-webkit-keyframes loadProfileAnimation {
+  from {
+    transform: translateY(6.25rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+}
+@keyframes loadProfileAnimation {
+  from {
+    transform: translateY(6.25rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes loadProfileImage {
+  from {
+    transform: translateY(3.125rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+}
+@keyframes loadProfileImage {
+  from {
+    transform: translateY(3.125rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes nameEffect {
+  from {
+    transform: translateX(-4.688rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+}
+@keyframes nameEffect {
+  from {
+    transform: translateX(-4.688rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
 }/*# sourceMappingURL=about.css.map */

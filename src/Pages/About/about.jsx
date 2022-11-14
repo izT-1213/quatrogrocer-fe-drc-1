@@ -33,8 +33,40 @@ function AboutPage() {
             <section className="profile-container">
               <aside className="profile-image"></aside>
               <section className="profile-info">
-                <h5 className="first-name">Hassif</h5>
-                <h5 className="second-name">Hassif</h5>
+                <h4 className="first-name">Hassif</h4>
+                <h4 className="second-name">Imran</h4>
+                <h6>About</h6>
+                <p>
+                  Hello there! I'm Hassif, currently taking the roles as
+                  cyber-security engineer and backend engineer for this project.
+                </p>
+              </section>
+            </section>
+          </div>
+
+          <div className="profile">
+            <div className="profile-bg"></div>
+            <section className="profile-container">
+              <aside className="profile-image"></aside>
+              <section className="profile-info">
+                <h4 className="first-name">Hassif</h4>
+                <h4 className="second-name">Imran</h4>
+                <h6>About</h6>
+                <p>
+                  Hello there! I'm Hassif, currently taking the roles as
+                  cyber-security engineer and backend engineer for this project.
+                </p>
+              </section>
+            </section>
+          </div>
+
+          <div className="profile">
+            <div className="profile-bg"></div>
+            <section className="profile-container">
+              <aside className="profile-image"></aside>
+              <section className="profile-info">
+                <h4 className="first-name">Hassif</h4>
+                <h4 className="second-name">Imran</h4>
                 <h6>About</h6>
                 <p>
                   Hello there! I'm Hassif, currently taking the roles as
