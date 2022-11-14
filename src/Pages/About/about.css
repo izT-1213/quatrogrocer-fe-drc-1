@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
+h1 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+h2 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+
+h3 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.75rem;
+}
+
+h4 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.125rem;
+}
+
+h5 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+h6 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #252525;
+}
+
+a:hover {
+  color: #009688;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+}
+
+.about-page {
+  height: 145em;
+  padding: 0 19.5rem;
+}
+.about-page .about-content {
+  height: 15%;
+}
+.about-page .about-content .about-content-title h3 {
+  font-family: "Lexend Deca";
+  padding: 4rem 0 0.75rem 0;
+}
+.about-page .about-content hr {
+  width: 20%;
+  background-color: #009688;
+  border: 3px solid #009688;
+}
+.about-page .about-content .about-content-text p {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 160%;
+  padding: 1.5rem 0 0 0;
+}
+.about-page .about-content .about-content-text .about-content-text img {
+  width: 10rem;
+}
+.about-page .developers-content .profile {
+  font-size: 1.25rem;
+  font-family: "Lexend Deca";
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-height: 53.125rem;
+  max-width: 62.5rem;
+  -webkit-animation: loadProfileAnimation 0.6s ease-in-out;
+          animation: loadProfileAnimation 0.6s ease-in-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  padding: 0 0 5rem 0;
+}
+.about-page .developers-content .profile-bg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  max-height: calc(100% - 4.688rem);
+  max-width: calc(100% - 6.875rem);
+  z-index: -1;
+}
+.about-page .developers-content .profile-container {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  border-radius: 0.25rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.about-page .developers-content .profile-image {
+  -webkit-animation: loadProfileImage 1s ease-in-out 0.5s;
+          animation: loadProfileImage 1s ease-in-out 0.5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  position: relative;
+  border-radius: 0.625rem;
+  box-shadow: 0 1.563rem 2.813rem -1.25rem rgba(255, 138, 101, 0.25), inset 0 0 7.5rem rgba(255, 138, 101, 0.45);
+  width: 35%;
+  flex: none;
+  background-size: cover;
+  background-position: center;
+}
+.about-page .developers-content .profile-image::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.75rem;
+  background-color: #ff8a65;
+  opacity: 0.8;
+  mix-blend-mode: screen;
+}
+.about-page .developers-content .profile-info {
+  margin-top: 140px;
+  padding: 4% 6% 2%;
+  position: relative;
+}
+.about-page .developers-content .profile-info h4 {
+  padding: 0.5rem 0;
+  position: absolute;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  text-transform: uppercase;
+}
+.about-page .developers-content .profile-info .first-name {
+  -webkit-animation: nameEffect 1s cubic-bezier(0, 0.2, 0.4, 1);
+          animation: nameEffect 1s cubic-bezier(0, 0.2, 0.4, 1);
+  top: -115px;
+  left: -65px;
+}
+.about-page .developers-content .profile-info .second-name {
+  -webkit-animation: nameEffect 1s cubic-bezier(0, 0, 0.3, 1);
+          animation: nameEffect 1s cubic-bezier(0, 0, 0.3, 1);
+  top: -50px;
+  left: -25px;
+}
+.about-page .developers-content .profile-info h6 {
+  font-family: "Lexend Deca";
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  padding: 0 0 0.825rem 0;
+}
+.about-page .developers-content .profile-info p {
+  font-family: "Poppins";
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 160%;
+  padding: 0 0 0.75rem 0;
+}
+@-webkit-keyframes loadProfileAnimation {
+  from {
+    transform: translateY(6.25rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+}
+@keyframes loadProfileAnimation {
+  from {
+    transform: translateY(6.25rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes loadProfileImage {
+  from {
+    transform: translateY(3.125rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+}
+@keyframes loadProfileImage {
+  from {
+    transform: translateY(3.125rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes nameEffect {
+  from {
+    transform: translateX(-4.688rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+}
+@keyframes nameEffect {
+  from {
+    transform: translateX(-4.688rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+}/*# sourceMappingURL=about.css.map */

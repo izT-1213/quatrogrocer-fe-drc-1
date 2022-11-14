@@ -36,6 +36,7 @@ footer {
     font-weight: map-get($map: $font-weight, $key: "bold");
     font-size: 1.25rem;
     line-height: 120%;
+    color: $primary-color;
     padding: 0 0 0.5rem 0;
   }
 
