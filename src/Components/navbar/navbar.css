@@ -115,6 +115,7 @@ a:hover {
   .nav-container nav {
     height: 10rem;
     margin: auto;
+    padding: 0 1rem;
   }
   .nav-container nav .nav-middle {
     display: none;

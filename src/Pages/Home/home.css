@@ -671,4 +671,11 @@ a:hover {
 }
 .services .shop-now-button button:hover {
   background-color: #00796b;
+}
+
+@media screen and (max-width: 37.5rem) {
+  .today-top-deals {
+    height: 59rem;
+    padding: 0 1rem;
+  }
 }/*# sourceMappingURL=home.css.map */
