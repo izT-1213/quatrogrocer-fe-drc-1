@@ -1,11 +1,10 @@
+import { useContext } from "react";
 import Axios from "axios";
 
 async function LoginFunc(email, pass) {
-  await Axios.post("http://localhost:3001/quatro_user/login", {
+  const response = await Axios.post("http://localhost:3001/quatro_user/login", {
     email: email,
     password: pass,
-  }).then((response) => {
-    console.log(response.data.message);
   });
 }
 

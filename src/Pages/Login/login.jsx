@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useRef, useEffect, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -7,26 +7,68 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
 import { LoginFunc } from "../../function.jsx";
+import AuthContext from "../../Components/context/AuthProvider.js";
 import "../Login/login.css";
 
 function LoginPage() {
+  // >>>> login function component (WIP) <<<<
+  const navigate = useNavigate();
+  const { setAuth } = useContext(AuthContext);
+  const [errMsg, setErrMsg] = useState("");
+  const [success, setSuccess] = useState(false);
+
+  const userRef = useRef();
+  const errRef = useRef();
+
+  useEffect(() => {
+    userRef.current.focus();
+  }, []);
+
+  useEffect(() => {
+    setErrMsg("");
+  }, [emailLogin, values.password]);
+
+  const login = (e) => {
+    LoginFunc(emailLogin, values.password.toString());
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await login;
+      console.log(JSON.stringify(response?.data));
+      const accessToken = response?.data?.accessToken;
+      setAuth({ emailLogin, values, accessToken });
+      setEmailLogin("");
+      setValues("");
+      setSuccess(true);
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Missing Username or Password");
+      } else if (err.response?.status === 401) {
+        setErrMsg("Unauthorized");
+      } else {
+        setErrMsg("Login Failed");
+      }
+      errRef.current.focus();
+    }
+  };
+
+  // >>>> end of login function component (WIP) <<<<
+
+  // email and password variables
   const [emailLogin, setEmailLogin] = useState("");
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
   });
 
-  const login = (e) => {
-    e.preventDefault();
-    LoginFunc(emailLogin, values.password.toString());
-  };
-
+  //to hide and show password
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
-  };
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
   };
 
   const handlePasswordChange = (prop) => (event) => {
@@ -41,7 +83,7 @@ function LoginPage() {
       <div className="login-container">
         <div className="login-container-content">
           <div className="login-form-content">
-            <form className="login-form">
+            <form className="login-form" onSubmit={handleSubmit}>
               <h3 className="login-form-title">Welcome Back!</h3>
               <div className="form-group-mt-3">
                 <label>EMAIL</label>
@@ -50,11 +92,14 @@ function LoginPage() {
                 <Input
                   type="email"
                   disableUnderline={true}
+                  ref={userRef}
                   className="form-control-mt-1"
                   placeholder="Email Address"
                   onChange={(e) => {
                     setEmailLogin(e.target.value);
                   }}
+                  required={true}
+                  value={emailLogin}
                 />
               </div>
               <div className="form-group-mt-3">
@@ -67,13 +112,11 @@ function LoginPage() {
                   type={values.showPassword ? "text" : "password"}
                   onChange={handlePasswordChange("password")}
                   value={values.password}
+                  required={true}
                   disableUnderline={true}
                   endAdornment={
                     <InputAdornment position="end">
-                      <IconButton
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                      >
+                      <IconButton onClick={handleClickShowPassword}>
                         {values.showPassword ? (
                           <Visibility />
                         ) : (
@@ -84,15 +127,18 @@ function LoginPage() {
                   }
                 />
               </div>
+              <p
+                ref={errRef}
+                className={errMsg ? "errmsg" : "offscreen"}
+                aria-live="assertive"
+              >
+                {errMsg}
+              </p>
               <p className="forgot-pwd-text">
                 <a href="#">Forgot password?</a>
               </p>
               <div className="d-grid-gap-2-mt-3">
-                <button
-                  type="submit"
-                  className="signup-login-btn"
-                  onClick={login}
-                >
+                <button type="submit" className="signup-login-btn">
                   Log In
                 </button>
               </div>
