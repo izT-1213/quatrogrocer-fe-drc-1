@@ -57,8 +57,39 @@
     .nav-right ul li:hover {
       color: $primary-hover-light-color;
     }
+
+    .nav-right {
+      .burger {
+        display: none;
+      }
+    }
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 37.5rem) {
+  .nav-container {
+    nav {
+      height: 10rem;
+      // position: absolute;
+      margin: auto;
+      .nav-left {
+      }
+      .nav-middle {
+        display: none;
+      }
+      .nav-right {
+        .burger {
+          display: block;
+        }
+      }
+      .nav-middle ul,
+      .nav-right ul {
+      }
+      .nav-middle ul li {
+      }
+      .nav-middle ul li:hover,
+      .nav-right ul li:hover {
+      }
+    }
+  }
 }

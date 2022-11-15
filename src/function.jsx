@@ -13,7 +13,7 @@ async function LoginFunc(email, pass) {
 }
 
 async function RegisterFunc(email, pass) {
-  await Axios.post("http://localhost:3001/quatro_user/create", {
+  await Axios.post("http://localhost:3002 /quatro_user/create", {
     email: email,
     password: pass,
   }).then((response) => {
