@@ -92,4 +92,46 @@ a:hover {
 }
 .page-container .back-btn button:hover {
   background-color: #ff5722;
+}
+
+@media screen and (max-width: 37.5rem) {
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 0 1.5rem;
+  }
+  .page-container .page-header p {
+    font-family: "Lexend Deca";
+    font-weight: 600;
+    font-size: 1.75rem;
+    line-height: 120%;
+    padding: 4rem 0 0 0;
+  }
+  .page-container .page-content p {
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 120%;
+    padding: 1rem 0 1.5rem 0;
+  }
+  .page-container .back-btn button {
+    cursor: pointer;
+    font-family: "Lexend Deca";
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 120%;
+    color: #ffffff;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    gap: 1rem;
+    background-color: #ff8a65;
+    border: none;
+    border-radius: 0.25rem;
+  }
+  .page-container .back-btn button:hover {
+    background-color: #ff5722;
+  }
 }/*# sourceMappingURL=no-result.css.map */

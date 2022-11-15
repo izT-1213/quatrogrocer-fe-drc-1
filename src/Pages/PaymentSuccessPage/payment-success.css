@@ -241,4 +241,10 @@ a:hover {
 }
 .page-container .main-container .order-summary .calculation hr {
   width: 480px;
+}
+
+@media screen and (max-width: 37.5rem) {
+  .page-container {
+    padding: 2rem 3rem;
+  }
 }/*# sourceMappingURL=payment-success.css.map */

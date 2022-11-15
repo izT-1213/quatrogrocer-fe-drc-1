@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
-import { useForm } from "react-hook-form";
+//import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { IconButton, InputAdornment, Input } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
@@ -41,14 +41,13 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const message = LoginFunc(emailLogin, values.password.toString());
-    const data = message.json();
 
-    if (data === undefined) {
+    if (message === undefined) {
       navigate("/profile");
       // console.log(message);
     } else {
-      console.log(data);
-      setErrMsg(JSON.stringify(data));
+      console.log(message);
+      setErrMsg(JSON.stringify(message));
     }
 
     // try {
