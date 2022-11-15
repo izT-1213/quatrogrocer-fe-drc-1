@@ -4,13 +4,7 @@ import Input from "@material-ui/core/Input";
 import "../AddAddressPage/add-address.css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useNavigate } from "react-router-dom";
-// import {
-//   allPostcodes,
-//   getStates,
-//   getCities,
-//   getPostcodes,
-//   findPostcode,
-// } from "malaysia-postcodes";
+import { CreateAddressFunc } from "../../function";
 
 function AddAddressPage() {
   // function handleAddAddress() {}
