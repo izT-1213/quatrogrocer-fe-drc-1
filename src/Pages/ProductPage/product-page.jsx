@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import { AddShoppingCart } from "@mui/icons-material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./product-page.css";
+///////////////////////
+
 
 function ProductPage() {
   const navigate = useNavigate();
+
+  //pagination
+  const [products, setProducts] = useState([]);
+
+  useEffect(()=> {
+
+    fetch("https://jsonplaceholder.typicode.com/albums/1/photos").then(
+      response => response.json().then(data=>{
+        setProducts(data);
+      })
+    )
+
+  },[])
+
 
   //mapping product
   const MediumHorCard = () => (
@@ -20,7 +36,7 @@ function ProductPage() {
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
-                <text className="RM">RM</text> 15.45
+                <p className="RM">RM</p> 15.45
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn">
@@ -36,7 +52,7 @@ function ProductPage() {
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
-                <text className="RM">RM</text> 15.45
+                <p className="RM">RM</p> 15.45
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn">
@@ -54,7 +70,7 @@ function ProductPage() {
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
-                <text className="RM">RM</text> 15.45
+                <p className="RM">RM</p> 15.45
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn">
@@ -70,7 +86,7 @@ function ProductPage() {
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
-                <text className="RM">RM</text> 15.45
+                <p className="RM">RM</p> 15.45
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn">
@@ -88,7 +104,7 @@ function ProductPage() {
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
-                <text className="RM">RM</text> 15.45
+                <p className="RM">RM</p> 15.45
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn">
@@ -104,7 +120,7 @@ function ProductPage() {
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
-                <text className="RM">RM</text> 15.45
+                <p className="RM">RM</p> 15.45
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn">
