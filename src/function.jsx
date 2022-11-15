@@ -13,12 +13,19 @@ async function LoginFunc(email, pass) {
 }
 
 async function RegisterFunc(email, pass) {
-  await Axios.post("http://localhost:3001/quatro_user/create", {
-    email: email,
-    password: pass,
-  }).then((response) => {
-    console.log(response.message);
-  });
+  try {
+    const response = await Axios.post(
+      "http://localhost:3001/quatro_user/create",
+      {
+        email: email,
+        password: pass,
+      }
+    );
+    console.log(response);
+  } catch (err) {
+    console.log(err.response.data);
+    return err.response.data;
+  }
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
