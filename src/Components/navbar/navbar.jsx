@@ -4,6 +4,7 @@ import logo from "../../Images/white-logo.svg";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
+import SearchIcon from "@mui/icons-material/Search";
 import "./navbar.css";
 
 const Nav = () => {
@@ -32,11 +33,21 @@ const Nav = () => {
           </ul>
         </div>
 
+        <div className="search-container">
+          <form action="/">
+            <input
+              type="text"
+              placeholder="Search quatrogrocer.com"
+              name="search"
+            />
+            <button type="submit">
+              <SearchOutlinedIcon />
+            </button>
+          </form>
+        </div>
+
         <div className="nav-right">
           <ul>
-            <li>
-              <SearchOutlinedIcon />
-            </li>
             <li>
               <AccountCircleOutlinedIcon onClick={() => navigate("/profile")} />
             </li>
