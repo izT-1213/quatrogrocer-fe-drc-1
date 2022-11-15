@@ -22,7 +22,10 @@ function Home() {
           <td className="right-col-cards">
             <div className="horizontal-card">
               <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                <img
+                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+                  alt=""
+                />
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
@@ -38,7 +41,10 @@ function Home() {
           <td className="left-col-cards">
             <div className="horizontal-card">
               <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                <img
+                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+                  alt=""
+                />
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
@@ -56,7 +62,10 @@ function Home() {
           <td className="right-col-cards">
             <div className="horizontal-card">
               <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                <img
+                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+                  alt=""
+                />
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
@@ -72,7 +81,10 @@ function Home() {
           <td className="left-col-cards">
             <div className="horizontal-card">
               <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                <img
+                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+                  alt=""
+                />
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
@@ -90,7 +102,10 @@ function Home() {
           <td className="right-col-cards">
             <div className="horizontal-card">
               <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                <img
+                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+                  alt=""
+                />
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
@@ -106,7 +121,10 @@ function Home() {
           <td className="left-col-cards">
             <div className="horizontal-card">
               <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                <img
+                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+                  alt=""
+                />
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
@@ -127,7 +145,10 @@ function Home() {
   const LargeHorCard = () => (
     <div className="large-horizontal-card">
       <div className="product-image">
-        <img src="https://images.unsplash.com/photo-1621378580414-421cba519671?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" />
+        <img
+          src="https://images.unsplash.com/photo-1621378580414-421cba519671?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+          alt=""
+        />
       </div>
       <p className="product-name">Pickle Jar 500GMS</p>
       <p className="product-price">
@@ -170,7 +191,10 @@ function Home() {
         <div className="today-top-deals-product">
           <div className="vertical-card">
             <div className="product-image">
-              <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+              <img
+                src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+                alt=""
+              />
             </div>
             <p className="product-name">Farm Fresh Pure Milk 2L</p>
             <p className="product-price">

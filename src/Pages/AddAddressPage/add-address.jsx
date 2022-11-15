@@ -7,7 +7,28 @@ import { useNavigate } from "react-router-dom";
 import { CreateAddressFunc } from "../../function";
 
 function AddAddressPage() {
-  // function handleAddAddress() {}
+  const [addressValues, setAddressValues] = useState({
+    address_line_1: "",
+    address_line_2: "",
+    address_line_3: "",
+    postcode: "",
+    state: "",
+    user_id: "",
+  });
+
+  const addAddress = async (e) => {
+    e.preventDefault();
+
+    CreateAddressFunc(
+      addressValues.address_line_1.toString(),
+      addressValues.address_line_2.toString(),
+      addressValues.address_line_3.toString(),
+      addressValues.postcode.toString(),
+      addressValues.state.toString(),
+      addressValues.user_id
+    );
+  };
+
   function clearInput() {
     document.getElementById("form").reset();
   }
@@ -31,6 +52,14 @@ function AddAddressPage() {
                       disableUnderline={true}
                       className="address-input"
                       id="input"
+                      placeholder="Address Line 1"
+                      onChange={(e) => {
+                        setAddressValues({
+                          ...addressValues,
+                          address_line_1: e.target.value,
+                        });
+                      }}
+                      value={addressValues.address_line_1}
                     />
                   </div>
 
@@ -41,6 +70,14 @@ function AddAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
+                      placeholder="Address Line 2"
+                      onChange={(e) => {
+                        setAddressValues({
+                          ...addressValues,
+                          address_line_2: e.target.value,
+                        });
+                      }}
+                      value={addressValues.address_line_2}
                     />
                   </div>
                   <div className="address-line-3">
@@ -50,31 +87,71 @@ function AddAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
+                      placeholder="Address Line 3"
+                      onChange={(e) => {
+                        setAddressValues({
+                          ...addressValues,
+                          address_line_3: e.target.value,
+                        });
+                      }}
+                      value={addressValues.address_line_3}
                     />
                   </div>
                 </div>
 
                 <div className="postcode-and-state-container">
                   <div className="postcode">
-                    <label>Postcode *</label>
+                    <label>Postcode</label>
                     <Input
                       className="postcode-input"
                       type="text"
                       disableUnderline={true}
                       id="input"
+                      placeholder="Postcode"
+                      onChange={(e) => {
+                        setAddressValues({
+                          ...addressValues,
+                          postcode: e.target.value,
+                        });
+                      }}
+                      value={addressValues.postcode}
                     />
                   </div>
 
                   <div className="state">
-                    <label>State *</label>
+                    <label>State</label>
                     <Input
                       className="state-input"
                       type="text"
                       disableUnderline={true}
                       id="input"
+                      onChange={(e) => {
+                        setAddressValues({
+                          ...addressValues,
+                          state: e.target.value,
+                        });
+                      }}
+                      value={addressValues.state}
+                    />
+                  </div>
+                  <div className="state">
+                    <label>User ID</label>
+                    <Input
+                      className="userid-input"
+                      type="text"
+                      disableUnderline={true}
+                      id="input"
+                      onChange={(e) => {
+                        setAddressValues({
+                          ...addressValues,
+                          user_id: e.target.value,
+                        });
+                      }}
+                      value={addressValues.user_id}
                     />
                   </div>
                 </div>
+
                 <div className="checkbox-container">
                   <label class="default">
                     <input type="checkbox" />
@@ -89,7 +166,8 @@ function AddAddressPage() {
                 </button>
                 <button
                   className="add-address-btn"
-                  type="submit" /*onClick={handleAddAddress}*/
+                  type="submit"
+                  onClick={addAddress} /*onClick={handleAddAddress}*/
                 >
                   Add Address
                 </button>

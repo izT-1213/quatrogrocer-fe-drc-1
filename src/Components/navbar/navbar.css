@@ -106,4 +106,21 @@ a:hover {
 .nav-container nav .nav-middle ul li:hover,
 .nav-container nav .nav-right ul li:hover {
   color: #b2dfdb;
+}
+.nav-container nav .nav-right .burger {
+  display: none;
+}
+
+@media screen and (max-width: 37.5rem) {
+  .nav-container nav {
+    height: 10rem;
+    margin: auto;
+    padding: 0 1rem;
+  }
+  .nav-container nav .nav-middle {
+    display: none;
+  }
+  .nav-container nav .nav-right .burger {
+    display: block;
+  }
 }/*# sourceMappingURL=navbar.css.map */

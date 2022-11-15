@@ -1,21 +1,26 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
+//import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import IconButton from "@material-ui/core/IconButton";
-import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Input from "@material-ui/core/Input";
+import { IconButton, InputAdornment, Input } from "@material-ui/core";
+import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
 import { LoginFunc } from "../../function.jsx";
 import AuthContext from "../../Components/context/AuthProvider.js";
 import "../Login/login.css";
 
 function LoginPage() {
+  // email and password variables
+  const [emailLogin, setEmailLogin] = useState("");
+  const [values, setValues] = useState({
+    password: "",
+    showPassword: false,
+  });
+
   // >>>> login function component (WIP) <<<<
-  const navigate = useNavigate();
-  const { setAuth } = useContext(AuthContext);
-  const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
+  const navigate = useNavigate(); // <-- to navigate to profile page
+  const { setAuth } = useContext(AuthContext); // <-- for authentication
+  const [errMsg, setErrMsg] = useState(""); // <-- to catch error message(?)
+  const [success, setSuccess] = useState(false); // <-- to check if login is successful
 
   const userRef = useRef();
   const errRef = useRef();
@@ -28,43 +33,46 @@ function LoginPage() {
     setErrMsg("");
   }, [emailLogin, values.password]);
 
-  const login = (e) => {
-    LoginFunc(emailLogin, values.password.toString());
-  };
+  // //calling LoginFunc from function.jsx
+  // const login = (e) => {
+  // LoginFunc(emailLogin, values.password.toString()
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const message = await LoginFunc(emailLogin, values.password.toString());
 
-    try {
-      const response = await login;
-      console.log(JSON.stringify(response?.data));
-      const accessToken = response?.data?.accessToken;
-      setAuth({ emailLogin, values, accessToken });
-      setEmailLogin("");
-      setValues("");
-      setSuccess(true);
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg("No Server Response");
-      } else if (err.response?.status === 400) {
-        setErrMsg("Missing Username or Password");
-      } else if (err.response?.status === 401) {
-        setErrMsg("Unauthorized");
-      } else {
-        setErrMsg("Login Failed");
-      }
-      errRef.current.focus();
+    if (message === undefined) {
+      navigate("/profile");
+      // console.log(message);
+    } else {
+      console.log(message);
+      setErrMsg(JSON.stringify(message.error));
     }
+
+    // try {
+    //   const response = await login;
+    //   console.log(JSON.stringify(response?.data));
+    //   const accessToken = response?.data?.accessToken;
+    //   setAuth({ emailLogin, values, accessToken });
+    //   setEmailLogin("");
+    //   setValues("");
+    //   setSuccess(true);
+    // } catch (err) {
+    //   if (!err?.response) {
+    //     setErrMsg("No Server Response");
+    //   } else if (err.response?.status === 400) {
+    //     setErrMsg("Missing Username or Password");
+    //   } else if (err.response?.status === 401) {
+    //     setErrMsg("Unauthorized");
+    //   } else {
+    //     setErrMsg("Login Failed");
+    //   }
+    //   errRef.current.focus();
+    // }
   };
 
   // >>>> end of login function component (WIP) <<<<
-
-  // email and password variables
-  const [emailLogin, setEmailLogin] = useState("");
-  const [values, setValues] = useState({
-    password: "",
-    showPassword: false,
-  });
 
   //to hide and show password
   const handleClickShowPassword = () => {
@@ -78,7 +86,10 @@ function LoginPage() {
   return (
     <div className="login-page-container">
       <div className="login-image-container">
-        <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" />
+        <img
+          src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+          alt=""
+        />
       </div>
       <div className="login-container">
         <div className="login-container-content">
