@@ -40,15 +40,14 @@ function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const message = LoginFunc(emailLogin, values.password.toString());
-    const data = message.json();
+    const message = await LoginFunc(emailLogin, values.password.toString());
 
-    if (data === undefined) {
+    if (message === undefined) {
       navigate("/profile");
       // console.log(message);
     } else {
-      console.log(data);
-      setErrMsg(JSON.stringify(data));
+      console.log(message);
+      setErrMsg(JSON.stringify(message.error));
     }
 
     // try {
