@@ -34,7 +34,7 @@ function SignUpPage() {
     setValues({ ...values, [prop]: event.target.value });
   };
 
-  const [value, setValue] = React.useState(dayjs("2014-08-18T21:11:54"));
+  const [value, setValue] = useState(dayjs(""));
 
   const handleChange = (newValue) => {
     setValue(newValue);
