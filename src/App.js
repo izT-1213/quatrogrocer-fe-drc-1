@@ -24,16 +24,17 @@ import PaymentSuccessPage from "./Pages/PaymentSuccessPage/payment-success.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
+
 ////encode url
 import React from "react";
 
-function getCurrentURL() {
-  return window.location.href;
-}
-const url = getCurrentURL();
-console.log(url);
-console.log(encodeURI(url));
-console.log(encodeURIComponent(url));
+// function getCurrentURL() {
+//   return window.location.href;
+// }
+// const url = getCurrentURL();
+// console.log(url);
+// console.log(encodeURI(url));
+// console.log(encodeURIComponent(url));
 
 function App() {
   return (
