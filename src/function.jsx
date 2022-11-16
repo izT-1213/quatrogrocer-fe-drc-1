@@ -57,7 +57,7 @@ async function CreateAddressFunc(
 async function FetchProduct() {
   try {
     const response = await Axios.get(
-      "http://localhost:3001/quatro_product/get"
+      "http://localhost:3000/quatro_product/get"
     );
     console.log(response.data.result);
     return response.data.result;

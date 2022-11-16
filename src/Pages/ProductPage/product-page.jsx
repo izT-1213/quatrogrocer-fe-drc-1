@@ -4,7 +4,9 @@ import { Carousel } from "react-responsive-carousel";
 import { AddShoppingCart } from "@mui/icons-material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./product-page.css";
+import { FetchProduct } from "../../function";
 ///////////////////////
+import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
 
 function ProductPage() {
   const navigate = useNavigate();
@@ -13,6 +15,7 @@ function ProductPage() {
   const [perPage, setPerPage] = useState(10);
   const [size, setSize] = useState(perPage);
   const [current, setCurrent] = useState(1);
+  const datatableUsers = FetchProduct();
 
   const PerPageChange = (value) => {
     setSize(value);
@@ -182,6 +185,7 @@ function ProductPage() {
         </div>
 
         <div className="product-section">
+          {/* <p>{JSON.stringify(datatableUsers.length)}</p> */}
           <div className="carousel">
             <Carousel
               autoPlay={true}
@@ -232,6 +236,7 @@ function ProductPage() {
               onShowSizeChange={PerPageChange}
             />
           </div>
+          <div></div>
           <div className="product-cards">
             <MediumHorCard />
           </div>
