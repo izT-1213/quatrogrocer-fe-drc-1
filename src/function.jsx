@@ -13,12 +13,19 @@ async function LoginFunc(email, pass) {
 }
 
 async function RegisterFunc(email, pass) {
-  await Axios.post("http://localhost:3001/quatro_user/create", {
-    email: email,
-    password: pass,
-  }).then((response) => {
-    console.log(response.message);
-  });
+  try {
+    const response = await Axios.post(
+      "http://localhost:3001/quatro_user/create",
+      {
+        email: email,
+        password: pass,
+      }
+    );
+    console.log(response);
+  } catch (err) {
+    console.log(err.response.data);
+    return err.response.data;
+  }
 }
 
 async function CreateAddressFunc(
@@ -70,8 +77,17 @@ async function UpdateAddressFunc(
     console.log(response);
   } catch (err) {
     console.log(err.response.data);
+async function FetchProduct() {
+  try {
+    const response = await Axios.get(
+      "http://localhost:3000/quatro_product/get"
+    );
+    console.log(response.data.result);
+    return response.data.result;
+  } catch (err) {
+    console.log(err.response);
   }
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export { LoginFunc, RegisterFunc, CreateAddressFunc, UpdateAddressFunc };
+export { LoginFunc, RegisterFunc, CreateAddressFunc, FetchProduct, UpdateAddressFunc };

@@ -1,12 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import { AddShoppingCart } from "@mui/icons-material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./product-page.css";
+import { FetchProduct } from "../../function";
+///////////////////////
+import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
 
 function ProductPage() {
   const navigate = useNavigate();
+
+  //pagination
+  const [perPage, setPerPage] = useState(10);
+  const [size, setSize] = useState(perPage);
+  const [current, setCurrent] = useState(1);
+  const datatableUsers = FetchProduct();
+
+  const PerPageChange = (value) => {
+    setSize(value);
+    const newPerPage = Math.ceil(datatableUsers.length / value);
+    if (current > newPerPage) {
+      setCurrent(newPerPage);
+    }
+  };
+
+  const getData = (current, pageSize) => {
+    // Normally you should get the data from the server
+    return datatableUsers.slice((current - 1) * pageSize, current * pageSize);
+  };
+
+  const PaginationChange = (page, pageSize) => {
+    setCurrent(page);
+    setSize(pageSize);
+  };
+
+  const PrevNextArrow = (current, type, originalElement) => {
+    if (type === "prev") {
+      return (
+        <button>
+          <i className="fa fa-angle-double-left"></i>
+        </button>
+      );
+    }
+    if (type === "next") {
+      return (
+        <button>
+          <i className="fa fa-angle-double-right"></i>
+        </button>
+      );
+    }
+    return originalElement;
+  };
 
   //mapping product
   const MediumHorCard = () => (
@@ -20,7 +65,7 @@ function ProductPage() {
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
-                <text className="RM">RM</text> 15.45
+                <p className="RM">RM</p> 15.45
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn">
@@ -36,7 +81,7 @@ function ProductPage() {
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
-                <text className="RM">RM</text> 15.45
+                <p className="RM">RM</p> 15.45
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn">
@@ -54,7 +99,7 @@ function ProductPage() {
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
-                <text className="RM">RM</text> 15.45
+                <p className="RM">RM</p> 15.45
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn">
@@ -70,7 +115,7 @@ function ProductPage() {
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
-                <text className="RM">RM</text> 15.45
+                <p className="RM">RM</p> 15.45
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn">
@@ -88,7 +133,7 @@ function ProductPage() {
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
-                <text className="RM">RM</text> 15.45
+                <p className="RM">RM</p> 15.45
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn">
@@ -104,7 +149,7 @@ function ProductPage() {
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
-                <text className="RM">RM</text> 15.45
+                <p className="RM">RM</p> 15.45
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn">
@@ -140,6 +185,7 @@ function ProductPage() {
         </div>
 
         <div className="product-section">
+          {/* <p>{JSON.stringify(datatableUsers.length)}</p> */}
           <div className="carousel">
             <Carousel
               autoPlay={true}
@@ -174,7 +220,23 @@ function ProductPage() {
             <h5>Marketplace</h5>
           </div>
           <hr></hr>
-
+          {/* <Products data={products} /> */}
+          <div className="filter-info">
+            <Pagination
+              className="pagination-data"
+              showTotal={(total, range) =>
+                `Showing ${range[0]}-${range[1]} of ${total}`
+              }
+              onChange={PaginationChange}
+              total={datatableUsers.length}
+              current={current}
+              pageSize={size}
+              showSizeChanger={false}
+              itemRender={PrevNextArrow}
+              onShowSizeChange={PerPageChange}
+            />
+          </div>
+          <div></div>
           <div className="product-cards">
             <MediumHorCard />
           </div>
