@@ -313,9 +313,9 @@ a:hover {
 .rc-pagination-next.rc-pagination-item-active a:hover,
 .rc-pagination-total-text.rc-pagination-item-active a,
 .rc-pagination-total-text.rc-pagination-item-active a:hover {
-  background-color: #5a8dee;
-  border-color: #5a8dee;
-  color: #009688 !important;
+  background-color: #ff8a65;
+  border-color: #ff8a65;
+  color: #ffffff !important;
 }
 
 .rc-pagination-item a:hover,
