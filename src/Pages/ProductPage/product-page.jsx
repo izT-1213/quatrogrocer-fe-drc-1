@@ -6,23 +6,49 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./product-page.css";
 ///////////////////////
 
-
 function ProductPage() {
   const navigate = useNavigate();
 
   //pagination
-  const [products, setProducts] = useState([]);
+  const [perPage, setPerPage] = useState(10);
+  const [size, setSize] = useState(perPage);
+  const [current, setCurrent] = useState(1);
 
-  useEffect(()=> {
+  const PerPageChange = (value) => {
+    setSize(value);
+    const newPerPage = Math.ceil(datatableUsers.length / value);
+    if (current > newPerPage) {
+      setCurrent(newPerPage);
+    }
+  };
 
-    fetch("https://jsonplaceholder.typicode.com/albums/1/photos").then(
-      response => response.json().then(data=>{
-        setProducts(data);
-      })
-    )
+  const getData = (current, pageSize) => {
+    // Normally you should get the data from the server
+    return datatableUsers.slice((current - 1) * pageSize, current * pageSize);
+  };
 
-  },[])
+  const PaginationChange = (page, pageSize) => {
+    setCurrent(page);
+    setSize(pageSize);
+  };
 
+  const PrevNextArrow = (current, type, originalElement) => {
+    if (type === "prev") {
+      return (
+        <button>
+          <i className="fa fa-angle-double-left"></i>
+        </button>
+      );
+    }
+    if (type === "next") {
+      return (
+        <button>
+          <i className="fa fa-angle-double-right"></i>
+        </button>
+      );
+    }
+    return originalElement;
+  };
 
   //mapping product
   const MediumHorCard = () => (
@@ -190,7 +216,22 @@ function ProductPage() {
             <h5>Marketplace</h5>
           </div>
           <hr></hr>
-
+          {/* <Products data={products} /> */}
+          <div className="filter-info">
+            <Pagination
+              className="pagination-data"
+              showTotal={(total, range) =>
+                `Showing ${range[0]}-${range[1]} of ${total}`
+              }
+              onChange={PaginationChange}
+              total={datatableUsers.length}
+              current={current}
+              pageSize={size}
+              showSizeChanger={false}
+              itemRender={PrevNextArrow}
+              onShowSizeChange={PerPageChange}
+            />
+          </div>
           <div className="product-cards">
             <MediumHorCard />
           </div>
