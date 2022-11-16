@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router";
 import { Carousel } from "react-responsive-carousel";
 import { AddShoppingCart } from "@mui/icons-material";
 import { useParams } from "react-router";
@@ -187,9 +188,8 @@ function ProductPage() {
             <ul>
               <li onClick={() => navigate("/biscuits")}>Biscuits</li>
               <li onClick={() => navigate("/dairy")}>Dairy</li>
-              <li onClick={() => navigate("/fruits-&-vegetables")}>
-                Fruits & Vegetables
-              </li>
+              <li onClick={() => navigate("/fruits")}>Fruits</li>
+              <li onClick={() => navigate("/vegetables")}>Vegetables</li>
               <li onClick={() => navigate("/noodles")}>Noodles</li>
               <li onClick={() => navigate("/snacks")}>Snacks</li>
               <li onClick={() => navigate("/spices")}>Spices</li>
@@ -198,7 +198,7 @@ function ProductPage() {
         </div>
 
         <div className="product-section">
-          <script>${productDetails.length}</script>
+
           <div className="carousel">
             <Carousel
               autoPlay={true}

@@ -10,8 +10,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 const Nav = () => {
   const navigate = useNavigate();
 
+  const handleSubmit = (e) => e.preventDefault();
+
   return (
-    <div className="nav-container">
+    <div>
       <nav className="nav">
         <div className="nav-left">
           <Link to={"/"}>
@@ -21,9 +23,6 @@ const Nav = () => {
               alt="Quatro Grocer's Logo"
             />
           </Link>
-        </div>
-
-        <div className="nav-middle">
           <ul>
             <li onClick={() => navigate("/marketplace")}>Marketplace</li>
             <li onClick={() => navigate("/best-sellers")}>Best Sellers</li>
@@ -34,10 +33,20 @@ const Nav = () => {
         </div>
 
         <div className="nav-right">
+          <div className="search-container">
+            <form action="/" onSubmit={handleSubmit}>
+              <input
+                className="searchTerm"
+                type="text"
+                placeholder="Search quatrogrocer.com"
+                name="search"
+              />
+              <button className="searchButton" type="submit">
+                <SearchOutlinedIcon />
+              </button>
+            </form>
+          </div>
           <ul>
-            <li>
-              <SearchOutlinedIcon />
-            </li>
             <li>
               <AccountCircleOutlinedIcon onClick={() => navigate("/profile")} />
             </li>
