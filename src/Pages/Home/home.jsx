@@ -53,6 +53,7 @@ function Home() {
       <table className="horizontal-cards-container">
         <tr>
           <td className="right-col-cards">
+            {/* mapping api products */}
             {productDetails?.map(function (key, index) {
               return (
                 <div className="horizontal-card">
