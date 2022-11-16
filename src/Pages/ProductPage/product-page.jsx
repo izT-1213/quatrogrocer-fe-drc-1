@@ -1,25 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router";
 import { Carousel } from "react-responsive-carousel";
 import { AddShoppingCart } from "@mui/icons-material";
+import { useParams } from "react-router";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./product-page.css";
 import { FetchProduct } from "../../function";
 ///////////////////////
 import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 function ProductPage() {
   const navigate = useNavigate();
 
   //pagination
-  const [perPage, setPerPage] = useState(10);
+  const [perPage, setPerPage] = useState(6);
   const [size, setSize] = useState(perPage);
   const [current, setCurrent] = useState(1);
-  const datatableUsers = FetchProduct();
+  const [productDetails, setProductDetails] = useState([]);
+  const { products } = useParams();
+
+  useEffect(() => {
+    setProductDetails([]);
+    FetchProduct(products).then(setProductDetails);
+  }, [products]);
 
   const PerPageChange = (value) => {
     setSize(value);
-    const newPerPage = Math.ceil(datatableUsers.length / value);
+    const newPerPage = Math.ceil(productDetails.length / value);
     if (current > newPerPage) {
       setCurrent(newPerPage);
     }
@@ -27,7 +37,7 @@ function ProductPage() {
 
   const getData = (current, pageSize) => {
     // Normally you should get the data from the server
-    return datatableUsers.slice((current - 1) * pageSize, current * pageSize);
+    return productDetails.slice((current - 1) * pageSize, current * pageSize);
   };
 
   const PaginationChange = (page, pageSize) => {
@@ -39,14 +49,18 @@ function ProductPage() {
     if (type === "prev") {
       return (
         <button>
-          <i className="fa fa-angle-double-left"></i>
+          <i className="fa fa-angle-double-left">
+            <ArrowBackIosIcon />
+          </i>
         </button>
       );
     }
     if (type === "next") {
       return (
         <button>
-          <i className="fa fa-angle-double-right"></i>
+          <i className="fa fa-angle-double-right">
+            <ArrowForwardIosIcon />
+          </i>
         </button>
       );
     }
@@ -174,9 +188,8 @@ function ProductPage() {
             <ul>
               <li onClick={() => navigate("/biscuits")}>Biscuits</li>
               <li onClick={() => navigate("/dairy")}>Dairy</li>
-              <li onClick={() => navigate("/fruits-&-vegetables")}>
-                Fruits & Vegetables
-              </li>
+              <li onClick={() => navigate("/fruits")}>Fruits</li>
+              <li onClick={() => navigate("/vegetables")}>Vegetables</li>
               <li onClick={() => navigate("/noodles")}>Noodles</li>
               <li onClick={() => navigate("/snacks")}>Snacks</li>
               <li onClick={() => navigate("/spices")}>Spices</li>
@@ -185,7 +198,7 @@ function ProductPage() {
         </div>
 
         <div className="product-section">
-          {/* <p>{JSON.stringify(datatableUsers.length)}</p> */}
+
           <div className="carousel">
             <Carousel
               autoPlay={true}
@@ -228,7 +241,7 @@ function ProductPage() {
                 `Showing ${range[0]}-${range[1]} of ${total}`
               }
               onChange={PaginationChange}
-              total={datatableUsers.length}
+              total={productDetails.length}
               current={current}
               pageSize={size}
               showSizeChanger={false}
@@ -236,7 +249,20 @@ function ProductPage() {
               onShowSizeChange={PerPageChange}
             />
           </div>
-          <div></div>
+
+          {/* {getData(current, size).map((data, index) => {
+            return (
+              <tr key={data.id}>
+                <td>{data.id}</td>
+                <td>{data.name}</td>
+                <td>{data.position}</td>
+                <td>{data.gender}</td>
+                <td>{data.email}</td>
+                <td>{data.salary}</td>
+              </tr>
+            );
+          })} */}
+
           <div className="product-cards">
             <MediumHorCard />
           </div>

@@ -38,7 +38,7 @@ async function CreateAddressFunc(
 ) {
   try {
     const response = await Axios.post(
-      "http://localhost:3002/quatro_address/create", //hassif port 3002
+      "http://localhost:3001/quatro_address/create", //hassif port 3002
       {
         address_line_1: addLine1,
         address_line_2: addLine2,
@@ -83,7 +83,7 @@ async function UpdateAddressFunc(
 async function FetchProduct() {
   try {
     const response = await Axios.get(
-      "http://localhost:3000/quatro_product/get"
+      "http://localhost:3001/quatro_product/get"
     );
     console.log(response.data.result);
     return response.data.result;

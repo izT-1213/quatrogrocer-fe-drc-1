@@ -16,11 +16,9 @@ function LoginPage() {
     showPassword: false,
   });
 
-  // >>>> login function component (WIP) <<<<
   const navigate = useNavigate(); // <-- to navigate to profile page
   const { setAuth } = useContext(AuthContext); // <-- for authentication
   const [errMsg, setErrMsg] = useState(""); // <-- to catch error message(?)
-  const [success, setSuccess] = useState(false); // <-- to check if login is successful
 
   const userRef = useRef();
   const errRef = useRef();
@@ -33,16 +31,10 @@ function LoginPage() {
     setErrMsg("");
   }, [emailLogin, values.password]);
 
-  // //calling LoginFunc from function.jsx
-  // const login = (e) => {
-  // LoginFunc(emailLogin, values.password.toString()
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const message = await LoginFunc(emailLogin, values.password.toString());
-
 
     if (message === undefined) {
       navigate("/profile");
@@ -51,32 +43,8 @@ function LoginPage() {
       console.log(message);
 
       setErrMsg(JSON.stringify(message.error));
-
     }
-
-    // try {
-    //   const response = await login;
-    //   console.log(JSON.stringify(response?.data));
-    //   const accessToken = response?.data?.accessToken;
-    //   setAuth({ emailLogin, values, accessToken });
-    //   setEmailLogin("");
-    //   setValues("");
-    //   setSuccess(true);
-    // } catch (err) {
-    //   if (!err?.response) {
-    //     setErrMsg("No Server Response");
-    //   } else if (err.response?.status === 400) {
-    //     setErrMsg("Missing Username or Password");
-    //   } else if (err.response?.status === 401) {
-    //     setErrMsg("Unauthorized");
-    //   } else {
-    //     setErrMsg("Login Failed");
-    //   }
-    //   errRef.current.focus();
-    // }
   };
-
-  // >>>> end of login function component (WIP) <<<<
 
   //to hide and show password
   const handleClickShowPassword = () => {
