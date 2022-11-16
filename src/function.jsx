@@ -92,6 +92,48 @@ async function FetchProduct() {
   }
 }
 
+async function GetPasswordFunc(user_id, password) {
+  try {
+    await Axios.get("http://localhost:3002/quatro_user/getpassword", {
+      user_id: user_id,
+      password: password,
+    });
+  } catch (err) {
+    console.log(err.response.data);
+    return err.response.data;
+  }
+}
+
+async function UpdateProfileFunc(
+  first_name,
+  last_name,
+  email,
+  phone_number,
+  date_of_birth,
+  oldPassword,
+  password,
+  user_id
+) {
+  try {
+    const response = await Axios.post(
+      "http://localhost:3002/quatro_user/update", //hassif port 3002
+      {
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        phone_number: phone_number,
+        date_of_birth: date_of_birth,
+        oldPassword: oldPassword,
+        password: password,
+        user_id: user_id,
+      }
+    );
+    console.log(response);
+  } catch (err) {
+    console.log(err.response.data);
+  }
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export {
   LoginFunc,
@@ -99,4 +141,6 @@ export {
   CreateAddressFunc,
   FetchProduct,
   UpdateAddressFunc,
+  UpdateProfileFunc,
+  GetPasswordFunc,
 };
