@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router";
 import { Carousel } from "react-responsive-carousel";
 import { AddShoppingCart } from "@mui/icons-material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -15,11 +16,17 @@ function ProductPage() {
   const [perPage, setPerPage] = useState(10);
   const [size, setSize] = useState(perPage);
   const [current, setCurrent] = useState(1);
-  const datatableUsers = FetchProduct();
+  const [productDetails, setProductDetails] = useState([]);
+  const { products } = useParams();
+
+  useEffect(() => {
+    setProductDetails([]);
+    FetchProduct(products).then(setProductDetails);
+  }, [products]);
 
   const PerPageChange = (value) => {
     setSize(value);
-    const newPerPage = Math.ceil(datatableUsers.length / value);
+    const newPerPage = Math.ceil(productDetails.length / value);
     if (current > newPerPage) {
       setCurrent(newPerPage);
     }
@@ -27,7 +34,7 @@ function ProductPage() {
 
   const getData = (current, pageSize) => {
     // Normally you should get the data from the server
-    return datatableUsers.slice((current - 1) * pageSize, current * pageSize);
+    return productDetails.slice((current - 1) * pageSize, current * pageSize);
   };
 
   const PaginationChange = (page, pageSize) => {
@@ -185,7 +192,7 @@ function ProductPage() {
         </div>
 
         <div className="product-section">
-          {/* <p>{JSON.stringify(datatableUsers.length)}</p> */}
+          {/* <p>{JSON.stringify(productDetails.length)}</p> */}
           <div className="carousel">
             <Carousel
               autoPlay={true}
@@ -228,7 +235,7 @@ function ProductPage() {
                 `Showing ${range[0]}-${range[1]} of ${total}`
               }
               onChange={PaginationChange}
-              total={datatableUsers.length}
+              total={productDetails.length}
               current={current}
               pageSize={size}
               showSizeChanger={false}

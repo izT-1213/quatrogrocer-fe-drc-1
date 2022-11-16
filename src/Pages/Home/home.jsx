@@ -16,29 +16,7 @@ import "./home.css";
 function Home() {
   const navigate = useNavigate();
 
-  // const [getProducts, setProducts] = useState([]);
-
-  // const getProductsHome = () => {
-  //   useEffect(() => {
-  //     try {
-  //       const res = FetchProduct();
-  //       setProducts(res.data);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   }, []);
-
-  //   if (!getProducts.length) return <h3>Loading...</h3>;
-
-  //   return (
-  //     <div>
-  //       {getProducts((response) => (
-  //         <img src={response.product_image} alt={response.product_name} />
-  //       ))}
-  //     </div>
-  //   );
-  // };
-
+  // >>>>fetch product list from API<<<<
   const [productDetails, setProductDetails] = useState([]);
   const { products } = useParams();
 
@@ -46,6 +24,7 @@ function Home() {
     setProductDetails([]);
     FetchProduct(products).then(setProductDetails);
   }, [products]);
+  // >>>>end function<<<<
 
   //need to do function to map api product here
   const HorCardContainer = () => (
