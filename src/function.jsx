@@ -47,5 +47,31 @@ async function CreateAddressFunc(
   }
 }
 
+async function UpdateAddressFunc(
+  addLine1,
+  addLine2,
+  addLine3,
+  postcode,
+  state,
+  addressId
+) {
+  try {
+    const response = await Axios.post(
+      "http://localhost:3002/quatro_address/update_details", //hassif port 3002
+      {
+        address_line_1: addLine1,
+        address_line_2: addLine2,
+        address_line_3: addLine3,
+        postcode: postcode,
+        state: state,
+        address_id: addressId,
+      }
+    );
+    console.log(response);
+  } catch (err) {
+    console.log(err.response.data);
+  }
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export { LoginFunc, RegisterFunc, CreateAddressFunc };
+export { LoginFunc, RegisterFunc, CreateAddressFunc, UpdateAddressFunc };
