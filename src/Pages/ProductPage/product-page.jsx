@@ -3,17 +3,20 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
 import { Carousel } from "react-responsive-carousel";
 import { AddShoppingCart } from "@mui/icons-material";
+import { useParams } from "react-router";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./product-page.css";
 import { FetchProduct } from "../../function";
 ///////////////////////
 import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 function ProductPage() {
   const navigate = useNavigate();
 
   //pagination
-  const [perPage, setPerPage] = useState(10);
+  const [perPage, setPerPage] = useState(6);
   const [size, setSize] = useState(perPage);
   const [current, setCurrent] = useState(1);
   const [productDetails, setProductDetails] = useState([]);
@@ -46,14 +49,18 @@ function ProductPage() {
     if (type === "prev") {
       return (
         <button>
-          <i className="fa fa-angle-double-left"></i>
+          <i className="fa fa-angle-double-left">
+            <ArrowBackIosIcon />
+          </i>
         </button>
       );
     }
     if (type === "next") {
       return (
         <button>
-          <i className="fa fa-angle-double-right"></i>
+          <i className="fa fa-angle-double-right">
+            <ArrowForwardIosIcon />
+          </i>
         </button>
       );
     }
@@ -191,7 +198,7 @@ function ProductPage() {
         </div>
 
         <div className="product-section">
-          {/* <p>{JSON.stringify(productDetails.length)}</p> */}
+
           <div className="carousel">
             <Carousel
               autoPlay={true}
@@ -242,7 +249,20 @@ function ProductPage() {
               onShowSizeChange={PerPageChange}
             />
           </div>
-          <div></div>
+
+          {/* {getData(current, size).map((data, index) => {
+            return (
+              <tr key={data.id}>
+                <td>{data.id}</td>
+                <td>{data.name}</td>
+                <td>{data.position}</td>
+                <td>{data.gender}</td>
+                <td>{data.email}</td>
+                <td>{data.salary}</td>
+              </tr>
+            );
+          })} */}
+
           <div className="product-cards">
             <MediumHorCard />
           </div>
