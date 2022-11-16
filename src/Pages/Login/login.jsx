@@ -1,25 +1,54 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import IconButton from "@material-ui/core/IconButton";
-import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Input from "@material-ui/core/Input";
+import React, { useState, useRef, useEffect, useContext } from "react";
+//import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import { IconButton, InputAdornment, Input } from "@material-ui/core";
+import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
+import { LoginFunc } from "../../function.jsx";
+import AuthContext from "../../Components/context/AuthProvider.js";
 import "../Login/login.css";
 
 function LoginPage() {
+  // email and password variables
+  const [emailLogin, setEmailLogin] = useState("");
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
   });
 
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
+  const navigate = useNavigate(); // <-- to navigate to profile page
+  const { setAuth } = useContext(AuthContext); // <-- for authentication
+  const [errMsg, setErrMsg] = useState(""); // <-- to catch error message(?)
+
+  const userRef = useRef();
+  const errRef = useRef();
+
+  useEffect(() => {
+    userRef.current.focus();
+  }, []);
+
+  useEffect(() => {
+    setErrMsg("");
+  }, [emailLogin, values.password]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const message = await LoginFunc(emailLogin, values.password.toString());
+
+    if (message === undefined) {
+      navigate("/profile");
+      // console.log(message);
+    } else {
+      console.log(message);
+
+      setErrMsg(JSON.stringify(message.error));
+    }
   };
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
+  //to hide and show password
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
   };
 
   const handlePasswordChange = (prop) => (event) => {
@@ -29,12 +58,15 @@ function LoginPage() {
   return (
     <div className="login-page-container">
       <div className="login-image-container">
-        <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" />
+        <img
+          src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+          alt=""
+        />
       </div>
       <div className="login-container">
         <div className="login-container-content">
           <div className="login-form-content">
-            <form className="login-form">
+            <form className="login-form" onSubmit={handleSubmit}>
               <h3 className="login-form-title">Welcome Back!</h3>
               <div className="form-group-mt-3">
                 <label>EMAIL</label>
@@ -43,8 +75,14 @@ function LoginPage() {
                 <Input
                   type="email"
                   disableUnderline={true}
+                  ref={userRef}
                   className="form-control-mt-1"
                   placeholder="Email Address"
+                  onChange={(e) => {
+                    setEmailLogin(e.target.value);
+                  }}
+                  required={true}
+                  value={emailLogin}
                 />
               </div>
               <div className="form-group-mt-3">
@@ -57,13 +95,11 @@ function LoginPage() {
                   type={values.showPassword ? "text" : "password"}
                   onChange={handlePasswordChange("password")}
                   value={values.password}
+                  required={true}
                   disableUnderline={true}
                   endAdornment={
                     <InputAdornment position="end">
-                      <IconButton
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                      >
+                      <IconButton onClick={handleClickShowPassword}>
                         {values.showPassword ? (
                           <Visibility />
                         ) : (
@@ -74,6 +110,13 @@ function LoginPage() {
                   }
                 />
               </div>
+              <p
+                ref={errRef}
+                className={errMsg ? "errmsg" : "offscreen"}
+                aria-live="assertive"
+              >
+                {errMsg}
+              </p>
               <p className="forgot-pwd-text">
                 <a href="#">Forgot password?</a>
               </p>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import { TextField, FormControl, Select, MenuItem } from "@mui/material";
 import { IconButton, InputAdornment, Input } from "@material-ui/core";
@@ -7,10 +7,15 @@ import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
+import { RegisterFunc } from "../../function.jsx";
 import "../SignUp/signup.css";
 
 function SignUpPage() {
   const color = "#009688";
+  const navigate = useNavigate();
+
+  //email and password variables
+  const [emailReg, setUsernameReg] = useState("");
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
@@ -20,24 +25,31 @@ function SignUpPage() {
     setValues({ ...values, showPassword: !values.showPassword });
   };
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
   const handlePasswordChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
-  const [value, setValue] = React.useState(dayjs("2014-08-18T21:11:54"));
+  const [value, setValue] = useState(dayjs(""));
 
   const handleChange = (newValue) => {
     setValue(newValue);
   };
 
-  const [gender, setGender] = React.useState("");
+  const [gender, setGender] = useState("");
 
   const handleChangeGender = (event) => {
     setGender(event.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const message = await RegisterFunc(emailReg, values.password.toString());
+
+    if (message == undefined) {
+      navigate("/profile");
+    } else {
+      console.log(message);
+    }
   };
 
   return (
@@ -45,7 +57,7 @@ function SignUpPage() {
       <div className="sign-up-container">
         <div className="sign-up-container-content">
           <div className="sign-up-form-content">
-            <form className="sign-up-form">
+            <form className="sign-up-form" onSubmit={handleSubmit}>
               <h3 className="sign-up-form-title">Sign Up</h3>
               <div className="sign-up-form-table">
                 <tr>
@@ -135,6 +147,9 @@ function SignUpPage() {
                   type=""
                   disableUnderline={true}
                   className="form-control-mt-1"
+                  onChange={(e) => {
+                    setUsernameReg(e.target.value);
+                  }}
                 />
               </div>
               <div className="form-group-mt-3">
@@ -150,10 +165,7 @@ function SignUpPage() {
                   disableUnderline={true}
                   endAdornment={
                     <InputAdornment position="end">
-                      <IconButton
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                      >
+                      <IconButton onClick={handleClickShowPassword}>
                         {values.showPassword ? (
                           <Visibility />
                         ) : (

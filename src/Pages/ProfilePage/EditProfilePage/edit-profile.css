@@ -77,6 +77,9 @@ a:hover {
   align-items: center;
   font-weight: 500;
 }
+.edit-profile-page-container .return:hover {
+  color: #00796b;
+}
 .edit-profile-page-container .edit-account-details-container {
   grid-area: main;
   padding: 0.625rem 0.625rem 0.625rem 0rem;
@@ -92,11 +95,11 @@ a:hover {
 .edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table td {
   width: auto;
 }
-.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .right-column {
+.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .left-column {
   padding: 0.625rem 5% 0 0;
   width: 50%;
 }
-.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .left-column {
+.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .right-column {
   width: 46%;
   padding: 0.625rem 0 0 0;
 }
@@ -106,13 +109,7 @@ a:hover {
   height: 2.5rem;
   width: 100%;
   font-size: 1rem;
-  padding: 0.375;
-}
-.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .change-password {
-  text-align: right;
-  font-size: 0.875rem;
-  font-weight: 500;
-  padding: 0.625rem 5% 0 0;
+  padding: 0.375rem;
 }
 .edit-profile-page-container .address-details-container {
   grid-area: right;
@@ -172,6 +169,9 @@ a:hover {
   font-size: 16px;
   line-height: 120%;
 }
+.edit-profile-page-container .buttons-container .cancel:hover {
+  color: #00796b;
+}
 .edit-profile-page-container .buttons-container .submit-button-container {
   padding: 2.188rem 2.875rem;
 }
@@ -188,4 +188,7 @@ a:hover {
   font-size: 16px;
   line-height: 120%;
   color: #ffffff;
+}
+.edit-profile-page-container .buttons-container .submit-button-container .submit-edit:hover {
+  background-color: #ff5722;
 }/*# sourceMappingURL=edit-profile.css.map */

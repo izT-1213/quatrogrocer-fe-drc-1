@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router";
 import { useNavigate, Link } from "react-router-dom";
 import { ImgOverlay } from "image-overlay-react";
 import {
@@ -9,10 +10,21 @@ import {
   AutorenewOutlined,
 } from "@mui/icons-material";
 import "image-overlay-react/dist/index.css";
+import { FetchProduct } from "../../function.jsx";
 import "./home.css";
 
 function Home() {
   const navigate = useNavigate();
+
+  // >>>>fetch product list from API<<<<
+  const [productDetails, setProductDetails] = useState([]);
+  const { products } = useParams();
+
+  useEffect(() => {
+    setProductDetails([]);
+    FetchProduct(products).then(setProductDetails);
+  }, [products]);
+  // >>>>end function<<<<
 
   //need to do function to map api product here
   const HorCardContainer = () => (
@@ -20,25 +32,36 @@ function Home() {
       <table className="horizontal-cards-container">
         <tr>
           <td className="right-col-cards">
-            <div className="horizontal-card">
-              <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
-              </div>
-              <p className="product-name">Farm Fresh Pure Milk 2L</p>
-              <p className="product-price">
-                <text className="RM">RM</text> 15.45
-              </p>
-              <div className="button-container">
-                <button className="add-to-cart-btn">
-                  <AddShoppingCart className="cart-icon" />
-                </button>
-              </div>
-            </div>
+            {/* mapping api products */}
+            {productDetails?.map(function (key, index) {
+              return (
+                <div className="horizontal-card">
+                  <div className="product-image" key={index}>
+                    <img src={key.product_image} alt="" />
+                  </div>
+                  <p className="product-name" key={index}>
+                    {key.product_name}
+                  </p>
+                  <p className="product-price" key={index}>
+                    <text className="RM">RM</text>{" "}
+                    {key.product_price.toFixed(2)}
+                  </p>
+                  <div className="button-container">
+                    <button className="add-to-cart-btn">
+                      <AddShoppingCart className="cart-icon" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </td>
           <td className="left-col-cards">
             <div className="horizontal-card">
               <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                <img
+                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+                  alt=""
+                />
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
@@ -56,7 +79,10 @@ function Home() {
           <td className="right-col-cards">
             <div className="horizontal-card">
               <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                <img
+                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+                  alt=""
+                />
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
@@ -72,7 +98,10 @@ function Home() {
           <td className="left-col-cards">
             <div className="horizontal-card">
               <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                <img
+                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+                  alt=""
+                />
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
@@ -90,7 +119,10 @@ function Home() {
           <td className="right-col-cards">
             <div className="horizontal-card">
               <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                <img
+                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+                  alt=""
+                />
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
@@ -106,7 +138,10 @@ function Home() {
           <td className="left-col-cards">
             <div className="horizontal-card">
               <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                <img
+                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+                  alt=""
+                />
               </div>
               <p className="product-name">Farm Fresh Pure Milk 2L</p>
               <p className="product-price">
@@ -127,7 +162,10 @@ function Home() {
   const LargeHorCard = () => (
     <div className="large-horizontal-card">
       <div className="product-image">
-        <img src="https://images.unsplash.com/photo-1621378580414-421cba519671?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" />
+        <img
+          src="https://images.unsplash.com/photo-1621378580414-421cba519671?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+          alt=""
+        />
       </div>
       <p className="product-name">Pickle Jar 500GMS</p>
       <p className="product-price">
@@ -144,6 +182,7 @@ function Home() {
   return (
     <div>
       <div className="home-header">
+        {/* <getProductsHome /> */}
         <div className="home-header-content">
           <h1>Fresh.</h1>
           <h1>Healthy.</h1>
@@ -170,7 +209,10 @@ function Home() {
         <div className="today-top-deals-product">
           <div className="vertical-card">
             <div className="product-image">
-              <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+              <img
+                src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+                alt=""
+              />
             </div>
             <p className="product-name">Farm Fresh Pure Milk 2L</p>
             <p className="product-price">

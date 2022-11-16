@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Input from "@material-ui/core/Input";
 import { RadioGroup, FormControlLabel, Radio } from "@mui/material";
 import {
@@ -8,11 +8,11 @@ import {
   ExpandLess,
   AddBoxOutlined,
   IndeterminateCheckBoxOutlined,
-  Delete,
 } from "@mui/icons-material";
 import "../Checkout/checkout.css";
 
 function CheckoutPage() {
+  const navigate = useNavigate();
   const [showVoucherInput, setVoucherInput] = useState(false);
   const ref = useRef(null);
   const handleClickOutside = (event) => {
@@ -45,7 +45,7 @@ function CheckoutPage() {
     setCounter(counter + 1);
   };
   const handleSub = () => {
-    if (counter != 1) {
+    if (counter !== 1) {
       setCounter(counter - 1);
     }
   };
@@ -114,7 +114,10 @@ function CheckoutPage() {
           </div>
         </div>
         <div className="order-submit">
-          <button type="submit"> Place Order </button>
+          <button type="submit" onClick={() => navigate("payment-success")}>
+            {" "}
+            Place Order{" "}
+          </button>
         </div>
       </div>
       <div className="order-summary-container">
@@ -123,7 +126,10 @@ function CheckoutPage() {
           <div className="cart-content">
             <div className="product-card">
               <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" />
+                <img
+                  src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                  alt=""
+                />
               </div>
               <p className="product-name">China Brocoli</p>
               <p className="product-price">RM 3.59</p>

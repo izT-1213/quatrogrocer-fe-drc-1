@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SlArrowLeft } from "react-icons/sl";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import "./address.css";
 //history
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function YourShippingAddressPage() {
   const navigate = useNavigate();
@@ -18,23 +19,32 @@ function YourShippingAddressPage() {
         </div>
         <div className="shipping-details-container">
           <div className="shipping-details-table">
-            <h3 className="user-name">Steven James (Default)</h3>
-            <br></br>
-
-            <p className="phone-number">60186907892</p>
-            <br></br>
-
-            <p className="address">71, Persiaran Tengku Ampuan Rahimah</p>
-
-            <p className="address">Taman Sri Andalas</p>
-
-            <p className="address">41200</p>
-
-            <p className="address">Klang</p>
-
-            <p className="address">Selangor</p>
-
-            <p className="address">Malaysia</p>
+            <table className="address-details-table">
+              <tr>
+                <th className="user-name">Steven James (Default)</th>
+              </tr>
+              <tr>
+                <td className="address">71, Persiaran Tengku Ampuan Rahimah</td>
+              </tr>
+              <tr>
+                <td className="address">Taman Sri Andalas</td>
+              </tr>
+              <tr>
+                <td className="address">41200</td>
+              </tr>
+              <tr>
+                <td className="address">Klang</td>
+              </tr>
+              <tr>
+                <td className="address">Selangor</td>
+              </tr>
+              <tr>
+                <td>60186907892</td>
+              </tr>
+              <tr>
+                <td>sjparty@gmail.com</td>
+              </tr>
+            </table>
           </div>
           <br></br>
           <div className="links">
@@ -52,14 +62,11 @@ function YourShippingAddressPage() {
       </div>
 
       <div className="navigation-buttons">
-        <div className="back-to-account-container">
-          <div className="left-icon">
-            <SlArrowLeft />
-          </div>
-
-          <button className="back-btn" onClick={() => navigate("/profile")}>
-            Return to Account Details
-          </button>
+        <div className="return">
+          <ArrowBackIosIcon />
+          <p>
+            <Link to={"/profile"}>Return to Account Details</Link>
+          </p>
         </div>
 
         <button

@@ -1,6 +1,6 @@
 // import React, { useState } from "react";
 // import { Link } from "react-router-dom";
-import Input from "@material-ui/core/Input";
+// import Input from "@material-ui/core/Input";
 import "./payment-success.css";
 import { SlArrowLeft } from "react-icons/sl";
 import { useNavigate } from "react-router-dom";
@@ -14,101 +14,100 @@ import { useNavigate } from "react-router-dom";
 // import YourShippingAddressPage from "../address";
 
 function PaymentSuccessPage() {
-  // function handleAddAddress() {}
-  function clearInput() {
-    document.getElementById("form").reset();
-  }
-
   const navigate = useNavigate();
+
+  var itemName = "China Brocoli";
+  var itemPrice = 3.59;
+  var itemQuantity = 1;
+  var subtotal = 20.18;
+  var shipping = 6.0;
+  var total = 26.18;
+
   return (
-    <div className="payment-success-page-container">
-      <div className="container-1">
-        <div className="payment-success-header">
-          <h1>Payment Success !</h1> <br></br>
+    <div className="page-container">
+      <div className="page-header">
+        <h1>Payment Success!</h1>
+        <button className="back-btn" onClick={() => navigate("../")}>
+          <SlArrowLeft />
+          Return to Home
+        </button>
+      </div>
+
+      <div className="main-container">
+        <div className="header-order-summary">
+          <text>Order Summary</text>
         </div>
-        <div className="navigation-container">
-          <div className="left-icon">
-            <SlArrowLeft />
-          </div>
-
-          <button class="back-btn" onClick={() => navigate("/home")}>
-            Return to Home
-          </button>
-        </div>
-        <div className="order-summary-container">
-          <h2>Order Summary</h2> <br></br>
-          <div className="order-form-container">
-            <div className="order-form-content">
-              <h3>Shipping Details</h3>
-              <form className="order-form" id="form">
-                <div className="order-line-container">
-                  <div className="order-line-1"></div>
-
-                  <div className="name">
-                    <h4>Steven James</h4>
-                  </div>
-
-                  <div className="address">
-                    <label>
-                      71 Persiaran Tengku Ampuan Rahmiah Taman Sri Andalas,
-                      41200 Klang, Selangor, Malaysia
-                    </label>
-                  </div>
+        <div className="content">
+          <div className="shipping-details-container">
+            <div className="details-content">
+              <h1 className="header-shipping-details">Shipping Details</h1>
+              <div className="content-shipping-details">
+                <div className="name">
+                  <p>Steven James</p>
                 </div>
-
-                <div className="phonenumber-container">
-                  <div className="phonenumber">
-                    <label>0186907892</label>
-                  </div>
+                <div className="address">
+                  <p className="address-line-1">
+                    71 Persiaran Tengku Ampuan Rahimah Taman Sri Andalas, 41200
+                  </p>
+                  <p className="address-line-2">Klang, Selangor, Malaysia</p>
                 </div>
-                {/* <label class="default-address">
-                  <input type="checkbox" id="input" />
-                  <span class="checkmark"></span> Set as default address
-                </label> */}
-              </form>
-            </div>
-            <div className="column">
-              <div className="order-form-content-1">
-                <h3>China Brocoli</h3>
-                <form className="order-form" id="form">
-                  <div className="order-line-container">
-                    <div className="order-line-1"></div>
-
-                    <div className="name">
-                      <h4>RM3.59</h4>
-                    </div>
-
-                    <div className="address">
-                      <label>Quantity: 1</label>
-                    </div>
-                  </div>
-
-                  {/* <label class="default-address">
-                  <input type="checkbox" id="input" />
-                  <span class="checkmark"></span> Set as default address
-                </label> */}
-                </form>
+                <div className="number">
+                  <p>60186907892</p>
+                </div>
               </div>
-              <div className="order-form-content-2">
-                <h3>Pickles Jar</h3>
-                <form className="order-form" id="form">
-                  <div className="order-line-container">
-                    <div className="order-line-1"></div>
-
-                    <div className="name">
-                      <h4>RM16.59</h4>
-                    </div>
-
-                    <div className="address">
-                      <label>Quantity: 1</label>
-                    </div>
-                  </div>
-
-                  {/* <label class="default-address">
-                  <input type="checkbox" id="input" />
-                  <span class="checkmark"></span> Set as default address
-                </label> */}
-                </form>
+            </div>
+          </div>
+          <div className="order-summary">
+            <div className="cart-content">
+              <div className="product-card">
+                <div className="product-image">
+                  <img
+                    src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                    alt=""
+                  />
+                </div>
+                <p className="product-name">{itemName}</p>
+                <p className="product-price">RM {itemPrice.toFixed(2)}</p>
+                <div className="quantity">
+                  <p className="product-quantity">Quantity: {itemQuantity}</p>
+                </div>
+              </div>
+              <div className="product-card">
+                <div className="product-image">
+                  <img
+                    src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                    alt=""
+                  />
+                </div>
+                <p className="product-name">{itemName}</p>
+                <p className="product-price">RM {itemPrice.toFixed(2)}</p>
+                <div className="quantity">
+                  <p className="product-quantity">Quantity: {itemQuantity}</p>
+                </div>
+              </div>
+            </div>
+            <div className="calculation">
+              <div>
+                <text className="title">Subtotal: RM</text>
+                <span className="value">
+                  {"  "}
+                  {subtotal.toFixed(2)}
+                </span>
+              </div>
+              <div>
+                <text className="title">Shipping: RM</text>
+                <span className="value">
+                  {"  "}
+                  {shipping.toFixed(2)}
+                </span>
+              </div>
+              <hr></hr>
+              <div>
+                <text className="title">Total: RM</text>
+                <span className="value">
+                  {"  "}
+                  {total.toFixed(2)}
+                </span>
               </div>
             </div>
           </div>

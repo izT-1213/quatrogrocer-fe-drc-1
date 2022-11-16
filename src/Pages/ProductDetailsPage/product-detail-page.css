@@ -139,6 +139,8 @@ a:hover {
   border-radius: 0.5rem;
   z-index: 1;
   margin: 2rem 2.6rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .item-details-page-container .above-container .item-info-container {
   height: -webkit-fit-content;

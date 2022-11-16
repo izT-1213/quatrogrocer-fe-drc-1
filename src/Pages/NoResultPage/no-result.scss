@@ -42,3 +42,47 @@
     background-color: $secondary-hover-color;
   }
 }
+
+@media screen and (max-width: 37.5rem) {
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding: 0 1.5rem;
+
+    .page-header p {
+      font-family: $primary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "semibold");
+      font-size: 1.75rem;
+      line-height: 120%;
+      padding: 4rem 0 0 0;
+    }
+
+    .page-content p {
+      font-family: $secondary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      font-size: 1.25rem;
+      line-height: 120%;
+      padding: 1rem 0 1.5rem 0;
+    }
+
+    .back-btn button {
+      cursor: pointer;
+      font-family: $primary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "bold");
+      font-size: 1rem;
+      line-height: 120%;
+      color: $white-color;
+      align-items: center;
+      padding: 1rem 2.5rem;
+      gap: 1rem;
+      background-color: $secondary-color;
+      border: none;
+      border-radius: 0.25rem;
+    }
+
+    .back-btn button:hover {
+      background-color: $secondary-hover-color;
+    }
+  }
+}

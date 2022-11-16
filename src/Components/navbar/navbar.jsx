@@ -5,6 +5,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import "./navbar.css";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -53,6 +54,9 @@ const Nav = () => {
               <ShoppingBagOutlinedIcon
                 onClick={() => navigate("/cart/checkout")}
               />
+            </li>
+            <li>
+              <MenuIcon className="burger" />
             </li>
           </ul>
         </div>
