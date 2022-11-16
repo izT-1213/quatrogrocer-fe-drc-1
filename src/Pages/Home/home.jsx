@@ -34,19 +34,17 @@ function Home() {
       {productDetails?.slice(1, 7).map(function (key, index) {
         return (
           <div className="card-container">
-            <div className="horizontal-card">
-              <div className="product-image" key={index}>
+            <div className="horizontal-card" key={index}>
+              <div className="product-image">
                 <img src={key.product_image} alt={key.product_name} />
               </div>
-              <p className="product-name" key={index}>
-                {key.product_name}
-              </p>
-              <p className="product-price" key={index}>
+              <p className="product-name">{key.product_name}</p>
+              <p className="product-price">
                 <text className="RM">RM</text> {key.product_price.toFixed(2)}
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn">
-                  <AddShoppingCart className="cart-icon" />
+                  <AddShoppingCart className="cart-icon" key={index} />
                 </button>
               </div>
             </div>
@@ -61,7 +59,7 @@ function Home() {
       {console.log(productDetails)}
       {productDetails?.slice(6 + (i = i + 1), 7 + i).map(function (key, index) {
         return (
-          <div className="large-horizontal-card">
+          <div className="large-horizontal-card" key={index}>
             <div className="product-image">
               <img src={key.product_image} alt={key.product_name} />
             </div>
@@ -71,7 +69,7 @@ function Home() {
             </p>
             <div className="button-container">
               <button className="add-to-cart-btn">
-                <AddShoppingCart className="cart-icon" />
+                <AddShoppingCart className="cart-icon" key={index} />
               </button>
             </div>
           </div>
@@ -124,7 +122,7 @@ function Home() {
                   </p>
                   <div className="button-container">
                     <button className="add-to-cart-btn">
-                      <AddShoppingCart className="cart-icon" />
+                      <AddShoppingCart className="cart-icon" key={index} />
                     </button>
                   </div>
                 </div>
