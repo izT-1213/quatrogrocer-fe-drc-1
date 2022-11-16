@@ -673,9 +673,152 @@ a:hover {
   background-color: #00796b;
 }
 
-@media screen and (max-width: 37.5rem) {
+@media screen and (max-width: 600px) {
+  .home-header {
+    padding: 0 1.5rem;
+  }
   .today-top-deals {
     height: 59rem;
     padding: 0 1rem;
+  }
+  .today-top-deals .today-top-deals-product {
+    display: grid;
+    grid-template-areas: "vertical-card" "horizontal-cards";
+    padding: 2.5rem 0 0 0;
+  }
+  .today-top-deals .today-top-deals-product .vertical-card {
+    grid-area: vertical-card;
+    box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+    display: grid;
+    grid-template-areas: "image image image" "name name name" "price price button";
+    width: 25.75rem;
+    height: 43.375rem;
+    border-radius: 0.125rem;
+    background-color: #ffffff;
+    padding: 33px 26px 66px 26px;
+  }
+  .today-top-deals .today-top-deals-product .vertical-card .product-image {
+    grid-area: image;
+  }
+  .today-top-deals .today-top-deals-product .vertical-card .product-image img {
+    width: 22.5rem;
+    height: 27.438rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 0.25rem;
+  }
+  .today-top-deals .today-top-deals-product .vertical-card .product-name {
+    grid-area: name;
+    font-family: "Lexend Deca";
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 120%;
+  }
+  .today-top-deals .today-top-deals-product .vertical-card .product-price {
+    grid-area: price;
+    align-self: flex-end;
+    color: #ff8a65;
+    font-family: "Lexend Deca";
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 120%;
+  }
+  .today-top-deals .today-top-deals-product .vertical-card .product-price .RM {
+    font-family: "Lexend Deca";
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #252525;
+  }
+  .today-top-deals .today-top-deals-product .vertical-card .button-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .today-top-deals .today-top-deals-product .vertical-card .button-container .add-to-cart-btn {
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #009688;
+    height: 4rem;
+    width: 4rem;
+    grid-area: button;
+    align-self: flex-end;
+  }
+  .today-top-deals .today-top-deals-product .vertical-card .button-container .add-to-cart-btn .cart-icon {
+    color: #ffffff;
+    font-size: 2 rem;
+  }
+  .today-top-deals .today-top-deals-product .horizontal-cards-container {
+    grid-area: horizontal-cards;
+    padding-left: 3rem;
+    width: 100%;
+    height: 100%;
+  }
+  .today-top-deals .today-top-deals-product .horizontal-cards-container .right-col-cards {
+    border-right: 1.688rem solid transparent;
+  }
+  .today-top-deals .today-top-deals-product .horizontal-cards-container .left-col-cards {
+    border-left: 1.688rem solid transparent;
+  }
+  .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card {
+    box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+    display: grid;
+    grid-template-areas: "image name name" "image name name" "image price button";
+    width: 23.75rem;
+    height: 13.125rem;
+    border-radius: 0.125rem;
+    background-color: #ffffff;
+    padding: 1.875rem 1.5rem;
+  }
+  .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-image {
+    grid-area: image;
+  }
+  .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-image img {
+    width: 7.5rem;
+    height: 9.375rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 0.25rem;
+  }
+  .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-name {
+    grid-area: name;
+    font-family: "Lexend Deca";
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 120%;
+    text-align: left;
+    padding-left: 1.5rem;
+  }
+  .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-price {
+    grid-area: price;
+    color: #ff8a65;
+    font-family: "Lexend Deca";
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 120%;
+    align-self: flex-end;
+    padding-left: 1.5rem;
+  }
+  .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .product-price .RM {
+    font-family: "Lexend Deca";
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 120%;
+    color: #252525;
+  }
+  .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .button-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .button-container .add-to-cart-btn {
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #009688;
+    height: 2.5rem;
+    width: 2.5rem;
+    grid-area: button;
+    align-self: flex-end;
+  }
+  .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .button-container .add-to-cart-btn .cart-icon {
+    font-size: 1.5rem;
+    color: #ffffff;
   }
 }/*# sourceMappingURL=home.css.map */
