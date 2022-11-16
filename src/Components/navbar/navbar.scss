@@ -16,46 +16,88 @@
   color: $white-color;
 }
 
-.nav-container {
-  nav {
-    height: 4.5rem;
-    display: flex;
-    background-color: $primary-color;
+nav {
+  height: 4.5rem;
+  display: flex;
+  background-color: $primary-color;
+  justify-content: space-between;
+  padding: 0 19.5rem;
+
+  .nav-left {
+    @include nav-section;
     justify-content: space-between;
-    padding: 0 19.5rem;
+    width: 56%;
+  }
 
-    .nav-left {
-      @include nav-section;
+  .nav-right {
+    @include nav-section;
+    width: 34%;
+  }
+
+  .nav-left ul {
+    padding: 0;
+    width: 64%;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+  }
+
+  .nav-right ul {
+    padding: 0;
+    width: 18%;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+  }
+
+  .nav-left ul li {
+    font-family: $primary-fonts;
+    font-size: 1rem;
+    font-weight: map-get($map: $font-weight, $key: "medium");
+  }
+
+  .nav-left ul li:hover,
+  .nav-right ul li:hover {
+    color: $primary-hover-light-color;
+  }
+
+  .nav-right {
+    .search-container {
+      padding: 0 2rem 0 1.5rem;
     }
 
-    .nav-middle {
-      @include nav-section;
-      width: 34%;
-    }
-
-    .nav-right {
-      @include nav-section;
-      width: 10%;
-    }
-
-    .nav-middle ul,
-    .nav-right ul {
-      padding: 0;
+    .search-container form {
       width: 100%;
       display: flex;
-      list-style: none;
-      justify-content: space-between;
+      border: 0.188rem solid $white-color;
+      border-radius: 0.25rem;
+      outline: none;
+      color: $grey-tint;
     }
 
-    .nav-middle ul li {
-      font-family: $primary-fonts;
-      font-size: 1rem;
+    .searchTerm {
+      width: 16rem;
+      color: $primary-color;
+      font-family: $secondary-fonts;
       font-weight: map-get($map: $font-weight, $key: "medium");
+      font-size: 0.875rem;
+      padding: 0 0.5rem;
     }
 
-    .nav-middle ul li:hover,
-    .nav-right ul li:hover {
-      color: $primary-hover-light-color;
+    .searchTerm:focus {
+      color: $primary-color;
+      font-family: $secondary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      font-size: 0.875rem;
+    }
+
+    .searchButton {
+      width: 2.5rem;
+      border: 0.063rem solid $white-color;
+      background: $white-color;
+      text-align: center;
+      color: $primary-color;
+      cursor: pointer;
     }
   }
 }

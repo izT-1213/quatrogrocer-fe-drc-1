@@ -4,14 +4,15 @@ import logo from "../../Images/white-logo.svg";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
-import SearchIcon from "@mui/icons-material/Search";
 import "./navbar.css";
 
 const Nav = () => {
   const navigate = useNavigate();
 
+  const handleSubmit = (e) => e.preventDefault();
+
   return (
-    <div className="nav-container">
+    <div>
       <nav className="nav">
         <div className="nav-left">
           <Link to={"/"}>
@@ -21,9 +22,6 @@ const Nav = () => {
               alt="Quatro Grocer's Logo"
             />
           </Link>
-        </div>
-
-        <div className="nav-middle">
           <ul>
             <li onClick={() => navigate("/marketplace")}>Marketplace</li>
             <li onClick={() => navigate("/best-sellers")}>Best Sellers</li>
@@ -33,20 +31,20 @@ const Nav = () => {
           </ul>
         </div>
 
-        <div className="search-container">
-          <form action="/">
-            <input
-              type="text"
-              placeholder="Search quatrogrocer.com"
-              name="search"
-            />
-            <button type="submit">
-              <SearchOutlinedIcon />
-            </button>
-          </form>
-        </div>
-
         <div className="nav-right">
+          <div className="search-container">
+            <form action="/" onSubmit={handleSubmit}>
+              <input
+                className="searchTerm"
+                type="text"
+                placeholder="Search quatrogrocer.com"
+                name="search"
+              />
+              <button className="searchButton" type="submit">
+                <SearchOutlinedIcon />
+              </button>
+            </form>
+          </div>
           <ul>
             <li>
               <AccountCircleOutlinedIcon onClick={() => navigate("/profile")} />

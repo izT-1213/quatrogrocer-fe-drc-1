@@ -129,9 +129,8 @@ function ProductPage() {
             <ul>
               <li onClick={() => navigate("/biscuits")}>Biscuits</li>
               <li onClick={() => navigate("/dairy")}>Dairy</li>
-              <li onClick={() => navigate("/fruits-&-vegetables")}>
-                Fruits & Vegetables
-              </li>
+              <li onClick={() => navigate("/fruits")}>Fruits</li>
+              <li onClick={() => navigate("/vegetables")}>Vegetables</li>
               <li onClick={() => navigate("/noodles")}>Noodles</li>
               <li onClick={() => navigate("/snacks")}>Snacks</li>
               <li onClick={() => navigate("/spices")}>Spices</li>
