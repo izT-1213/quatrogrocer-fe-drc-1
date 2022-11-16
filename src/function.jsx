@@ -54,5 +54,17 @@ async function CreateAddressFunc(
   }
 }
 
+async function FetchProduct() {
+  try {
+    const response = await Axios.get(
+      "http://localhost:3001/quatro_product/get"
+    );
+    console.log(response.data.result);
+    return response.data.result;
+  } catch (err) {
+    console.log(err.response);
+  }
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export { LoginFunc, RegisterFunc, CreateAddressFunc };
+export { LoginFunc, RegisterFunc, CreateAddressFunc, FetchProduct };
