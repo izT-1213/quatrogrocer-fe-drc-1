@@ -77,6 +77,9 @@ async function UpdateAddressFunc(
     console.log(response);
   } catch (err) {
     console.log(err.response.data);
+  }
+}
+
 async function FetchProduct() {
   try {
     const response = await Axios.get(
@@ -90,4 +93,10 @@ async function FetchProduct() {
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export { LoginFunc, RegisterFunc, CreateAddressFunc, FetchProduct, UpdateAddressFunc };
+export {
+  LoginFunc,
+  RegisterFunc,
+  CreateAddressFunc,
+  FetchProduct,
+  UpdateAddressFunc,
+};
