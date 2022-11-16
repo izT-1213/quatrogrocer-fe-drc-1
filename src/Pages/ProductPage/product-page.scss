@@ -55,7 +55,7 @@
   padding: 3.5rem 0 0 5rem;
 
   .carousel {
-    height: 22.063rem;
+    width: 61.438rem;
     border-radius: 0.5rem;
 
     .carousel-images {
@@ -70,8 +70,10 @@
         position: absolute;
         align-self: center;
         color: $white-color;
+        font-family: $primary-fonts;
         font-size: 56px;
-        font-weight: 700;
+        font-weight: map-get($map: $font-weight, $key: "bold");
+        text-transform: uppercase;
         text-shadow: 2px 2px $black-color;
       }
     }
