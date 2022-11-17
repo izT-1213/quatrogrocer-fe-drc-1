@@ -102,7 +102,7 @@ a:hover {
   padding: 3.5rem 0 0 5rem;
 }
 .product-section .carousel {
-  height: 22.063rem;
+  width: 61.438rem;
   border-radius: 0.5rem;
 }
 .product-section .carousel .carousel-images {
@@ -118,8 +118,10 @@ a:hover {
   position: absolute;
   align-self: center;
   color: #ffffff;
+  font-family: "Lexend Deca";
   font-size: 56px;
   font-weight: 700;
+  text-transform: uppercase;
   text-shadow: 2px 2px #252525;
 }
 .product-section .product-section-title h5 {
