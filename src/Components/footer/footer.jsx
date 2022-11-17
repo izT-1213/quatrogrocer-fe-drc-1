@@ -21,6 +21,7 @@ const Footer = () => {
               />
             </Link>
           </div>
+          
 
           <div className="footer-top-right">
             <div className="company-desc">
