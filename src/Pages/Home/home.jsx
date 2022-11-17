@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import { ImgOverlay } from "image-overlay-react";
+import { FetchProduct } from "../../function.jsx";
+import { ToastContainer, toast } from "react-toastify";
 import {
   ArrowRightAlt,
   AddShoppingCart,
@@ -10,7 +12,7 @@ import {
   AutorenewOutlined,
 } from "@mui/icons-material";
 import "image-overlay-react/dist/index.css";
-import { FetchProduct } from "../../function.jsx";
+import "react-toastify/dist/ReactToastify.css";
 import "./home.css";
 
 function Home() {
@@ -26,6 +28,24 @@ function Home() {
     FetchProduct(products).then(setProductDetails);
   }, [products]);
   // >>>>end function<<<<
+
+  // toastify notifications
+  // const toastId = React.useRef(null);
+
+  const notify = () => {
+    // if (!toast.isActive(toastId.current)) {
+    //   toastId.current =
+    toast.success("Item added to cart! 🛒", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
 
   //need to do function to map api product here
   const HorCardContainer = () => (
@@ -45,7 +65,7 @@ function Home() {
                 <text className="RM">RM</text> {key.product_price.toFixed(2)}
               </p>
               <div className="button-container">
-                <button className="add-to-cart-btn">
+                <button className="add-to-cart-btn" onClick={notify}>
                   <AddShoppingCart className="cart-icon" />
                 </button>
               </div>
@@ -70,7 +90,7 @@ function Home() {
               <text className="RM">RM</text> {key.product_price.toFixed(2)}
             </p>
             <div className="button-container">
-              <button className="add-to-cart-btn">
+              <button className="add-to-cart-btn" onClick={notify}>
                 <AddShoppingCart className="cart-icon" />
               </button>
             </div>
@@ -123,7 +143,7 @@ function Home() {
                     {key.product_price.toFixed(2)}
                   </p>
                   <div className="button-container">
-                    <button className="add-to-cart-btn">
+                    <button className="add-to-cart-btn" onClick={notify}>
                       <AddShoppingCart className="cart-icon" />
                     </button>
                   </div>
@@ -181,10 +201,8 @@ function Home() {
               position="right"
               width="100%"
               height="100%"
-              fSize="3.5rem"
-              fColor="white"
             >
-              Cereal
+              <p onClick={() => navigate("/cereal")}>Cereal</p>
             </ImgOverlay>
           </div>
         </div>
@@ -198,10 +216,8 @@ function Home() {
               position="left"
               width="100%"
               height="100%"
-              fSize="3.5rem"
-              fColor="white"
             >
-              Meat
+              <p onClick={() => navigate("/meat")}>Meat</p>
             </ImgOverlay>
           </div>
           <LargeHorCard />
@@ -247,6 +263,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

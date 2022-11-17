@@ -9,6 +9,7 @@ import { FetchProduct } from "../../function";
 import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { ToastContainer, toast } from "react-toastify";
 
 function ProductPage() {
   const navigate = useNavigate();
@@ -42,6 +43,21 @@ function ProductPage() {
       </div>
     </div>
   );
+
+  const notify = () => {
+    // if (!toast.isActive(toastId.current)) {
+    //   toastId.current =
+    toast.success("Item added to cart! 🛒", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
 
   // Pagination
   const [perPage, setPerPage] = useState(6);
@@ -110,7 +126,7 @@ function ProductPage() {
                 <p className="RM">RM</p> 15.45
               </p>
               <div className="button-container">
-                <button className="add-to-cart-btn">
+                <button className="add-to-cart-btn" onClick={notify}>
                   <AddShoppingCart className="cart-icon" />
                 </button>
               </div>
@@ -292,6 +308,7 @@ function ProductPage() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

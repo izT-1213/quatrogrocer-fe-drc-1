@@ -140,4 +140,57 @@ nav .nav-right .searchButton {
   text-align: center;
   color: #009688;
   cursor: pointer;
-} /*# sourceMappingURL=navbar.css.map */
+}
+nav .nav-right .nav-right .burger {
+  display: none;
+}
+
+@media screen and (max-width: 37.5rem) {
+  .nav-container nav {
+    display: flex;
+    background-color: #009688;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+  }
+  .nav-container nav .nav-left {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+  }
+  .nav-container nav .nav-middle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    width: 34%;
+    display: none;
+  }
+  .nav-container nav .nav-right {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    width: 10%;
+  }
+  .nav-container nav .nav-middle ul,
+.nav-container nav .nav-right ul {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+  }
+  .nav-container nav .nav-middle ul li {
+    font-family: "Lexend Deca";
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .nav-container nav .nav-middle ul li:hover,
+.nav-container nav .nav-right ul li:hover {
+    color: #b2dfdb;
+  }
+  .nav-container nav .nav-right .burger {
+    display: block;
+  }
+}/*# sourceMappingURL=navbar.css.map */

@@ -203,10 +203,14 @@ a:hover {
   width: 2.5rem;
   grid-area: button;
   align-self: flex-end;
+  cursor: pointer;
 }
 .product-section .product-cards .medium-horizontal-card .button-container .add-to-cart-btn .cart-icon {
   font-size: 1.5rem;
   color: #ffffff;
+}
+.product-section .product-cards .medium-horizontal-card .button-container .add-to-cart-btn:hover {
+  background-color: #00796b;
 }
 
 .pagination-data {

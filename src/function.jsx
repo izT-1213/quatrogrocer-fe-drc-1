@@ -2,7 +2,7 @@ import Axios from "axios";
 
 async function LoginFunc(email, pass) {
   try {
-    await Axios.post("http://localhost:3001/quatro_user/login", {
+    await Axios.post("http://localhost:5000/quatro_user/login", {
       email: email,
       password: pass,
     });
@@ -15,7 +15,7 @@ async function LoginFunc(email, pass) {
 async function RegisterFunc(email, pass) {
   try {
     const response = await Axios.post(
-      "http://localhost:3001/quatro_user/create",
+      "http://localhost:5000/quatro_user/create",
       {
         email: email,
         password: pass,
@@ -38,7 +38,7 @@ async function CreateAddressFunc(
 ) {
   try {
     const response = await Axios.post(
-      "http://localhost:3001/quatro_address/create", //hassif port 3002
+      "http://localhost:5000/quatro_address/create", //hassif port 3002
       {
         address_line_1: addLine1,
         address_line_2: addLine2,
@@ -57,7 +57,7 @@ async function CreateAddressFunc(
 async function FetchProduct() {
   try {
     const response = await Axios.get(
-      "http://localhost:3001/quatro_product/get"
+      "http://localhost:5000/quatro_product/get"
     );
     console.log(response.data.result);
     return response.data.result;
