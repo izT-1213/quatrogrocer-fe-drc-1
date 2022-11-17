@@ -1,8 +1,9 @@
+import { Login } from "@mui/icons-material";
 import Axios from "axios";
 
 async function LoginFunc(email, pass) {
   try {
-    await Axios.post("http://localhost:3001/quatro_user/login", {
+    await Axios.post("http://localhost:5004/quatro_user/login", {
       email: email,
       password: pass,
     });
@@ -15,7 +16,7 @@ async function LoginFunc(email, pass) {
 async function RegisterFunc(email, pass) {
   try {
     const response = await Axios.post(
-      "http://localhost:3001/quatro_user/create",
+      "http://localhost:5000/quatro_user/create",
       {
         email: email,
         password: pass,
@@ -38,7 +39,8 @@ async function CreateAddressFunc(
 ) {
   try {
     const response = await Axios.post(
-      "http://localhost:3001/quatro_address/create", //hassif port 3002
+      "http://localhost:5000/quatro_address/create",
+      { withCredentials: true }, //hassif port 3002
       {
         address_line_1: addLine1,
         address_line_2: addLine2,
@@ -64,7 +66,8 @@ async function UpdateAddressFunc(
 ) {
   try {
     const response = await Axios.post(
-      "http://localhost:3002/quatro_address/update_details", //hassif port 3002
+      "http://localhost:3002/quatro_address/update_details",
+      { withCredentials: true }, //hassif port 3002
       {
         address_line_1: addLine1,
         address_line_2: addLine2,
@@ -83,24 +86,13 @@ async function UpdateAddressFunc(
 async function FetchProduct() {
   try {
     const response = await Axios.get(
-      "http://localhost:3001/quatro_product/get"
+      "http://localhost:5004/quatro_product/get",
+      { withCredentials: true }
     );
     console.log(response.data.result);
     return response.data.result;
   } catch (err) {
     console.log(err.response);
-  }
-}
-
-async function GetPasswordFunc(user_id, password) {
-  try {
-    await Axios.get("http://localhost:3002/quatro_user/getpassword", {
-      user_id: user_id,
-      password: password,
-    });
-  } catch (err) {
-    console.log(err.response.data);
-    return err.response.data;
   }
 }
 
@@ -116,7 +108,8 @@ async function UpdateProfileFunc(
 ) {
   try {
     const response = await Axios.post(
-      "http://localhost:3002/quatro_user/update", //hassif port 3002
+      "http://localhost:3002/quatro_user/update",
+      { withCredentials: true }, //hassif port 3002
       {
         first_name: first_name,
         last_name: last_name,
@@ -142,5 +135,4 @@ export {
   FetchProduct,
   UpdateAddressFunc,
   UpdateProfileFunc,
-  GetPasswordFunc,
 };

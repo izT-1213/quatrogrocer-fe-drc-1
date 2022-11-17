@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
 import { Carousel } from "react-responsive-carousel";
 import { AddShoppingCart } from "@mui/icons-material";
-import { useParams } from "react-router";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./product-page.css";
 import { FetchProduct } from "../../function";
@@ -198,7 +197,6 @@ function ProductPage() {
         </div>
 
         <div className="product-section">
-
           <div className="carousel">
             <Carousel
               autoPlay={true}
