@@ -69,11 +69,16 @@
       width: 4rem;
       grid-area: button;
       align-self: flex-end;
+      cursor: pointer;
 
       .cart-icon {
         color: $white-color;
         font-size: 2 rem;
       }
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: $primary-hover-dark-color;
     }
   }
 }
@@ -141,11 +146,16 @@
       width: 2.5rem;
       grid-area: button;
       align-self: flex-end;
+      cursor: pointer;
 
       .cart-icon {
         font-size: 1.5rem;
         color: $white-color;
       }
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: $primary-hover-dark-color;
     }
   }
 }
@@ -213,11 +223,16 @@
       width: 2.5rem;
       grid-area: button;
       align-self: flex-end;
+      cursor: pointer;
 
       .cart-icon {
         font-size: 1.5rem;
         color: $white-color;
       }
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: $primary-hover-dark-color;
     }
   }
 }
@@ -284,11 +299,16 @@
       width: 4rem;
       grid-area: button;
       align-self: flex-end;
+      cursor: pointer;
 
       .cart-icon {
         color: $white-color;
         font-size: 2rem;
       }
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: $primary-hover-dark-color;
     }
   }
 }

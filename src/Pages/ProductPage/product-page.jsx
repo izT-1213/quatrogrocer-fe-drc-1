@@ -12,6 +12,7 @@ import "./product-page.css";
 import { FetchProduct } from "../../function";
 import SideNav from "../../Components/SideNav/sidenav.jsx";
 import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
+import { ToastContainer, toast } from "react-toastify";
 
 function ProductPage() {
   const navigate = useNavigate();
@@ -99,7 +100,7 @@ function ProductPage() {
                 <p className="RM">RM</p> {data.product_price.toFixed(2)}
               </p>
               <div className="button-container">
-                <button className="add-to-cart-btn">
+                <button className="add-to-cart-btn" onClick={notify}>
                   <AddShoppingCart className="cart-icon" key={index} />
                 </button>
               </div>
@@ -192,6 +193,7 @@ function ProductPage() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

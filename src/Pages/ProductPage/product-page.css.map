@@ -1,8 +1,8 @@
 {
   "version": 3,
   "sources": [
-    "product-page.css",
     "../../Scss/_fonts.scss",
+    "product-page.css",
     "../../Scss/_colors.scss",
     "product-page.scss",
     "../../Scss/_components.scss"

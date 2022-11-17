@@ -296,10 +296,13 @@
         margin: -14rem 0 0 0;
       }
 
-      ._5bXm4 {
+      ._5bXm4 p {
         font-family: $primary-fonts;
         font-weight: map-get($map: $font-weight, $key: "bold");
+        font-size: 3.5rem;
+        color: $white-color;
         text-transform: uppercase;
+        cursor: pointer;
       }
     }
   }
@@ -318,10 +321,13 @@
         margin: -3rem 0 0 0;
       }
 
-      ._5bXm4 {
+      ._5bXm4 p {
         font-family: $primary-fonts;
         font-weight: map-get($map: $font-weight, $key: "bold");
+        font-size: 3.5rem;
+        color: $white-color;
         text-transform: uppercase;
+        cursor: pointer;
       }
     }
 
@@ -423,6 +429,11 @@
       background-color: $primary-hover-dark-color;
     }
   }
+}
+
+.Toastify__toast {
+  font-family: $secondary-fonts;
+  font-size: 1rem;
 }
 
 @media screen and (max-width: 600px) {
