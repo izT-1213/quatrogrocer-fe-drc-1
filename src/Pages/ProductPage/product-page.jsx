@@ -24,6 +24,21 @@ function ProductPage() {
   const [productDetails, setProductDetails] = useState([]);
   const { products } = useParams();
 
+  const notify = () => {
+    // if (!toast.isActive(toastId.current)) {
+    //   toastId.current =
+    toast.success("Item added to cart! 🛒", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
   useEffect(() => {
     setProductDetails([]);
     FetchProduct(products).then(setProductDetails);
