@@ -135,17 +135,23 @@ a:hover {
   border: 3px solid #009688;
 }
 .product-section .product-cards {
-  height: 43.375rem;
   padding: 2rem 0 0;
+  height: 43.375rem;
+  width: 61rem;
 }
-.product-section .product-cards .right-col-cards {
-  border-right: 3.938rem solid transparent;
-  border-bottom: 2rem solid transparent;
+.product-section .product-cards .medium-horizontal-cards-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-left: 1rem;
+  width: 100%;
+  height: 100%;
 }
-.product-section .product-cards .left-col-cards {
-  border-bottom: 2rem solid transparent;
+.product-section .product-cards .medium-horizontal-cards-container .card-container {
+  padding-left: 1rem;
+  padding-bottom: 2rem;
 }
-.product-section .product-cards .medium-horizontal-card {
+.product-section .product-cards .medium-horizontal-cards-container .card-container .medium-horizontal-card {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   display: grid;
   grid-template-areas: "image name name" "image name name" "image price button";
@@ -155,17 +161,17 @@ a:hover {
   background-color: #ffffff;
   padding: 1.875rem 2.313rem;
 }
-.product-section .product-cards .medium-horizontal-card .product-image {
+.product-section .product-cards .medium-horizontal-cards-container .card-container .medium-horizontal-card .product-image {
   grid-area: image;
 }
-.product-section .product-cards .medium-horizontal-card .product-image img {
+.product-section .product-cards .medium-horizontal-cards-container .card-container .medium-horizontal-card .product-image img {
   width: 7.5rem;
   height: 9.375rem;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 0.25rem;
 }
-.product-section .product-cards .medium-horizontal-card .product-name {
+.product-section .product-cards .medium-horizontal-cards-container .card-container .medium-horizontal-card .product-name {
   grid-area: name;
   font-family: "Lexend Deca";
   font-weight: 500;
@@ -174,7 +180,7 @@ a:hover {
   text-align: left;
   padding-left: 2rem;
 }
-.product-section .product-cards .medium-horizontal-card .product-price {
+.product-section .product-cards .medium-horizontal-cards-container .card-container .medium-horizontal-card .product-price {
   grid-area: price;
   color: #ff8a65;
   font-family: "Lexend Deca";
@@ -184,18 +190,18 @@ a:hover {
   align-self: flex-end;
   padding-left: 2rem;
 }
-.product-section .product-cards .medium-horizontal-card .product-price .RM {
+.product-section .product-cards .medium-horizontal-cards-container .card-container .medium-horizontal-card .product-price .RM {
   font-family: "Lexend Deca";
   font-weight: 500;
   font-size: 1rem;
   line-height: 120%;
   color: #252525;
 }
-.product-section .product-cards .medium-horizontal-card .button-container {
+.product-section .product-cards .medium-horizontal-cards-container .card-container .medium-horizontal-card .button-container {
   display: flex;
   justify-content: flex-end;
 }
-.product-section .product-cards .medium-horizontal-card .button-container .add-to-cart-btn {
+.product-section .product-cards .medium-horizontal-cards-container .card-container .medium-horizontal-card .button-container .add-to-cart-btn {
   border: none;
   border-radius: 0.25rem;
   background-color: #009688;
@@ -205,7 +211,7 @@ a:hover {
   align-self: flex-end;
   cursor: pointer;
 }
-.product-section .product-cards .medium-horizontal-card .button-container .add-to-cart-btn .cart-icon {
+.product-section .product-cards .medium-horizontal-cards-container .card-container .medium-horizontal-card .button-container .add-to-cart-btn .cart-icon {
   font-size: 1.5rem;
   color: #ffffff;
 }
