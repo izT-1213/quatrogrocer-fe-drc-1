@@ -21,6 +21,19 @@ const Footer = () => {
               />
             </Link>
           </div>
+          <div className="icons">
+            <ul>
+              <li>
+                <InstagramIcon />
+              </li>
+              <li>
+                <FacebookIcon />
+              </li>
+              <li>
+                <TwitterIcon />
+              </li>
+            </ul>
+          </div>
 
           <div className="footer-top-right">
             <div className="company-desc">

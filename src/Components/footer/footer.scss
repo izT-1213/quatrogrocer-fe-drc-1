@@ -30,6 +30,9 @@ footer {
     width: 60%;
     justify-content: space-around;
   }
+  .icons {
+    display: none;
+  }
 
   .footer-top-right p {
     font-family: $primary-fonts;
@@ -87,5 +90,34 @@ footer {
 
   .footer-bottom-right ul li:hover {
     color: $primary-color;
+  }
+}
+
+//Responsive
+
+@media screen and (max-width: 37.5rem) {
+  footer {
+    height: 32.875rem;
+    background-color: #fafafa;
+    color: #252525;
+    padding: 0rem;
+    color: #252525;
+  }
+
+  footer .footer-top-right {
+    display: none;
+  }
+  footer .footer-top {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 0 11.313rem 0;
+  }
+
+  .footer-top {
+    display: flex;
+    .icons {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }

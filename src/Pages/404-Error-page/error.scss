@@ -1,7 +1,6 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
 
-
 *,
 *::before,
 *::after {
@@ -63,5 +62,58 @@
         position: absolute;
       }
     }
+  }
+}
+
+@media screen and (max-width: 37.5rem) {
+  .error-image-container {
+    height: auto;
+    .pic {
+      max-width: 18rem;
+    }
+  }
+  .error-image-container .error-msg-container {
+    padding: 0.5rem;
+    h2 {
+      padding: 0 0 0.5rem 0;
+      font-family: "Lexend Deca";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 1.2rem;
+      line-height: 120%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .error-image-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    position: center;
+    padding: 0rem 0 0 0;
+  }
+
+  .error-image-container .error-msg-container p {
+    font-family: "Lexend Deca";
+    font-size: 1em;
+    padding: 0 0 0.25rem 0;
+  }
+  .error-image-container .error-msg-container .button-container .button {
+    padding: 0.5rem 2rem;
+    font-family: "Lexend Deca";
+    background-color: #ff8a65;
+    border-radius: 0.25rem;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    gap: 0.5rem;
+    position: sticky;
   }
 }

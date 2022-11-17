@@ -80,6 +80,9 @@ footer .footer-top-right {
   width: 60%;
   justify-content: space-around;
 }
+footer .icons {
+  display: none;
+}
 footer .footer-top-right p {
   font-family: "Lexend Deca";
   font-weight: 700;
@@ -127,4 +130,29 @@ footer .footer-bottom-right ul li {
 }
 footer .footer-bottom-right ul li:hover {
   color: #009688;
+}
+
+@media screen and (max-width: 37.5rem) {
+  footer {
+    height: 32.875rem;
+    background-color: #fafafa;
+    color: #252525;
+    padding: 0rem;
+    color: #252525;
+  }
+  footer .footer-top-right {
+    display: none;
+  }
+  footer .footer-top {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 0 11.313rem 0;
+  }
+  .footer-top {
+    display: flex;
+  }
+  .footer-top .icons {
+    display: flex;
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=footer.css.map */
