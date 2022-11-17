@@ -2,20 +2,50 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Carousel } from "react-responsive-carousel";
-import { AddShoppingCart } from "@mui/icons-material";
-import { useParams } from "react-router";
+import {
+  AddShoppingCart,
+  ArrowBackIos,
+  ArrowForwardIos,
+} from "@mui/icons-material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./product-page.css";
 import { FetchProduct } from "../../function";
-///////////////////////
 import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 function ProductPage() {
   const navigate = useNavigate();
 
-  //pagination
+  const SideNav = () => (
+    <div>
+      <div className="side-nav-title">
+        <h4>Category</h4>
+      </div>
+      <div className="category-list">
+        <ul>
+          <li onClick={() => navigate("/beverages")}>Beverages</li>
+          <li onClick={() => navigate("/bread-&-pastry")}>Bread & Pastry</li>
+          <li onClick={() => navigate("/canned-food")}>Canned Food</li>
+          <li onClick={() => navigate("/cereal")}>Cereal</li>
+          <li onClick={() => navigate("/confectionary")}>Confectionary</li>
+          <li onClick={() => navigate("/condiments")}>Condiments</li>
+          <li onClick={() => navigate("/dairy")}>Dairy</li>
+          <li onClick={() => navigate("/frozen-dairy")}>Frozen Dairy</li>
+          <li onClick={() => navigate("/fruits")}>Fruits</li>
+          <li onClick={() => navigate("/jam")}>Jam</li>
+          <li onClick={() => navigate("/juice")}>Juice</li>
+          <li onClick={() => navigate("/meat")}>Meat</li>
+          <li onClick={() => navigate("/pet-food")}>Pet Food</li>
+          <li onClick={() => navigate("/sauce-dressing")}>Sauce Dressing</li>
+          <li onClick={() => navigate("/snacks")}>Snacks</li>
+          <li onClick={() => navigate("/caffeine")}>
+            Tea, Coffee, Chocolate Drinks
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+
+  // Pagination
   const [perPage, setPerPage] = useState(6);
   const [size, setSize] = useState(perPage);
   const [current, setCurrent] = useState(1);
@@ -50,7 +80,7 @@ function ProductPage() {
       return (
         <button>
           <i className="fa fa-angle-double-left">
-            <ArrowBackIosIcon />
+            <ArrowBackIos />
           </i>
         </button>
       );
@@ -59,7 +89,7 @@ function ProductPage() {
       return (
         <button>
           <i className="fa fa-angle-double-right">
-            <ArrowForwardIosIcon />
+            <ArrowForwardIos />
           </i>
         </button>
       );
@@ -69,111 +99,27 @@ function ProductPage() {
 
   //mapping product
   const MediumHorCard = () => (
-    <div>
-      <table className="medium-horizontal-cards-container">
-        <tr>
-          <td className="right-col-cards">
-            <div className="medium-horizontal-card">
+    <div className="medium-horizontal-cards-container">
+      {getData(current, size).map((data, index) => {
+        return (
+          <div className="card-container">
+            <div className="medium-horizontal-card" key={index}>
               <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+                <img src={data.product_image} />
               </div>
-              <p className="product-name">Farm Fresh Pure Milk 2L</p>
+              <p className="product-name">{data.product_name}</p>
               <p className="product-price">
-                <p className="RM">RM</p> 15.45
+                <p className="RM">RM</p> {data.product_price.toFixed(2)}
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn">
-                  <AddShoppingCart className="cart-icon" />
+                  <AddShoppingCart className="cart-icon" key={index} />
                 </button>
               </div>
             </div>
-          </td>
-          <td className="left-col-cards">
-            <div className="medium-horizontal-card">
-              <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
-              </div>
-              <p className="product-name">Farm Fresh Pure Milk 2L</p>
-              <p className="product-price">
-                <p className="RM">RM</p> 15.45
-              </p>
-              <div className="button-container">
-                <button className="add-to-cart-btn">
-                  <AddShoppingCart className="cart-icon" />
-                </button>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td className="right-col-cards">
-            <div className="medium-horizontal-card">
-              <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
-              </div>
-              <p className="product-name">Farm Fresh Pure Milk 2L</p>
-              <p className="product-price">
-                <p className="RM">RM</p> 15.45
-              </p>
-              <div className="button-container">
-                <button className="add-to-cart-btn">
-                  <AddShoppingCart className="cart-icon" />
-                </button>
-              </div>
-            </div>
-          </td>
-          <td className="left-col-cards">
-            <div className="medium-horizontal-card">
-              <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
-              </div>
-              <p className="product-name">Farm Fresh Pure Milk 2L</p>
-              <p className="product-price">
-                <p className="RM">RM</p> 15.45
-              </p>
-              <div className="button-container">
-                <button className="add-to-cart-btn">
-                  <AddShoppingCart className="cart-icon" />
-                </button>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td className="right-col-cards">
-            <div className="medium-horizontal-card">
-              <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
-              </div>
-              <p className="product-name">Farm Fresh Pure Milk 2L</p>
-              <p className="product-price">
-                <p className="RM">RM</p> 15.45
-              </p>
-              <div className="button-container">
-                <button className="add-to-cart-btn">
-                  <AddShoppingCart className="cart-icon" />
-                </button>
-              </div>
-            </div>
-          </td>
-          <td className="left-col-cards">
-            <div className="medium-horizontal-card">
-              <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
-              </div>
-              <p className="product-name">Farm Fresh Pure Milk 2L</p>
-              <p className="product-price">
-                <p className="RM">RM</p> 15.45
-              </p>
-              <div className="button-container">
-                <button className="add-to-cart-btn">
-                  <AddShoppingCart className="cart-icon" />
-                </button>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </table>
+          </div>
+        );
+      })}
     </div>
   );
 
@@ -181,20 +127,7 @@ function ProductPage() {
     <div>
       <div className="product-page">
         <div className="side-nav">
-          <div className="side-nav-title">
-            <h4>Category</h4>
-          </div>
-          <div className="category-list">
-            <ul>
-              <li onClick={() => navigate("/biscuits")}>Biscuits</li>
-              <li onClick={() => navigate("/dairy")}>Dairy</li>
-              <li onClick={() => navigate("/fruits")}>Fruits</li>
-              <li onClick={() => navigate("/vegetables")}>Vegetables</li>
-              <li onClick={() => navigate("/noodles")}>Noodles</li>
-              <li onClick={() => navigate("/snacks")}>Snacks</li>
-              <li onClick={() => navigate("/spices")}>Spices</li>
-            </ul>
-          </div>
+          <SideNav />
         </div>
 
         <div className="product-section">
@@ -207,22 +140,32 @@ function ProductPage() {
             >
               <div
                 className="carousel-images"
-                onClick={() => navigate("/spices")}
+                onClick={() => navigate("/sauce-dressing")}
               >
-                <div className="carousel-category">SPICES</div>
+                <div className="carousel-category">Sauce Dressing</div>
                 <img
-                  src="http://www.familywiseasia.com/wp-content/uploads/2019/07/daria-volkova-BMnX7L9G5xc-unsplash-e1563357571719.jpg"
-                  alt="spices-img"
+                  src="https://images.unsplash.com/photo-1582581720432-de83a98176ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                  alt="sauce-dressing-img"
                 />
               </div>
               <div
                 className="carousel-images"
-                onClick={() => navigate("/noodles")}
+                onClick={() => navigate("/fruits")}
               >
-                <div className="carousel-category">NOODLES</div>
+                <div className="carousel-category">Fruits</div>
                 <img
-                  src="https://images.unsplash.com/photo-1587029622793-f51e81058f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                  alt="noodles"
+                  src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                  alt="fruits-img"
+                />
+              </div>
+              <div
+                className="carousel-images"
+                onClick={() => navigate("/confectionary")}
+              >
+                <div className="carousel-category">Confectionary</div>
+                <img
+                  src="https://images.unsplash.com/photo-1504623912536-fdb14bcb0d1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                  alt="confectionary-img"
                 />
               </div>
             </Carousel>

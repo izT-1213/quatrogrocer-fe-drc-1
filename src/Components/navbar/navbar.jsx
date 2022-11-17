@@ -34,7 +34,7 @@ const Nav = () => {
 
         <div className="nav-right">
           <div className="search-container">
-            <form action="/" onSubmit={handleSubmit}>
+            <form action="/">
               <input
                 className="searchTerm"
                 type="text"
