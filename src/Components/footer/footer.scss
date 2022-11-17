@@ -30,9 +30,6 @@ footer {
     width: 60%;
     justify-content: space-around;
   }
-  .icons {
-    display: none;
-  }
 
   .footer-top-right p {
     font-family: $primary-fonts;
@@ -96,28 +93,39 @@ footer {
 //Responsive
 
 @media screen and (max-width: 37.5rem) {
-  footer {
-    height: 32.875rem;
-    background-color: #fafafa;
-    color: #252525;
-    padding: 0rem;
-    color: #252525;
-  }
-
   footer .footer-top-right {
     display: none;
   }
-  footer .footer-top {
-    display: flex;
-    justify-content: center;
-    padding: 3rem 0 11.313rem 0;
+  footer {
+    padding: 3rem;
   }
 
-  .footer-top {
+  .error-image-container {
+    justify-content: center;
+    align-items: center;
     display: flex;
-    .icons {
-      display: flex;
-      flex-direction: column;
-    }
+    flex-wrap: wrap;
+    position: center;
+    padding: 7rem 0;
+  }
+
+  footer .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 0 2.438rem 0;
+  }
+  footer .footer-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 0;
+  }
+  .error-image-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    position: center;
+    padding: 6rem 0;
   }
 }

@@ -80,9 +80,6 @@ footer .footer-top-right {
   width: 60%;
   justify-content: space-around;
 }
-footer .icons {
-  display: none;
-}
 footer .footer-top-right p {
   font-family: "Lexend Deca";
   font-weight: 700;
@@ -133,26 +130,37 @@ footer .footer-bottom-right ul li:hover {
 }
 
 @media screen and (max-width: 37.5rem) {
-  footer {
-    height: 32.875rem;
-    background-color: #fafafa;
-    color: #252525;
-    padding: 0rem;
-    color: #252525;
-  }
   footer .footer-top-right {
     display: none;
   }
-  footer .footer-top {
-    display: flex;
+  footer {
+    padding: 3rem;
+  }
+  .error-image-container {
     justify-content: center;
-    padding: 3rem 0 11.313rem 0;
-  }
-  .footer-top {
+    align-items: center;
     display: flex;
+    flex-wrap: wrap;
+    position: center;
+    padding: 7rem 0;
   }
-  .footer-top .icons {
+  footer .footer-bottom {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 0 2.438rem 0;
+  }
+  footer .footer-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 0;
+  }
+  .error-image-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    position: center;
+    padding: 6rem 0;
   }
 }/*# sourceMappingURL=footer.css.map */

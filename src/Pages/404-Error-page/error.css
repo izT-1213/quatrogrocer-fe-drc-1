@@ -67,8 +67,8 @@ a:hover {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+  margin: 6rem 0;
   position: center;
-  padding: 8.938rem 0 0 0;
 }
 .error-image-container .pic {
   -o-object-fit: cover;
@@ -110,6 +110,10 @@ a:hover {
   font-size: 1rem;
   gap: 1rem;
   position: absolute;
+  cursor: pointer;
+}
+.error-image-container .error-msg-container .button-container .button:hover {
+  background-color: #ff5722;
 }
 
 @media screen and (max-width: 37.5rem) {

@@ -12,8 +12,8 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+  margin: 6rem 0;
   position: center;
-  padding: 8.938rem 0 0 0;
 
   .pic {
     object-fit: cover;
@@ -60,6 +60,11 @@
         gap: 1rem;
 
         position: absolute;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $secondary-hover-color;
+        }
       }
     }
   }
