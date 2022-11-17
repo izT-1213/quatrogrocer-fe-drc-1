@@ -1,9 +1,11 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../../Images/white-logo.svg";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
+import {
+  SearchOutlined,
+  AccountCircleOutlined,
+  ShoppingBagOutlined,
+} from "@mui/icons-material";
 import "./navbar.css";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -34,7 +36,7 @@ const Nav = () => {
 
         <div className="nav-right">
           <div className="search-container">
-            <form action="/" onSubmit={handleSubmit}>
+            <form action="/">
               <input
                 className="searchTerm"
                 type="text"
@@ -42,18 +44,16 @@ const Nav = () => {
                 name="search"
               />
               <button className="searchButton" type="submit">
-                <SearchOutlinedIcon />
+                <SearchOutlined />
               </button>
             </form>
           </div>
           <ul>
             <li>
-              <AccountCircleOutlinedIcon onClick={() => navigate("/profile")} />
+              <AccountCircleOutlined onClick={() => navigate("/profile")} />
             </li>
             <li>
-              <ShoppingBagOutlinedIcon
-                onClick={() => navigate("/cart/checkout")}
-              />
+              <ShoppingBagOutlined onClick={() => navigate("/cart/checkout")} />
             </li>
             <li>
               <MenuIcon className="burger" />

@@ -26,7 +26,7 @@ nav {
   .nav-left {
     @include nav-section;
     justify-content: space-between;
-    width: 56%;
+    width: 54%;
   }
 
   .nav-right {
@@ -100,62 +100,21 @@ nav {
       cursor: pointer;
     }
 
-    .nav-right {
-      .burger {
-        display: none;
-      }
-    }
+    
   }
 }
 
 @media screen and (max-width: 37.5rem) {
-  .nav-container {
-    nav {
-      display: flex;
-      background-color: $primary-color;
-      justify-content: space-between;
-      padding: 0 1.5rem;
-
-      .nav-left {
-        @include nav-section;
-      }
-
-      .nav-middle {
-        @include nav-section;
-        width: 34%;
-        display: none;
-      }
-
-      .nav-right {
-        @include nav-section;
-        width: 10%;
-      }
-
-      .nav-middle ul,
-      .nav-right ul {
-        padding: 0;
-        width: 100%;
-        display: flex;
-        list-style: none;
-        justify-content: space-between;
-      }
-
-      .nav-middle ul li {
-        font-family: $primary-fonts;
-        font-size: 1rem;
-        font-weight: map-get($map: $font-weight, $key: "medium");
-      }
-
-      .nav-middle ul li:hover,
-      .nav-right ul li:hover {
-        color: $primary-hover-light-color;
-      }
-
-      .nav-right {
-        .burger {
-          display: block;
-        }
-      }
-    }
+  nav {
+    height: 4.5rem;
+    /* display: flex; */
+    background-color: #009688;
+    justify-content: space-between;
+    padding: 0 1rem;
+    width: fit-content;
+  }
+  nav .nav-left {
+  
+    display: none;
   }
 }

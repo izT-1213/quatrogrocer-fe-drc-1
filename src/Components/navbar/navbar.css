@@ -76,7 +76,7 @@ nav .nav-left {
   align-items: center;
   color: #ffffff;
   justify-content: space-between;
-  width: 56%;
+  width: 54%;
 }
 nav .nav-right {
   cursor: pointer;
@@ -140,4 +140,20 @@ nav .nav-right .searchButton {
   text-align: center;
   color: #009688;
   cursor: pointer;
-} /*# sourceMappingURL=navbar.css.map */
+}
+
+@media screen and (max-width: 37.5rem) {
+  nav {
+    height: 4.5rem;
+    /* display: flex; */
+    background-color: #009688;
+    justify-content: space-between;
+    padding: 0 1rem;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  nav .nav-left {
+    display: none;
+  }
+}/*# sourceMappingURL=navbar.css.map */

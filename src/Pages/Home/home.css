@@ -230,10 +230,14 @@ a:hover {
   width: 4rem;
   grid-area: button;
   align-self: flex-end;
+  cursor: pointer;
 }
 .today-top-deals .today-top-deals-product .vertical-card .button-container .add-to-cart-btn .cart-icon {
   color: #ffffff;
   font-size: 2 rem;
+}
+.today-top-deals .today-top-deals-product .vertical-card .button-container .add-to-cart-btn:hover {
+  background-color: #00796b;
 }
 .today-top-deals .today-top-deals-product .horizontal-cards-container {
   display: flex;
@@ -305,10 +309,14 @@ a:hover {
   width: 2.5rem;
   grid-area: button;
   align-self: flex-end;
+  cursor: pointer;
 }
 .today-top-deals .today-top-deals-product .horizontal-cards-container .card-container .horizontal-card .button-container .add-to-cart-btn .cart-icon {
   font-size: 1.5rem;
   color: #ffffff;
+}
+.today-top-deals .today-top-deals-product .horizontal-cards-container .card-container .horizontal-card .button-container .add-to-cart-btn:hover {
+  background-color: #00796b;
 }
 
 .promotion-banner {
@@ -485,10 +493,14 @@ a:hover {
   width: 4rem;
   grid-area: button;
   align-self: flex-end;
+  cursor: pointer;
 }
 .best-choices .best-choices-product-1 .large-horizontal-card .button-container .add-to-cart-btn .cart-icon {
   color: #ffffff;
   font-size: 2rem;
+}
+.best-choices .best-choices-product-1 .large-horizontal-card .button-container .add-to-cart-btn:hover {
+  background-color: #00796b;
 }
 .best-choices .best-choices-product-1 .category-card {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
@@ -502,10 +514,13 @@ a:hover {
   width: 31.5rem;
   margin: -14rem 0 0 0;
 }
-.best-choices .best-choices-product-1 .category-card ._5bXm4 {
+.best-choices .best-choices-product-1 .category-card ._5bXm4 p {
   font-family: "Lexend Deca";
   font-weight: 700;
+  font-size: 3.5rem;
+  color: #ffffff;
   text-transform: uppercase;
+  cursor: pointer;
 }
 .best-choices .best-choices-product-2 {
   display: flex;
@@ -524,10 +539,13 @@ a:hover {
   width: 31.563rem;
   margin: -3rem 0 0 0;
 }
-.best-choices .best-choices-product-2 .category-card ._5bXm4 {
+.best-choices .best-choices-product-2 .category-card ._5bXm4 p {
   font-family: "Lexend Deca";
   font-weight: 700;
+  font-size: 3.5rem;
+  color: #ffffff;
   text-transform: uppercase;
+  cursor: pointer;
 }
 .best-choices .best-choices-product-2 .large-horizontal-card {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
@@ -587,10 +605,14 @@ a:hover {
   width: 4rem;
   grid-area: button;
   align-self: flex-end;
+  cursor: pointer;
 }
 .best-choices .best-choices-product-2 .large-horizontal-card .button-container .add-to-cart-btn .cart-icon {
   color: #ffffff;
   font-size: 2rem;
+}
+.best-choices .best-choices-product-2 .large-horizontal-card .button-container .add-to-cart-btn:hover {
+  background-color: #00796b;
 }
 
 .separator {
@@ -674,6 +696,11 @@ a:hover {
   background-color: #00796b;
 }
 
+.Toastify__toast {
+  font-family: "Poppins";
+  font-size: 1rem;
+}
+
 @media screen and (max-width: 600px) {
   .home-header {
     padding: 0 1.5rem;
@@ -742,10 +769,14 @@ a:hover {
     width: 4rem;
     grid-area: button;
     align-self: flex-end;
+    cursor: pointer;
   }
   .today-top-deals .today-top-deals-product .vertical-card .button-container .add-to-cart-btn .cart-icon {
     color: #ffffff;
     font-size: 2 rem;
+  }
+  .today-top-deals .today-top-deals-product .vertical-card .button-container .add-to-cart-btn:hover {
+    background-color: #00796b;
   }
   .today-top-deals .today-top-deals-product .horizontal-cards-container {
     grid-area: horizontal-cards;
@@ -817,9 +848,13 @@ a:hover {
     width: 2.5rem;
     grid-area: button;
     align-self: flex-end;
+    cursor: pointer;
   }
   .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .button-container .add-to-cart-btn .cart-icon {
     font-size: 1.5rem;
     color: #ffffff;
+  }
+  .today-top-deals .today-top-deals-product .horizontal-cards-container .horizontal-card .button-container .add-to-cart-btn:hover {
+    background-color: #00796b;
   }
 }/*# sourceMappingURL=home.css.map */
