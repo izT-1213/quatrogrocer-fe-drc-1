@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useParams } from "react-router";
-import { Carousel } from "react-responsive-carousel";
 import {
   AddShoppingCart,
   ArrowBackIos,
   ArrowForwardIos,
 } from "@mui/icons-material";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "./product-page.css";
+import "./category.css";
 import { FetchProduct } from "../../function";
 import SideNav from "../../Components/SideNav/sidenav.jsx";
 import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
 
-function ProductPage() {
+function CategoryPage() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const category = location.state.category;
 
   // Pagination
   const [perPage, setPerPage] = useState(6);
@@ -30,7 +30,10 @@ function ProductPage() {
 
   const PerPageChange = (value) => {
     setSize(value);
-    const newPerPage = Math.ceil(productDetails.length / value);
+    const newPerPage = Math.ceil(
+      productDetails.filter((obj) => obj.product_category === category).length /
+        value
+    );
     if (current > newPerPage) {
       setCurrent(newPerPage);
     }
@@ -38,7 +41,9 @@ function ProductPage() {
 
   const getData = (current, pageSize) => {
     // Normally you should get the data from the server
-    return productDetails.slice((current - 1) * pageSize, current * pageSize);
+    return productDetails
+      .filter((obj) => obj.product_category === category)
+      .slice((current - 1) * pageSize, current * pageSize);
   };
 
   const PaginationChange = (page, pageSize) => {
@@ -74,23 +79,7 @@ function ProductPage() {
       {getData(current, size).map((data, index) => {
         return (
           <div className="card-container">
-            <div
-              className="medium-horizontal-card"
-              key={index}
-              onClick={() => {
-                navigate(`/product-details/${data.product_name}`, {
-                  state: {
-                    product_name: data.product_name,
-                    product_description: data.product_description,
-                    product_category: data.product_category,
-                    product_price: data.product_price,
-                    product_quantity: data.product_quantity,
-                    product_image: data.product_image,
-                    product_id: data.product_id,
-                  },
-                });
-              }}
-            >
+            <div className="medium-horizontal-card" key={index}>
               <div className="product-image">
                 <img src={data.product_image} />
               </div>
@@ -115,60 +104,8 @@ function ProductPage() {
       <div className="product-page">
         <SideNav />
         <div className="product-section">
-          <div className="carousel">
-            <Carousel
-              autoPlay={true}
-              showStatus={false}
-              showThumbs={false}
-              infiniteLoop={true}
-            >
-              <div
-                className="carousel-images"
-                onClick={() =>
-                  navigate("/category/sauce-dressing", {
-                    state: { category: "Sauce Dressing" },
-                  })
-                }
-              >
-                <div className="carousel-category">Sauce Dressing</div>
-                <img
-                  src="https://images.unsplash.com/photo-1582581720432-de83a98176ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                  alt="sauce-dressing-img"
-                />
-              </div>
-              <div
-                className="carousel-images"
-                onClick={() =>
-                  navigate("/category/fruits", {
-                    state: { category: "Fruits" },
-                  })
-                }
-              >
-                <div className="carousel-category">Fruits</div>
-                <img
-                  src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                  alt="fruits-img"
-                />
-              </div>
-              <div
-                className="carousel-images"
-                onClick={() =>
-                  navigate("/category/confectionary", {
-                    state: { category: "Confectionary" },
-                  })
-                }
-              >
-                <div className="carousel-category">Confectionary</div>
-                <img
-                  src="https://images.unsplash.com/photo-1504623912536-fdb14bcb0d1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                  alt="confectionary-img"
-                />
-              </div>
-            </Carousel>
-          </div>
-
           <div className="product-section-title">
-            <h5>Marketplace</h5>
+            <h5>{category}</h5>
           </div>
           <hr></hr>
           <div className="filter-info">
@@ -178,7 +115,11 @@ function ProductPage() {
                 `Showing ${range[0]}-${range[1]} of ${total}`
               }
               onChange={PaginationChange}
-              total={productDetails.length}
+              total={
+                productDetails.filter(
+                  (obj) => obj.product_category === category
+                ).length
+              }
               current={current}
               pageSize={size}
               showSizeChanger={false}
@@ -196,4 +137,4 @@ function ProductPage() {
   );
 }
 
-export default ProductPage;
+export default CategoryPage;
