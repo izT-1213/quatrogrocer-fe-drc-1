@@ -7,24 +7,51 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import "../EditProfilePage/edit-profile.css";
+import { UpdateProfileFunc, GetPasswordFunc } from "../../../function";
 
 function EditProfilePage() {
-  const [values, setValues] = useState({
+  const [passwordVisibility, setPasswordVisibility] = useState(false);
+
+  const [profileValues, updateProfileValues] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    phone_number: "",
     password: "",
-    showPassword: false,
+    oldpassword: "",
+    date_of_birth: "",
+    user_id: "",
   });
 
+  // const [passwordValues, oldPasswordValues] = useState({
+  //   user_id: profileValues.user_id,
+  //   password: profileValues.oldpassword,
+  // });
+
+  const editProfile = async (e) => {
+    e.preventDefault();
+    // GetPasswordFunc(passwordValues.user_id, passwordValues.password.toString());
+
+    UpdateProfileFunc(
+      profileValues.first_name.toString(),
+      profileValues.last_name.toString(),
+      profileValues.email.toString(),
+      profileValues.phone_number.toString(),
+      profileValues.date_of_birth.toString(),
+      profileValues.oldpassword.toString(),
+      profileValues.password.toString(),
+      profileValues.user_id
+    );
+  };
+
   const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
+    setPasswordVisibility(!passwordVisibility);
   };
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
 
-  const handlePasswordChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
   return (
     <div className="edit-profile-page-container">
       <div className="profile-page-header">
@@ -50,6 +77,14 @@ function EditProfilePage() {
                   type="string"
                   disableUnderline={true}
                   className="form-control-mt-1"
+                  placeholder="First Name"
+                  onChange={(e) => {
+                    updateProfileValues({
+                      ...profileValues,
+                      first_name: e.target.value,
+                    });
+                  }}
+                  value={profileValues.first_name}
                 />
               </td>
               <td className="right-column">
@@ -57,6 +92,14 @@ function EditProfilePage() {
                   type="string"
                   disableUnderline={true}
                   className="form-control-mt-1"
+                  placeholder="Last Name"
+                  onChange={(e) => {
+                    updateProfileValues({
+                      ...profileValues,
+                      last_name: e.target.value,
+                    });
+                  }}
+                  value={profileValues.last_name}
                 />
               </td>
             </tr>
@@ -70,6 +113,14 @@ function EditProfilePage() {
                   type="string"
                   disableUnderline={true}
                   className="form-control-mt-1"
+                  placeholder="First Name"
+                  onChange={(e) => {
+                    updateProfileValues({
+                      ...profileValues,
+                      email: e.target.value,
+                    });
+                  }}
+                  value={profileValues.email}
                 />
               </td>
               <td className="right-column">
@@ -77,11 +128,19 @@ function EditProfilePage() {
                   type="string"
                   disableUnderline={true}
                   className="form-control-mt-1"
+                  placeholder="Phone Number"
+                  onChange={(e) => {
+                    updateProfileValues({
+                      ...profileValues,
+                      phone_number: e.target.value,
+                    });
+                  }}
+                  value={profileValues.phone_number}
                 />
               </td>
             </tr>
             <tr className="input-label">
-              <td className="left-column">Gender</td>
+              <td className="left-column">User ID</td>
               <td className="right-column">Date Of Birth</td>
             </tr>
             <tr>
@@ -90,6 +149,14 @@ function EditProfilePage() {
                   type="string"
                   disableUnderline={true}
                   className="form-control-mt-1"
+                  placeholder="User ID"
+                  onChange={(e) => {
+                    updateProfileValues({
+                      ...profileValues,
+                      user_id: e.target.value,
+                    });
+                  }}
+                  value={profileValues.user_id}
                 />
               </td>
               <td className="right-column">
@@ -97,6 +164,14 @@ function EditProfilePage() {
                   type="string"
                   disableUnderline={true}
                   className="form-control-mt-1"
+                  placeholder="First Name"
+                  onChange={(e) => {
+                    updateProfileValues({
+                      ...profileValues,
+                      date_of_birth: e.target.value,
+                    });
+                  }}
+                  value={profileValues.date_of_birth}
                 />
               </td>
             </tr>
@@ -108,17 +183,23 @@ function EditProfilePage() {
               <td className="left-column">
                 <Input
                   className="form-control-mt-1"
-                  type={values.showPassword ? "text" : "password"}
-                  onChange={handlePasswordChange("password")}
-                  value={values.password}
+                  type={passwordVisibility ? "text" : "password"}
                   disableUnderline={true}
+                  placeholder="Old Password"
+                  onChange={(e) => {
+                    updateProfileValues({
+                      ...profileValues,
+                      oldpassword: e.target.value,
+                    });
+                  }}
+                  value={profileValues.oldpassword}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
                         onClick={handleClickShowPassword}
                         onMouseDown={handleMouseDownPassword}
                       >
-                        {values.showPassword ? (
+                        {passwordVisibility ? (
                           <Visibility />
                         ) : (
                           <VisibilityOff />
@@ -131,17 +212,23 @@ function EditProfilePage() {
               <td className="right-column">
                 <Input
                   className="form-control-mt-1"
-                  type={values.showPassword ? "text" : "password"}
-                  onChange={handlePasswordChange("password")}
-                  value={values.password}
+                  type={passwordVisibility ? "text" : "password"}
                   disableUnderline={true}
+                  placeholder="New Password"
+                  onChange={(e) => {
+                    updateProfileValues({
+                      ...profileValues,
+                      password: e.target.value,
+                    });
+                  }}
+                  value={profileValues.password}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
                         onClick={handleClickShowPassword}
                         onMouseDown={handleMouseDownPassword}
                       >
-                        {values.showPassword ? (
+                        {passwordVisibility ? (
                           <Visibility />
                         ) : (
                           <VisibilityOff />
@@ -198,7 +285,7 @@ function EditProfilePage() {
       <div className="buttons-container">
         <button className="cancel">Cancel</button>
         <div className="submit-button-container">
-          <button className="submit-edit" type="submit">
+          <button className="submit-edit" type="submit" onClick={editProfile}>
             Submit
           </button>
         </div>

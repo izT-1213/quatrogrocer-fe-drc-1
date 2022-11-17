@@ -1,8 +1,9 @@
+import { Login } from "@mui/icons-material";
 import Axios from "axios";
 
 async function LoginFunc(email, pass) {
   try {
-    await Axios.post("http://localhost:5000/quatro_user/login", {
+    await Axios.post("http://localhost:5004/quatro_user/login", {
       email: email,
       password: pass,
     });
@@ -38,7 +39,8 @@ async function CreateAddressFunc(
 ) {
   try {
     const response = await Axios.post(
-      "http://localhost:5000/quatro_address/create", //hassif port 3002
+      "http://localhost:5000/quatro_address/create",
+      { withCredentials: true }, //hassif port 3002
       {
         address_line_1: addLine1,
         address_line_2: addLine2,
@@ -54,10 +56,38 @@ async function CreateAddressFunc(
   }
 }
 
+async function UpdateAddressFunc(
+  addLine1,
+  addLine2,
+  addLine3,
+  postcode,
+  state,
+  addressId
+) {
+  try {
+    const response = await Axios.post(
+      "http://localhost:3002/quatro_address/update_details",
+      { withCredentials: true }, //hassif port 3002
+      {
+        address_line_1: addLine1,
+        address_line_2: addLine2,
+        address_line_3: addLine3,
+        postcode: postcode,
+        state: state,
+        address_id: addressId,
+      }
+    );
+    console.log(response);
+  } catch (err) {
+    console.log(err.response.data);
+  }
+}
+
 async function FetchProduct() {
   try {
     const response = await Axios.get(
-      "http://localhost:5000/quatro_product/get"
+      "http://localhost:5004/quatro_product/get",
+      { withCredentials: true }
     );
     console.log(response.data.result);
     return response.data.result;
@@ -66,5 +96,43 @@ async function FetchProduct() {
   }
 }
 
+async function UpdateProfileFunc(
+  first_name,
+  last_name,
+  email,
+  phone_number,
+  date_of_birth,
+  oldPassword,
+  password,
+  user_id
+) {
+  try {
+    const response = await Axios.post(
+      "http://localhost:3002/quatro_user/update",
+      { withCredentials: true }, //hassif port 3002
+      {
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        phone_number: phone_number,
+        date_of_birth: date_of_birth,
+        oldPassword: oldPassword,
+        password: password,
+        user_id: user_id,
+      }
+    );
+    console.log(response);
+  } catch (err) {
+    console.log(err.response.data);
+  }
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export { LoginFunc, RegisterFunc, CreateAddressFunc, FetchProduct };
+export {
+  LoginFunc,
+  RegisterFunc,
+  CreateAddressFunc,
+  FetchProduct,
+  UpdateAddressFunc,
+  UpdateProfileFunc,
+};
