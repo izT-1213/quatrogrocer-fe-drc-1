@@ -75,7 +75,14 @@ a:hover {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  font-family: "Lexend Deca";
+  font-size: 1rem;
   font-weight: 500;
+  line-height: 120%;
+}
+.edit-profile-page-container .return svg {
+  font-size: 1.25rem;
+  align-items: center;
 }
 .edit-profile-page-container .return:hover {
   color: #00796b;
@@ -155,6 +162,7 @@ a:hover {
   display: flex;
   justify-content: center;
   grid-area: button;
+  padding: 0 3rem 0 0;
 }
 .edit-profile-page-container .buttons-container .cancel {
   display: flex;
@@ -173,7 +181,7 @@ a:hover {
   color: #00796b;
 }
 .edit-profile-page-container .buttons-container .submit-button-container {
-  padding: 2.188rem 2.875rem;
+  padding: 2.188rem 0rem;
 }
 .edit-profile-page-container .buttons-container .submit-button-container .submit-edit {
   height: 2.5rem;

@@ -215,7 +215,7 @@ a:hover {
   font-size: 1.5rem;
   color: #ffffff;
 }
-.product-section .product-cards .medium-horizontal-card .button-container .add-to-cart-btn:hover {
+.product-section .product-cards .medium-horizontal-cards-container .card-container .medium-horizontal-card .button-container .add-to-cart-btn:hover {
   background-color: #00796b;
 }
 

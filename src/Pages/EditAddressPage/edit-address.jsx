@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Input from "@material-ui/core/Input";
 import "./edit-address.css";
-import { SlArrowLeft } from "react-icons/sl";
-import { useNavigate } from "react-router-dom";
 
 function EditAddressPage() {
   function clearInput() {
@@ -15,10 +14,10 @@ function EditAddressPage() {
     <div className="edit-address-page-container">
       <div className="container-1">
         <div className="my-account-header">
-          <h1>My Account</h1>
+          <h3>My Account</h3>
         </div>
         <div className="edit-new-address-container">
-          <h2>Edit Address</h2>
+          <p>Edit Address</p>
           <div className="address-form-container">
             <div className="address-form-content">
               <form className="address-form" id="form">
@@ -100,14 +99,11 @@ function EditAddressPage() {
           </div>
         </div>
       </div>
-      <div className="navigation-container">
-        <div className="left-icon">
-          <SlArrowLeft />
+      <div className="navigation-buttons">
+        <div className="return">
+          <ArrowBackIosIcon />
+          <p onClick={() => navigate("/profile")}>Return to Account Details</p>
         </div>
-
-        <button class="back-btn" onClick={() => navigate("/address")}>
-          Return to Shipping Details
-        </button>
       </div>
     </div>
   );

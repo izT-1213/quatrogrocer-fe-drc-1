@@ -9,7 +9,8 @@
 }
 
 .add-address-page-container {
-  margin: 40px 19.5rem;
+  height: 50rem;
+  padding: 2.5rem 19.5rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -18,63 +19,60 @@
     flex-direction: column;
 
     .my-account-header {
-      h1 {
-        font-family: "Lexend Deca";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 44px;
-        line-height: 120%;
+      h3 {
+        font-family: $primary-fonts;
+        padding: 0 0 2rem 0;
       }
     }
+
     .add-new-address-container {
       display: flex;
       flex-direction: column;
-      margin-top: 32px;
 
-      h2 {
-        font-family: "Lexend Deca";
-        font-style: normal;
-        font-weight: 600;
-        font-size: 30px;
+      p {
+        font-family: $primary-fonts;
+        font-weight: map-get($map: $font-weight, $key: "semibold");
+        font-size: 1.875rem;
         line-height: 120%;
+        padding: 0 0 2rem 0;
       }
+
       .address-form-container {
-        margin-top: 32px;
         background: $white-color;
         width: 540px;
         height: 440px;
-        left: 82px;
-        top: 260px;
         box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.04),
           0px 4px 8px -2px rgba(16, 24, 40, 0.04);
 
         .address-form-content {
-          padding: 27px;
+          padding: 1.688rem 2.5rem 0;
           .address-form {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             padding: 0px;
-            gap: 16px;
-            padding-bottom: 16px;
+            gap: 1rem;
+            padding-bottom: 1rem;
 
             label {
-              font-family: "Lexend Deca";
-              font-style: normal;
-              font-weight: 500;
-              font-size: 14px;
+              font-family: $primary-fonts;
+              font-weight: map-get($map: $font-weight, $key: "medium");
+              font-size: 0.875rem;
               line-height: 120%;
             }
 
             .address-line-container {
               display: flex;
               flex-direction: column;
-              gap: 20px;
+              gap: 1rem;
 
               input[type="text"] {
-                border-radius: 4px;
+                width: 28rem;
+                height: 2.5rem;
+                border-radius: 0.25rem;
                 background-color: $grey-tint;
-                width: 460px;
+                font-family: $secondary-fonts;
+                padding: 0 0 0 0.75rem;
               }
 
               .address-line-1,
@@ -82,11 +80,10 @@
               .address-line-3 {
                 display: flex;
                 flex-direction: column;
-                gap: 4px;
+                gap: 0.25rem;
 
                 .address-input {
                   font-size: 1rem;
-                  padding: 0.375rem;
                   background-color: $grey-tint;
                 }
               }
@@ -97,10 +94,12 @@
               flex-direction: row;
 
               input {
-                border-radius: 4px;
+                width: 13rem;
+                height: 2.5rem;
+                border-radius: 0.25rem;
                 background-color: $grey-tint;
-                width: 220px;
-                padding: 0.375rem;
+                font-family: $secondary-fonts;
+                padding: 0 0 0 0.75rem;
               }
             }
 
@@ -120,9 +119,8 @@
                 user-select: none;
 
                 // label {
-                font-family: "Lexend Deca";
-                font-style: normal;
-                font-weight: 500;
+                font-family: $primary-fonts;
+                font-weight: map-get($map: $font-weight, $key: "medium");
                 font-size: 0.9rem;
                 line-height: 120%;
               }
@@ -139,24 +137,30 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                height: 18px;
-                width: 18px;
-                border-radius: 4px;
+                height: 1.125rem;
+                width: 1.125rem;
+                border-radius: 0.25rem;
+                border: 0.125rem solid $primary-color;
               }
+
               .checkmark:after {
                 content: "";
                 position: absolute;
                 display: none;
               }
+
               .default:hover input ~ .checkmark {
                 background-color: $grey-tint;
               }
+
               .default input:checked ~ .checkmark {
                 background-color: $primary-color;
               }
+
               .default input:checked ~ .checkmark:after {
                 display: block;
               }
+
               .default .checkmark:after {
                 left: 6px;
                 top: 2px;
@@ -180,15 +184,15 @@
             .cancel-btn {
               background-color: transparent;
               border: none;
-              font-family: "Lexend Deca";
-              font-style: normal;
-              font-weight: 500;
+              font-family: $primary-fonts;
+              font-weight: map-get($map: $font-weight, $key: "medium");
               font-size: 1rem;
               line-height: 120%;
               &:hover {
                 color: $secondary-hover-color;
               }
             }
+
             .add-address-btn {
               background-color: $secondary-color;
               border: none;
@@ -204,7 +208,8 @@
               align-items: center;
               padding: 0.5rem 1.5rem;
               gap: 0.5rem;
-              border-radius: 0.125;
+              border-radius: 0.125rem;
+
               &:hover {
                 background-color: $secondary-hover-color;
               }
@@ -214,19 +219,33 @@
       }
     }
   }
+
   .navigation-container {
     justify-items: flex-end;
+    padding-top: 1.5rem;
 
     .return {
       display: flex;
       justify-content: flex-end;
-      align-items: center;
-      font-weight: 500;
-      padding-bottom: 1.875rem;
+      cursor: pointer;
 
-      &:hover {
-        color: $primary-hover-dark-color;
+      p {
+        font-family: $primary-fonts;
+        font-size: 1rem;
+        font-weight: map-get($map: $font-weight, $key: "medium");
+        line-height: 120%;
+        padding-bottom: 1.813rem;
+        align-items: center;
       }
+
+      svg {
+        font-size: 1.25rem;
+        align-items: center;
+      }
+    }
+    .return:hover,
+    svg:hover {
+      color: $primary-hover-dark-color;
     }
   }
 }
