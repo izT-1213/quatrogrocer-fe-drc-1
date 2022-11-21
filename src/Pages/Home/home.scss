@@ -439,7 +439,7 @@
 }
 
 // Tablet
-@media screen and (max-width: 821px) and (min-width: 481px) {
+@media screen and (max-width: 961px) {
   .home-header {
     padding: 0 0 0 1.5rem;
 
@@ -467,7 +467,7 @@
   }
 
   .today-top-deals {
-    height: 59rem;
+    height: 100%;
     padding: 0 1rem;
 
     .today-top-deals-title {
@@ -505,10 +505,29 @@
       }
     }
   }
+
+  .promotion-banner {
+    padding: 0 2rem;
+
+    .banner-image-container img {
+      width: 65vw;
+      object-fit: cover;
+    }
+    .promotion-banner-content {
+      padding-left: 1rem;
+      .promotion-banner-header {
+        font-size: 1.2rem;
+      }
+
+      .promotion-banner-text {
+        text-align: left;
+      }
+    }
+  }
 }
 
 // Phone
-@media screen and (min-width: 480px) {
+@media screen and (max-width: 481px) {
   .home-header {
     padding: 0 0 0 1.5rem;
 
