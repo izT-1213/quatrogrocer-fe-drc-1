@@ -16,7 +16,7 @@ async function LoginFunc(email, pass) {
 async function RegisterFunc(email, pass) {
   try {
     const response = await Axios.post(
-      "http://localhost:5000/quatro_user/create",
+      "http://localhost:5004/quatro_user/create",
       {
         email: email,
         password: pass,

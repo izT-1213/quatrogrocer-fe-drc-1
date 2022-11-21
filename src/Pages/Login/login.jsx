@@ -17,7 +17,7 @@ function LoginPage() {
   });
 
   const navigate = useNavigate(); // <-- to navigate to profile page
-  const { setAuth } = useContext(AuthContext); // <-- for authentication
+  // const { setAuth } = useContext(AuthContext); // <-- for authentication
   const [errMsg, setErrMsg] = useState(""); // <-- to catch error message(?)
 
   const userRef = useRef();
@@ -37,12 +37,12 @@ function LoginPage() {
     const message = await LoginFunc(emailLogin, values.password.toString());
 
     if (message === undefined) {
-      navigate("/profile");
+      navigate("/");
       // console.log(message);
     } else {
       console.log(message);
 
-      setErrMsg(JSON.stringify(message.error));
+      setErrMsg(message.error);
     }
   };
 
@@ -110,16 +110,21 @@ function LoginPage() {
                   }
                 />
               </div>
-              <p
-                ref={errRef}
-                className={errMsg ? "errmsg" : "offscreen"}
-                aria-live="assertive"
-              >
-                {errMsg}
-              </p>
+
               <p className="forgot-pwd-text">
                 <a href="#">Forgot password?</a>
               </p>
+              <div className="errMsg">
+                {errMsg && (
+                  <p
+                    ref={errRef}
+                    className={errMsg ? "errmsg" : "offscreen"}
+                    aria-live="assertive"
+                  >
+                    {errMsg}
+                  </p>
+                )}
+              </div>
               <div className="d-grid-gap-2-mt-3">
                 <button type="submit" className="signup-login-btn">
                   Log In
@@ -161,7 +166,6 @@ function LoginPage() {
                 I'm new here!
                 <a>
                   <Link to="/signup" className="signup-link">
-                    {" "}
                     Create a new account
                   </Link>
                 </a>

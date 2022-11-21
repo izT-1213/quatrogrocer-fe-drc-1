@@ -212,6 +212,16 @@ p {
           width: 0;
         }
 
+        .errMsg {
+          padding: 1rem 0 0 0;
+          p {
+            font: $primary-fonts;
+            font-size: 12px;
+            font-weight: bold;
+            color: $error-color;
+          }
+        }
+
         .checkmark {
           position: absolute;
           top: 0;
