@@ -177,7 +177,7 @@ function SignUpPage() {
                 />
               </div>
               <label class="tnc">
-                <input type="checkbox" />
+                <input type="checkbox" required={true} />
                 <span class="checkmark"></span> I agree to{" "}
                 <a>
                   <Link to="/" className="tnc-link">

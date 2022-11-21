@@ -170,6 +170,7 @@
   }
 
   .promotion-banner-content {
+    padding-left: 5rem;
     p {
       color: $white-color;
     }
@@ -241,6 +242,7 @@
 .best-choices {
   height: 48.5rem;
   padding: 0 15vw;
+  width: 100%;
 
   .best-choices-title {
     display: flex;
@@ -292,6 +294,7 @@
     .category-card {
       @include category-card;
       overflow-y: clip;
+      width: 46vw;
 
       img {
         width: 31.5rem;
@@ -317,6 +320,7 @@
     .category-card {
       @include category-card;
       overflow-y: clip;
+      width: 46vw;
 
       img {
         width: 31.563rem;
@@ -451,8 +455,8 @@
 
       p {
         text-align: left;
-        font-size: 0.75rem;
-        padding: 0.5rem 3rem 1rem 0;
+        font-size: 1rem;
+        padding: 0.5rem 0 1rem 0;
       }
 
       button {
@@ -480,14 +484,26 @@
         "vertical-card"
         "horizontal-cards";
       padding: 2.5rem 0 0 0;
+      justify-content: center;
 
-      .vertical-card {
+      .vertical-card-container {
         grid-area: vertical-card;
-        @include vertical-card;
-        width: 80vw;
+        padding: 0 23vw;
+        .vertical-card {
+          width: 50vw;
+
+          .product-image {
+            padding-bottom: 2rem;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
       }
 
       .horizontal-cards-container {
+        justify-content: space-around;
         grid-area: horizontal-cards;
         width: 100%;
         height: 100%;
@@ -499,7 +515,7 @@
           padding-bottom: 1.5rem;
           .horizontal-card {
             @include small-horizontal-card;
-            width: 80vw;
+            width: 40vw;
           }
         }
       }
@@ -508,19 +524,109 @@
 
   .promotion-banner {
     padding: 0 2rem;
+    height: 13.25rem;
 
     .banner-image-container img {
       width: 65vw;
       object-fit: cover;
     }
     .promotion-banner-content {
-      padding-left: 1rem;
+      padding-left: 1.2rem;
       .promotion-banner-header {
+        text-align: left;
         font-size: 1.2rem;
       }
 
       .promotion-banner-text {
         text-align: left;
+      }
+    }
+  }
+
+  .discount-banner {
+    padding: 0 2rem;
+  }
+
+  .best-choices {
+    padding: 0 1rem;
+    height: 100%;
+
+    .best-choices-title {
+      padding: 2.5rem 0 0 0;
+    }
+
+    .best-choices-product-1,
+    .best-choices-product-2 {
+      display: flex;
+      flex-wrap: wrap;
+      .large-horizontal-card {
+        width: 50vw;
+        height: 12.5rem;
+        grid-template-columns: 52% 24% 24%;
+
+        .product-name {
+          font-size: 1.25rem;
+        }
+
+        .product-image {
+          img {
+            width: 14rem;
+            height: 10.25rem;
+          }
+        }
+
+        .button-container {
+          .add-to-cart-btn {
+            width: 3rem;
+            height: 3rem;
+            .cart-icon {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+      .category-card {
+        width: 45vw;
+        height: 12.5rem;
+      }
+    }
+  }
+
+  .separator {
+    padding: 0 2rem;
+  }
+
+  .services {
+    padding: 2rem 1rem;
+
+    .services-container {
+      height: 20rem;
+    }
+
+    .services-title {
+      h4 {
+        font-size: 2rem;
+        padding-top: 2rem;
+      }
+    }
+
+    .services-content {
+      padding: 1.25rem 0;
+      gap: 3rem;
+
+      svg {
+        font-size: 2rem;
+      }
+
+      .services-title {
+        font-size: 1.25rem;
+      }
+    }
+
+    .shop-now-button {
+      button {
+        height: 3rem;
+        width: 12.25rem;
       }
     }
   }

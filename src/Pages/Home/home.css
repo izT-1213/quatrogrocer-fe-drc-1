@@ -265,6 +265,8 @@ a:hover {
 }
 .today-top-deals .today-top-deals-product .horizontal-cards-container .card-container .horizontal-card .product-image {
   grid-area: image;
+  height: 10rem;
+  width: 10rem;
 }
 .today-top-deals .today-top-deals-product .horizontal-cards-container .card-container .horizontal-card .product-image img {
   width: 7.5rem;
@@ -336,6 +338,9 @@ a:hover {
   height: 31.25rem;
   margin: -8rem 0 0 0;
 }
+.promotion-banner .promotion-banner-content {
+  padding-left: 5rem;
+}
 .promotion-banner .promotion-banner-content p {
   color: #ffffff;
 }
@@ -399,6 +404,7 @@ a:hover {
 .best-choices {
   height: 48.5rem;
   padding: 0 15vw;
+  width: 100%;
 }
 .best-choices .best-choices-title {
   display: flex;
@@ -439,7 +445,7 @@ a:hover {
 }
 .best-choices .best-choices-product-1 .large-horizontal-card {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
-  width: 45rem;
+  width: 43vw;
   height: 15.5rem;
   display: grid;
   grid-template-areas: "image name name" "image price button";
@@ -511,6 +517,7 @@ a:hover {
   border-radius: 0.125rem;
   background-color: #ffffff;
   overflow-y: clip;
+  width: 46vw;
 }
 .best-choices .best-choices-product-1 .category-card img {
   width: 31.5rem;
@@ -536,6 +543,7 @@ a:hover {
   border-radius: 0.125rem;
   background-color: #ffffff;
   overflow-y: clip;
+  width: 46vw;
 }
 .best-choices .best-choices-product-2 .category-card img {
   width: 31.563rem;
@@ -551,7 +559,7 @@ a:hover {
 }
 .best-choices .best-choices-product-2 .large-horizontal-card {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
-  width: 45rem;
+  width: 43vw;
   height: 15.5rem;
   display: grid;
   grid-template-areas: "image name name" "image price button";
@@ -715,8 +723,8 @@ a:hover {
   }
   .home-header .home-header-content p {
     text-align: left;
-    font-size: 0.75rem;
-    padding: 0.5rem 3rem 1rem 0;
+    font-size: 1rem;
+    padding: 0.5rem 0 1rem 0;
   }
   .home-header .home-header-content button {
     cursor: pointer;
@@ -736,73 +744,24 @@ a:hover {
     display: grid;
     grid-template-areas: "vertical-card" "horizontal-cards";
     padding: 2.5rem 0 0 0;
+    justify-content: center;
   }
-  .today-top-deals .today-top-deals-product .vertical-card {
+  .today-top-deals .today-top-deals-product .vertical-card-container {
     grid-area: vertical-card;
-    box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
-    display: grid;
-    grid-template-areas: "image image image" "name name name" "price price button";
-    width: 25.75rem;
-    height: 43.375rem;
-    border-radius: 0.125rem;
-    background-color: #ffffff;
-    padding: 33px 26px 66px 26px;
-    width: 80vw;
+    padding: 0 23vw;
   }
-  .today-top-deals .today-top-deals-product .vertical-card .product-image {
-    grid-area: image;
+  .today-top-deals .today-top-deals-product .vertical-card-container .vertical-card {
+    width: 50vw;
   }
-  .today-top-deals .today-top-deals-product .vertical-card .product-image img {
-    width: 22.5rem;
-    height: 27.438rem;
-    -o-object-fit: cover;
-       object-fit: cover;
-    border-radius: 0.25rem;
+  .today-top-deals .today-top-deals-product .vertical-card-container .vertical-card .product-image {
+    padding-bottom: 2rem;
   }
-  .today-top-deals .today-top-deals-product .vertical-card .product-name {
-    grid-area: name;
-    font-family: "Lexend Deca";
-    font-size: 26px;
-    font-weight: 500;
-    line-height: 120%;
-  }
-  .today-top-deals .today-top-deals-product .vertical-card .product-price {
-    grid-area: price;
-    align-self: flex-end;
-    color: #ff8a65;
-    font-family: "Lexend Deca";
-    font-size: 1.75rem;
-    font-weight: 700;
-    line-height: 120%;
-  }
-  .today-top-deals .today-top-deals-product .vertical-card .product-price .RM {
-    font-family: "Lexend Deca";
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: #252525;
-  }
-  .today-top-deals .today-top-deals-product .vertical-card .button-container {
-    display: flex;
-    justify-content: flex-end;
-  }
-  .today-top-deals .today-top-deals-product .vertical-card .button-container .add-to-cart-btn {
-    border: none;
-    border-radius: 0.25rem;
-    background-color: #009688;
-    height: 4rem;
-    width: 4rem;
-    grid-area: button;
-    align-self: flex-end;
-    cursor: pointer;
-  }
-  .today-top-deals .today-top-deals-product .vertical-card .button-container .add-to-cart-btn .cart-icon {
-    color: #ffffff;
-    font-size: 2 rem;
-  }
-  .today-top-deals .today-top-deals-product .vertical-card .button-container .add-to-cart-btn:hover {
-    background-color: #00796b;
+  .today-top-deals .today-top-deals-product .vertical-card-container .vertical-card .product-image img {
+    width: 100%;
+    height: 100%;
   }
   .today-top-deals .today-top-deals-product .horizontal-cards-container {
+    justify-content: space-around;
     grid-area: horizontal-cards;
     width: 100%;
     height: 100%;
@@ -822,10 +781,12 @@ a:hover {
     border-radius: 0.125rem;
     background-color: #ffffff;
     padding: 1.875rem 1.5rem;
-    width: 80vw;
+    width: 40vw;
   }
   .today-top-deals .today-top-deals-product .horizontal-cards-container .card-container .horizontal-card .product-image {
     grid-area: image;
+    height: 10rem;
+    width: 10rem;
   }
   .today-top-deals .today-top-deals-product .horizontal-cards-container .card-container .horizontal-card .product-image img {
     width: 7.5rem;
@@ -883,6 +844,7 @@ a:hover {
   }
   .promotion-banner {
     padding: 0 2rem;
+    height: 13.25rem;
   }
   .promotion-banner .banner-image-container img {
     width: 65vw;
@@ -890,13 +852,85 @@ a:hover {
        object-fit: cover;
   }
   .promotion-banner .promotion-banner-content {
-    padding-left: 1rem;
+    padding-left: 1.2rem;
   }
   .promotion-banner .promotion-banner-content .promotion-banner-header {
+    text-align: left;
     font-size: 1.2rem;
   }
   .promotion-banner .promotion-banner-content .promotion-banner-text {
     text-align: left;
+  }
+  .discount-banner {
+    padding: 0 2rem;
+  }
+  .best-choices {
+    padding: 0 1rem;
+    height: 100%;
+  }
+  .best-choices .best-choices-title {
+    padding: 2.5rem 0 0 0;
+  }
+  .best-choices .best-choices-product-1,
+.best-choices .best-choices-product-2 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .best-choices .best-choices-product-1 .large-horizontal-card,
+.best-choices .best-choices-product-2 .large-horizontal-card {
+    width: 50vw;
+    height: 12.5rem;
+    grid-template-columns: 52% 24% 24%;
+  }
+  .best-choices .best-choices-product-1 .large-horizontal-card .product-name,
+.best-choices .best-choices-product-2 .large-horizontal-card .product-name {
+    font-size: 1.25rem;
+  }
+  .best-choices .best-choices-product-1 .large-horizontal-card .product-image img,
+.best-choices .best-choices-product-2 .large-horizontal-card .product-image img {
+    width: 14rem;
+    height: 10.25rem;
+  }
+  .best-choices .best-choices-product-1 .large-horizontal-card .button-container .add-to-cart-btn,
+.best-choices .best-choices-product-2 .large-horizontal-card .button-container .add-to-cart-btn {
+    width: 3rem;
+    height: 3rem;
+  }
+  .best-choices .best-choices-product-1 .large-horizontal-card .button-container .add-to-cart-btn .cart-icon,
+.best-choices .best-choices-product-2 .large-horizontal-card .button-container .add-to-cart-btn .cart-icon {
+    font-size: 1.5rem;
+  }
+  .best-choices .best-choices-product-1 .category-card,
+.best-choices .best-choices-product-2 .category-card {
+    width: 45vw;
+    height: 12.5rem;
+  }
+  .separator {
+    padding: 0 2rem;
+  }
+  .services {
+    padding: 2rem 1rem;
+  }
+  .services .services-container {
+    height: 20rem;
+  }
+  .services .services-title h4 {
+    font-size: 2rem;
+    padding-top: 2rem;
+  }
+  .services .services-content {
+    padding: 1.25rem 0;
+    gap: 3rem;
+  }
+  .services .services-content svg {
+    font-size: 2rem;
+  }
+  .services .services-content .services-title {
+    font-size: 1.25rem;
+  }
+  .services .shop-now-button button {
+    height: 3rem;
+    width: 12.25rem;
   }
 }
 @media screen and (max-width: 481px) {
@@ -1022,6 +1056,8 @@ a:hover {
   }
   .today-top-deals .today-top-deals-product .horizontal-cards-container .card-container .horizontal-card .product-image {
     grid-area: image;
+    height: 10rem;
+    width: 10rem;
   }
   .today-top-deals .today-top-deals-product .horizontal-cards-container .card-container .horizontal-card .product-image img {
     width: 7.5rem;

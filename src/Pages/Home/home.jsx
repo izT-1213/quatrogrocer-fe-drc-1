@@ -194,7 +194,7 @@ function Home() {
         <hr></hr>
 
         <div className="today-top-deals-product">
-          <div>
+          <div className="vertical-card-container">
             {productDetails?.slice(0, 1).map(function (key, index) {
               return (
                 <div className="vertical-card">
@@ -263,7 +263,7 @@ function Home() {
 
         <div className="promotion-banner-content">
           <p className="promotion-banner-header">
-            Purchase Min. RM60 And Above<br></br>To Get Free Delivery
+            Purchase Min. RM60 And Above To Get Free Delivery
           </p>
           <p className="promotion-banner-text">Terms and condition apply</p>
         </div>
@@ -300,7 +300,15 @@ function Home() {
               width="100%"
               height="100%"
             >
-              <p onClick={() => navigate("/cereal")}>Cereal</p>
+              <p
+                onClick={() =>
+                  navigate("/category/cereal", {
+                    state: { category: "Cereal" },
+                  })
+                }
+              >
+                Cereal
+              </p>
             </ImgOverlay>
           </div>
         </div>
@@ -315,7 +323,13 @@ function Home() {
               width="100%"
               height="100%"
             >
-              <p onClick={() => navigate("/meat")}>Meat</p>
+              <p
+                onClick={() =>
+                  navigate("/category/meat", { state: { category: "Meat" } })
+                }
+              >
+                Meat
+              </p>
             </ImgOverlay>
           </div>
           <LargeHorCard />
@@ -334,7 +348,7 @@ function Home() {
 
           <div className="services-content">
             <div className="services-1">
-              <LocalOfferOutlined></LocalOfferOutlined>
+              <LocalOfferOutlined />
               <p className="services-title">Monthly Exciting Sales</p>
               <p className="services-text">
                 Limited time promotion every month!
@@ -342,13 +356,13 @@ function Home() {
             </div>
 
             <div className="services-2">
-              <PaymentOutlined></PaymentOutlined>
+              <PaymentOutlined />
               <p className="services-title">Secure Payment</p>
               <p className="services-text">Worry free checkout!</p>
             </div>
 
             <div className="services-3">
-              <AutorenewOutlined></AutorenewOutlined>
+              <AutorenewOutlined />
               <p className="services-title">Easy Returns & Refunds</p>
               <p className="services-text">
                 We got you cover without the hassle!

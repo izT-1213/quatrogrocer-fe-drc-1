@@ -2,10 +2,14 @@ import Axios from "axios";
 
 async function LoginFunc(email, pass) {
   try {
-    await Axios.post("http://localhost:5000/quatro_user/login", {
-      email: email,
-      password: pass,
-    });
+    await Axios.post(
+      "http://localhost:5000/quatro_user/login",
+      {
+        email: email,
+        password: pass,
+      },
+      { withCredentials: true }
+    );
   } catch (err) {
     console.log(err.response.data);
     return err.response.data;

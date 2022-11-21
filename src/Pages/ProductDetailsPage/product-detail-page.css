@@ -338,6 +338,8 @@ a:hover {
 }
 .item-details-page-container .suggestions .product-list-container .horizontal-cards-container .horizontal-card .product-image {
   grid-area: image;
+  height: 10rem;
+  width: 10rem;
 }
 .item-details-page-container .suggestions .product-list-container .horizontal-cards-container .horizontal-card .product-image img {
   width: 7.5rem;
