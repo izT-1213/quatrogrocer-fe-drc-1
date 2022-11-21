@@ -241,6 +241,15 @@ p {
   height: 0;
   width: 0;
 }
+.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .errMsg {
+  padding: 1rem 0 0 0;
+}
+.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .errMsg p {
+  font: "Lexend Deca";
+  font-size: 12px;
+  font-weight: bold;
+  color: #f04438;
+}
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .checkmark {
   position: absolute;
   top: 0;

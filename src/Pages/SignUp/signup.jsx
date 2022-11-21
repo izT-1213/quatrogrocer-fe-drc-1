@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import { TextField, FormControl, Select, MenuItem } from "@mui/material";
@@ -21,6 +21,31 @@ function SignUpPage() {
     showPassword: false,
   });
 
+  //to catch error message
+  const [errMsg, setErrMsg] = useState("");
+  const userRef = useRef();
+  const errRef = useRef();
+  useEffect(() => {
+    userRef.current.focus();
+  }, []);
+
+  useEffect(() => {
+    setErrMsg("");
+  }, [emailReg, values.password]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const message = await RegisterFunc(emailReg, values.password.toString());
+
+    if (message == undefined) {
+      navigate("/");
+    } else {
+      console.log(message);
+      setErrMsg(message.error);
+      // setErrMsg(JSON.stringify(message.error));
+    }
+  };
+
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
   };
@@ -39,17 +64,6 @@ function SignUpPage() {
 
   const handleChangeGender = (event) => {
     setGender(event.target.value);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const message = await RegisterFunc(emailReg, values.password.toString());
-
-    if (message == undefined) {
-      navigate("/profile");
-    } else {
-      console.log(message);
-    }
   };
 
   return (
@@ -71,6 +85,7 @@ function SignUpPage() {
                       disableUnderline={true}
                       className="form-control-mt-1"
                       placeholder="John"
+                      required={true}
                     />
                   </td>
                   <td className="right-col">
@@ -146,7 +161,9 @@ function SignUpPage() {
                 <Input
                   type=""
                   disableUnderline={true}
+                  ref={userRef}
                   className="form-control-mt-1"
+                  required={true}
                   onChange={(e) => {
                     setUsernameReg(e.target.value);
                   }}
@@ -162,6 +179,7 @@ function SignUpPage() {
                   type={values.showPassword ? "text" : "password"}
                   onChange={handlePasswordChange("password")}
                   value={values.password}
+                  required={true}
                   disableUnderline={true}
                   endAdornment={
                     <InputAdornment position="end">
@@ -185,6 +203,18 @@ function SignUpPage() {
                   </Link>
                 </a>
               </label>
+              <div className="errMsg">
+                {errMsg && (
+                  <p
+                    ref={errRef}
+                    className={errMsg ? "errmsg" : "offscreen"}
+                    aria-live="assertive"
+                  >
+                    {errMsg}
+                  </p>
+                )}
+              </div>
+
               <div className="d-grid-gap-2-mt-3">
                 <button type="submit" className="signup-signin-btn">
                   SIGN UP

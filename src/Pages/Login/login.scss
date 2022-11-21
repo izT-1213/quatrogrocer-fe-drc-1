@@ -63,6 +63,15 @@ p {
           font-size: 38px;
           padding: 0 0 0.5rem 0;
         }
+        .errMsg {
+          padding: 1rem 0 0 0;
+          p {
+            font: $primary-fonts;
+            font-size: 12px;
+            font-weight: bold;
+            color: $error-color;
+          }
+        }
 
         .forgot-pwd-text {
           font-family: $primary-fonts;
