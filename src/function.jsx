@@ -1,9 +1,8 @@
-import { Login } from "@mui/icons-material";
 import Axios from "axios";
 
 async function LoginFunc(email, pass) {
   try {
-    await Axios.post("http://localhost:5004/quatro_user/login", {
+    await Axios.post("http://localhost:5000/quatro_user/login", {
       email: email,
       password: pass,
     });
@@ -66,7 +65,7 @@ async function UpdateAddressFunc(
 ) {
   try {
     const response = await Axios.post(
-      "http://localhost:3002/quatro_address/update_details",
+      "http://localhost:5000/quatro_address/update_details",
       { withCredentials: true }, //hassif port 3002
       {
         address_line_1: addLine1,
@@ -86,8 +85,8 @@ async function UpdateAddressFunc(
 async function FetchProduct() {
   try {
     const response = await Axios.get(
-      "http://localhost:5004/quatro_product/get",
-      { withCredentials: true }
+      "http://localhost:5000/quatro_product/get"
+      //{ withCredentials: true }
     );
     console.log(response.data.result);
     return response.data.result;
@@ -108,7 +107,7 @@ async function UpdateProfileFunc(
 ) {
   try {
     const response = await Axios.post(
-      "http://localhost:3002/quatro_user/update",
+      "http://localhost:5000/quatro_user/update",
       { withCredentials: true }, //hassif port 3002
       {
         first_name: first_name,
