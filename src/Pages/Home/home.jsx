@@ -56,14 +56,53 @@ function Home() {
           <div className="card-container">
             <div className="horizontal-card" key={index}>
               <div className="product-image">
-                <img src={key.product_image} alt={key.product_name} />
+                <img
+                  src={key.product_image}
+                  alt={key.product_name}
+                  onClick={() => {
+                    navigate(`/product-details/${key.product_name}`, {
+                      state: {
+                        product_name: key.product_name,
+                        product_description: key.product_description,
+                        product_category: key.product_category,
+                        product_price: key.product_price,
+                        product_quantity: key.product_quantity,
+                        product_image: key.product_image,
+                        product_id: key.product_id,
+                      },
+                    });
+                  }}
+                />
               </div>
-              <p className="product-name">{key.product_name}</p>
+              <p
+                className="product-name"
+                onClick={() => {
+                  navigate(`/product-details/${key.product_name}`, {
+                    state: {
+                      product_name: key.product_name,
+                      product_description: key.product_description,
+                      product_category: key.product_category,
+                      product_price: key.product_price,
+                      product_quantity: key.product_quantity,
+                      product_image: key.product_image,
+                      product_id: key.product_id,
+                    },
+                  });
+                }}
+              >
+                {key.product_name}
+              </p>
               <p className="product-price">
                 <text className="RM">RM</text> {key.product_price.toFixed(2)}
               </p>
               <div className="button-container">
-                <button className="add-to-cart-btn" onClick={notify}>
+                <button
+                  className="add-to-cart-btn"
+                  onClick={(e) => {
+                    notify();
+                    e.preventDefault();
+                  }}
+                >
                   <AddShoppingCart className="cart-icon" key={index} />
                 </button>
               </div>
@@ -80,10 +119,42 @@ function Home() {
       {productDetails?.slice(6 + (i = i + 1), 7 + i).map(function (key, index) {
         return (
           <div className="large-horizontal-card" key={index}>
-            <div className="product-image">
+            <div
+              className="product-image"
+              onClick={() => {
+                navigate(`/product-details/${key.product_name}`, {
+                  state: {
+                    product_name: key.product_name,
+                    product_description: key.product_description,
+                    product_category: key.product_category,
+                    product_price: key.product_price,
+                    product_quantity: key.product_quantity,
+                    product_image: key.product_image,
+                    product_id: key.product_id,
+                  },
+                });
+              }}
+            >
               <img src={key.product_image} alt={key.product_name} />
             </div>
-            <p className="product-name">{key.product_name}</p>
+            <p
+              className="product-name"
+              onClick={() => {
+                navigate(`/product-details/${key.product_name}`, {
+                  state: {
+                    product_name: key.product_name,
+                    product_description: key.product_description,
+                    product_category: key.product_category,
+                    product_price: key.product_price,
+                    product_quantity: key.product_quantity,
+                    product_image: key.product_image,
+                    product_id: key.product_id,
+                  },
+                });
+              }}
+            >
+              {key.product_name}
+            </p>
             <p className="product-price">
               <text className="RM">RM</text> {key.product_price.toFixed(2)}
             </p>
@@ -106,10 +177,7 @@ function Home() {
           <h1>Fresh.</h1>
           <h1>Healthy.</h1>
           <h1>Convenient.</h1>
-          <p>
-            Stay home, we always deliver a service <br></br> more than you
-            expected.
-          </p>
+          <p>Stay home, we always deliver a service more than you expected.</p>
           <button onClick={() => navigate("/marketplace")}>Shop Now</button>
         </div>
 
@@ -130,10 +198,42 @@ function Home() {
             {productDetails?.slice(0, 1).map(function (key, index) {
               return (
                 <div className="vertical-card">
-                  <div className="product-image" key={index}>
+                  <div
+                    className="product-image"
+                    key={index}
+                    onClick={() => {
+                      navigate(`/product-details/${key.product_name}`, {
+                        state: {
+                          product_name: key.product_name,
+                          product_description: key.product_description,
+                          product_category: key.product_category,
+                          product_price: key.product_price,
+                          product_quantity: key.product_quantity,
+                          product_image: key.product_image,
+                          product_id: key.product_id,
+                        },
+                      });
+                    }}
+                  >
                     <img src={key.product_image} alt={key.product_name} />
                   </div>
-                  <p className="product-name" key={index}>
+                  <p
+                    className="product-name"
+                    key={index}
+                    onClick={() => {
+                      navigate(`/product-details/${key.product_name}`, {
+                        state: {
+                          product_name: key.product_name,
+                          product_description: key.product_description,
+                          product_category: key.product_category,
+                          product_price: key.product_price,
+                          product_quantity: key.product_quantity,
+                          product_image: key.product_image,
+                          product_id: key.product_id,
+                        },
+                      });
+                    }}
+                  >
                     {key.product_name}
                   </p>
                   <p className="product-price" key={index}>

@@ -10,6 +10,7 @@ import "./category.css";
 import { FetchProduct } from "../../function";
 import SideNav from "../../Components/SideNav/sidenav.jsx";
 import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
+import { ToastContainer, toast } from "react-toastify";
 
 function CategoryPage() {
   const navigate = useNavigate();
@@ -73,6 +74,21 @@ function CategoryPage() {
     return originalElement;
   };
 
+  const notify = () => {
+    // if (!toast.isActive(toastId.current)) {
+    //   toastId.current =
+    toast.success("Item added to cart! 🛒", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
   //mapping product
   const MediumHorCard = () => (
     <div className="medium-horizontal-cards-container">
@@ -80,16 +96,52 @@ function CategoryPage() {
         return (
           <div className="card-container">
             <div className="medium-horizontal-card" key={index}>
-              <div className="product-image">
+              <div
+                className="product-image"
+                onClick={() => {
+                  navigate(`/product-details/${data.product_name}`, {
+                    state: {
+                      product_name: data.product_name,
+                      product_description: data.product_description,
+                      product_category: data.product_category,
+                      product_price: data.product_price,
+                      product_quantity: data.product_quantity,
+                      product_image: data.product_image,
+                      product_id: data.product_id,
+                    },
+                  });
+                }}
+              >
                 <img src={data.product_image} />
               </div>
-              <p className="product-name">{data.product_name}</p>
+              <p
+                className="product-name"
+                onClick={() => {
+                  navigate(`/product-details/${data.product_name}`, {
+                    state: {
+                      product_name: data.product_name,
+                      product_description: data.product_description,
+                      product_category: data.product_category,
+                      product_price: data.product_price,
+                      product_quantity: data.product_quantity,
+                      product_image: data.product_image,
+                      product_id: data.product_id,
+                    },
+                  });
+                }}
+              >
+                {data.product_name}
+              </p>
               <p className="product-price">
                 <p className="RM">RM</p> {data.product_price.toFixed(2)}
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn">
-                  <AddShoppingCart className="cart-icon" key={index} />
+                  <AddShoppingCart
+                    className="cart-icon"
+                    key={index}
+                    onClick={notify}
+                  />
                 </button>
               </div>
             </div>
@@ -133,6 +185,7 @@ function CategoryPage() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

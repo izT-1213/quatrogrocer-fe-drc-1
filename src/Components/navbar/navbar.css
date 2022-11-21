@@ -68,7 +68,7 @@ nav {
   display: flex;
   background-color: #009688;
   justify-content: space-between;
-  padding: 0 19.5rem;
+  padding: 0 15vw;
 }
 nav .nav-left {
   cursor: pointer;
@@ -148,10 +148,7 @@ nav .nav-right .searchButton {
     /* display: flex; */
     background-color: #009688;
     justify-content: space-between;
-    padding: 0 1rem;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
+    padding: 0 10vw;
   }
   nav .nav-left {
     display: none;

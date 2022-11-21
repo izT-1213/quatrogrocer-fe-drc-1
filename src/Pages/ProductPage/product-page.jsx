@@ -90,27 +90,43 @@ function ProductPage() {
       {getData(current, size).map((data, index) => {
         return (
           <div className="card-container">
-            <div
-              className="medium-horizontal-card"
-              key={index}
-              onClick={() => {
-                navigate(`/product-details/${data.product_name}`, {
-                  state: {
-                    product_name: data.product_name,
-                    product_description: data.product_description,
-                    product_category: data.product_category,
-                    product_price: data.product_price,
-                    product_quantity: data.product_quantity,
-                    product_image: data.product_image,
-                    product_id: data.product_id,
-                  },
-                });
-              }}
-            >
-              <div className="product-image">
+            <div className="medium-horizontal-card" key={index}>
+              <div
+                className="product-image"
+                onClick={() => {
+                  navigate(`/product-details/${data.product_name}`, {
+                    state: {
+                      product_name: data.product_name,
+                      product_description: data.product_description,
+                      product_category: data.product_category,
+                      product_price: data.product_price,
+                      product_quantity: data.product_quantity,
+                      product_image: data.product_image,
+                      product_id: data.product_id,
+                    },
+                  });
+                }}
+              >
                 <img src={data.product_image} />
               </div>
-              <p className="product-name">{data.product_name}</p>
+              <p
+                className="product-name"
+                onClick={() => {
+                  navigate(`/product-details/${data.product_name}`, {
+                    state: {
+                      product_name: data.product_name,
+                      product_description: data.product_description,
+                      product_category: data.product_category,
+                      product_price: data.product_price,
+                      product_quantity: data.product_quantity,
+                      product_image: data.product_image,
+                      product_id: data.product_id,
+                    },
+                  });
+                }}
+              >
+                {data.product_name}
+              </p>
               <p className="product-price">
                 <p className="RM">RM</p> {data.product_price.toFixed(2)}
               </p>
