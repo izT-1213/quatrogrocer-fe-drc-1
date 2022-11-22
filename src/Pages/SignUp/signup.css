@@ -165,6 +165,13 @@ p {
   border: none;
   cursor: pointer;
 }
+.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-signin-btn:disabled,
+.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-signin-btn button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  pointer-events: none;
+}
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-in-text-center {
   width: 100%;
   font-size: 1rem;
