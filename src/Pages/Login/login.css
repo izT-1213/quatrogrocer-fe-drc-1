@@ -116,6 +116,15 @@ p {
   font-size: 38px;
   padding: 0 0 0.5rem 0;
 }
+.login-page-container .login-container .login-container-content .login-form-content .errMsg {
+  padding: 1rem 0 0 0;
+}
+.login-page-container .login-container .login-container-content .login-form-content .errMsg p {
+  font: "Lexend Deca";
+  font-size: 12px;
+  font-weight: bold;
+  color: #f04438;
+}
 .login-page-container .login-container .login-container-content .login-form-content .forgot-pwd-text {
   font-family: "Lexend Deca";
   font-weight: 500;
