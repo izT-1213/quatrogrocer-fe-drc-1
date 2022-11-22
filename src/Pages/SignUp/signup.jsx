@@ -35,9 +35,15 @@ function SignUpPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (`input[name="checkbox-required"]:checked`.length) {
+      return true;
+    } else {
+      console.log("not checked");
+      setErrMsg("Please read the terms and conditions.");
+    }
     const message = await RegisterFunc(emailReg, values.password.toString());
 
-    if (message == undefined) {
+    if (message === undefined) {
       navigate("/");
     } else {
       console.log(message);
@@ -195,7 +201,11 @@ function SignUpPage() {
                 />
               </div>
               <label class="tnc">
-                <input type="checkbox" required={true} />
+                <input
+                  type="checkbox"
+                  required={true}
+                  name="checkbox-required"
+                />
                 <span class="checkmark"></span> I agree to{" "}
                 <a>
                   <Link to="/" className="tnc-link">

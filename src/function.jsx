@@ -2,7 +2,7 @@ import Axios from "axios";
 
 async function LoginFunc(email, pass) {
   try {
-    await Axios.post(
+    const response = await Axios.post(
       "http://localhost:5000/quatro_user/login",
       {
         email: email,
@@ -10,8 +10,8 @@ async function LoginFunc(email, pass) {
       },
       { withCredentials: true }
     );
+    console.log(response);
   } catch (err) {
-    console.log(err.response.data);
     return err.response.data;
   }
 }
@@ -25,9 +25,7 @@ async function RegisterFunc(email, pass) {
         password: pass,
       }
     );
-    console.log(response);
   } catch (err) {
-    console.log(err.response.data);
     return err.response.data;
   }
 }
@@ -53,7 +51,6 @@ async function CreateAddressFunc(
         user_id: userId,
       }
     );
-    console.log(response);
   } catch (err) {
     console.log(err.response.data);
   }
@@ -80,7 +77,6 @@ async function UpdateAddressFunc(
         address_id: addressId,
       }
     );
-    console.log(response);
   } catch (err) {
     console.log(err.response.data);
   }
@@ -92,7 +88,6 @@ async function FetchProduct() {
       "http://localhost:5000/quatro_product/get"
       //{ withCredentials: true }
     );
-    console.log(response.data.result);
     return response.data.result;
   } catch (err) {
     console.log(err.response);
@@ -124,7 +119,6 @@ async function UpdateProfileFunc(
         user_id: user_id,
       }
     );
-    console.log(response);
   } catch (err) {
     console.log(err.response.data);
   }
