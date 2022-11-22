@@ -171,6 +171,7 @@ function LoginPage() {
                 I'm new here!
                 <a>
                   <Link to="/signup" className="signup-link">
+                    {" "}
                     Create a new account
                   </Link>
                 </a>
