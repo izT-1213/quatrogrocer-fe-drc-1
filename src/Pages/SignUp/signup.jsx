@@ -180,7 +180,7 @@ function SignUpPage() {
               </div>
               <div>
                 <Input
-                  type=""
+                  type="email"
                   disableUnderline={true}
                   ref={userRef}
                   className="form-control-mt-1"
