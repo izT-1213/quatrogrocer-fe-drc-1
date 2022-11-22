@@ -20,6 +20,36 @@ function SignUpPage() {
     password: "",
     showPassword: false,
   });
+  //for fname
+  const [fname, setFname] = useState("");
+
+  const handleChangeFname = (event) => {
+    setFname(event.target.value);
+  };
+
+  //lname
+  const [lname, setLname] = useState("");
+
+  const handleChangeLname = (event) => {
+    setLname(event.target.value);
+  };
+
+  //gender
+  const [gender, setGender] = useState("");
+  //dob
+  const [value, setValue] = useState(dayjs(""));
+
+  //tnc
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [checked, setChecked] = useState(false);
+
+  const canBeSubmitted = () => {
+    return checked ? setIsDisabled(true) : setIsDisabled(false);
+  };
+  const onCheckboxClick = () => {
+    setChecked(!checked);
+    return canBeSubmitted();
+  };
 
   //to catch error message
   const [errMsg, setErrMsg] = useState("");
@@ -33,9 +63,31 @@ function SignUpPage() {
     setErrMsg("");
   }, [emailReg, values.password]);
 
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handlePasswordChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleChange = (newValue) => {
+    setValue(newValue);
+  };
+
+  const handleChangeGender = (event) => {
+    setGender(event.target.value);
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const message = await RegisterFunc(emailReg, values.password.toString());
+    const message = await RegisterFunc(
+      emailReg,
+      values.password.toString(),
+      fname,
+      lname,
+      value,
+      gender
+    );
 
     if (message == undefined) {
       navigate("/");
@@ -45,27 +97,6 @@ function SignUpPage() {
       // setErrMsg(JSON.stringify(message.error));
     }
   };
-
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
-  };
-
-  const handlePasswordChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
-
-  const [value, setValue] = useState(dayjs(""));
-
-  const handleChange = (newValue) => {
-    setValue(newValue);
-  };
-
-  const [gender, setGender] = useState("");
-
-  const handleChangeGender = (event) => {
-    setGender(event.target.value);
-  };
-
   return (
     <div className="sign-up-page-container">
       <div className="sign-up-container">
@@ -86,6 +117,9 @@ function SignUpPage() {
                       className="form-control-mt-1"
                       placeholder="John"
                       required={true}
+                      //fname
+                      value={fname}
+                      onChange={handleChangeFname}
                     />
                   </td>
                   <td className="right-col">
@@ -94,6 +128,10 @@ function SignUpPage() {
                       disableUnderline={true}
                       className="form-control-mt-1"
                       placeholder="Doe"
+                      required={true}
+                      //lname
+                      value={lname}
+                      onChange={handleChangeLname}
                     />
                   </td>
                 </tr>
@@ -103,21 +141,25 @@ function SignUpPage() {
                 </tr>
                 <tr>
                   <td className="left-col">
-                    <FormControl fullWidth>
-                      <Select
-                        variant="standard"
-                        labelId="demo-simple-select-label"
-                        className="form-control-mt-1"
-                        disableUnderline={true}
-                        id="demo-simple-select"
-                        value={gender}
-                        onChange={handleChangeGender}
-                      >
-                        <MenuItem value={"male"}>Male</MenuItem>
-                        <MenuItem value={"female"}>Female</MenuItem>
-                        <MenuItem value={"others"}>Others</MenuItem>
-                      </Select>
-                    </FormControl>
+                    <div>
+                      {" "}
+                      <FormControl fullWidth>
+                        <Select
+                          variant="standard"
+                          labelId="demo-simple-select-label"
+                          className="form-control-mt-1"
+                          disableUnderline={true}
+                          id="demo-simple-select"
+                          value={gender}
+                          onChange={handleChangeGender}
+                          required={true}
+                        >
+                          <MenuItem value={"male"}>Male</MenuItem>
+                          <MenuItem value={"female"}>Female</MenuItem>
+                          <MenuItem value={"others"}>Others</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </div>
                   </td>
                   <td className="right-col">
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -127,6 +169,7 @@ function SignUpPage() {
                         inputFormat="MM/DD/YYYY"
                         value={value}
                         onChange={handleChange}
+                        required={true}
                         // PaperProps={{
                         //   sx: {
                         //     "& .MuiPickersDay-root": {
@@ -195,7 +238,11 @@ function SignUpPage() {
                 />
               </div>
               <label class="tnc">
-                <input type="checkbox" required={true} />
+                <input
+                  type="checkbox"
+                  required={true}
+                  onClick={onCheckboxClick}
+                />
                 <span class="checkmark"></span> I agree to{" "}
                 <a>
                   <Link to="/" className="tnc-link">
@@ -216,7 +263,11 @@ function SignUpPage() {
               </div>
 
               <div className="d-grid-gap-2-mt-3">
-                <button type="submit" className="signup-signin-btn">
+                <button
+                  type="submit"
+                  className="signup-signin-btn"
+                  disabled={isDisabled}
+                >
                   SIGN UP
                 </button>
               </div>
