@@ -15,41 +15,18 @@ function SignUpPage() {
   const navigate = useNavigate();
 
   //email and password variables
-  const [emailReg, setUsernameReg] = useState("");
   const [values, setValues] = useState({
+    email: "",
     password: "",
+    firstName: "",
+    lastName: "",
+    gender: "",
+    checked: false,
     showPassword: false,
   });
-  //for fname
-  const [fname, setFname] = useState("");
 
-  const handleChangeFname = (event) => {
-    setFname(event.target.value);
-  };
-
-  //lname
-  const [lname, setLname] = useState("");
-
-  const handleChangeLname = (event) => {
-    setLname(event.target.value);
-  };
-
-  //gender
-  const [gender, setGender] = useState("");
   //dob
-  const [value, setValue] = useState(dayjs(""));
-
-  //tnc
-  const [isDisabled, setIsDisabled] = useState(true);
-  const [checked, setChecked] = useState(false);
-
-  const canBeSubmitted = () => {
-    return checked ? setIsDisabled(true) : setIsDisabled(false);
-  };
-  const onCheckboxClick = () => {
-    setChecked(!checked);
-    return canBeSubmitted();
-  };
+  const [dob, setDOB] = useState(dayjs(""));
 
   //to catch error message
   const [errMsg, setErrMsg] = useState("");
@@ -61,42 +38,43 @@ function SignUpPage() {
 
   useEffect(() => {
     setErrMsg("");
-  }, [emailReg, values.password]);
+  }, [values.email, values.password]);
 
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
   };
 
-  const handlePasswordChange = (prop) => (event) => {
+  const handleClickTnC = () => {
+    setValues({ ...values, checked: !values.checked });
+  };
+
+  const handleValueChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
-  const handleChange = (newValue) => {
-    setValue(newValue);
+  const handleDOBChange = (newDOB) => {
+    setDOB(newDOB);
   };
 
-  const handleChangeGender = (event) => {
-    setGender(event.target.value);
-  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const message = await RegisterFunc(
-      emailReg,
+      values.email.toString(),
       values.password.toString(),
-      fname,
-      lname,
-      value,
-      gender
+      values.firstName.toString(),
+      values.lastName.toString(),
+      dob,
+      values.gender.toString()
     );
 
-    if (message == undefined) {
+    if (message === undefined) {
       navigate("/");
     } else {
       console.log(message);
       setErrMsg(message.error);
-      // setErrMsg(JSON.stringify(message.error));
     }
   };
+
   return (
     <div className="sign-up-page-container">
       <div className="sign-up-container">
@@ -118,8 +96,8 @@ function SignUpPage() {
                       placeholder="John"
                       required={true}
                       //fname
-                      value={fname}
-                      onChange={handleChangeFname}
+                      value={values.firstName}
+                      onChange={handleValueChange("firstName")}
                     />
                   </td>
                   <td className="right-col">
@@ -130,8 +108,8 @@ function SignUpPage() {
                       placeholder="Doe"
                       required={true}
                       //lname
-                      value={lname}
-                      onChange={handleChangeLname}
+                      value={values.lastName}
+                      onChange={handleValueChange("lastName")}
                     />
                   </td>
                 </tr>
@@ -150,8 +128,8 @@ function SignUpPage() {
                           className="form-control-mt-1"
                           disableUnderline={true}
                           id="demo-simple-select"
-                          value={gender}
-                          onChange={handleChangeGender}
+                          value={values.gender}
+                          onChange={handleValueChange("gender")}
                           required={true}
                         >
                           <MenuItem value={"male"}>Male</MenuItem>
@@ -167,8 +145,8 @@ function SignUpPage() {
                         className="form-control-mt-1"
                         InputProps={{ disableUnderline: true }}
                         inputFormat="MM/DD/YYYY"
-                        value={value}
-                        onChange={handleChange}
+                        value={dob}
+                        onChange={handleDOBChange}
                         required={true}
                         // PaperProps={{
                         //   sx: {
@@ -207,9 +185,8 @@ function SignUpPage() {
                   ref={userRef}
                   className="form-control-mt-1"
                   required={true}
-                  onChange={(e) => {
-                    setUsernameReg(e.target.value);
-                  }}
+                  value={values.email}
+                  onChange={handleValueChange("email")}
                 />
               </div>
               <div className="form-group-mt-3">
@@ -220,7 +197,7 @@ function SignUpPage() {
                   className="form-control-mt-1"
                   placeholder="Password"
                   type={values.showPassword ? "text" : "password"}
-                  onChange={handlePasswordChange("password")}
+                  onChange={handleValueChange("password")}
                   value={values.password}
                   required={true}
                   disableUnderline={true}
@@ -241,7 +218,8 @@ function SignUpPage() {
                 <input
                   type="checkbox"
                   required={true}
-                  onClick={onCheckboxClick}
+                  value={values.checked}
+                  onClick={handleClickTnC}
                 />
                 <span class="checkmark"></span> I agree to{" "}
                 <a>
@@ -266,7 +244,17 @@ function SignUpPage() {
                 <button
                   type="submit"
                   className="signup-signin-btn"
-                  disabled={isDisabled}
+                  disabled={
+                    values.email &&
+                    values.password &&
+                    values.firstName &&
+                    values.lastName &&
+                    values.gender &&
+                    dob &&
+                    values.checked
+                      ? false
+                      : true
+                  }
                 >
                   SIGN UP
                 </button>
