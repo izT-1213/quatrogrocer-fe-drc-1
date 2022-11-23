@@ -112,9 +112,9 @@ function LoginPage() {
                 />
               </div>
 
-              <p className="forgot-pwd-text">
+              {/* <p className="forgot-pwd-text">
                 <a href="#">Forgot password?</a>
-              </p>
+              </p> */}
               <div className="errMsg">
                 {errMsg && (
                   <p

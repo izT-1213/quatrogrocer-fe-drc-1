@@ -1,9 +1,5 @@
 import Axios from "axios";
 
-function validateURL(url) {
-  const parsed = new URL(url);
-  return ["https:", "http:"].includes(parsed.protocol);
-}
 
 async function LoginFunc(email, pass) {
   try {
@@ -141,5 +137,5 @@ export {
   FetchProduct,
   UpdateAddressFunc,
   UpdateProfileFunc,
-  validateURL,
+  
 };
