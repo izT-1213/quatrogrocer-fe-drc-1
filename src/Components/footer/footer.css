@@ -96,7 +96,11 @@ footer .footer-top-right ul {
   list-style: none;
 }
 footer .footer-top-right ul li {
+  cursor: pointer;
   padding: 1rem 0 0 0;
+}
+footer .footer-top-right ul li:hover {
+  color: #009688;
 }
 footer .line-2 {
   border: 0.125rem solid #252525;

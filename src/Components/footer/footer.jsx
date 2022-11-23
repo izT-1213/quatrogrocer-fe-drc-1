@@ -21,7 +21,6 @@ const Footer = () => {
               />
             </Link>
           </div>
-          
 
           <div className="footer-top-right">
             <div className="company-desc">
@@ -31,7 +30,7 @@ const Footer = () => {
                   <Link to={"/about"}>About Us</Link>
                 </li>
                 <li>
-                  <Link to={"/career"}>Career With Us</Link>
+                  <Link to={"/maintenance"}>Career With Us</Link>
                 </li>
               </ul>
             </div>
@@ -46,9 +45,6 @@ const Footer = () => {
                   <Link to={"/best-sellers"}>Best Sellers</Link>
                 </li>
                 <li>
-                  <Link to={"/all-new"}>All New</Link>
-                </li>
-                <li>
                   <Link to={"/deals-&-promotions"}>Deals & Promotions</Link>
                 </li>
               </ul>
@@ -57,18 +53,10 @@ const Footer = () => {
             <div className="policies-directory">
               <p>POLICIES</p>
               <ul>
-                <li>
-                  <Link to={"/refund-policy"}>Refund Policy</Link>
-                </li>
-                <li>
-                  <Link to={"/privacy-policy"}>Privacy Policy</Link>
-                </li>
-                <li>
-                  <Link to={"/shipping-policy"}>Shopping Policy</Link>
-                </li>
-                <li>
-                  <Link to={"/terms-of-service"}>Terms of Services</Link>
-                </li>
+                <li>Refund Policy</li>
+                <li>Privacy Policy</li>
+                <li>Shopping Policy</li>
+                <li>Terms of Services</li>
               </ul>
             </div>
           </div>

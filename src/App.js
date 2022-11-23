@@ -11,13 +11,13 @@ import EditProfilePage from "./Pages/ProfilePage/EditProfilePage/edit-profile.js
 import SignUpPage from "./Pages/SignUp/signup.jsx";
 import LoginPage from "./Pages/Login/login.jsx";
 import ErrorPage from "./Pages/404-Error-page/error.jsx";
+import ConstructionPage from "./Pages/ConstructionPage/construction.jsx";
 import YourShippingAddressPage from "./Pages/YourShippingAddressPage/address.jsx";
 import AddAddressPage from "./Pages/AddAddressPage/add-address.jsx";
 import NoResultPage from "./Pages/NoResultPage/no-result";
 import ProductDetailsPage from "./Pages/ProductDetailsPage/product-detail-page";
 import EditAddressPage from "./Pages/EditAddressPage/edit-address.jsx";
 import CategoryPage from "./Pages/CategoryPage/category.jsx";
-
 import PaymentSuccessPage from "./Pages/PaymentSuccessPage/payment-success.jsx";
 
 //import CartPage from "./Components/Cart";
@@ -56,6 +56,7 @@ function App() {
             element={<YourShippingAddressPage />}
           />
           <Route path="error" element={<ErrorPage />} />
+          <Route path="maintenance" element={<ConstructionPage />} />
 
           <Route
             path="cart/checkout/payment-success"
