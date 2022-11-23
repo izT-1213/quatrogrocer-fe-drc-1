@@ -8,7 +8,7 @@ import {
 } from "@mui/icons-material";
 import "./category.css";
 import { FetchProduct } from "../../function";
-import SideNav from "../../Components/SideNav/sidenav.jsx";
+import SideNav from "../../Components/sidenav/sidenav.jsx";
 import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
 import { ToastContainer, toast } from "react-toastify";
 

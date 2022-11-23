@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 //import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { IconButton, InputAdornment, Input } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
@@ -9,6 +9,10 @@ import useAuth from "../../Components/context/useAuth.js";
 import "../Login/login.css";
 
 function LoginPage() {
+  const navigate = useNavigate(); // <-- to navigate to profile page
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   // email and password variables
   const [emailLogin, setEmailLogin] = useState("");
   const [values, setValues] = useState({
@@ -17,7 +21,6 @@ function LoginPage() {
   });
   const { setAuth } = useAuth();
 
-  const navigate = useNavigate(); // <-- to navigate to profile page
   const [errMsg, setErrMsg] = useState(""); // <-- to catch error message(?)
 
   const userRef = useRef();
@@ -33,16 +36,18 @@ function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(from);
     const passwd = values.password.toString();
     const message = await LoginFunc(emailLogin, passwd);
     const token = message?.data?.userJwt;
     setAuth({ emailLogin, passwd, token });
-    if (message === undefined) {
-      navigate("/");
+    setEmailLogin("");
+    setValues((values.password = ""));
+    if (message.request.status === 200) {
+      navigate(from.toString(), { replace: true });
       // console.log(message);
     } else {
       console.log(message);
-
       setErrMsg(message.error);
     }
   };

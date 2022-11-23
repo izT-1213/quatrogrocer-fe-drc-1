@@ -12,6 +12,7 @@ import EditProfilePage from "./Pages/ProfilePage/EditProfilePage/edit-profile.js
 import SignUpPage from "./Pages/SignUp/signup.jsx";
 import LoginPage from "./Pages/Login/login.jsx";
 import ErrorPage from "./Pages/404-Error-page/error.jsx";
+import ConstructionPage from "./Pages/ConstructionPage/construction.jsx";
 import YourShippingAddressPage from "./Pages/YourShippingAddressPage/address.jsx";
 import AddAddressPage from "./Pages/AddAddressPage/add-address.jsx";
 import NoResultPage from "./Pages/NoResultPage/no-result";
@@ -19,7 +20,6 @@ import ProductDetailsPage from "./Pages/ProductDetailsPage/product-detail-page";
 import EditAddressPage from "./Pages/EditAddressPage/edit-address.jsx";
 import CategoryPage from "./Pages/CategoryPage/category.jsx";
 import PaymentSuccessPage from "./Pages/PaymentSuccessPage/payment-success.jsx";
-
 import RequireAuth from "./Components/context/RequireAuth.js";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -42,6 +42,19 @@ function App() {
           <Route path="marketplace" element={<ProductPage />} />
           <Route path="category/:category" element={<CategoryPage />} />
           <Route
+            path="profile/addresses"
+            element={<YourShippingAddressPage />}
+          />
+          <Route path="error" element={<ErrorPage />} />
+          <Route path="maintenance" element={<ConstructionPage />} />
+
+          <Route
+            path="cart/checkout/payment-success"
+            element={<PaymentSuccessPage />}
+          />
+
+          <Route path="no-result" element={<NoResultPage />} />
+          <Route
             path="product-details/:product_name"
             element={<ProductDetailsPage />}
           />
@@ -52,26 +65,26 @@ function App() {
           <Route path="signup" element={<SignUpPage />} />
 
           {/* Protected pages */}
-          <Route path="profile" element={<UserProfilePage />} />
-          <Route path="address" element={<YourShippingAddressPage />} />
-          <Route path="add-address" element={<AddAddressPage />} />
-          <Route path="edit-address" element={<EditAddressPage />} />
-          <Route path="cart/checkout" element={<CheckoutPage />} />
-          <Route path="profile/edit-profile" element={<EditProfilePage />} />
-          <Route
-            path="profile/addresses"
-            element={<YourShippingAddressPage />}
-          />
-          <Route
-            path="cart/checkout/payment-success"
-            element={<PaymentSuccessPage />}
-          />
+          <Route element={<RequireAuth />}>
+            <Route path="profile" element={<UserProfilePage />} />
+            <Route path="address" element={<YourShippingAddressPage />} />
+            <Route path="add-address" element={<AddAddressPage />} />
+            <Route path="edit-address" element={<EditAddressPage />} />
+            <Route path="cart/checkout" element={<CheckoutPage />} />
+            <Route path="profile/edit-profile" element={<EditProfilePage />} />
+            <Route
+              path="profile/addresses"
+              element={<YourShippingAddressPage />}
+            />
+            <Route
+              path="cart/checkout/payment-success"
+              element={<PaymentSuccessPage />}
+            />
+          </Route>
 
           {/* Error pages */}
           <Route path="error" element={<ErrorPage />} />
           <Route path="no-result" element={<NoResultPage />} />
-
-          {/* </Route> */}
         </Route>
       </Routes>
       <Footer />

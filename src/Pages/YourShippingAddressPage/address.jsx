@@ -2,10 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { AiOutlinePlusCircle } from "react-icons/ai";
-import "./address.css";
-//history
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import "./address.css";
 
 function YourShippingAddressPage() {
   const navigate = useNavigate();
@@ -13,9 +12,9 @@ function YourShippingAddressPage() {
   return (
     <div className="address-page-container">
       <div className="address-page-header">
-        <h1>My Account</h1>
+        <h3>My Account</h3>
         <div className="your-shipping-address-container">
-          <h3>Your Shipping Address</h3>
+          <p>Your Shipping Address</p>
         </div>
         <div className="shipping-details-container">
           <div className="shipping-details-table">
@@ -64,9 +63,7 @@ function YourShippingAddressPage() {
       <div className="navigation-buttons">
         <div className="return">
           <ArrowBackIosIcon />
-          <p>
-            <Link to={"/profile"}>Return to Account Details</Link>
-          </p>
+          <p onClick={() => navigate("/profile")}>Return to Account Details</p>
         </div>
 
         <button

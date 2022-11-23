@@ -12,6 +12,7 @@ async function LoginFunc(email, pass) {
       { withCredentials: true }
     );
     console.log(response);
+    return response;
   } catch (err) {
     return err.response.data;
   }
@@ -19,6 +20,7 @@ async function LoginFunc(email, pass) {
 
 async function RegisterFunc(email, pass, fname, lname, dob, gender) {
   try {
+
     const response = await Axios.post(
       "http://localhost:5004/quatro_user/create",
       {
@@ -30,6 +32,7 @@ async function RegisterFunc(email, pass, fname, lname, dob, gender) {
         gender: gender,
       }
     );
+
   } catch (err) {
     return err.response.data;
   }
@@ -44,8 +47,10 @@ async function CreateAddressFunc(
   userId
 ) {
   try {
+
     const response = await Axios.post(
       "http://localhost:5004/quatro_address/create",
+
       { withCredentials: true }, //hassif port 3002
       {
         address_line_1: addLine1,
@@ -70,8 +75,10 @@ async function UpdateAddressFunc(
   addressId
 ) {
   try {
-    const response = await Axios.post(
+
+    await Axios.post(
       "http://localhost:5004/quatro_address/update_details",
+
       { withCredentials: true }, //hassif port 3002
       {
         address_line_1: addLine1,
@@ -110,8 +117,11 @@ async function UpdateProfileFunc(
   user_id
 ) {
   try {
-    const response = await Axios.post(
+
+
+    await Axios.post(
       "http://localhost:5004/quatro_user/update",
+
       { withCredentials: true }, //hassif port 3002
       {
         first_name: first_name,
