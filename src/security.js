@@ -1,7 +1,5 @@
-import purify from "dompurify";
 import React, { useState } from "react";
 import axios from "axios";
-import "./App.css";
 const apiUrl = "http://localhost:5004";
 axios.interceptors.request.use(
   (config) => {
@@ -18,7 +16,7 @@ axios.interceptors.request.use(
   }
 );
 
-function App() {
+function tokenFunc() {
   const storedJwt = localStorage.getItem("token");
   const [jwt, setJwt] = useState(storedJwt || null);
   const [foods, setFoods] = useState([]);
