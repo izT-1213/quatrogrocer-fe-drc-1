@@ -1,0 +1,10 @@
+@import "../../Scss/colors";
+@import "../../Scss/fonts";
+@import "../../Scss/components";
+
+*,
+*::after,
+src/Pages/ConstructionPage/construction.jsx*::before {
+  margin: 0;
+  box-sizing: border-box;
+}

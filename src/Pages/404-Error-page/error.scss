@@ -12,7 +12,7 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  margin: 6rem 0;
+  padding: 9rem 19.5rem;
   position: center;
 
   .pic {
@@ -23,12 +23,8 @@
     padding: 0 0 0 6.563rem;
 
     h2 {
-      padding: 0 0 0.5rem 0;
       font-family: "Lexend Deca";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 3.5rem;
-      line-height: 120%;
+      padding: 0 0 0.5rem 0;
       display: flex;
       align-items: center;
     }
@@ -54,9 +50,9 @@
         align-items: center;
         //font style
         color: $white-color;
-        font-weight: 700;
+        text-transform: uppercase;
+        font-weight: map-get($map: $font-weight, $key: "bold");
         font-size: 1rem;
-
         gap: 1rem;
 
         position: absolute;
@@ -73,7 +69,7 @@
 @media screen and (max-width: 37.5rem) {
   .error-image-container {
     height: auto;
-    .pic {
+    .img {
       max-width: 18rem;
     }
   }

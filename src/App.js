@@ -12,6 +12,7 @@ import EditProfilePage from "./Pages/ProfilePage/EditProfilePage/edit-profile.js
 import SignUpPage from "./Pages/SignUp/signup.jsx";
 import LoginPage from "./Pages/Login/login.jsx";
 import ErrorPage from "./Pages/404-Error-page/error.jsx";
+import ConstructionPage from "./Pages/ConstructionPage/construction.jsx";
 import YourShippingAddressPage from "./Pages/YourShippingAddressPage/address.jsx";
 import AddAddressPage from "./Pages/AddAddressPage/add-address.jsx";
 import NoResultPage from "./Pages/NoResultPage/no-result";
@@ -41,6 +42,22 @@ function App() {
           <Route path="marketplace" element={<ProductPage />} />
           <Route path="category/:category" element={<CategoryPage />} />
           <Route
+<<<<<<< HEAD
+=======
+            path="profile/addresses"
+            element={<YourShippingAddressPage />}
+          />
+          <Route path="error" element={<ErrorPage />} />
+          <Route path="maintenance" element={<ConstructionPage />} />
+
+          <Route
+            path="cart/checkout/payment-success"
+            element={<PaymentSuccessPage />}
+          />
+
+          <Route path="no-result" element={<NoResultPage />} />
+          <Route
+>>>>>>> e0b7c4b547ac95255af02a269089debf831c7f6e
             path="product-details/:product_name"
             element={<ProductDetailsPage />}
           />

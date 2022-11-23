@@ -49,7 +49,12 @@ footer {
   }
 
   .footer-top-right ul li {
+    cursor: pointer;
     padding: 1rem 0 0 0;
+  }
+
+  .footer-top-right ul li:hover {
+    color: $primary-color;
   }
 
   .line-2 {
