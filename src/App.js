@@ -2,8 +2,8 @@ import Nav from "./Components/navbar/navbar.jsx";
 import Footer from "./Components/footer/footer.jsx";
 import Home from "./Pages/Home/home.jsx";
 import ProductPage from "./Pages/ProductPage/product-page.jsx";
-// import BestSellers from "./Pages/BestSellers";
-// import Deals from "./Pages/Deals";
+import BestSellersPage from "./Pages/BestSellerPage/bestseller.jsx";
+import DealsPromotionsPage from "./Pages/Deals&PromotionPage/deals-promotions.jsx";
 import AboutPage from "./Pages/About/about.jsx";
 import CheckoutPage from "./Pages/Checkout/checkout";
 import UserProfilePage from "./Pages/ProfilePage/profile.jsx";
@@ -34,9 +34,8 @@ function App() {
         <Nav />
 
         <Routes>
-          {/*
-          <Route path="/best-sellers" element={<BestSellers />} />
-        <Route path="/deals-&-promotions" element={<Deals />} />*/}
+          <Route path="/best-sellers" element={<BestSellersPage />} />
+          <Route path="/deals-&-promotions" element={<DealsPromotionsPage />} />
           <Route path="/" element={<Home />} />
           <Route path="marketplace" element={<ProductPage />} />
           <Route path="about" element={<AboutPage />} />
@@ -68,8 +67,6 @@ function App() {
             path="product-details/:product_name"
             element={<ProductDetailsPage />}
           />
-
-          {/* </Route> */}
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -111,7 +111,7 @@ nav .nav-right ul li:hover {
 nav .nav-right .search-container {
   padding: 0 2rem 0 1.5rem;
 }
-nav .nav-right .search-container form {
+nav .nav-right .search-container {
   width: 100%;
   display: flex;
   border: 0.188rem solid #ffffff;
@@ -119,7 +119,7 @@ nav .nav-right .search-container form {
   outline: none;
   color: #fafafa;
 }
-nav .nav-right .searchTerm {
+nav .nav-right .search {
   width: 16rem;
   color: #009688;
   font-family: "Poppins";
@@ -127,7 +127,7 @@ nav .nav-right .searchTerm {
   font-size: 0.875rem;
   padding: 0 0.5rem;
 }
-nav .nav-right .searchTerm:focus {
+nav .nav-right .search:focus {
   color: #009688;
   font-family: "Poppins";
   font-weight: 500;

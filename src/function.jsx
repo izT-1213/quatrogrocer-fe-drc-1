@@ -32,6 +32,21 @@ async function RegisterFunc(email, pass) {
   }
 }
 
+async function SearchProduct(keyword) {
+  try {
+    const response = await Axios.get(
+      "http://localhost:5004/quatro_product/get",
+      {
+        params: { keyword: keyword.toString() },
+      }
+    );
+    console.log(response);
+  } catch (err) {
+    console.log(err.response.data);
+    return err.response.data;
+  }
+}
+
 async function CreateAddressFunc(
   addLine1,
   addLine2,
@@ -136,6 +151,7 @@ export {
   RegisterFunc,
   CreateAddressFunc,
   FetchProduct,
+  SearchProduct,
   UpdateAddressFunc,
   UpdateProfileFunc,
 };
