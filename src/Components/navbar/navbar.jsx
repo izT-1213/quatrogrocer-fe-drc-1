@@ -56,10 +56,14 @@ const Nav = () => {
           </div>
           <ul>
             <li>
-              <AccountCircleOutlined onClick={() => navigate("/profile")} />
+              <Link to="/profile">
+                <AccountCircleOutlined />
+              </Link>
             </li>
             <li>
-              <ShoppingBagOutlined onClick={() => navigate("/cart/checkout")} />
+              <Link to="/cart/checkout">
+                <ShoppingBagOutlined />
+              </Link>
             </li>
             <li>
               <MenuIcon className="burger" />
