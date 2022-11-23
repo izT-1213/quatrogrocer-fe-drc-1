@@ -42,8 +42,6 @@ function App() {
           <Route path="marketplace" element={<ProductPage />} />
           <Route path="category/:category" element={<CategoryPage />} />
           <Route
-<<<<<<< HEAD
-=======
             path="profile/addresses"
             element={<YourShippingAddressPage />}
           />
@@ -57,7 +55,6 @@ function App() {
 
           <Route path="no-result" element={<NoResultPage />} />
           <Route
->>>>>>> e0b7c4b547ac95255af02a269089debf831c7f6e
             path="product-details/:product_name"
             element={<ProductDetailsPage />}
           />
