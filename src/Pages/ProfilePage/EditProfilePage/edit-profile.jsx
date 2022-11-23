@@ -7,10 +7,12 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import "../EditProfilePage/edit-profile.css";
-import { UpdateProfileFunc, GetPasswordFunc } from "../../../function";
+import { UpdateProfileFunc } from "../../../function";
 
 function EditProfilePage() {
   const [passwordVisibility, setPasswordVisibility] = useState(false);
+  const [oldPass, setOldPass] = useState("");
+  const [newPass, setNewPass] = useState("");
 
   const [profileValues, updateProfileValues] = useState({
     first_name: "",
@@ -23,14 +25,10 @@ function EditProfilePage() {
     user_id: "",
   });
 
-  // const [passwordValues, oldPasswordValues] = useState({
-  //   user_id: profileValues.user_id,
-  //   password: profileValues.oldpassword,
-  // });
+  
 
   const editProfile = async (e) => {
     e.preventDefault();
-    // GetPasswordFunc(passwordValues.user_id, passwordValues.password.toString());
 
     UpdateProfileFunc(
       profileValues.first_name.toString(),
@@ -42,6 +40,21 @@ function EditProfilePage() {
       profileValues.password.toString(),
       profileValues.user_id
     );
+  };
+
+
+  const validate = () => {
+    if (oldPass !== newPass){
+
+    }
+    // if pw1 === pw2
+    //editProfile
+    //else
+    //throw error
+    //
+    //
+    //
+    editProfile;
   };
 
   const handleClickShowPassword = () => {
@@ -191,6 +204,7 @@ function EditProfilePage() {
                       ...profileValues,
                       oldpassword: e.target.value,
                     });
+                    setOldPass(e.target.value);
                   }}
                   value={profileValues.oldpassword}
                   endAdornment={
@@ -216,6 +230,7 @@ function EditProfilePage() {
                   disableUnderline={true}
                   placeholder="New Password"
                   onChange={(e) => {
+                    setNewPass(e.target.value);
                     updateProfileValues({
                       ...profileValues,
                       password: e.target.value,
@@ -285,7 +300,14 @@ function EditProfilePage() {
       <div className="buttons-container">
         <button className="cancel">Cancel</button>
         <div className="submit-button-container">
-          <button className="submit-edit" type="submit" onClick={editProfile}>
+          <button
+            className="submit-edit"
+            type="submit"
+            onClick={() => {
+              validate();
+              // editProfile;
+            }}
+          >
             Submit
           </button>
         </div>
