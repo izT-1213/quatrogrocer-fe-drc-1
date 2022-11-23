@@ -90,7 +90,7 @@
     "image name name"
     "image name name"
     "image price button";
-  width: 23.75rem;
+  width: 26.75rem;
   height: 13.125rem;
   border-radius: 0.125rem;
   background-color: $white-color;
@@ -98,6 +98,8 @@
 
   .product-image {
     grid-area: image;
+    height: 10rem;
+    width: 10rem;
     img {
       width: 7.5rem;
       height: 9.375rem;
@@ -239,7 +241,7 @@
 
 @mixin large-horizontal-card {
   @include card-drop-shadow;
-  width: 45rem;
+  width: 43vw;
   height: 15.5rem;
   display: grid;
   grid-template-areas:

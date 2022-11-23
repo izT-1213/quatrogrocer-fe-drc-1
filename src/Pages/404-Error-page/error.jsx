@@ -1,11 +1,13 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import "./error.css";
 import pic from "./Error.png";
 
 function ErrorPage() {
+  const navigate = useNavigate();
   return (
     <div className="error-image-container">
       <img className="pic" src={pic} alt="picture" />
@@ -14,9 +16,11 @@ function ErrorPage() {
         <p> We've run in to some issues,</p>
         <p>we couldn't find what you're looking for.</p>
         <div className="button-container">
-          <Link to="/main-page" className="edit-link">
-            <button className="button"> BACK TO HOME</button>
-          </Link>
+          
+            <button className="button" onClick={() => navigate("/")}>
+              BACK TO HOME
+            </button>
+         
         </div>
       </div>
     </div>

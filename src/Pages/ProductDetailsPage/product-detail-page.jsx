@@ -1,24 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useParams } from "react-router";
 import {
   ArrowForwardIos,
   AddBoxOutlined,
   IndeterminateCheckBoxOutlined,
   AddShoppingCart,
 } from "@mui/icons-material";
-
-import img from "../../Images/milk.jpg";
+import { FetchProduct } from "../../function";
 
 import "../ProductDetailsPage/product-detail-page.css";
 
 function ProductDetailsPage() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  var product_name = location.state.product_name;
+  var product_description = location.state.product_description;
+  var product_category = location.state.product_category;
+  var product_price = location.state.product_price;
+  var product_quantity = location.state.product_quantity;
+  var product_image = location.state.product_image;
+  var product_id = location.state.product_id;
+  var i = 0;
+
+  const [productDetails, setProductDetails] = useState([]);
+  const { products } = useParams();
+
+  useEffect(() => {
+    setProductDetails([]);
+    FetchProduct(products).then(setProductDetails);
+  }, [products]);
+
   var parentDirectory = "Marketplace";
-  var childDirectory = "Dairy";
-  var itemName = "Farm Fresh Pure Fresh Milk 2L";
-  var newPrice = 15.45;
-  var oldPrice = 16;
-  var percentage = 35;
-  var description =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris in aliquam sem fringilla ut morbi tincidunt augue. Mattis molestie a iaculis at erat pellentesque adipiscing.";
+  var childDirectory = product_category;
 
   const [counter, setCounter] = useState(1);
   const handleAdd = () => {
@@ -30,6 +44,69 @@ function ProductDetailsPage() {
     }
   };
 
+  function randomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  const HorCardContainer = () => (
+    <div className="horizontal-cards-container">
+      {/* mapping api products */}
+      {productDetails
+        ?.slice((i = randomInteger(1, 93)), i + 6)
+        .map(function (key, index) {
+          return (
+            <div className="card-container">
+              <div className="horizontal-card" key={index}>
+                <div
+                  className="product-image"
+                  onClick={() => {
+                    navigate(`/product-details/${key.product_name}`, {
+                      state: {
+                        product_name: key.product_name,
+                        product_description: key.product_description,
+                        product_category: key.product_category,
+                        product_price: key.product_price,
+                        product_quantity: key.product_quantity,
+                        product_image: key.product_image,
+                        product_id: key.product_id,
+                      },
+                    });
+                  }}
+                >
+                  <img src={key.product_image} alt={key.product_name} />
+                </div>
+                <p
+                  className="product-name"
+                  onClick={() => {
+                    navigate(`/product-details/${key.product_name}`, {
+                      state: {
+                        product_name: key.product_name,
+                        product_description: key.product_description,
+                        product_category: key.product_category,
+                        product_price: key.product_price,
+                        product_quantity: key.product_quantity,
+                        product_image: key.product_image,
+                        product_id: key.product_id,
+                      },
+                    });
+                  }}
+                >
+                  {key.product_name}
+                </p>
+                <p className="product-price">
+                  <text className="RM">RM</text> {key.product_price.toFixed(2)}
+                </p>
+                <div className="button-container">
+                  <button className="add-to-cart-btn">
+                    <AddShoppingCart className="cart-icon" key={index} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+    </div>
+  );
+
   return (
     <div className="item-details-page-container">
       <div className="product-directory">
@@ -39,15 +116,15 @@ function ProductDetailsPage() {
       <div className="above-container">
         <div className="image-container">
           <div className="discount-percentage">
-            <text>{percentage}% OFF</text>
+            <text>50% OFF</text>
           </div>
-          <img src={img} alt={itemName}></img>
+          <img src={product_image} alt={product_name}></img>
         </div>
         <div className="item-info-container">
           <div className="item-info">
-            <p className="item-name">{itemName}</p>
+            <p className="item-name">{product_name}</p>
             <p className="description-header">Description</p>
-            <p className="description">{description}</p>
+            <p className="description">{product_description}</p>
           </div>
           <hr></hr>
           <div className="actions">
@@ -55,10 +132,10 @@ function ProductDetailsPage() {
               <div className="only-price">
                 <p className="new-price">
                   Price:<p className="RM">RM</p>
-                  <p className="price-value">{newPrice}</p>
+                  <p className="price-value">{product_price.toFixed(2)}</p>
                 </p>
                 <p className="old-price">
-                  <strike>RM{oldPrice}</strike>
+                  <strike>RM16</strike>
                 </p>
               </div>
 
@@ -83,108 +160,7 @@ function ProductDetailsPage() {
         <p className="suggestion-header">Customer Also Bought</p>
         <hr></hr>
         <div className="product-list-container">
-          <table className="horizontal-cards-container">
-            <tbody>
-              <td className="right-col-cards">
-                <div className="horizontal-card">
-                  <div className="product-image">
-                    <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
-                  </div>
-                  <p className="product-name">Farm Fresh Pure Milk 2L</p>
-                  <p className="product-price">
-                    <text className="RM">RM</text> 15.45
-                  </p>
-                  <div className="button-container">
-                    <button className="add-to-cart-btn">
-                      <AddShoppingCart className="cart-icon" />
-                    </button>
-                  </div>
-                </div>
-              </td>
-              <td className="mid-col-cards">
-                <div className="horizontal-card">
-                  <div className="product-image">
-                    <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
-                  </div>
-                  <p className="product-name">Farm Fresh Pure Milk 2L</p>
-                  <p className="product-price">
-                    <text className="RM">RM</text> 15.45
-                  </p>
-                  <div className="button-container">
-                    <button className="add-to-cart-btn">
-                      <AddShoppingCart className="cart-icon" />
-                    </button>
-                  </div>
-                </div>
-              </td>
-              <td className="left-col-cards">
-                <div className="horizontal-card">
-                  <div className="product-image">
-                    <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
-                  </div>
-                  <p className="product-name">Farm Fresh Pure Milk 2L</p>
-                  <p className="product-price">
-                    <text className="RM">RM</text> 15.45
-                  </p>
-                  <div className="button-container">
-                    <button className="add-to-cart-btn">
-                      <AddShoppingCart className="cart-icon" />
-                    </button>
-                  </div>
-                </div>
-              </td>
-            </tbody>
-            <tr>
-              <td className="right-col-cards">
-                <div className="horizontal-card">
-                  <div className="product-image">
-                    <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
-                  </div>
-                  <p className="product-name">Farm Fresh Pure Milk 2L</p>
-                  <p className="product-price">
-                    <text className="RM">RM</text> 15.45
-                  </p>
-                  <div className="button-container">
-                    <button className="add-to-cart-btn">
-                      <AddShoppingCart className="cart-icon" />
-                    </button>
-                  </div>
-                </div>
-              </td>
-              <td className="mid-col-cards">
-                <div className="horizontal-card">
-                  <div className="product-image">
-                    <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
-                  </div>
-                  <p className="product-name">Farm Fresh Pure Milk 2L</p>
-                  <p className="product-price">
-                    <text className="RM">RM</text> 15.45
-                  </p>
-                  <div className="button-container">
-                    <button className="add-to-cart-btn">
-                      <AddShoppingCart className="cart-icon" />
-                    </button>
-                  </div>
-                </div>
-              </td>
-              <td className="left-col-cards">
-                <div className="horizontal-card">
-                  <div className="product-image">
-                    <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
-                  </div>
-                  <p className="product-name">Farm Fresh Pure Milk 2L</p>
-                  <p className="product-price">
-                    <text className="RM">RM</text> 15.45
-                  </p>
-                  <div className="button-container">
-                    <button className="add-to-cart-btn">
-                      <AddShoppingCart className="cart-icon" />
-                    </button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </table>
+          <HorCardContainer />
         </div>
       </div>
     </div>

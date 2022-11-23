@@ -127,4 +127,40 @@ footer .footer-bottom-right ul li {
 }
 footer .footer-bottom-right ul li:hover {
   color: #009688;
+}
+
+@media screen and (max-width: 37.5rem) {
+  footer .footer-top-right {
+    display: none;
+  }
+  footer {
+    padding: 3rem;
+  }
+  .error-image-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    position: center;
+    padding: 7rem 0;
+  }
+  footer .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 0 2.438rem 0;
+  }
+  footer .footer-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 0;
+  }
+  .error-image-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    position: center;
+    padding: 6rem 0;
+  }
 }/*# sourceMappingURL=footer.css.map */

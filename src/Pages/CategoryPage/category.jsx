@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useParams } from "react-router";
-import { Carousel } from "react-responsive-carousel";
-import { ToastContainer, toast } from "react-toastify";
-import { FetchProduct } from "../../function";
-import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
 import {
   AddShoppingCart,
   ArrowBackIos,
   ArrowForwardIos,
 } from "@mui/icons-material";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "./product-page.css";
+import "./category.css";
 import { FetchProduct } from "../../function";
 import SideNav from "../../Components/SideNav/sidenav.jsx";
 import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
 import { ToastContainer, toast } from "react-toastify";
 
-function ProductPage() {
+function CategoryPage() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const category = location.state.category;
 
   // Pagination
   const [perPage, setPerPage] = useState(6);
@@ -27,21 +24,6 @@ function ProductPage() {
   const [productDetails, setProductDetails] = useState([]);
   const { products } = useParams();
 
-  const notify = () => {
-    // if (!toast.isActive(toastId.current)) {
-    //   toastId.current =
-    toast.success("Item added to cart! 🛒", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
-
   useEffect(() => {
     setProductDetails([]);
     FetchProduct(products).then(setProductDetails);
@@ -49,7 +31,10 @@ function ProductPage() {
 
   const PerPageChange = (value) => {
     setSize(value);
-    const newPerPage = Math.ceil(productDetails.length / value);
+    const newPerPage = Math.ceil(
+      productDetails.filter((obj) => obj.product_category === category).length /
+        value
+    );
     if (current > newPerPage) {
       setCurrent(newPerPage);
     }
@@ -57,7 +42,9 @@ function ProductPage() {
 
   const getData = (current, pageSize) => {
     // Normally you should get the data from the server
-    return productDetails.slice((current - 1) * pageSize, current * pageSize);
+    return productDetails
+      .filter((obj) => obj.product_category === category)
+      .slice((current - 1) * pageSize, current * pageSize);
   };
 
   const PaginationChange = (page, pageSize) => {
@@ -85,6 +72,21 @@ function ProductPage() {
       );
     }
     return originalElement;
+  };
+
+  const notify = () => {
+    // if (!toast.isActive(toastId.current)) {
+    //   toastId.current =
+    toast.success("Item added to cart! 🛒", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   //mapping product
@@ -134,8 +136,12 @@ function ProductPage() {
                 <p className="RM">RM</p> {data.product_price.toFixed(2)}
               </p>
               <div className="button-container">
-                <button className="add-to-cart-btn" onClick={notify}>
-                  <AddShoppingCart className="cart-icon" key={index} />
+                <button className="add-to-cart-btn">
+                  <AddShoppingCart
+                    className="cart-icon"
+                    key={index}
+                    onClick={notify}
+                  />
                 </button>
               </div>
             </div>
@@ -150,60 +156,8 @@ function ProductPage() {
       <div className="product-page">
         <SideNav />
         <div className="product-section">
-          <div className="carousel">
-            <Carousel
-              autoPlay={true}
-              showStatus={false}
-              showThumbs={false}
-              infiniteLoop={true}
-            >
-              <div
-                className="carousel-images"
-                onClick={() =>
-                  navigate("/category/sauce-dressing", {
-                    state: { category: "Sauce Dressing" },
-                  })
-                }
-              >
-                <div className="carousel-category">Sauce Dressing</div>
-                <img
-                  src="https://images.unsplash.com/photo-1582581720432-de83a98176ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                  alt="sauce-dressing-img"
-                />
-              </div>
-              <div
-                className="carousel-images"
-                onClick={() =>
-                  navigate("/category/fruits", {
-                    state: { category: "Fruits" },
-                  })
-                }
-              >
-                <div className="carousel-category">Fruits</div>
-                <img
-                  src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                  alt="fruits-img"
-                />
-              </div>
-              <div
-                className="carousel-images"
-                onClick={() =>
-                  navigate("/category/confectionary", {
-                    state: { category: "Confectionary" },
-                  })
-                }
-              >
-                <div className="carousel-category">Confectionary</div>
-                <img
-                  src="https://images.unsplash.com/photo-1504623912536-fdb14bcb0d1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                  alt="confectionary-img"
-                />
-              </div>
-            </Carousel>
-          </div>
-
           <div className="product-section-title">
-            <h5>Marketplace</h5>
+            <h5>{category}</h5>
           </div>
           <hr></hr>
           <div className="filter-info">
@@ -213,7 +167,11 @@ function ProductPage() {
                 `Showing ${range[0]}-${range[1]} of ${total}`
               }
               onChange={PaginationChange}
-              total={productDetails.length}
+              total={
+                productDetails.filter(
+                  (obj) => obj.product_category === category
+                ).length
+              }
               current={current}
               pageSize={size}
               showSizeChanger={false}
@@ -232,4 +190,4 @@ function ProductPage() {
   );
 }
 
-export default ProductPage;
+export default CategoryPage;

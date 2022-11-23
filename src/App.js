@@ -3,7 +3,6 @@ import Footer from "./Components/footer/footer.jsx";
 import Home from "./Pages/Home/home.jsx";
 import ProductPage from "./Pages/ProductPage/product-page.jsx";
 // import BestSellers from "./Pages/BestSellers";
-// import NewItems from "./Pages/NewItems";
 // import Deals from "./Pages/Deals";
 import AboutPage from "./Pages/About/about.jsx";
 import CheckoutPage from "./Pages/Checkout/checkout";
@@ -17,6 +16,7 @@ import AddAddressPage from "./Pages/AddAddressPage/add-address.jsx";
 import NoResultPage from "./Pages/NoResultPage/no-result";
 import ProductDetailsPage from "./Pages/ProductDetailsPage/product-detail-page";
 import EditAddressPage from "./Pages/EditAddressPage/edit-address.jsx";
+import CategoryPage from "./Pages/CategoryPage/category.jsx";
 
 import PaymentSuccessPage from "./Pages/PaymentSuccessPage/payment-success.jsx";
 
@@ -24,17 +24,8 @@ import PaymentSuccessPage from "./Pages/PaymentSuccessPage/payment-success.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
-
 ////encode url
 import React from "react";
-
-// function getCurrentURL() {
-//   return window.location.href;
-// }
-// const url = getCurrentURL();
-// console.log(url);
-// console.log(encodeURI(url));
-// console.log(encodeURIComponent(url));
 
 function App() {
   return (
@@ -43,9 +34,8 @@ function App() {
         <Nav />
 
         <Routes>
-          {/*<Route path="/main-page" element={<MainPage />} />
+          {/*
           <Route path="/best-sellers" element={<BestSellers />} />
-          <Route path="/all-new" element={<NewItems />} />
         <Route path="/deals-&-promotions" element={<Deals />} />*/}
           <Route path="/" element={<Home />} />
           <Route path="marketplace" element={<ProductPage />} />
@@ -60,6 +50,7 @@ function App() {
           <Route path="edit-address" element={<EditAddressPage />} />
           <Route path="cart/checkout" element={<CheckoutPage />} />
           <Route path="profile/edit-profile" element={<EditProfilePage />} />
+          <Route path="category/:category" element={<CategoryPage />} />
           <Route
             path="profile/addresses"
             element={<YourShippingAddressPage />}
@@ -72,7 +63,10 @@ function App() {
           />
 
           <Route path="no-result" element={<NoResultPage />} />
-          <Route path="product-detail" element={<ProductDetailsPage />} />
+          <Route
+            path="product-details/:product_name"
+            element={<ProductDetailsPage />}
+          />
 
           {/* </Route> */}
         </Routes>

@@ -3,8 +3,32 @@ import { useNavigate } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Input from "@material-ui/core/Input";
 import "./edit-address.css";
+import { SlArrowLeft } from "react-icons/sl";
+import { useNavigate } from "react-router-dom";
 
 function EditAddressPage() {
+  const [addressValues, updateAddressValues] = useState({
+    address_line_1: "",
+    address_line_2: "",
+    address_line_3: "",
+    postcode: "",
+    state: "",
+    address_id: "",
+  });
+
+  const editAddress = async (e) => {
+    e.preventDefault();
+
+    UpdateAddressFunc(
+      addressValues.address_line_1.toString(),
+      addressValues.address_line_2.toString(),
+      addressValues.address_line_3.toString(),
+      addressValues.postcode.toString(),
+      addressValues.state.toString(),
+      addressValues.address_id
+    );
+  };
+
   function clearInput() {
     document.getElementById("form").reset();
   }
@@ -29,7 +53,14 @@ function EditAddressPage() {
                       disableUnderline={true}
                       className="address-line-1"
                       id="input"
-                      defaultValue="71, Persiaran Tengku Ampuan Rahmia"
+                      placeholder="Address Line 1"
+                      onChange={(e) => {
+                        updateAddressValues({
+                          ...addressValues,
+                          address_line_1: e.target.value,
+                        });
+                      }}
+                      value={addressValues.address_line_1}
                     />
                   </div>
 
@@ -40,7 +71,14 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
-                      defaultValue="Taman Sri Andalas"
+                      placeholder="Address Line 2"
+                      onChange={(e) => {
+                        updateAddressValues({
+                          ...addressValues,
+                          address_line_2: e.target.value,
+                        });
+                      }}
+                      value={addressValues.address_line_2}
                     />
                   </div>
 
@@ -51,7 +89,14 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
-                      defaultValue="Klang"
+                      placeholder="Address Line 3"
+                      onChange={(e) => {
+                        updateAddressValues({
+                          ...addressValues,
+                          address_line_3: e.target.value,
+                        });
+                      }}
+                      value={addressValues.address_line_3}
                     />
                   </div>
                 </div>
@@ -63,7 +108,14 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
-                      defaultValue="41200"
+                      placeholder="Postcode"
+                      onChange={(e) => {
+                        updateAddressValues({
+                          ...addressValues,
+                          postcode: e.target.value,
+                        });
+                      }}
+                      value={addressValues.postcode}
                     />
                   </div>
 
@@ -74,7 +126,31 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
-                      defaultValue="Selangor"
+                      placeholder="State"
+                      onChange={(e) => {
+                        updateAddressValues({
+                          ...addressValues,
+                          state: e.target.value,
+                        });
+                      }}
+                      value={addressValues.state}
+                    />
+                  </div>
+                  <div className="address-id">
+                    <label>Address ID</label>
+                    <Input
+                      className="address-id"
+                      type="text"
+                      disableUnderline={true}
+                      id="input"
+                      placeholder="Address ID"
+                      onChange={(e) => {
+                        updateAddressValues({
+                          ...addressValues,
+                          address_id: e.target.value,
+                        });
+                      }}
+                      value={addressValues.address_id}
                     />
                   </div>
                 </div>
@@ -90,7 +166,8 @@ function EditAddressPage() {
                 </button>
                 <button
                   className="update-address-btn"
-                  /*onClick={() => navigate("/address")}*/
+                  type="submit"
+                  onClick={editAddress}
                 >
                   Update Address
                 </button>
@@ -104,6 +181,10 @@ function EditAddressPage() {
           <ArrowBackIosIcon />
           <p onClick={() => navigate("/profile")}>Return to Account Details</p>
         </div>
+
+        <button class="back-btn" onClick={() => navigate("/address")}>
+          Return to Shipping Details
+        </button>
       </div>
     </div>
   );
