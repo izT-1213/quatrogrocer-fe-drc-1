@@ -1,10 +1,5 @@
 import Axios from "axios";
 
-function validateURL(url) {
-  const parsed = new URL(url);
-  return ["https:", "http:"].includes(parsed.protocol);
-}
-
 async function LoginFunc(email, pass) {
   try {
     const response = await Axios.post(
@@ -24,14 +19,17 @@ async function LoginFunc(email, pass) {
 
 async function RegisterFunc(email, pass, fname, lname, dob, gender) {
   try {
-    await Axios.post("http://localhost:5000/quatro_user/create", {
-      email: email,
-      password: pass,
-      first_name: fname,
-      last_name: lname,
-      date_of_birth: dob,
-      gender: gender,
-    });
+    const response = await Axios.post(
+      "http://localhost:5000/quatro_user/create",
+      {
+        email: email,
+        password: pass,
+        first_name: fname,
+        last_name: lname,
+        date_of_birth: dob,
+        gender: gender,
+      }
+    );
   } catch (err) {
     return err.response.data;
   }
@@ -40,7 +38,7 @@ async function RegisterFunc(email, pass, fname, lname, dob, gender) {
 async function SearchProduct(keyword) {
   try {
     const response = await Axios.get(
-      "http://localhost:5004/quatro_product/get",
+      "http://localhost:5000/quatro_product/get",
       {
         params: { keyword: keyword.toString() },
       }
@@ -61,8 +59,9 @@ async function CreateAddressFunc(
   userId
 ) {
   try {
-    await Axios.post(
+    const response = await Axios.post(
       "http://localhost:5000/quatro_address/create",
+
       { withCredentials: true }, //hassif port 3002
       {
         address_line_1: addLine1,
@@ -89,6 +88,7 @@ async function UpdateAddressFunc(
   try {
     await Axios.post(
       "http://localhost:5000/quatro_address/update_details",
+
       { withCredentials: true }, //hassif port 3002
       {
         address_line_1: addLine1,
@@ -107,7 +107,7 @@ async function UpdateAddressFunc(
 async function FetchProduct() {
   try {
     const response = await Axios.get(
-      "http://localhost:5004/quatro_product/get"
+      "http://localhost:5000/quatro_product/get"
       //{ withCredentials: true }
     );
     return response.data.result;
@@ -120,7 +120,6 @@ async function UpdateProfileFunc(
   first_name,
   last_name,
   email,
-  phone_number,
   date_of_birth,
   oldPassword,
   password,
@@ -129,17 +128,17 @@ async function UpdateProfileFunc(
   try {
     await Axios.post(
       "http://localhost:5000/quatro_user/update",
-      { withCredentials: true }, //hassif port 3002
+
       {
         first_name: first_name,
         last_name: last_name,
         email: email,
-        phone_number: phone_number,
         date_of_birth: date_of_birth,
         oldPassword: oldPassword,
         password: password,
         user_id: user_id,
-      }
+      },
+      { withCredentials: true } //hassif port 3002
     );
   } catch (err) {
     console.log(err.response.data);
@@ -148,6 +147,7 @@ async function UpdateProfileFunc(
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export {
+  // GetPasswordFunc,
   LoginFunc,
   RegisterFunc,
   CreateAddressFunc,
@@ -155,5 +155,4 @@ export {
   SearchProduct,
   UpdateAddressFunc,
   UpdateProfileFunc,
-  validateURL,
 };

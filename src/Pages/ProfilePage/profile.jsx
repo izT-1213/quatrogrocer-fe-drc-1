@@ -15,6 +15,8 @@ function UserProfilePage() {
     <div className="profile-page-container">
       <div className="profile-page-header">
         <h1>My Account</h1>
+      </div>
+      <div className="logout">
         <p onClick={logout}>Log out</p>
       </div>
       <div className="order-history-container">

@@ -5,9 +5,10 @@ import {
   SearchOutlined,
   AccountCircleOutlined,
   ShoppingBagOutlined,
+  Close,
+  Menu,
 } from "@mui/icons-material";
 import "./navbar.css";
-import MenuIcon from "@mui/icons-material/Menu";
 import { SearchProduct } from "../../function";
 
 const Nav = () => {
@@ -54,21 +55,21 @@ const Nav = () => {
               <SearchOutlined />
             </button>
           </div>
-          <ul>
-            <li>
-              <Link to="/profile">
-                <AccountCircleOutlined />
-              </Link>
-            </li>
-            <li>
-              <Link to="/cart/checkout">
-                <ShoppingBagOutlined />
-              </Link>
-            </li>
-            <li>
-              <MenuIcon className="burger" />
-            </li>
-          </ul>
+          <div className="nav-right-menu">
+            <ul>
+              <li>
+                <AccountCircleOutlined onClick={() => navigate("/profile")} />
+              </li>
+              <li>
+                <ShoppingBagOutlined
+                  onClick={() => navigate("/cart/checkout")}
+                />
+              </li>
+            </ul>
+          </div>
+          <div className="mobile">
+            <Menu className="burger" />
+          </div>
         </div>
       </nav>
     </div>

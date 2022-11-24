@@ -36,13 +36,11 @@ function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(from);
     const passwd = values.password.toString();
     const message = await LoginFunc(emailLogin, passwd);
+    console.log(message);
     const token = message?.data?.userJwt;
     setAuth({ emailLogin, passwd, token });
-    setEmailLogin("");
-    setValues((values.password = ""));
     if (message.request.status === 200) {
       navigate(from.toString(), { replace: true });
       // console.log(message);
@@ -116,10 +114,6 @@ function LoginPage() {
                   }
                 />
               </div>
-
-              <p className="forgot-pwd-text">
-                <a href="#">Forgot password?</a>
-              </p>
               <div className="errMsg">
                 {errMsg && (
                   <p
