@@ -120,8 +120,6 @@ async function UpdateProfileFunc(
   first_name,
   last_name,
   email,
-  phone_number,
-  date_of_birth,
   oldPassword,
   password,
   user_id
@@ -134,8 +132,6 @@ async function UpdateProfileFunc(
         first_name: first_name,
         last_name: last_name,
         email: email,
-        phone_number: phone_number,
-        date_of_birth: date_of_birth,
         oldPassword: oldPassword,
         password: password,
         user_id: user_id,
