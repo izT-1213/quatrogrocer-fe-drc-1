@@ -31,7 +31,8 @@ nav {
 
   .nav-right {
     @include nav-section;
-    width: 34%;
+    width: 30%;
+    justify-content: space-between;
   }
 
   .nav-left ul {
@@ -66,13 +67,14 @@ nav {
       padding: 0 2rem 0 1.5rem;
     }
 
-    .search-container form {
-      width: 35vw;
+    .search-container {
+      width: 76%;
       display: flex;
       border: 0.188rem solid $white-color;
       border-radius: 0.25rem;
       outline: none;
       color: $grey-tint;
+      padding: 0;
     }
 
     .searchTerm {

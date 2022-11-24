@@ -3,8 +3,8 @@ import Footer from "./Components/footer/footer.jsx";
 import Layout from "./Components/context/Layout.js";
 import Home from "./Pages/Home/home.jsx";
 import ProductPage from "./Pages/ProductPage/product-page.jsx";
-// import BestSellers from "./Pages/BestSellers";
-// import Deals from "./Pages/Deals";
+import BestSellersPage from "./Pages/BestSellerPage/bestseller.jsx";
+import DealsPromotionsPage from "./Pages/Deals&PromotionPage/deals-promotions.jsx";
 import AboutPage from "./Pages/About/about.jsx";
 import CheckoutPage from "./Pages/Checkout/checkout";
 import UserProfilePage from "./Pages/ProfilePage/profile.jsx";
@@ -33,9 +33,8 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/*
-          <Route path="/best-sellers" element={<BestSellers />} />
-        <Route path="/deals-&-promotions" element={<Deals />} />*/}
+          <Route path="/best-sellers" element={<BestSellersPage />} />
+          <Route path="/deals-&-promotions" element={<DealsPromotionsPage />} />
 
           {/* Public pages */}
           <Route path="/" element={<Home />} />

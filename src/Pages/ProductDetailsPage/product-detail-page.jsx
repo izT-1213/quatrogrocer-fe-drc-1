@@ -8,7 +8,7 @@ import {
   AddShoppingCart,
 } from "@mui/icons-material";
 import { FetchProduct } from "../../function";
-
+import { ToastContainer, toast } from "react-toastify";
 import "../ProductDetailsPage/product-detail-page.css";
 
 function ProductDetailsPage() {
@@ -107,6 +107,19 @@ function ProductDetailsPage() {
     </div>
   );
 
+  const notify = () => {
+    toast.success("Item added to cart! 🛒", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
   return (
     <div className="item-details-page-container">
       <div className="product-directory">
@@ -151,7 +164,9 @@ function ProductDetailsPage() {
                 </div>
               </div>
             </div>
-            <button className="add-to-cart">ADD TO CART</button>
+            <button className="add-to-cart" onClick={notify}>
+              ADD TO CART
+            </button>
           </div>
         </div>
       </div>
@@ -163,6 +178,7 @@ function ProductDetailsPage() {
           <HorCardContainer />
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

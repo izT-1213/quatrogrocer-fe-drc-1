@@ -4,9 +4,9 @@ import { useParams } from "react-router";
 import { FetchProduct } from "../../function";
 import { AddShoppingCart } from "@mui/icons-material";
 import { ToastContainer, toast } from "react-toastify";
-import "../Deals&PromotionPage/deals-promotions.css";
+import "../BestSellerPage/bestseller.css";
 
-function DealsPromotionsPage() {
+function BestSellerPage() {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -29,13 +29,13 @@ function DealsPromotionsPage() {
 
   return (
     <div>
-      <div className="deals-promotions-page">
-        <div className="deals-promotions-section">
-          <div className="deals-promotions-title">
-            <h5>Deals & Promotions</h5>
+      <div className="best-seller-page">
+        <div className="best-seller-section">
+          <div className="best-seller-title">
+            <h5>Best Seller</h5>
           </div>
           <hr></hr>
-          <div className="deals-product-cards">
+          <div className="best-seller-product-cards">
             <MediumHorCard />
           </div>
         </div>
@@ -43,4 +43,4 @@ function DealsPromotionsPage() {
     </div>
   );
 }
-export default DealsPromotionsPage;
+export default BestSellerPage;

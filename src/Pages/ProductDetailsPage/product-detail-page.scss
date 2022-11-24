@@ -210,7 +210,6 @@
           }
         }
         button {
-          // margin: 0 0 0 17.25rem;
           width: fit-content;
           height: fit-content;
           background-color: $primary-color;
@@ -225,6 +224,10 @@
           font-weight: 700;
           font-size: 16px;
           line-height: 120%;
+        }
+
+        button:hover {
+          background-color: $primary-hover-dark-color;
         }
       }
     }
@@ -241,9 +244,10 @@
       font-weight: 700;
       font-size: 32px;
       line-height: 120%;
+      padding: 0 0 0.5rem 0;
     }
     hr {
-      width: 90px;
+      width: 18rem;
       border: 3px solid $primary-color;
     }
 

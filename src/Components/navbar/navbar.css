@@ -52,10 +52,6 @@ a:active {
   color: #252525;
 }
 
-a:hover {
-  color: #009688;
-}
-
 *,
 *::after,
 *::before {
@@ -83,7 +79,8 @@ nav .nav-right {
   display: flex;
   align-items: center;
   color: #ffffff;
-  width: 34%;
+  width: 30%;
+  justify-content: space-between;
 }
 nav .nav-left ul {
   padding: 0;
@@ -111,13 +108,14 @@ nav .nav-right ul li:hover {
 nav .nav-right .search-container {
   padding: 0 2rem 0 1.5rem;
 }
-nav .nav-right .search-container form {
-  width: 35vw;
+nav .nav-right .search-container {
+  width: 76%;
   display: flex;
   border: 0.188rem solid #ffffff;
   border-radius: 0.25rem;
   outline: none;
   color: #fafafa;
+  padding: 0;
 }
 nav .nav-right .searchTerm {
   width: 30vw;

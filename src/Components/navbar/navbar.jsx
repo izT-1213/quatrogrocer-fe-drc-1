@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../../Images/white-logo.svg";
 import {
@@ -8,9 +8,17 @@ import {
 } from "@mui/icons-material";
 import "./navbar.css";
 import MenuIcon from "@mui/icons-material/Menu";
+import { SearchProduct } from "../../function";
 
 const Nav = () => {
   const navigate = useNavigate();
+  const [searchVal, setSearchVal] = useState("");
+
+  function searchField() {
+    // debugger;
+    const products = SearchProduct(searchVal.toString());
+    navigate("/search-result", { state: { product: products } });
+  }
 
   return (
     <div>
@@ -34,17 +42,17 @@ const Nav = () => {
 
         <div className="nav-right">
           <div className="search-container">
-            <form action="/">
-              <input
-                className="searchTerm"
-                type="text"
-                placeholder="Search quatrogrocer.com"
-                name="search"
-              />
-              <button className="searchButton" type="submit">
-                <SearchOutlined />
-              </button>
-            </form>
+            <input
+              className="searchTerm"
+              type="text"
+              placeholder="Search quatrogrocer.com"
+              name="keyword"
+              onChange={(e) => setSearchVal(e.target.value)}
+              value={searchVal}
+            />
+            <button className="searchButton" onClick={searchField}>
+              <SearchOutlined />
+            </button>
           </div>
           <ul>
             <li>
