@@ -107,7 +107,7 @@ async function UpdateAddressFunc(
 async function FetchProduct() {
   try {
     const response = await Axios.get(
-      "http://localhost:5000/quatro_product/get"
+      "http://localhost:5004/quatro_product/get"
       //{ withCredentials: true }
     );
     return response.data.result;
@@ -120,6 +120,7 @@ async function UpdateProfileFunc(
   first_name,
   last_name,
   email,
+  date_of_birth,
   oldPassword,
   password,
   user_id
@@ -132,6 +133,7 @@ async function UpdateProfileFunc(
         first_name: first_name,
         last_name: last_name,
         email: email,
+        date_of_birth: date_of_birth,
         oldPassword: oldPassword,
         password: password,
         user_id: user_id,

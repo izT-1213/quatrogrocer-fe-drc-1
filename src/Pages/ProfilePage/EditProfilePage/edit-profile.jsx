@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IconButton, InputAdornment, Input } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -10,7 +10,6 @@ import { UpdateProfileFunc } from "../../../function";
 
 import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import dayjs from "dayjs";
 import AuthContext from "../../../Components/context/AuthProvider.js";
 import jwt_decode from "jwt-decode";
 
@@ -18,9 +17,10 @@ function EditProfilePage() {
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
   const color = "#009688";
+  const navigate = useNavigate();
 
   const [passwordVisibility, setPasswordVisibility] = useState(false);
-  const [dob, setDOB] = useState(dayjs(""));
+  const [dob, setDOB] = useState("");
 
   const [profileValues, updateProfileValues] = useState({
     first_name: "",
@@ -36,21 +36,13 @@ function EditProfilePage() {
     setDOB(newDOB);
   };
 
-  useEffect(() => {
-    // console.log(formErrors);
-    if (Object.keys(formErrors).length === 0) {
-      console.log(profileValues);
-    }
-  }, [formErrors]);
-
   const editProfile = async (e) => {
     e.preventDefault();
     // console.log(profileValues);
-    // console.log(validate(profileValues));
-    const errors = await setFormErrors(validate(profileValues, dob));
-    console.log(errors);
+    console.log(validate(profileValues));
+    setFormErrors(validate(profileValues, dob));
 
-    if (errors === undefined) {
+    if (Object.keys(formErrors).length === 0) {
       UpdateProfileFunc(
         profileValues.first_name.toString(),
         profileValues.last_name.toString(),
@@ -60,44 +52,62 @@ function EditProfilePage() {
         profileValues.password.toString(),
         userId.user_id
       );
+      // navigate("/profile");
     }
   };
 
   const validate = (values, dob) => {
     const errors = {};
     // const regex=
-    if (!values.first_name) {
+
+    if (
+      !values.first_name &&
+      !values.last_name &&
+      !values.email &&
+      !dob &&
+      !values.oldpassword &&
+      !values.password
+    ) {
       errors.first_name = "*First Name is required";
-    }
-    if (!values.last_name) {
       errors.last_name = "*Last Name is required";
-    }
-    if (!values.email) {
       errors.email = "*Email is required";
-    }
-
-    if (!dob) {
       errors.dob = "*DOB is required";
-    }
-
-    if (!values.oldpassword) {
       errors.oldpassword = "*Old password is required";
-    }
-
-    if (!values.password) {
       errors.password = "*New Password is required";
+      console.log("erorrrrrrr");
     }
+    return errors;
 
-    //   if (oldPass !== newPass){
-    //   }
-    //   // if pw1 === pw2
-    //   //editProfile
-    //   //else
-    //   //throw error
-    //   //
-    //   //
-    //   //
-    //   editProfile;
+    // if (!values.first_name) {
+    //   errors.first_name = "*First Name is required";
+    // }
+    // if (!values.last_name) {
+    //   errors.last_name = "*Last Name is required";
+    // }
+    // if (!values.email) {
+    //   errors.email = "*Email is required";
+    // }
+
+    // if (!dob) {
+    //   errors.dob = "*DOB is required";
+    // }
+
+    // if (!values.oldpassword) {
+    //   errors.oldpassword = "*Old password is required";
+    // }
+
+    // if (!values.password) {
+    //   errors.password = "*New Password is required";
+    // }
+
+    // if pw1 === pw2
+    //editProfile
+    //else
+    //throw error
+    //
+    //
+    //
+
     return errors;
   };
 
@@ -422,7 +432,7 @@ function EditProfilePage() {
             className="submit-edit"
             type="submit"
             onClick={
-              // validate();
+              // validate
               editProfile
             }
           >
