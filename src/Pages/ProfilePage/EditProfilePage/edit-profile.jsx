@@ -17,9 +17,8 @@ import dayjs from "dayjs";
 
 function EditProfilePage() {
   const color = "#009688";
+
   const [passwordVisibility, setPasswordVisibility] = useState(false);
-  // const [oldPass, setOldPass] = useState("");
-  // const [newPass, setNewPass] = useState("");
 
   const [profileValues, updateProfileValues] = useState({
     first_name: "",
@@ -49,7 +48,18 @@ function EditProfilePage() {
     );
   };
 
-  const validate = () => {
+  const validate = (profileValues) => {
+    const errors ={};
+    // const regex=
+    if (!profileValues.first_name){
+      errors.first_name="First Name is required";
+    }
+    if(!profileValues.last_name){
+       errors.first_name = "First Name is required";
+    }
+    if (profileValues.oldpassword == profileValues.password) {
+      // editProfile();
+    }
     //   if (oldPass !== newPass){
     //   }
     //   // if pw1 === pw2
