@@ -31,7 +31,8 @@ nav {
 
   .nav-right {
     @include nav-section;
-    width: 34%;
+    width: 30%;
+    justify-content: space-between;
   }
 
   .nav-left ul {
@@ -67,15 +68,16 @@ nav {
     }
 
     .search-container {
-      width: 100%;
+      width: 76%;
       display: flex;
       border: 0.188rem solid $white-color;
       border-radius: 0.25rem;
       outline: none;
       color: $grey-tint;
+      padding: 0;
     }
 
-    .search {
+    .searchTerm {
       width: 16rem;
       color: $primary-color;
       font-family: $secondary-fonts;
@@ -84,7 +86,7 @@ nav {
       padding: 0 0.5rem;
     }
 
-    .search:focus {
+    .searchTerm:focus {
       color: $primary-color;
       font-family: $secondary-fonts;
       font-weight: map-get($map: $font-weight, $key: "medium");

@@ -52,10 +52,6 @@ a:active {
   color: #252525;
 }
 
-a:hover {
-  color: #009688;
-}
-
 *,
 *::after,
 *::before {
@@ -83,7 +79,8 @@ nav .nav-right {
   display: flex;
   align-items: center;
   color: #ffffff;
-  width: 34%;
+  width: 30%;
+  justify-content: space-between;
 }
 nav .nav-left ul {
   padding: 0;
@@ -112,14 +109,15 @@ nav .nav-right .search-container {
   padding: 0 2rem 0 1.5rem;
 }
 nav .nav-right .search-container {
-  width: 100%;
+  width: 76%;
   display: flex;
   border: 0.188rem solid #ffffff;
   border-radius: 0.25rem;
   outline: none;
   color: #fafafa;
+  padding: 0;
 }
-nav .nav-right .search {
+nav .nav-right .searchTerm {
   width: 16rem;
   color: #009688;
   font-family: "Poppins";
@@ -127,7 +125,7 @@ nav .nav-right .search {
   font-size: 0.875rem;
   padding: 0 0.5rem;
 }
-nav .nav-right .search:focus {
+nav .nav-right .searchTerm:focus {
   color: #009688;
   font-family: "Poppins";
   font-weight: 500;
