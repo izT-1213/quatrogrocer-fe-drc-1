@@ -1,12 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../../Components/context/AuthProvider.js";
 import "../ProfilePage/profile.css";
 
 function UserProfilePage() {
+  const { setAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const logout = async () => {
+    setAuth({});
+    navigate("/");
+  };
   return (
     <div className="profile-page-container">
       <div className="profile-page-header">
         <h1>My Account</h1>
+      </div>
+      <div className="logout">
+        <p onClick={logout}>Log out</p>
       </div>
       <div className="order-history-container">
         <h3>Order history</h3>

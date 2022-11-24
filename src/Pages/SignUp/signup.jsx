@@ -15,11 +15,18 @@ function SignUpPage() {
   const navigate = useNavigate();
 
   //email and password variables
-  const [emailReg, setUsernameReg] = useState("");
   const [values, setValues] = useState({
+    email: "",
     password: "",
+    firstName: "",
+    lastName: "",
+    gender: "",
+    checked: false,
     showPassword: false,
   });
+
+  //dob
+  const [dob, setDOB] = useState(dayjs(""));
 
   //to catch error message
   const [errMsg, setErrMsg] = useState("");
@@ -31,39 +38,41 @@ function SignUpPage() {
 
   useEffect(() => {
     setErrMsg("");
-  }, [emailReg, values.password]);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const message = await RegisterFunc(emailReg, values.password.toString());
-
-    if (message == undefined) {
-      navigate("/");
-    } else {
-      console.log(message);
-      setErrMsg(message.error);
-      // setErrMsg(JSON.stringify(message.error));
-    }
-  };
+  }, [values.email, values.password]);
 
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
   };
 
-  const handlePasswordChange = (prop) => (event) => {
+  const handleClickTnC = () => {
+    setValues({ ...values, checked: !values.checked });
+  };
+
+  const handleValueChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
-  const [value, setValue] = useState(dayjs(""));
-
-  const handleChange = (newValue) => {
-    setValue(newValue);
+  const handleDOBChange = (newDOB) => {
+    setDOB(newDOB);
   };
 
-  const [gender, setGender] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const message = await RegisterFunc(
+      values.email.toString(),
+      values.password.toString(),
+      values.firstName.toString(),
+      values.lastName.toString(),
+      dob,
+      values.gender.toString()
+    );
 
-  const handleChangeGender = (event) => {
-    setGender(event.target.value);
+    if (message === undefined) {
+      navigate("/");
+    } else {
+      console.log(message);
+      setErrMsg(message.error);
+    }
   };
 
   return (
@@ -86,6 +95,9 @@ function SignUpPage() {
                       className="form-control-mt-1"
                       placeholder="John"
                       required={true}
+                      //fname
+                      value={values.firstName}
+                      onChange={handleValueChange("firstName")}
                     />
                   </td>
                   <td className="right-col">
@@ -94,6 +106,10 @@ function SignUpPage() {
                       disableUnderline={true}
                       className="form-control-mt-1"
                       placeholder="Doe"
+                      required={true}
+                      //lname
+                      value={values.lastName}
+                      onChange={handleValueChange("lastName")}
                     />
                   </td>
                 </tr>
@@ -103,21 +119,25 @@ function SignUpPage() {
                 </tr>
                 <tr>
                   <td className="left-col">
-                    <FormControl fullWidth>
-                      <Select
-                        variant="standard"
-                        labelId="demo-simple-select-label"
-                        className="form-control-mt-1"
-                        disableUnderline={true}
-                        id="demo-simple-select"
-                        value={gender}
-                        onChange={handleChangeGender}
-                      >
-                        <MenuItem value={"male"}>Male</MenuItem>
-                        <MenuItem value={"female"}>Female</MenuItem>
-                        <MenuItem value={"others"}>Others</MenuItem>
-                      </Select>
-                    </FormControl>
+                    <div>
+                      {" "}
+                      <FormControl fullWidth>
+                        <Select
+                          variant="standard"
+                          labelId="demo-simple-select-label"
+                          className="form-control-mt-1"
+                          disableUnderline={true}
+                          id="demo-simple-select"
+                          value={values.gender}
+                          onChange={handleValueChange("gender")}
+                          required={true}
+                        >
+                          <MenuItem value={"male"}>Male</MenuItem>
+                          <MenuItem value={"female"}>Female</MenuItem>
+                          <MenuItem value={"others"}>Others</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </div>
                   </td>
                   <td className="right-col">
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -125,8 +145,9 @@ function SignUpPage() {
                         className="form-control-mt-1"
                         InputProps={{ disableUnderline: true }}
                         inputFormat="MM/DD/YYYY"
-                        value={value}
-                        onChange={handleChange}
+                        value={dob}
+                        onChange={handleDOBChange}
+                        required={true}
                         // PaperProps={{
                         //   sx: {
                         //     "& .MuiPickersDay-root": {
@@ -159,14 +180,13 @@ function SignUpPage() {
               </div>
               <div>
                 <Input
-                  type=""
+                  type="email"
                   disableUnderline={true}
                   ref={userRef}
                   className="form-control-mt-1"
                   required={true}
-                  onChange={(e) => {
-                    setUsernameReg(e.target.value);
-                  }}
+                  value={values.email}
+                  onChange={handleValueChange("email")}
                 />
               </div>
               <div className="form-group-mt-3">
@@ -177,7 +197,7 @@ function SignUpPage() {
                   className="form-control-mt-1"
                   placeholder="Password"
                   type={values.showPassword ? "text" : "password"}
-                  onChange={handlePasswordChange("password")}
+                  onChange={handleValueChange("password")}
                   value={values.password}
                   required={true}
                   disableUnderline={true}
@@ -195,7 +215,12 @@ function SignUpPage() {
                 />
               </div>
               <label class="tnc">
-                <input type="checkbox" required={true} />
+                <input
+                  type="checkbox"
+                  required={true}
+                  value={values.checked}
+                  onClick={handleClickTnC}
+                />
                 <span class="checkmark"></span> I agree to{" "}
                 <a>
                   <Link to="/" className="tnc-link">
@@ -216,7 +241,21 @@ function SignUpPage() {
               </div>
 
               <div className="d-grid-gap-2-mt-3">
-                <button type="submit" className="signup-signin-btn">
+                <button
+                  type="submit"
+                  className="signup-signin-btn"
+                  disabled={
+                    values.email &&
+                    values.password &&
+                    values.firstName &&
+                    values.lastName &&
+                    values.gender &&
+                    dob &&
+                    values.checked
+                      ? false
+                      : true
+                  }
+                >
                   SIGN UP
                 </button>
               </div>

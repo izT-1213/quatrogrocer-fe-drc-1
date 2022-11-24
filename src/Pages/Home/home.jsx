@@ -115,7 +115,6 @@ function Home() {
 
   const LargeHorCard = () => (
     <div>
-      {console.log(productDetails)}
       {productDetails?.slice(6 + (i = i + 1), 7 + i).map(function (key, index) {
         return (
           <div className="large-horizontal-card" key={index}>

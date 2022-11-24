@@ -53,10 +53,6 @@ a:active {
   color: #252525;
 }
 
-a:hover {
-  color: #009688;
-}
-
 *,
 *::after,
 *::before {

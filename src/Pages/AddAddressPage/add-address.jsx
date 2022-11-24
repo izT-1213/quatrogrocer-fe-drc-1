@@ -37,10 +37,10 @@ function AddAddressPage() {
     <div className="add-address-page-container">
       <div className="container-1">
         <div className="my-account-header">
-          <h1>My Account</h1>
+          <h3>My Account</h3>
         </div>
         <div className="add-new-address-container">
-          <h2>Add New Address</h2>
+          <p>Add New Address</p>
           <div className="address-form-container">
             <div className="address-form-content">
               <form className="address-form" id="form">
@@ -179,9 +179,7 @@ function AddAddressPage() {
       <div className="navigation-container">
         <div className="return">
           <ArrowBackIosIcon />
-          <p>
-            <Link to={"/profile"}>Return to Shipping Details</Link>
-          </p>
+          <p onClick={() => navigate("/profile")}>Return to Account Details</p>
         </div>
       </div>
     </div>

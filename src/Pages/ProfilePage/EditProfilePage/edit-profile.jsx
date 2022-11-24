@@ -1,40 +1,112 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import IconButton from "@material-ui/core/IconButton";
-import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Input from "@material-ui/core/Input";
+import { IconButton, InputAdornment, Input } from "@material-ui/core";
+import { Visibility, VisibilityOff } from "@material-ui/icons";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { TextField } from "@mui/material";
 import "../EditProfilePage/edit-profile.css";
+<<<<<<< HEAD
+=======
+
+import { UpdateProfileFunc } from "../../../function";
+
+import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs from "dayjs";
+import AuthContext from "../../../Components/context/AuthProvider.js";
+import jwt_decode from "jwt-decode";
+>>>>>>> 5449a038f75614a3b4ded060c38e6ac36cd9f8dd
 
 function EditProfilePage() {
+  const jwtToken = useContext(AuthContext).auth?.token;
+  const userId = jwt_decode(jwtToken);
+  const color = "#009688";
+
   const [passwordVisibility, setPasswordVisibility] = useState(false);
+  const [dob, setDOB] = useState(dayjs(""));
 
   const [profileValues, updateProfileValues] = useState({
     first_name: "",
     last_name: "",
     email: "",
-    phone_number: "",
     password: "",
     oldpassword: "",
-    date_of_birth: "",
-    user_id: "",
   });
+
+<<<<<<< HEAD
+  const editProfile = async (e) => {
+    e.preventDefault();
+=======
+  const [formErrors, setFormErrors] = useState({});
+  const errRef = useRef();
+  const handleDOBChange = (newDOB) => {
+    setDOB(newDOB);
+  };
+
+  useEffect(() => {
+    // console.log(formErrors);
+    if (Object.keys(formErrors).length === 0) {
+      console.log(profileValues);
+    }
+  }, [formErrors]);
 
   const editProfile = async (e) => {
     e.preventDefault();
+    // console.log(profileValues);
+    // console.log(validate(profileValues));
+    const errors = await setFormErrors(validate(profileValues, dob));
+    console.log(errors);
 
-    UpdateProfileFunc(
-      profileValues.first_name.toString(),
-      profileValues.last_name.toString(),
-      profileValues.email.toString(),
-      profileValues.phone_number.toString(),
-      profileValues.date_of_birth.toString(),
-      profileValues.oldpassword.toString(),
-      profileValues.password.toString(),
-      profileValues.user_id
-    );
+    if (errors === undefined) {
+      UpdateProfileFunc(
+        profileValues.first_name.toString(),
+        profileValues.last_name.toString(),
+        profileValues.email.toString(),
+        dob.toString(),
+        profileValues.oldpassword.toString(),
+        profileValues.password.toString(),
+        userId.user_id
+      );
+    }
+  };
+>>>>>>> 5449a038f75614a3b4ded060c38e6ac36cd9f8dd
+
+  const validate = (values, dob) => {
+    const errors = {};
+    // const regex=
+    if (!values.first_name) {
+      errors.first_name = "*First Name is required";
+    }
+    if (!values.last_name) {
+      errors.last_name = "*Last Name is required";
+    }
+    if (!values.email) {
+      errors.email = "*Email is required";
+    }
+
+    if (!dob) {
+      errors.dob = "*DOB is required";
+    }
+
+    if (!values.oldpassword) {
+      errors.oldpassword = "*Old password is required";
+    }
+
+    if (!values.password) {
+      errors.password = "*New Password is required";
+    }
+
+    //   if (oldPass !== newPass){
+    //   }
+    //   // if pw1 === pw2
+    //   //editProfile
+    //   //else
+    //   //throw error
+    //   //
+    //   //
+    //   //
+    //   editProfile;
+    return errors;
   };
 
   const handleClickShowPassword = () => {
@@ -96,9 +168,39 @@ function EditProfilePage() {
                 />
               </td>
             </tr>
+            <tr>
+              <td>
+                {" "}
+                <div className="errMsg">
+                  {formErrors.first_name && (
+                    <p
+                      ref={errRef}
+                      className={formErrors.first_name ? "errmsg" : "offscreen"}
+                      aria-live="assertive"
+                    >
+                      {formErrors.first_name}
+                    </p>
+                  )}
+                </div>
+              </td>
+              <td>
+                {" "}
+                <div className="errMsg">
+                  {formErrors.last_name && (
+                    <p
+                      ref={errRef}
+                      className={formErrors.last_name ? "errmsg" : "offscreen"}
+                      aria-live="assertive"
+                    >
+                      {formErrors.last_name}
+                    </p>
+                  )}
+                </div>
+              </td>
+            </tr>
             <tr className="input-label">
               <td className="left-column">Email</td>
-              <td className="right-column">Phone Number</td>
+              <td className="right-column">Date of Birth</td>
             </tr>
             <tr>
               <td className="left-column">
@@ -106,7 +208,7 @@ function EditProfilePage() {
                   type="string"
                   disableUnderline={true}
                   className="form-control-mt-1"
-                  placeholder="First Name"
+                  placeholder="Email"
                   onChange={(e) => {
                     updateProfileValues({
                       ...profileValues,
@@ -117,57 +219,71 @@ function EditProfilePage() {
                 />
               </td>
               <td className="right-column">
-                <Input
-                  type="string"
-                  disableUnderline={true}
-                  className="form-control-mt-1"
-                  placeholder="Phone Number"
-                  onChange={(e) => {
-                    updateProfileValues({
-                      ...profileValues,
-                      phone_number: e.target.value,
-                    });
-                  }}
-                  value={profileValues.phone_number}
-                />
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DesktopDatePicker
+                    className="form-control-mt-1"
+                    InputProps={{ disableUnderline: true }}
+                    inputFormat="MM/DD/YYYY"
+                    value={dob}
+                    onChange={handleDOBChange}
+                    required={true}
+                    // PaperProps={{
+                    //   sx: {
+                    //     "& .MuiPickersDay-root": {
+                    //       "&.Mui-selected": {
+                    //         backgroundColor: { backgroundColor: color },
+                    //       },
+                    //     },
+                    //     "& .MuiPickersMonth-root": {
+                    //       "&.Mui-selected": {
+                    //         backgroundColor: { backgroundColor: color },
+                    //       },
+                    //     },
+                    //   },
+                    // }}
+                    renderInput={(params) => (
+                      <TextField
+                        variant="standard"
+                        {...params}
+                        sx={{ button: { color } }}
+                      />
+                    )}
+                    views={["year", "month", "day"]}
+                  />
+                </LocalizationProvider>
               </td>
-            </tr>
-            <tr className="input-label">
-              <td className="left-column">User ID</td>
-              <td className="right-column">Date Of Birth</td>
             </tr>
             <tr>
-              <td className="left-column">
-                <Input
-                  type="string"
-                  disableUnderline={true}
-                  className="form-control-mt-1"
-                  placeholder="User ID"
-                  onChange={(e) => {
-                    updateProfileValues({
-                      ...profileValues,
-                      user_id: e.target.value,
-                    });
-                  }}
-                  value={profileValues.user_id}
-                />
+              <td>
+                {" "}
+                <div className="errMsg">
+                  {formErrors.email && (
+                    <p
+                      ref={errRef}
+                      className={formErrors.email ? "errmsg" : "offscreen"}
+                      aria-live="assertive"
+                    >
+                      {formErrors.email}
+                    </p>
+                  )}
+                </div>
               </td>
-              <td className="right-column">
-                <Input
-                  type="string"
-                  disableUnderline={true}
-                  className="form-control-mt-1"
-                  placeholder="First Name"
-                  onChange={(e) => {
-                    updateProfileValues({
-                      ...profileValues,
-                      date_of_birth: e.target.value,
-                    });
-                  }}
-                  value={profileValues.date_of_birth}
-                />
+              <td>
+                {" "}
+                <div className="errMsg">
+                  {formErrors.dob && (
+                    <p
+                      ref={errRef}
+                      className={formErrors.dob ? "errmsg" : "offscreen"}
+                      aria-live="assertive"
+                    >
+                      {formErrors.dob}
+                    </p>
+                  )}
+                </div>
               </td>
             </tr>
+
             <tr className="input-label">
               <td className="left-column">Old Password</td>
               <td className="right-column">New Password</td>
@@ -232,6 +348,38 @@ function EditProfilePage() {
                 />
               </td>
             </tr>
+            <tr>
+              <td>
+                {" "}
+                <div className="errMsg">
+                  {formErrors.oldpassword && (
+                    <p
+                      ref={errRef}
+                      className={
+                        formErrors.oldpassword ? "errmsg" : "offscreen"
+                      }
+                      aria-live="assertive"
+                    >
+                      {formErrors.oldpassword}
+                    </p>
+                  )}
+                </div>
+              </td>
+              <td>
+                {" "}
+                <div className="errMsg">
+                  {formErrors.password && (
+                    <p
+                      ref={errRef}
+                      className={formErrors.password ? "errmsg" : "offscreen"}
+                      aria-live="assertive"
+                    >
+                      {formErrors.password}
+                    </p>
+                  )}
+                </div>
+              </td>
+            </tr>
           </table>
         </div>
       </div>
@@ -278,7 +426,14 @@ function EditProfilePage() {
       <div className="buttons-container">
         <button className="cancel">Cancel</button>
         <div className="submit-button-container">
-          <button className="submit-edit" type="submit" onClick={editProfile}>
+          <button
+            className="submit-edit"
+            type="submit"
+            onClick={
+              // validate();
+              editProfile
+            }
+          >
             Submit
           </button>
         </div>

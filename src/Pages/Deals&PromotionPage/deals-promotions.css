@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
+h1 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+h2 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+
+h3 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.75rem;
+}
+
+h4 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.125rem;
+}
+
+h5 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+h6 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #252525;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+}
+
+.deals-promotions-page {
+  height: 50rem;
+  display: flex;
+  padding: 0 19.5rem;
+}
+
+.deals-promotions-section {
+  height: 100%;
+}
+.deals-promotions-section .deals-promotions-title h5 {
+  font-family: "Lexend Deca";
+  color: #252525;
+  padding: 3rem 0 0.75rem 0;
+}
+.deals-promotions-section hr {
+  width: 18rem;
+  background-color: #009688;
+  border: 3px solid #009688;
+}/*# sourceMappingURL=deals-promotions.css.map */

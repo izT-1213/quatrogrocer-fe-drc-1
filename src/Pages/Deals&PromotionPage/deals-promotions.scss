@@ -1,0 +1,33 @@
+@import "../../Scss/colors";
+@import "../../Scss/fonts";
+@import "../../Scss/components";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+}
+
+.deals-promotions-page {
+  height: 50rem;
+  display: flex;
+  padding: 0 19.5rem;
+}
+
+.deals-promotions-section {
+  height: 100%;
+
+  .deals-promotions-title {
+    h5 {
+      font-family: $primary-fonts;
+      color: $black-color;
+      padding: 3rem 0 0.75rem 0;
+    }
+  }
+
+  hr {
+    width: 18rem;
+    background-color: $primary-color;
+    border: 3px solid $primary-color;
+  }
+}

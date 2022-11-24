@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useParams } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
+import { FetchProduct } from "../../function";
 import {
   AddShoppingCart,
   ArrowBackIos,
   ArrowForwardIos,
 } from "@mui/icons-material";
 import "./category.css";
-import { FetchProduct } from "../../function";
-import SideNav from "../../Components/SideNav/sidenav.jsx";
+import SideNav from "../../Components/sidenav/sidenav.jsx";
 import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
-import { ToastContainer, toast } from "react-toastify";
 
 function CategoryPage() {
   const navigate = useNavigate();
@@ -75,8 +75,6 @@ function CategoryPage() {
   };
 
   const notify = () => {
-    // if (!toast.isActive(toastId.current)) {
-    //   toastId.current =
     toast.success("Item added to cart! 🛒", {
       position: "top-right",
       autoClose: 3000,

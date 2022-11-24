@@ -2,7 +2,7 @@ import Axios from "axios";
 
 async function LoginFunc(email, pass) {
   try {
-    await Axios.post(
+    const response = await Axios.post(
       "http://localhost:5004/quatro_user/login",
       {
         email: email,
@@ -10,19 +10,37 @@ async function LoginFunc(email, pass) {
       },
       { withCredentials: true }
     );
+    console.log(response);
+    return response;
   } catch (err) {
-    console.log(err.response.data);
     return err.response.data;
   }
 }
 
-async function RegisterFunc(email, pass) {
+async function RegisterFunc(email, pass, fname, lname, dob, gender) {
   try {
     const response = await Axios.post(
       "http://localhost:5004/quatro_user/create",
       {
         email: email,
         password: pass,
+        first_name: fname,
+        last_name: lname,
+        date_of_birth: dob,
+        gender: gender,
+      }
+    );
+  } catch (err) {
+    return err.response.data;
+  }
+}
+
+async function SearchProduct(keyword) {
+  try {
+    const response = await Axios.get(
+      "http://localhost:5004/quatro_product/get",
+      {
+        params: { keyword: keyword.toString() },
       }
     );
     console.log(response);
@@ -53,7 +71,6 @@ async function CreateAddressFunc(
         user_id: userId,
       }
     );
-    console.log(response);
   } catch (err) {
     console.log(err.response.data);
   }
@@ -68,8 +85,9 @@ async function UpdateAddressFunc(
   addressId
 ) {
   try {
-    const response = await Axios.post(
+    await Axios.post(
       "http://localhost:5004/quatro_address/update_details",
+
       { withCredentials: true }, //hassif port 3002
       {
         address_line_1: addLine1,
@@ -80,7 +98,6 @@ async function UpdateAddressFunc(
         address_id: addressId,
       }
     );
-    console.log(response);
   } catch (err) {
     console.log(err.response.data);
   }
@@ -92,7 +109,6 @@ async function FetchProduct() {
       "http://localhost:5004/quatro_product/get"
       //{ withCredentials: true }
     );
-    console.log(response.data.result);
     return response.data.result;
   } catch (err) {
     console.log(err.response);
@@ -103,28 +119,24 @@ async function UpdateProfileFunc(
   first_name,
   last_name,
   email,
-  phone_number,
-  date_of_birth,
   oldPassword,
   password,
   user_id
 ) {
   try {
-    const response = await Axios.post(
+    await Axios.post(
       "http://localhost:5004/quatro_user/update",
-      { withCredentials: true }, //hassif port 3002
+
       {
         first_name: first_name,
         last_name: last_name,
         email: email,
-        phone_number: phone_number,
-        date_of_birth: date_of_birth,
         oldPassword: oldPassword,
         password: password,
         user_id: user_id,
-      }
+      },
+      { withCredentials: true } //hassif port 3002
     );
-    console.log(response);
   } catch (err) {
     console.log(err.response.data);
   }
@@ -132,10 +144,12 @@ async function UpdateProfileFunc(
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export {
+  // GetPasswordFunc,
   LoginFunc,
   RegisterFunc,
   CreateAddressFunc,
   FetchProduct,
+  SearchProduct,
   UpdateAddressFunc,
   UpdateProfileFunc,
 };

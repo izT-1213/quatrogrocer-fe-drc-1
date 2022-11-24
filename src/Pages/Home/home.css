@@ -52,10 +52,6 @@ a:active {
   color: #252525;
 }
 
-a:hover {
-  color: #009688;
-}
-
 *,
 *::after,
 *::before {
@@ -75,6 +71,7 @@ a:hover {
   padding: 0 15vw;
 }
 .home-header .home-header-content h1 {
+  text-align: left;
   text-transform: uppercase;
   font-family: "Lexend Deca";
   padding: 0 0 0.5rem 0;
@@ -182,7 +179,7 @@ a:hover {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   display: grid;
   grid-template-areas: "image image image" "name name name" "price price button";
-  width: 25.75rem;
+  width: 21.75vw;
   height: 43.375rem;
   border-radius: 0.125rem;
   background-color: #ffffff;
@@ -192,7 +189,7 @@ a:hover {
   grid-area: image;
 }
 .today-top-deals .today-top-deals-product .vertical-card .product-image img {
-  width: 22.5rem;
+  width: 19vw;
   height: 27.438rem;
   -o-object-fit: cover;
      object-fit: cover;
@@ -245,7 +242,6 @@ a:hover {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding-left: 1rem;
   width: 100%;
   height: 100%;
 }
@@ -257,20 +253,20 @@ a:hover {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   display: grid;
   grid-template-areas: "image name name" "image name name" "image price button";
-  width: 26.75rem;
-  height: 13.125rem;
+  width: 22vw;
+  height: 21.7vh;
   border-radius: 0.125rem;
   background-color: #ffffff;
   padding: 1.875rem 1.5rem;
 }
 .today-top-deals .today-top-deals-product .horizontal-cards-container .card-container .horizontal-card .product-image {
   grid-area: image;
-  height: 10rem;
-  width: 10rem;
+  height: 6vh;
+  width: 6vw;
 }
 .today-top-deals .today-top-deals-product .horizontal-cards-container .card-container .horizontal-card .product-image img {
-  width: 7.5rem;
-  height: 9.375rem;
+  width: 6vw;
+  height: 16vh;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 0.25rem;
@@ -711,7 +707,7 @@ a:hover {
   font-size: 1rem;
 }
 
-@media screen and (max-width: 961px) {
+@media screen and (max-width: 1105px) {
   .home-header {
     padding: 0 0 0 1.5rem;
   }
@@ -776,8 +772,8 @@ a:hover {
     box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
     display: grid;
     grid-template-areas: "image name name" "image name name" "image price button";
-    width: 26.75rem;
-    height: 13.125rem;
+    width: 22vw;
+    height: 21.7vh;
     border-radius: 0.125rem;
     background-color: #ffffff;
     padding: 1.875rem 1.5rem;
@@ -785,12 +781,12 @@ a:hover {
   }
   .today-top-deals .today-top-deals-product .horizontal-cards-container .card-container .horizontal-card .product-image {
     grid-area: image;
-    height: 10rem;
-    width: 10rem;
+    height: 6vh;
+    width: 6vw;
   }
   .today-top-deals .today-top-deals-product .horizontal-cards-container .card-container .horizontal-card .product-image img {
-    width: 7.5rem;
-    height: 9.375rem;
+    width: 6vw;
+    height: 16vh;
     -o-object-fit: cover;
        object-fit: cover;
     border-radius: 0.25rem;
@@ -972,7 +968,7 @@ a:hover {
     box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
     display: grid;
     grid-template-areas: "image image image" "name name name" "price price button";
-    width: 25.75rem;
+    width: 21.75vw;
     height: 43.375rem;
     border-radius: 0.125rem;
     background-color: #ffffff;
@@ -983,7 +979,7 @@ a:hover {
     grid-area: image;
   }
   .today-top-deals .today-top-deals-product .vertical-card .product-image img {
-    width: 22.5rem;
+    width: 19vw;
     height: 27.438rem;
     -o-object-fit: cover;
        object-fit: cover;
@@ -1047,8 +1043,8 @@ a:hover {
     box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
     display: grid;
     grid-template-areas: "image name name" "image name name" "image price button";
-    width: 26.75rem;
-    height: 13.125rem;
+    width: 22vw;
+    height: 21.7vh;
     border-radius: 0.125rem;
     background-color: #ffffff;
     padding: 1.875rem 1.5rem;
@@ -1056,12 +1052,12 @@ a:hover {
   }
   .today-top-deals .today-top-deals-product .horizontal-cards-container .card-container .horizontal-card .product-image {
     grid-area: image;
-    height: 10rem;
-    width: 10rem;
+    height: 6vh;
+    width: 6vw;
   }
   .today-top-deals .today-top-deals-product .horizontal-cards-container .card-container .horizontal-card .product-image img {
-    width: 7.5rem;
-    height: 9.375rem;
+    width: 6vw;
+    height: 16vh;
     -o-object-fit: cover;
        object-fit: cover;
     border-radius: 0.25rem;
