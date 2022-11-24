@@ -7,7 +7,6 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import "../EditProfilePage/edit-profile.css";
-import { UpdateProfileFunc, GetPasswordFunc } from "../../../function";
 
 function EditProfilePage() {
   const [passwordVisibility, setPasswordVisibility] = useState(false);
@@ -23,14 +22,8 @@ function EditProfilePage() {
     user_id: "",
   });
 
-  // const [passwordValues, oldPasswordValues] = useState({
-  //   user_id: profileValues.user_id,
-  //   password: profileValues.oldpassword,
-  // });
-
   const editProfile = async (e) => {
     e.preventDefault();
-    // GetPasswordFunc(passwordValues.user_id, passwordValues.password.toString());
 
     UpdateProfileFunc(
       profileValues.first_name.toString(),
