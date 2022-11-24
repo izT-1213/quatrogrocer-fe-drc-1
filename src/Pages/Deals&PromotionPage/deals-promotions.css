@@ -76,4 +76,10 @@ a:active {
   width: 18rem;
   background-color: #009688;
   border: 3px solid #009688;
+}
+
+@media screen and (max-width: 961px) {
+  .deals-promotions-page {
+    padding: 0 2rem;
+  }
 }/*# sourceMappingURL=deals-promotions.css.map */

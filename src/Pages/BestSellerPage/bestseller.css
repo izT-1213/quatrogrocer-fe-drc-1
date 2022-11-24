@@ -76,4 +76,10 @@ a:active {
   width: 8.5rem;
   background-color: #009688;
   border: 3px solid #009688;
+}
+
+@media screen and (max-width: 961px) {
+  .best-seller-page {
+    padding: 0 2rem;
+  }
 }/*# sourceMappingURL=bestseller.css.map */

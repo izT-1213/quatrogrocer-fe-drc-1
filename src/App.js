@@ -2,7 +2,7 @@ import Nav from "./Components/navbar/navbar.jsx";
 import Footer from "./Components/footer/footer.jsx";
 import Layout from "./Components/context/Layout.js";
 import Home from "./Pages/Home/home.jsx";
-import ProductPage from "./Pages/ProductPage/product-page.jsx";
+import MarketplacePage from "./Pages/ProductPage/product-page.jsx";
 import BestSellersPage from "./Pages/BestSellerPage/bestseller.jsx";
 import DealsPromotionsPage from "./Pages/Deals&PromotionPage/deals-promotions.jsx";
 import AboutPage from "./Pages/About/about.jsx";
@@ -38,7 +38,7 @@ function App() {
 
           {/* Public pages */}
           <Route path="/" element={<Home />} />
-          <Route path="marketplace" element={<ProductPage />} />
+          <Route path="marketplace" element={<MarketplacePage />} />
           <Route path="category/:category" element={<CategoryPage />} />
           <Route
             path="profile/addresses"

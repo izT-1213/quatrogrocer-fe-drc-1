@@ -9,17 +9,11 @@
   margin: 0;
 }
 
-.product-page {
-  height: 85rem;
-  display: flex;
-  padding: 0 19.5rem;
-}
-
-.product-section {
+.category-section {
   height: 100%;
-  padding: 3.5rem 0 0 5rem;
+  width: 90%;
 
-  .product-section-title {
+  .category-section-title {
     h5 {
       font-family: $primary-fonts;
       color: $black-color;
@@ -167,4 +161,12 @@
 .rc-pagination-total-text button:hover {
   background-color: #eceff5;
   border-color: #eceff5;
+}
+
+@media screen and (max-width: 961px) {
+  .category-section {
+    height: 100%;
+    width: 75%;
+    padding: 3.5rem 0 0 2.5rem;
+  }
 }
