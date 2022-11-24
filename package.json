@@ -21,6 +21,7 @@
     "dayjs": "^1.11.6",
     "dompurify": "^2.4.1",
     "image-overlay-react": "^1.0.3",
+    "jwt-decode": "^3.1.2",
     "malaysia-postcodes": "^1.0.5",
     "node-sass": "^7.0.3",
     "pagination": "^0.4.6",

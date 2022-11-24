@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import IconButton from "@material-ui/core/IconButton";
-import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Input from "@material-ui/core/Input";
+import { IconButton, InputAdornment, Input } from "@material-ui/core";
+import { Visibility, VisibilityOff } from "@material-ui/icons";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { TextField } from "@mui/material";
 import "../EditProfilePage/edit-profile.css";
@@ -14,8 +11,12 @@ import { UpdateProfileFunc } from "../../../function";
 import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
+import AuthContext from "../../../Components/context/AuthProvider.js";
+import jwt_decode from "jwt-decode";
 
 function EditProfilePage() {
+  const jwtToken = useContext(AuthContext).auth?.token;
+  const userId = jwt_decode(jwtToken);
   const color = "#009688";
 
   const [passwordVisibility, setPasswordVisibility] = useState(false);
@@ -44,7 +45,8 @@ function EditProfilePage() {
       profileValues.email.toString(),
       dob.toString(),
       profileValues.oldpassword.toString(),
-      profileValues.password.toString()
+      profileValues.password.toString(),
+      userId.user_id
     );
   };
 
