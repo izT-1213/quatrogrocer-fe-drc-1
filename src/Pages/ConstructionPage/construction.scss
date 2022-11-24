@@ -48,8 +48,6 @@
       font-weight: map-get($map: $font-weight, $key: "bold");
       font-size: 1rem;
       gap: 1rem;
-
-      position: absolute;
       cursor: pointer;
 
       &:hover {

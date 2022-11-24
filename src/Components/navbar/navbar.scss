@@ -67,7 +67,7 @@ nav {
     }
 
     .search-container form {
-      width: 100%;
+      width: 35vw;
       display: flex;
       border: 0.188rem solid $white-color;
       border-radius: 0.25rem;
@@ -76,7 +76,7 @@ nav {
     }
 
     .searchTerm {
-      width: 16rem;
+      width: 30vw;
       color: $primary-color;
       font-family: $secondary-fonts;
       font-weight: map-get($map: $font-weight, $key: "medium");
@@ -92,17 +92,38 @@ nav {
     }
 
     .searchButton {
-      width: 2.5rem;
+      width: 5vw;
       border: 0.063rem solid $white-color;
       background: $white-color;
       text-align: center;
       color: $primary-color;
       cursor: pointer;
     }
+
+    ul li {
+      color: $white-color;
+    }
   }
 }
 
-@media screen and (max-width: 37.5rem) {
+//Tablet
+@media screen and (max-width: 1105px) {
+  nav {
+    padding: 0 0 0 1.5rem;
+    justify-content: unset;
+
+    .nav-left ul {
+      padding-left: 2rem;
+    }
+
+    .nav-right {
+      width: unset;
+    }
+  }
+}
+
+//phone
+@media screen and (max-width: 481px) {
   nav {
     height: 4.5rem;
     /* display: flex; */

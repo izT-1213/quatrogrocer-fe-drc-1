@@ -42,19 +42,6 @@ function App() {
           <Route path="marketplace" element={<ProductPage />} />
           <Route path="category/:category" element={<CategoryPage />} />
           <Route
-            path="profile/addresses"
-            element={<YourShippingAddressPage />}
-          />
-          <Route path="error" element={<ErrorPage />} />
-          <Route path="maintenance" element={<ConstructionPage />} />
-
-          <Route
-            path="cart/checkout/payment-success"
-            element={<PaymentSuccessPage />}
-          />
-
-          <Route path="no-result" element={<NoResultPage />} />
-          <Route
             path="product-details/:product_name"
             element={<ProductDetailsPage />}
           />
@@ -85,6 +72,7 @@ function App() {
           {/* Error pages */}
           <Route path="error" element={<ErrorPage />} />
           <Route path="no-result" element={<NoResultPage />} />
+          <Route path="maintenance" element={<ConstructionPage />} />
         </Route>
       </Routes>
       <Footer />

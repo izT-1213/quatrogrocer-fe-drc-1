@@ -12,8 +12,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 const Nav = () => {
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => e.preventDefault();
-
   return (
     <div>
       <nav className="nav">
@@ -50,14 +48,10 @@ const Nav = () => {
           </div>
           <ul>
             <li>
-              <Link to="/profile">
-                <AccountCircleOutlined />
-              </Link>
+              <AccountCircleOutlined onClick={() => navigate("/profile")} />
             </li>
             <li>
-              <Link to="/cart/checkout">
-                <ShoppingBagOutlined />
-              </Link>
+              <ShoppingBagOutlined onClick={() => navigate("/cart/checkout")} />
             </li>
             <li>
               <MenuIcon className="burger" />

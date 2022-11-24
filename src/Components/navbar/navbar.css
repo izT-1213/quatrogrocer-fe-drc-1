@@ -112,7 +112,7 @@ nav .nav-right .search-container {
   padding: 0 2rem 0 1.5rem;
 }
 nav .nav-right .search-container form {
-  width: 100%;
+  width: 35vw;
   display: flex;
   border: 0.188rem solid #ffffff;
   border-radius: 0.25rem;
@@ -120,7 +120,7 @@ nav .nav-right .search-container form {
   color: #fafafa;
 }
 nav .nav-right .searchTerm {
-  width: 16rem;
+  width: 30vw;
   color: #009688;
   font-family: "Poppins";
   font-weight: 500;
@@ -134,15 +134,30 @@ nav .nav-right .searchTerm:focus {
   font-size: 0.875rem;
 }
 nav .nav-right .searchButton {
-  width: 2.5rem;
+  width: 5vw;
   border: 0.063rem solid #ffffff;
   background: #ffffff;
   text-align: center;
   color: #009688;
   cursor: pointer;
 }
+nav .nav-right ul li {
+  color: #ffffff;
+}
 
-@media screen and (max-width: 37.5rem) {
+@media screen and (max-width: 1105px) {
+  nav {
+    padding: 0 0 0 1.5rem;
+    justify-content: unset;
+  }
+  nav .nav-left ul {
+    padding-left: 2rem;
+  }
+  nav .nav-right {
+    width: unset;
+  }
+}
+@media screen and (max-width: 481px) {
   nav {
     height: 4.5rem;
     /* display: flex; */
