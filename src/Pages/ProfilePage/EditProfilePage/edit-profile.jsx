@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IconButton, InputAdornment, Input } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -15,6 +15,7 @@ import AuthContext from "../../../Components/context/AuthProvider.js";
 import jwt_decode from "jwt-decode";
 
 function EditProfilePage() {
+  const navigate = useNavigate();
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
   const color = "#009688";
@@ -36,21 +37,21 @@ function EditProfilePage() {
     setDOB(newDOB);
   };
 
-  useEffect(() => {
-    // console.log(formErrors);
-    if (Object.keys(formErrors).length === 0) {
-      console.log(profileValues);
-    }
-  }, [formErrors]);
+  // useEffect(() => {
+  //   // console.log(formErrors);
+  //   if (Object.keys(formErrors).length === 0) {
+  //     console.log(profileValues);
+  //   }
+  // }, [formErrors]);
 
   const editProfile = async (e) => {
     e.preventDefault();
     // console.log(profileValues);
     // console.log(validate(profileValues));
-    const errors = await setFormErrors(validate(profileValues, dob));
-    console.log(errors);
+    setFormErrors(validate(profileValues, dob));
+    console.log(formErrors);
 
-    if (errors === undefined) {
+    if (!formErrors) {
       UpdateProfileFunc(
         profileValues.first_name.toString(),
         profileValues.last_name.toString(),
@@ -60,6 +61,7 @@ function EditProfilePage() {
         profileValues.password.toString(),
         userId.user_id
       );
+      navigate("/profile");
     }
   };
 

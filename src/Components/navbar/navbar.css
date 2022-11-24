@@ -89,6 +89,9 @@ nav .nav-left ul {
   list-style: none;
   justify-content: space-between;
 }
+nav .nav-left ul li {
+  padding-right: 0.5rem;
+}
 nav .nav-right ul {
   padding: 0;
   width: 18%;
@@ -143,11 +146,13 @@ nav .nav-right .nav-right-menu ul li {
   padding: 0 0.2rem;
   color: #ffffff;
 }
+nav .mobile .burger {
+  display: none;
+}
 
 @media screen and (max-width: 1105px) {
   nav {
     padding: 0 0 0 1.5rem;
-    justify-content: unset;
   }
   nav .nav-left ul {
     padding-left: 2rem;
@@ -159,12 +164,15 @@ nav .nav-right .nav-right-menu ul li {
 @media screen and (max-width: 481px) {
   nav {
     height: 4.5rem;
-    /* display: flex; */
     background-color: #009688;
     justify-content: space-between;
     padding: 0 10vw;
   }
   nav .nav-left {
     display: none;
+  }
+  nav .mobile .burger {
+    display: block;
+    color: #ffffff;
   }
 }/*# sourceMappingURL=navbar.css.map */

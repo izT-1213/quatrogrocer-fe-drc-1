@@ -41,6 +41,10 @@ nav {
     display: flex;
     list-style: none;
     justify-content: space-between;
+
+    li {
+      padding-right: 0.5rem;
+    }
   }
 
   .nav-right ul {
@@ -109,13 +113,18 @@ nav {
       }
     }
   }
+
+  .mobile {
+    .burger {
+      display: none;
+    }
+  }
 }
 
 //Tablet
 @media screen and (max-width: 1105px) {
   nav {
     padding: 0 0 0 1.5rem;
-    justify-content: unset;
 
     .nav-left ul {
       padding-left: 2rem;
@@ -131,12 +140,18 @@ nav {
 @media screen and (max-width: 481px) {
   nav {
     height: 4.5rem;
-    /* display: flex; */
     background-color: #009688;
     justify-content: space-between;
     padding: 0 10vw;
   }
   nav .nav-left {
     display: none;
+  }
+
+  nav .mobile {
+    .burger {
+      display: block;
+      color: $white-color;
+    }
   }
 }
