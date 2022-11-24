@@ -1,11 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { IconButton, InputAdornment, Input } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { TextField } from "@mui/material";
 import "../EditProfilePage/edit-profile.css";
-import { UpdateProfileFunc, GetPasswordFunc } from "../../../function";
+
+import { UpdateProfileFunc } from "../../../function";
+
 import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
@@ -16,41 +18,87 @@ function EditProfilePage() {
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
   const color = "#009688";
+
   const [passwordVisibility, setPasswordVisibility] = useState(false);
+  const [dob, setDOB] = useState(dayjs(""));
 
   const [profileValues, updateProfileValues] = useState({
     first_name: "",
     last_name: "",
     email: "",
-    phone_number: "",
     password: "",
     oldpassword: "",
   });
 
-  // const [passwordValues, oldPasswordValues] = useState({
-  //   user_id: profileValues.user_id,
-  //   password: profileValues.oldpassword,
-  // });
-
-  //dob
-  const [dob, setDOB] = useState(dayjs(""));
+  const [formErrors, setFormErrors] = useState({});
+  const errRef = useRef();
   const handleDOBChange = (newDOB) => {
     setDOB(newDOB);
   };
 
+  useEffect(() => {
+    // console.log(formErrors);
+    if (Object.keys(formErrors).length === 0) {
+      console.log(profileValues);
+    }
+  }, [formErrors]);
+
   const editProfile = async (e) => {
     e.preventDefault();
-    // GetPasswordFunc(passwordValues.user_id, passwordValues.password.toString());
+    // console.log(profileValues);
+    // console.log(validate(profileValues));
+    const errors = await setFormErrors(validate(profileValues, dob));
+    console.log(errors);
 
-    UpdateProfileFunc(
-      profileValues.first_name.toString(),
-      profileValues.last_name.toString(),
-      profileValues.email.toString(),
-      dob.toString(),
-      profileValues.oldpassword.toString(),
-      profileValues.password.toString(),
-      userId.user_id
-    );
+    if (errors === undefined) {
+      UpdateProfileFunc(
+        profileValues.first_name.toString(),
+        profileValues.last_name.toString(),
+        profileValues.email.toString(),
+        dob.toString(),
+        profileValues.oldpassword.toString(),
+        profileValues.password.toString(),
+        userId.user_id
+      );
+    }
+  };
+
+  const validate = (values, dob) => {
+    const errors = {};
+    // const regex=
+    if (!values.first_name) {
+      errors.first_name = "*First Name is required";
+    }
+    if (!values.last_name) {
+      errors.last_name = "*Last Name is required";
+    }
+    if (!values.email) {
+      errors.email = "*Email is required";
+    }
+
+    if (!dob) {
+      errors.dob = "*DOB is required";
+    }
+
+    if (!values.oldpassword) {
+      errors.oldpassword = "*Old password is required";
+    }
+
+    if (!values.password) {
+      errors.password = "*New Password is required";
+    }
+
+    //   if (oldPass !== newPass){
+    //   }
+    //   // if pw1 === pw2
+    //   //editProfile
+    //   //else
+    //   //throw error
+    //   //
+    //   //
+    //   //
+    //   editProfile;
+    return errors;
   };
 
   const handleClickShowPassword = () => {
@@ -112,6 +160,36 @@ function EditProfilePage() {
                 />
               </td>
             </tr>
+            <tr>
+              <td>
+                {" "}
+                <div className="errMsg">
+                  {formErrors.first_name && (
+                    <p
+                      ref={errRef}
+                      className={formErrors.first_name ? "errmsg" : "offscreen"}
+                      aria-live="assertive"
+                    >
+                      {formErrors.first_name}
+                    </p>
+                  )}
+                </div>
+              </td>
+              <td>
+                {" "}
+                <div className="errMsg">
+                  {formErrors.last_name && (
+                    <p
+                      ref={errRef}
+                      className={formErrors.last_name ? "errmsg" : "offscreen"}
+                      aria-live="assertive"
+                    >
+                      {formErrors.last_name}
+                    </p>
+                  )}
+                </div>
+              </td>
+            </tr>
             <tr className="input-label">
               <td className="left-column">Email</td>
               <td className="right-column">Date of Birth</td>
@@ -122,7 +200,7 @@ function EditProfilePage() {
                   type="string"
                   disableUnderline={true}
                   className="form-control-mt-1"
-                  placeholder="First Name"
+                  placeholder="Email"
                   onChange={(e) => {
                     updateProfileValues({
                       ...profileValues,
@@ -167,6 +245,37 @@ function EditProfilePage() {
                 </LocalizationProvider>
               </td>
             </tr>
+            <tr>
+              <td>
+                {" "}
+                <div className="errMsg">
+                  {formErrors.email && (
+                    <p
+                      ref={errRef}
+                      className={formErrors.email ? "errmsg" : "offscreen"}
+                      aria-live="assertive"
+                    >
+                      {formErrors.email}
+                    </p>
+                  )}
+                </div>
+              </td>
+              <td>
+                {" "}
+                <div className="errMsg">
+                  {formErrors.dob && (
+                    <p
+                      ref={errRef}
+                      className={formErrors.dob ? "errmsg" : "offscreen"}
+                      aria-live="assertive"
+                    >
+                      {formErrors.dob}
+                    </p>
+                  )}
+                </div>
+              </td>
+            </tr>
+
             <tr className="input-label">
               <td className="left-column">Old Password</td>
               <td className="right-column">New Password</td>
@@ -231,6 +340,38 @@ function EditProfilePage() {
                 />
               </td>
             </tr>
+            <tr>
+              <td>
+                {" "}
+                <div className="errMsg">
+                  {formErrors.oldpassword && (
+                    <p
+                      ref={errRef}
+                      className={
+                        formErrors.oldpassword ? "errmsg" : "offscreen"
+                      }
+                      aria-live="assertive"
+                    >
+                      {formErrors.oldpassword}
+                    </p>
+                  )}
+                </div>
+              </td>
+              <td>
+                {" "}
+                <div className="errMsg">
+                  {formErrors.password && (
+                    <p
+                      ref={errRef}
+                      className={formErrors.password ? "errmsg" : "offscreen"}
+                      aria-live="assertive"
+                    >
+                      {formErrors.password}
+                    </p>
+                  )}
+                </div>
+              </td>
+            </tr>
           </table>
         </div>
       </div>
@@ -277,7 +418,14 @@ function EditProfilePage() {
       <div className="buttons-container">
         <button className="cancel">Cancel</button>
         <div className="submit-button-container">
-          <button className="submit-edit" type="submit" onClick={editProfile}>
+          <button
+            className="submit-edit"
+            type="submit"
+            onClick={
+              // validate();
+              editProfile
+            }
+          >
             Submit
           </button>
         </div>
