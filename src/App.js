@@ -3,8 +3,8 @@ import Footer from "./Components/footer/footer.jsx";
 import Layout from "./Components/context/Layout.js";
 import Home from "./Pages/Home/home.jsx";
 import ProductPage from "./Pages/ProductPage/product-page.jsx";
-// import BestSellers from "./Pages/BestSellers";
-// import Deals from "./Pages/Deals";
+import BestSellersPage from "./Pages/BestSellerPage/bestseller.jsx";
+import DealsPromotionsPage from "./Pages/Deals&PromotionPage/deals-promotions.jsx";
 import AboutPage from "./Pages/About/about.jsx";
 import CheckoutPage from "./Pages/Checkout/checkout";
 import UserProfilePage from "./Pages/ProfilePage/profile.jsx";
@@ -33,27 +33,13 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/*
-          <Route path="/best-sellers" element={<BestSellers />} />
-        <Route path="/deals-&-promotions" element={<Deals />} />*/}
+          <Route path="/best-sellers" element={<BestSellersPage />} />
+          <Route path="/deals-&-promotions" element={<DealsPromotionsPage />} />
 
           {/* Public pages */}
           <Route path="/" element={<Home />} />
           <Route path="marketplace" element={<ProductPage />} />
           <Route path="category/:category" element={<CategoryPage />} />
-          <Route
-            path="profile/addresses"
-            element={<YourShippingAddressPage />}
-          />
-          <Route path="error" element={<ErrorPage />} />
-          <Route path="maintenance" element={<ConstructionPage />} />
-
-          <Route
-            path="cart/checkout/payment-success"
-            element={<PaymentSuccessPage />}
-          />
-
-          <Route path="no-result" element={<NoResultPage />} />
           <Route
             path="product-details/:product_name"
             element={<ProductDetailsPage />}
@@ -85,6 +71,7 @@ function App() {
           {/* Error pages */}
           <Route path="error" element={<ErrorPage />} />
           <Route path="no-result" element={<NoResultPage />} />
+          <Route path="maintenance" element={<ConstructionPage />} />
         </Route>
       </Routes>
       <Footer />

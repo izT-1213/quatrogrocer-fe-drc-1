@@ -52,10 +52,6 @@ a:active {
   color: #252525;
 }
 
-a:hover {
-  color: #009688;
-}
-
 *,
 *::after,
 *::before {
@@ -98,7 +94,6 @@ a:hover {
   font-weight: 700;
   font-size: 1rem;
   gap: 1rem;
-  position: absolute;
   cursor: pointer;
 }
 .construction-container .construction-content .button:hover {

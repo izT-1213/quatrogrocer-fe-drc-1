@@ -6,10 +6,17 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { TextField } from "@mui/material";
 import "../EditProfilePage/edit-profile.css";
+
 import { UpdateProfileFunc } from "../../../function";
 
+import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs from "dayjs";
+
 function EditProfilePage() {
+  const color = "#009688";
   const [passwordVisibility, setPasswordVisibility] = useState(false);
   // const [oldPass, setOldPass] = useState("");
   // const [newPass, setNewPass] = useState("");
@@ -21,9 +28,13 @@ function EditProfilePage() {
     phone_number: "",
     password: "",
     oldpassword: "",
-    date_of_birth: "",
-    user_id: "",
   });
+
+  //dob
+  const [dob, setDOB] = useState(dayjs(""));
+  const handleDOBChange = (newDOB) => {
+    setDOB(newDOB);
+  };
 
   const editProfile = async (e) => {
     e.preventDefault();
@@ -32,11 +43,9 @@ function EditProfilePage() {
       profileValues.first_name.toString(),
       profileValues.last_name.toString(),
       profileValues.email.toString(),
-      profileValues.phone_number.toString(),
-      profileValues.date_of_birth.toString(),
+      dob.toString(),
       profileValues.oldpassword.toString(),
-      profileValues.password.toString(),
-      profileValues.user_id
+      profileValues.password.toString()
     );
   };
 
@@ -114,7 +123,7 @@ function EditProfilePage() {
             </tr>
             <tr className="input-label">
               <td className="left-column">Email</td>
-              <td className="right-column">Phone Number</td>
+              <td className="right-column">Date of Birth</td>
             </tr>
             <tr>
               <td className="left-column">
@@ -133,55 +142,38 @@ function EditProfilePage() {
                 />
               </td>
               <td className="right-column">
-                <Input
-                  type="string"
-                  disableUnderline={true}
-                  className="form-control-mt-1"
-                  placeholder="Phone Number"
-                  onChange={(e) => {
-                    updateProfileValues({
-                      ...profileValues,
-                      phone_number: e.target.value,
-                    });
-                  }}
-                  value={profileValues.phone_number}
-                />
-              </td>
-            </tr>
-            <tr className="input-label">
-              <td className="left-column">User ID</td>
-              <td className="right-column">Date Of Birth</td>
-            </tr>
-            <tr>
-              <td className="left-column">
-                <Input
-                  type="string"
-                  disableUnderline={true}
-                  className="form-control-mt-1"
-                  placeholder="User ID"
-                  onChange={(e) => {
-                    updateProfileValues({
-                      ...profileValues,
-                      user_id: e.target.value,
-                    });
-                  }}
-                  value={profileValues.user_id}
-                />
-              </td>
-              <td className="right-column">
-                <Input
-                  type="string"
-                  disableUnderline={true}
-                  className="form-control-mt-1"
-                  placeholder="First Name"
-                  onChange={(e) => {
-                    updateProfileValues({
-                      ...profileValues,
-                      date_of_birth: e.target.value,
-                    });
-                  }}
-                  value={profileValues.date_of_birth}
-                />
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DesktopDatePicker
+                    className="form-control-mt-1"
+                    InputProps={{ disableUnderline: true }}
+                    inputFormat="MM/DD/YYYY"
+                    value={dob}
+                    onChange={handleDOBChange}
+                    required={true}
+                    // PaperProps={{
+                    //   sx: {
+                    //     "& .MuiPickersDay-root": {
+                    //       "&.Mui-selected": {
+                    //         backgroundColor: { backgroundColor: color },
+                    //       },
+                    //     },
+                    //     "& .MuiPickersMonth-root": {
+                    //       "&.Mui-selected": {
+                    //         backgroundColor: { backgroundColor: color },
+                    //       },
+                    //     },
+                    //   },
+                    // }}
+                    renderInput={(params) => (
+                      <TextField
+                        variant="standard"
+                        {...params}
+                        sx={{ button: { color } }}
+                      />
+                    )}
+                    views={["year", "month", "day"]}
+                  />
+                </LocalizationProvider>
               </td>
             </tr>
             <tr className="input-label">

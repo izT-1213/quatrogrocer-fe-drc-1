@@ -17,7 +17,7 @@ footer {
   height: 32.875rem;
   background-color: $grey-tint;
   color: $black-color;
-  padding: 0 19.5rem;
+  padding: 0 15vw;
 
   .footer-top {
     @include footer-section;
@@ -53,7 +53,8 @@ footer {
     padding: 1rem 0 0 0;
   }
 
-  .footer-top-right ul li:hover {
+  .footer-top-right ul li:hover,
+  a:hover {
     color: $primary-color;
   }
 

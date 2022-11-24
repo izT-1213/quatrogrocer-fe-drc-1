@@ -52,10 +52,6 @@ a:active {
   color: #252525;
 }
 
-a:hover {
-  color: #009688;
-}
-
 *,
 *::after,
 *::before {
@@ -67,7 +63,7 @@ footer {
   height: 32.875rem;
   background-color: #fafafa;
   color: #252525;
-  padding: 0 19.5rem;
+  padding: 0 15vw;
   color: #252525;
 }
 footer .footer-top {
@@ -99,7 +95,8 @@ footer .footer-top-right ul li {
   cursor: pointer;
   padding: 1rem 0 0 0;
 }
-footer .footer-top-right ul li:hover {
+footer .footer-top-right ul li:hover,
+footer a:hover {
   color: #009688;
 }
 footer .line-2 {

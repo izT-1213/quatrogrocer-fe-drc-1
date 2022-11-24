@@ -52,13 +52,28 @@ a:active {
   color: #252525;
 }
 
-a:hover {
-  color: #009688;
-}
-
 *,
 *::after,
 *::before {
   margin: 0;
-  box-sizing: border-box;
+}
+
+.deals-promotions-page {
+  height: 50rem;
+  display: flex;
+  padding: 0 19.5rem;
+}
+
+.deals-promotions-section {
+  height: 100%;
+}
+.deals-promotions-section .deals-promotions-title h5 {
+  font-family: "Lexend Deca";
+  color: #252525;
+  padding: 3rem 0 0.75rem 0;
+}
+.deals-promotions-section hr {
+  width: 18rem;
+  background-color: #009688;
+  border: 3px solid #009688;
 }/*# sourceMappingURL=deals-promotions.css.map */
