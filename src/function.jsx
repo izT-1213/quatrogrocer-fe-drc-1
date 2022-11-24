@@ -1,14 +1,9 @@
 import Axios from "axios";
 
-function validateURL(url) {
-  const parsed = new URL(url);
-  return ["https:", "http:"].includes(parsed.protocol);
-}
-
 async function LoginFunc(email, pass) {
   try {
     const response = await Axios.post(
-      "http://localhost:5000/quatro_user/login",
+      "http://localhost:5004/quatro_user/login",
       {
         email: email,
         password: pass,
@@ -24,14 +19,17 @@ async function LoginFunc(email, pass) {
 
 async function RegisterFunc(email, pass, fname, lname, dob, gender) {
   try {
-    await Axios.post("http://localhost:5000/quatro_user/create", {
-      email: email,
-      password: pass,
-      first_name: fname,
-      last_name: lname,
-      date_of_birth: dob,
-      gender: gender,
-    });
+    const response = await Axios.post(
+      "http://localhost:5004/quatro_user/create",
+      {
+        email: email,
+        password: pass,
+        first_name: fname,
+        last_name: lname,
+        date_of_birth: dob,
+        gender: gender,
+      }
+    );
   } catch (err) {
     return err.response.data;
   }
@@ -61,8 +59,9 @@ async function CreateAddressFunc(
   userId
 ) {
   try {
-    await Axios.post(
-      "http://localhost:5000/quatro_address/create",
+    const response = await Axios.post(
+      "http://localhost:5004/quatro_address/create",
+
       { withCredentials: true }, //hassif port 3002
       {
         address_line_1: addLine1,
@@ -88,7 +87,8 @@ async function UpdateAddressFunc(
 ) {
   try {
     await Axios.post(
-      "http://localhost:5000/quatro_address/update_details",
+      "http://localhost:5004/quatro_address/update_details",
+
       { withCredentials: true }, //hassif port 3002
       {
         address_line_1: addLine1,
@@ -126,8 +126,8 @@ async function UpdateProfileFunc(
 ) {
   try {
     await Axios.post(
-      "http://localhost:5000/quatro_user/update",
-      { withCredentials: true }, //hassif port 3002
+      "http://localhost:5004/quatro_user/update",
+
       {
         first_name: first_name,
         last_name: last_name,
@@ -135,7 +135,8 @@ async function UpdateProfileFunc(
         oldPassword: oldPassword,
         password: password,
         user_id: user_id,
-      }
+      },
+      { withCredentials: true } //hassif port 3002
     );
   } catch (err) {
     console.log(err.response.data);
@@ -144,6 +145,7 @@ async function UpdateProfileFunc(
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export {
+  // GetPasswordFunc,
   LoginFunc,
   RegisterFunc,
   CreateAddressFunc,
@@ -151,5 +153,4 @@ export {
   SearchProduct,
   UpdateAddressFunc,
   UpdateProfileFunc,
-  validateURL,
 };

@@ -98,6 +98,15 @@ a:active {
 .edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table td {
   width: auto;
 }
+.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .errMsg {
+  padding: 1rem 0 0 0;
+}
+.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .errMsg p {
+  font: "Lexend Deca";
+  font-size: 12px;
+  font-weight: bold;
+  color: #f04438;
+}
 .edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .left-column {
   padding: 0.625rem 5% 0 0;
   width: 50%;
