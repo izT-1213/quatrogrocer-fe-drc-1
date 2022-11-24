@@ -59,6 +59,15 @@
           width: auto;
         }
 
+        .errMsg {
+          padding: 1rem 0 0 0;
+          p {
+            font: $primary-fonts;
+            font-size: 12px;
+            font-weight: bold;
+            color: $error-color;
+          }
+        }
         .left-column {
           padding: 0.625rem 5% 0 0;
           width: 50%;

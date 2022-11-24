@@ -1,6 +1,5 @@
 import Axios from "axios";
 
-
 async function LoginFunc(email, pass) {
   try {
     const response = await Axios.post(
@@ -20,7 +19,6 @@ async function LoginFunc(email, pass) {
 
 async function RegisterFunc(email, pass, fname, lname, dob, gender) {
   try {
-
     const response = await Axios.post(
       "http://localhost:5004/quatro_user/create",
       {
@@ -32,7 +30,6 @@ async function RegisterFunc(email, pass, fname, lname, dob, gender) {
         gender: gender,
       }
     );
-
   } catch (err) {
     return err.response.data;
   }
@@ -62,7 +59,6 @@ async function CreateAddressFunc(
   userId
 ) {
   try {
-
     const response = await Axios.post(
       "http://localhost:5004/quatro_address/create",
 
@@ -90,7 +86,6 @@ async function UpdateAddressFunc(
   addressId
 ) {
   try {
-
     await Axios.post(
       "http://localhost:5004/quatro_address/update_details",
 
@@ -130,12 +125,9 @@ async function UpdateProfileFunc(
   user_id
 ) {
   try {
-
-
     await Axios.post(
       "http://localhost:5004/quatro_user/update",
 
-      { withCredentials: true }, //hassif port 3002
       {
         first_name: first_name,
         last_name: last_name,
@@ -143,7 +135,8 @@ async function UpdateProfileFunc(
         oldPassword: oldPassword,
         password: password,
         user_id: user_id,
-      }
+      },
+      { withCredentials: true } //hassif port 3002
     );
   } catch (err) {
     console.log(err.response.data);
@@ -160,5 +153,4 @@ export {
   SearchProduct,
   UpdateAddressFunc,
   UpdateProfileFunc,
-  
 };
