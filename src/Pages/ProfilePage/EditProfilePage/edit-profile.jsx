@@ -11,8 +11,8 @@ import { UpdateProfileFunc } from "../../../function";
 
 function EditProfilePage() {
   const [passwordVisibility, setPasswordVisibility] = useState(false);
-  const [oldPass, setOldPass] = useState("");
-  const [newPass, setNewPass] = useState("");
+  // const [oldPass, setOldPass] = useState("");
+  // const [newPass, setNewPass] = useState("");
 
   const [profileValues, updateProfileValues] = useState({
     first_name: "",
@@ -24,8 +24,6 @@ function EditProfilePage() {
     date_of_birth: "",
     user_id: "",
   });
-
-  
 
   const editProfile = async (e) => {
     e.preventDefault();
@@ -42,19 +40,17 @@ function EditProfilePage() {
     );
   };
 
-
   const validate = () => {
-    if (oldPass !== newPass){
-
-    }
-    // if pw1 === pw2
-    //editProfile
-    //else
-    //throw error
-    //
-    //
-    //
-    editProfile;
+    //   if (oldPass !== newPass){
+    //   }
+    //   // if pw1 === pw2
+    //   //editProfile
+    //   //else
+    //   //throw error
+    //   //
+    //   //
+    //   //
+    //   editProfile;
   };
 
   const handleClickShowPassword = () => {
@@ -204,7 +200,6 @@ function EditProfilePage() {
                       ...profileValues,
                       oldpassword: e.target.value,
                     });
-                    setOldPass(e.target.value);
                   }}
                   value={profileValues.oldpassword}
                   endAdornment={
@@ -230,7 +225,6 @@ function EditProfilePage() {
                   disableUnderline={true}
                   placeholder="New Password"
                   onChange={(e) => {
-                    setNewPass(e.target.value);
                     updateProfileValues({
                       ...profileValues,
                       password: e.target.value,
@@ -303,10 +297,10 @@ function EditProfilePage() {
           <button
             className="submit-edit"
             type="submit"
-            onClick={() => {
-              validate();
-              // editProfile;
-            }}
+            onClick={
+              // validate();
+              editProfile
+            }
           >
             Submit
           </button>
