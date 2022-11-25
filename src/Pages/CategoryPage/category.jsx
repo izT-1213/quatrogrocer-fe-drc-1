@@ -151,10 +151,10 @@ function CategoryPage() {
 
   return (
     <div>
-      <div className="product-page">
+      <div className="category-page">
         <SideNav />
-        <div className="product-section">
-          <div className="product-section-title">
+        <div className="category-section">
+          <div className="category-section-title">
             <h5>{category}</h5>
           </div>
           <hr></hr>

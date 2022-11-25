@@ -31,3 +31,9 @@
     border: 3px solid $primary-color;
   }
 }
+
+@media screen and (max-width: 961px) {
+  .best-seller-page {
+    padding: 0 2rem;
+  }
+}

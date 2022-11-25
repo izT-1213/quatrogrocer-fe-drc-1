@@ -14,7 +14,7 @@ import "./product-page.css";
 import SideNav from "../../Components/sidenav/sidenav.jsx";
 import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
 
-function ProductPage() {
+function MarketplacePage() {
   const navigate = useNavigate();
 
   // Pagination
@@ -25,8 +25,6 @@ function ProductPage() {
   const { products } = useParams();
 
   const notify = () => {
-    // if (!toast.isActive(toastId.current)) {
-    //   toastId.current =
     toast.success("Item added to cart! 🛒", {
       position: "top-right",
       autoClose: 3000,
@@ -230,4 +228,4 @@ function ProductPage() {
   );
 }
 
-export default ProductPage;
+export default MarketplacePage;

@@ -3,7 +3,7 @@ import Axios from "axios";
 async function LoginFunc(email, pass) {
   try {
     const response = await Axios.post(
-      "http://localhost:5000/quatro_user/login",
+      "http://localhost:5004/quatro_user/login",
       {
         email: email,
         password: pass,
@@ -20,7 +20,7 @@ async function LoginFunc(email, pass) {
 async function RegisterFunc(email, pass, fname, lname, dob, gender) {
   try {
     const response = await Axios.post(
-      "http://localhost:5000/quatro_user/create",
+      "http://localhost:5004/quatro_user/create",
       {
         email: email,
         password: pass,
@@ -38,7 +38,7 @@ async function RegisterFunc(email, pass, fname, lname, dob, gender) {
 async function SearchProduct(keyword) {
   try {
     const response = await Axios.get(
-      "http://localhost:5000/quatro_product/get",
+      "http://localhost:5004/quatro_product/get",
       {
         params: { keyword: keyword.toString() },
       }
@@ -86,7 +86,7 @@ async function UpdateAddressFunc(
 ) {
   try {
     await Axios.post(
-      "http://localhost:5000/quatro_address/update_details",
+      "http://localhost:5004/quatro_address/update_details",
 
       { withCredentials: true }, //hassif port 3002
       {
@@ -126,7 +126,7 @@ async function UpdateProfileFunc(
 ) {
   try {
     await Axios.post(
-      "http://localhost:5000/quatro_user/update",
+      "http://localhost:5004/quatro_user/update",
 
       {
         first_name: first_name,

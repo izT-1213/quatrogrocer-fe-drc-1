@@ -7,18 +7,15 @@
   height: 45rem;
   padding: 0 19.5rem;
 
-  .page-header p {
+  .page-header h6 {
     font-family: $primary-fonts;
-    font-weight: map-get($map: $font-weight, $key: "semibold");
-    font-size: 1.75rem;
-    line-height: 120%;
     padding: 4rem 0 0 0;
   }
 
   .page-content p {
     font-family: $secondary-fonts;
     font-weight: map-get($map: $font-weight, $key: "medium");
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 120%;
     padding: 1rem 0 1.5rem 0;
   }
@@ -43,46 +40,16 @@
   }
 }
 
-@media screen and (max-width: 37.5rem) {
+@media screen and (max-width: 961px) {
   .page-container {
-    display: flex;
-    flex-direction: column;
-    height: fit-content;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
 
-    .page-header p {
-      font-family: $primary-fonts;
-      font-weight: map-get($map: $font-weight, $key: "semibold");
-      font-size: 1.75rem;
-      line-height: 120%;
-      padding: 4rem 0 0 0;
-    }
-
-    .page-content p {
-      font-family: $secondary-fonts;
-      font-weight: map-get($map: $font-weight, $key: "medium");
+    .page-header h6 {
       font-size: 1.25rem;
-      line-height: 120%;
-      padding: 1rem 0 1.5rem 0;
     }
 
     .back-btn button {
-      cursor: pointer;
-      font-family: $primary-fonts;
-      font-weight: map-get($map: $font-weight, $key: "bold");
-      font-size: 1rem;
-      line-height: 120%;
-      color: $white-color;
-      align-items: center;
-      padding: 1rem 2.5rem;
-      gap: 1rem;
-      background-color: $secondary-color;
-      border: none;
-      border-radius: 0.25rem;
-    }
-
-    .back-btn button:hover {
-      background-color: $secondary-hover-color;
+      padding: 0.825rem 2.125rem;
     }
   }
 }

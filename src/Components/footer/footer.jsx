@@ -60,7 +60,7 @@ const Footer = () => {
                   <Link to={"/maintenance"}>Privacy Policy</Link>
                 </li>
                 <li>
-                  <Link to={"/maintenance"}>Shopping Policy</Link>
+                  <Link to={"/maintenance"}>Shipping Policy</Link>
                 </li>
                 <li>
                   <Link to={"/maintenance"}>Terms of Services</Link>
