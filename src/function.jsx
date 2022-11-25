@@ -142,6 +142,45 @@ async function UpdateProfileFunc(
   }
 }
 
+async function AddToCartFunc(user_id, product_id, product_quantity) {
+  debugger;
+  try {
+    await Axios.post(
+      "http://localhost:5004/quatro_cart/create",
+
+      {
+        user_id: user_id,
+        product_id: product_id,
+        product_quantity: product_quantity,
+      },
+      { withCredentials: true } //hassif port 3002
+    );
+  } catch (err) {
+    console.log(err.response.data);
+  }
+}
+
+async function AddToCartDiscFunc(
+  user_id,
+  discount_product_id,
+  product_quantity
+) {
+  try {
+    await Axios.post(
+      "http://localhost:5004/quatro_cart/create_discount",
+
+      {
+        user_id: user_id,
+        discount_product_id: discount_product_id,
+        product_quantity: product_quantity,
+      },
+      { withCredentials: true } //hassif port 3002
+    );
+  } catch (err) {
+    console.log(err.response.data);
+  }
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export {
   // GetPasswordFunc,
@@ -152,4 +191,6 @@ export {
   SearchProduct,
   UpdateAddressFunc,
   UpdateProfileFunc,
+  AddToCartFunc,
+  AddToCartDiscFunc,
 };

@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import jwt_decode from "jwt-decode";
+import AuthContext from "../../Components/context/AuthProvider.js";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useParams } from "react-router";
 import {
@@ -7,21 +9,73 @@ import {
   IndeterminateCheckBoxOutlined,
   AddShoppingCart,
 } from "@mui/icons-material";
-import { FetchProduct } from "../../function";
+import { FetchProduct, AddToCartFunc, AddToCartDiscFunc } from "../../function";
 import { ToastContainer, toast } from "react-toastify";
 import "../ProductDetailsPage/product-detail-page.css";
 
 function ProductDetailsPage() {
   const navigate = useNavigate();
+  const params = useParams();
+  debugger;
   const location = useLocation();
+  const jwtToken = useContext(AuthContext).auth?.token;
+  const userId = jwt_decode(jwtToken);
+  const [errMsg, setErrMsg] = useState(""); // <-- to catch error message(?)
+
   var product_name = location.state.product_name;
   var product_description = location.state.product_description;
   var product_category = location.state.product_category;
   var product_price = location.state.product_price;
   var product_quantity = location.state.product_quantity;
   var product_image = location.state.product_image;
-  var product_id = location.state.product_id;
+  var product_id = params.product_id;
   var i = 0;
+
+  const [counter, setCounter] = useState(1);
+  const handleAdd = () => {
+    setCounter((prevState) => prevState + 1);
+  };
+  const handleSub = () => {
+    if (counter !== 1) {
+      setCounter(counter - 1);
+    }
+  };
+
+  const [cartValues, updateCartValues] = useState({
+    user_id: userId.user_id,
+    product_id: product_id,
+    product_quantity: counter,
+  });
+
+  const [cartDiscountValues, updateDiscountCartValues] = useState({
+    user_id: userId.user_id,
+    discount_product_id: "",
+    product_quantity: "",
+  });
+
+  const handleCartSubmit = async (e) => {
+    e.preventDefault();
+    const message = await AddToCartFunc(userId.user_id, product_id, counter);
+  };
+
+  // useEffect(()=>{
+  //   updateCartValues([])
+  // })
+  const handleDiscountCartSubmit = async (e) => {
+    e.preventDefault();
+    const message = await AddToCartDiscFunc(
+      cartDiscountValues.user_id,
+      cartDiscountValues.discount_product_id,
+      cartDiscountValues.product_quantity
+    );
+
+    if (message === undefined) {
+      navigate("/");
+    } else {
+      console.log(message);
+      setErrMsg(message.error);
+    }
+  };
 
   const [productDetails, setProductDetails] = useState([]);
   const { products } = useParams();
@@ -33,16 +87,6 @@ function ProductDetailsPage() {
 
   var parentDirectory = "Marketplace";
   var childDirectory = product_category;
-
-  const [counter, setCounter] = useState(1);
-  const handleAdd = () => {
-    setCounter(counter + 1);
-  };
-  const handleSub = () => {
-    if (counter !== 1) {
-      setCounter(counter - 1);
-    }
-  };
 
   function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -79,6 +123,7 @@ function ProductDetailsPage() {
                   onClick={() => {
                     navigate(`/product-details/${key.product_name}`, {
                       state: {
+                        product_id: key.product_id,
                         product_name: key.product_name,
                         product_description: key.product_description,
                         product_category: key.product_category,
@@ -97,7 +142,11 @@ function ProductDetailsPage() {
                 </p>
                 <div className="button-container">
                   <button className="add-to-cart-btn">
-                    <AddShoppingCart className="cart-icon" key={index} />
+                    <AddShoppingCart
+                      className="cart-icon"
+                      key={index}
+                      onClick={(e) => handleCartSubmit(e)}
+                    />
                   </button>
                 </div>
               </div>
@@ -164,7 +213,7 @@ function ProductDetailsPage() {
                 </div>
               </div>
             </div>
-            <button className="add-to-cart" onClick={notify}>
+            <button className="add-to-cart" onClick={handleCartSubmit}>
               ADD TO CART
             </button>
           </div>

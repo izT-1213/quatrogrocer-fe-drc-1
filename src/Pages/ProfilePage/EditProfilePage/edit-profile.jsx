@@ -5,8 +5,6 @@ import { Visibility, VisibilityOff } from "@material-ui/icons";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { TextField } from "@mui/material";
 import "../EditProfilePage/edit-profile.css";
-<<<<<<< HEAD
-=======
 
 import { UpdateProfileFunc } from "../../../function";
 
@@ -15,7 +13,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import AuthContext from "../../../Components/context/AuthProvider.js";
 import jwt_decode from "jwt-decode";
->>>>>>> 5449a038f75614a3b4ded060c38e6ac36cd9f8dd
 
 function EditProfilePage() {
   const jwtToken = useContext(AuthContext).auth?.token;
@@ -33,10 +30,6 @@ function EditProfilePage() {
     oldpassword: "",
   });
 
-<<<<<<< HEAD
-  const editProfile = async (e) => {
-    e.preventDefault();
-=======
   const [formErrors, setFormErrors] = useState({});
   const errRef = useRef();
   const handleDOBChange = (newDOB) => {
@@ -69,7 +62,6 @@ function EditProfilePage() {
       );
     }
   };
->>>>>>> 5449a038f75614a3b4ded060c38e6ac36cd9f8dd
 
   const validate = (values, dob) => {
     const errors = {};
