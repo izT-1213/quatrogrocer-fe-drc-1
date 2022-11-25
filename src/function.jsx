@@ -145,11 +145,9 @@ async function UpdateProfileFunc(
 }
 
 async function AddToCartFunc(user_id, product_id, product_quantity) {
-  debugger;
   try {
-    await Axios.post(
+    const response = await Axios.post(
       "http://localhost:5000/quatro_cart/create",
-
       {
         user_id: user_id,
         product_id: product_id,
@@ -157,6 +155,8 @@ async function AddToCartFunc(user_id, product_id, product_quantity) {
       },
       { withCredentials: true } //hassif port 3002
     );
+    console.log(response);
+    return response;
   } catch (err) {
     console.log(err.response.data);
   }

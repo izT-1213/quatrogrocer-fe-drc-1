@@ -23,7 +23,7 @@ function ProductDetailsPage() {
 
   useEffect(() => {
     setProductDetails([]);
-    FetchProduct().then(setProductDetails);
+    FetchProduct(product_name).then(setProductDetails);
   }, []);
 
   const [counter, setCounter] = useState(1);
@@ -36,39 +36,34 @@ function ProductDetailsPage() {
     }
   };
 
-  const [cartValues, updateCartValues] = useState({
-    user_id: userId.user_id,
-    product_id: "",
-    product_quantity: counter,
-  });
+  // const [cartValues, updateCartValues] = useState({
+  //   user_id: userId.user_id,
+  //   product_id: "",
+  //   product_quantity: 0,
+  // });
 
-  const [cartDiscountValues, updateDiscountCartValues] = useState({
-    user_id: userId.user_id,
-    discount_product_id: "",
-    product_quantity: "",
-  });
+  // const [cartDiscountValues, updateDiscountCartValues] = useState({
+  //   user_id: userId.user_id,
+  //   discount_product_id: "",
+  //   product_quantity: 0,
+  // });
 
-  const handleCartSubmit = async (e) => {
+  const handleCartSubmit = async (e, product_id) => {
     e.preventDefault();
-    const message = await AddToCartFunc(userId.user_id, counter);
-  };
+    const message = await AddToCartFunc(userId.user_id, product_id, counter);
+    console.log(message);
 
-  // useEffect(()=>{
-  //   updateCartValues([])
-  // })
-  const handleDiscountCartSubmit = async (e) => {
-    e.preventDefault();
-    const message = await AddToCartDiscFunc(
-      cartDiscountValues.user_id,
-      cartDiscountValues.discount_product_id,
-      cartDiscountValues.product_quantity
-    );
-
-    if (message === undefined) {
-      navigate("/");
-    } else {
-      console.log(message);
-      // setErrMsg(message.error);
+    if (message.status === 200) {
+      toast.success(`${message.data.message}  🛒`, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
 
@@ -121,23 +116,11 @@ function ProductDetailsPage() {
     </div>
   );
 
-  const notify = () => {
-    toast.success("Item added to cart! 🛒", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
-
   return (
     <div className="item-details-page-container">
+      {console.log(product_name)}
       {productDetails
-        .filter((list) => list.product_name === product_name)
+        ?.filter((list) => list.product_name === product_name)
         .map((obj) => (
           <div>
             {console.log(obj.product_id)}
@@ -189,16 +172,17 @@ function ProductDetailsPage() {
                       </div>
                     </div>
                   </div>
-                  <button className="add-to-cart" onClick={notify}>
+                  <button
+                    className="add-to-cart"
+                    onClick={(e) => {
+                      handleCartSubmit(e, obj.product_id);
+                    }}
+                  >
                     ADD TO CART
                   </button>
                 </div>
               </div>
             </div>
-            <button className="add-to-cart" onClick={handleCartSubmit}>
-              ADD TO CART
-            </button>
-            <hr></hr>
             <div className="suggestions">
               <p className="suggestion-header">Customer Also Bought</p>
               <hr></hr>

@@ -74,17 +74,7 @@ function Home() {
               <p
                 className="product-name"
                 onClick={() => {
-                  navigate(`/product-details/${key.product_name}`, {
-                    state: {
-                      product_name: key.product_name,
-                      product_description: key.product_description,
-                      product_category: key.product_category,
-                      product_price: key.product_price,
-                      product_quantity: key.product_quantity,
-                      product_image: key.product_image,
-                      product_id: key.product_id,
-                    },
-                  });
+                  navigate(`/product-details/${key.product_name}`);
                 }}
               >
                 {key.product_name}
@@ -118,17 +108,7 @@ function Home() {
             <div
               className="product-image"
               onClick={() => {
-                navigate(`/product-details/${key.product_name}`, {
-                  state: {
-                    product_name: key.product_name,
-                    product_description: key.product_description,
-                    product_category: key.product_category,
-                    product_price: key.product_price,
-                    product_quantity: key.product_quantity,
-                    product_image: key.product_image,
-                    product_id: key.product_id,
-                  },
-                });
+                navigate(`/product-details/${key.product_name}`);
               }}
             >
               <img src={key.product_image} alt={key.product_name} />
@@ -136,17 +116,7 @@ function Home() {
             <p
               className="product-name"
               onClick={() => {
-                navigate(`/product-details/${key.product_name}`, {
-                  state: {
-                    product_name: key.product_name,
-                    product_description: key.product_description,
-                    product_category: key.product_category,
-                    product_price: key.product_price,
-                    product_quantity: key.product_quantity,
-                    product_image: key.product_image,
-                    product_id: key.product_id,
-                  },
-                });
+                navigate(`/product-details/${key.product_name}`);
               }}
             >
               {key.product_name}
@@ -198,17 +168,7 @@ function Home() {
                     className="product-image"
                     key={index}
                     onClick={() => {
-                      navigate(`/product-details/${key.product_name}`, {
-                        state: {
-                          product_name: key.product_name,
-                          product_description: key.product_description,
-                          product_category: key.product_category,
-                          product_price: key.product_price,
-                          product_quantity: key.product_quantity,
-                          product_image: key.product_image,
-                          product_id: key.product_id,
-                        },
-                      });
+                      navigate(`/product-details/${key.product_name}`);
                     }}
                   >
                     <img src={key.product_image} alt={key.product_name} />
@@ -217,17 +177,7 @@ function Home() {
                     className="product-name"
                     key={index}
                     onClick={() => {
-                      navigate(`/product-details/${key.product_name}`, {
-                        state: {
-                          product_name: key.product_name,
-                          product_description: key.product_description,
-                          product_category: key.product_category,
-                          product_price: key.product_price,
-                          product_quantity: key.product_quantity,
-                          product_image: key.product_image,
-                          product_id: key.product_id,
-                        },
-                      });
+                      navigate(`/product-details/${key.product_name}`);
                     }}
                   >
                     {key.product_name}
