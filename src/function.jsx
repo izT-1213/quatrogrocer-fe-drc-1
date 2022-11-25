@@ -116,6 +116,18 @@ async function FetchProduct() {
   }
 }
 
+async function FetchDiscountProduct() {
+  try {
+    const response = await Axios.get(
+      "http://localhost:5004/quatro_discount_product/get"
+      //{ withCredentials: true }
+    );
+    return response.data.result;
+  } catch (err) {
+    console.log(err.response);
+  }
+}
+
 async function UpdateProfileFunc(
   first_name,
   last_name,
@@ -152,6 +164,7 @@ export {
   RegisterFunc,
   CreateAddressFunc,
   FetchProduct,
+  FetchDiscountProduct,
   SearchProduct,
   UpdateAddressFunc,
   UpdateProfileFunc,

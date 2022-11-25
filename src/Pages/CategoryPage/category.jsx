@@ -18,7 +18,7 @@ function CategoryPage() {
   const category = location.state.category;
 
   // Pagination
-  const [perPage, setPerPage] = useState(6);
+  const [perPage, setPerPage] = useState(8);
   const [size, setSize] = useState(perPage);
   const [current, setCurrent] = useState(1);
   const [productDetails, setProductDetails] = useState([]);

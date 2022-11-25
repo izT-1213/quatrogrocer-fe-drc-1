@@ -60,7 +60,7 @@ a:active {
 }
 
 .product-page {
-  height: 85rem;
+  height: 100rem;
   display: flex;
   padding: 0 18rem;
 }
@@ -316,7 +316,7 @@ a:active {
 
 @media screen and (max-width: 961px) {
   .product-page {
-    height: 128rem;
+    height: 158rem;
     padding: 0 2rem;
   }
   .product-section {
