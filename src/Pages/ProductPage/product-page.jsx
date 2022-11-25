@@ -112,7 +112,8 @@ function ProductPage() {
               <p
                 className="product-name"
                 onClick={() => {
-                  navigate(`/product-details/${data.product_name}`, {
+                  debugger;
+                  navigate(`/product-details/${data.product_id}`, {
                     state: {
                       product_name: data.product_name,
                       product_description: data.product_description,

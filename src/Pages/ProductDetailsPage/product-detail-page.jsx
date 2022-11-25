@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import jwt_decode from "jwt-decode";
+import AuthContext from "../../Components/context/AuthProvider.js";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   ArrowForwardIos,
@@ -6,14 +8,62 @@ import {
   IndeterminateCheckBoxOutlined,
   AddShoppingCart,
 } from "@mui/icons-material";
-import { FetchProduct } from "../../function";
+import { FetchProduct, AddToCartFunc, AddToCartDiscFunc } from "../../function";
 import { ToastContainer, toast } from "react-toastify";
 import "../ProductDetailsPage/product-detail-page.css";
 
 function ProductDetailsPage() {
   const { product_name } = useParams();
+  const jwtToken = useContext(AuthContext).auth?.token;
+  const userId = jwt_decode(jwtToken);
   const navigate = useNavigate();
   var i = 0;
+
+  const [counter, setCounter] = useState(1);
+  const handleAdd = () => {
+    setCounter((prevState) => prevState + 1);
+  };
+  const handleSub = () => {
+    if (counter !== 1) {
+      setCounter(counter - 1);
+    }
+  };
+
+  const [cartValues, updateCartValues] = useState({
+    user_id: userId.user_id,
+    product_id: product_id,
+    product_quantity: counter,
+  });
+
+  const [cartDiscountValues, updateDiscountCartValues] = useState({
+    user_id: userId.user_id,
+    discount_product_id: "",
+    product_quantity: "",
+  });
+
+  const handleCartSubmit = async (e) => {
+    e.preventDefault();
+    const message = await AddToCartFunc(userId.user_id, product_id, counter);
+  };
+
+  // useEffect(()=>{
+  //   updateCartValues([])
+  // })
+  const handleDiscountCartSubmit = async (e) => {
+    e.preventDefault();
+    const message = await AddToCartDiscFunc(
+      cartDiscountValues.user_id,
+      cartDiscountValues.discount_product_id,
+      cartDiscountValues.product_quantity
+    );
+
+    if (message === undefined) {
+      navigate("/");
+    } else {
+      console.log(message);
+      setErrMsg(message.error);
+    }
+  };
 
   const [productDetails, setProductDetails] = useState([]);
 
@@ -23,16 +73,6 @@ function ProductDetailsPage() {
   }, []);
 
   var parentDirectory = "Marketplace";
-
-  const [counter, setCounter] = useState(1);
-  const handleAdd = () => {
-    setCounter(counter + 1);
-  };
-  const handleSub = () => {
-    if (counter !== 1) {
-      setCounter(counter - 1);
-    }
-  };
 
   function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -67,7 +107,11 @@ function ProductDetailsPage() {
                 </p>
                 <div className="button-container">
                   <button className="add-to-cart-btn">
-                    <AddShoppingCart className="cart-icon" key={index} />
+                    <AddShoppingCart
+                      className="cart-icon"
+                      key={index}
+                      onClick={(e) => handleCartSubmit(e)}
+                    />
                   </button>
                 </div>
               </div>
@@ -151,6 +195,9 @@ function ProductDetailsPage() {
                 </div>
               </div>
             </div>
+            <button className="add-to-cart" onClick={handleCartSubmit}>
+              ADD TO CART
+            </button>
             <hr></hr>
             <div className="suggestions">
               <p className="suggestion-header">Customer Also Bought</p>
