@@ -58,10 +58,10 @@ a:active {
   margin: 0;
 }
 
-.page-container {
+.payment-success {
   padding: 3rem 19.5rem;
 }
-.page-container .page-header {
+.payment-success .payment-succes-header {
   display: flex;
   justify-content: space-between;
   font-family: "Lexend Deca";
@@ -71,7 +71,7 @@ a:active {
   line-height: 120%;
   color: #009688;
 }
-.page-container .page-header .back-btn {
+.payment-success .payment-succes-header .back-btn {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
@@ -86,17 +86,17 @@ a:active {
   font-weight: 500;
   padding: 0 0 0 0;
 }
-.page-container .page-header .back-btn:hover {
+.payment-success .payment-succes-header .back-btn:hover {
   color: #ff8a65;
 }
-.page-container .page-header .back-btn:hover {
+.payment-success .payment-succes-header .back-btn:hover {
   color: #00796b;
 }
-.page-container .main-container {
+.payment-success .main-container {
   background-color: #f8f9fc;
   padding: 2rem 3.5rem;
 }
-.page-container .main-container .header-order-summary {
+.payment-success .main-container .header-order-summary {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
@@ -104,11 +104,11 @@ a:active {
   line-height: 120%;
   margin: 0 0 1rem 0;
 }
-.page-container .main-container .content {
+.payment-success .main-container .content {
   display: flex;
   justify-content: space-between;
 }
-.page-container .main-container .content .shipping-details-container {
+.payment-success .main-container .content .shipping-details-container {
   box-shadow: 0px 2px 12px -4px rgba(16, 24, 40, 0.04), 0px 4px 6px -2px rgba(16, 24, 40, 0.04);
   border-radius: 2px;
   background-color: #ffffff;
@@ -119,12 +119,12 @@ a:active {
   height: -moz-fit-content;
   height: fit-content;
 }
-.page-container .main-container .content .shipping-details-container .details-content {
+.payment-success .main-container .content .shipping-details-container .details-content {
   display: flex;
   flex-direction: column;
   padding: 1.5rem 4.05rem 1.5rem 1.5rem;
 }
-.page-container .main-container .content .shipping-details-container .details-content .header-shipping-details {
+.payment-success .main-container .content .shipping-details-container .details-content .header-shipping-details {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 700;
@@ -132,7 +132,7 @@ a:active {
   line-height: 120%;
   padding: 0.5rem 0;
 }
-.page-container .main-container .content .shipping-details-container .details-content .content-shipping-details .name {
+.payment-success .main-container .content .shipping-details-container .details-content .content-shipping-details .name {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
@@ -140,7 +140,7 @@ a:active {
   line-height: 120%;
   padding: 0.5rem 0;
 }
-.page-container .main-container .content .shipping-details-container .details-content .content-shipping-details .address {
+.payment-success .main-container .content .shipping-details-container .details-content .content-shipping-details .address {
   padding: 0.5rem 0;
   font-family: "Lexend Deca";
   font-style: normal;
@@ -148,7 +148,7 @@ a:active {
   font-size: 14px;
   line-height: 120%;
 }
-.page-container .main-container .content .shipping-details-container .details-content .content-shipping-details .number {
+.payment-success .main-container .content .shipping-details-container .details-content .content-shipping-details .number {
   padding: 0.5rem 0;
   font-family: "Lexend Deca";
   font-style: normal;
@@ -156,13 +156,13 @@ a:active {
   font-size: 16px;
   line-height: 120%;
 }
-.page-container .main-container .order-summary .cart-content {
+.payment-success .main-container .order-summary .cart-content {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 2rem;
 }
-.page-container .main-container .order-summary .cart-content .product-card {
+.payment-success .main-container .order-summary .cart-content .product-card {
   display: grid;
   grid-template: "image name name name" "image price price price" "image quantity quantity quantity";
   box-shadow: 0rem 0.75rem 1rem -0.25rem rgba(16, 24, 40, 0.1), 0rem 0.25rem 0.375rem -0.125rem rgba(16, 24, 40, 0.05);
@@ -172,19 +172,19 @@ a:active {
   height: 7.13rem;
   background-color: #ffffff;
 }
-.page-container .main-container .order-summary .cart-content .product-card .product-image {
+.payment-success .main-container .order-summary .cart-content .product-card .product-image {
   grid-area: image;
   height: 5.62rem;
   width: 5.62rem;
   align-self: center;
 }
-.page-container .main-container .order-summary .cart-content .product-card .product-image img {
+.payment-success .main-container .order-summary .cart-content .product-card .product-image img {
   height: inherit;
   width: inherit;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.page-container .main-container .order-summary .cart-content .product-name {
+.payment-success .main-container .order-summary .cart-content .product-name {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
@@ -192,7 +192,7 @@ a:active {
   line-height: 120%;
   grid-area: name;
 }
-.page-container .main-container .order-summary .cart-content .product-price {
+.payment-success .main-container .order-summary .cart-content .product-price {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
@@ -200,7 +200,7 @@ a:active {
   line-height: 120%;
   grid-area: price;
 }
-.page-container .main-container .order-summary .cart-content .quantity {
+.payment-success .main-container .order-summary .cart-content .quantity {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
@@ -210,32 +210,32 @@ a:active {
   display: flex;
   justify-content: flex-end;
 }
-.page-container .main-container .order-summary .cart-content .quantity .product-quantity {
+.payment-success .main-container .order-summary .cart-content .quantity .product-quantity {
   align-self: center;
   padding: 0 1.125rem;
 }
-.page-container .main-container .order-summary .calculation {
+.payment-success .main-container .order-summary .calculation {
   padding: 5rem 0 0 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 1rem;
 }
-.page-container .main-container .order-summary .calculation .title {
+.payment-success .main-container .order-summary .calculation .title {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 120%;
 }
-.page-container .main-container .order-summary .calculation .value {
+.payment-success .main-container .order-summary .calculation .value {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
   line-height: 120%;
 }
-.page-container .main-container .order-summary .calculation hr {
+.payment-success .main-container .order-summary .calculation hr {
   width: 480px;
 }
 

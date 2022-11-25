@@ -59,14 +59,21 @@ a:active {
   margin: 0;
 }
 
+.category-page {
+  height: 85rem;
+  display: flex;
+  padding: 0 18rem;
+}
+
 .category-section {
   height: 100%;
   width: 90%;
+  padding: 3.5rem 0 0 5rem;
 }
 .category-section .category-section-title h5 {
   font-family: "Lexend Deca";
   color: #252525;
-  padding: 3rem 0 0.75rem 0;
+  padding: 0 0 0.75rem 0;
 }
 .category-section hr {
   width: 6.25rem;
@@ -76,7 +83,7 @@ a:active {
 .category-section .product-cards {
   padding: 2rem 0 0;
   height: 43.375rem;
-  width: 61rem;
+  width: 100%;
 }
 .category-section .product-cards .medium-horizontal-cards-container {
   display: flex;
@@ -154,6 +161,10 @@ a:active {
 }
 .category-section .product-cards .medium-horizontal-cards-container .card-container .medium-horizontal-card .button-container .add-to-cart-btn:hover {
   background-color: #00796b;
+}
+
+.filter-info {
+  padding: 1rem 0 0;
 }
 
 .pagination-data {
@@ -280,9 +291,23 @@ a:active {
 }
 
 @media screen and (max-width: 961px) {
+  .category-page {
+    height: 128rem;
+    padding: 0 2rem;
+  }
   .category-section {
-    height: 100%;
-    width: 75%;
-    padding: 3.5rem 0 0 2.5rem;
+    width: 100%;
+    padding: 3.5rem 0 3.5rem 3rem;
+  }
+  .category-section-title h5 {
+    font-size: 1.5rem;
+    font-family: "Lexend Deca";
+    color: #252525;
+  }
+  .filter-info {
+    padding: 2rem 0 0;
+  }
+  .filter-info .rc-pagination {
+    justify-content: flex-start;
   }
 }/*# sourceMappingURL=category.css.map */

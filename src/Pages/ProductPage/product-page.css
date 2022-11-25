@@ -62,11 +62,12 @@ a:active {
 .product-page {
   height: 85rem;
   display: flex;
-  padding: 0 19.5rem;
+  padding: 0 18rem;
 }
 
 .product-section {
   height: 100%;
+  width: 90%;
   padding: 3.5rem 0 0 5rem;
 }
 .product-section .carousel {
@@ -187,7 +188,7 @@ a:active {
 }
 
 .filter-info {
-  padding: 1rem 0;
+  padding: 1rem 0 0;
 }
 
 .pagination-data {
@@ -337,7 +338,7 @@ a:active {
     color: #252525;
   }
   .filter-info {
-    padding: 1rem 0;
+    padding: 2rem 0 0;
   }
   .filter-info .rc-pagination {
     justify-content: flex-start;
