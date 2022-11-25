@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import jwt_decode from "jwt-decode";
 import AuthContext from "../../Components/context/AuthProvider.js";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   ArrowForwardIos,
   AddBoxOutlined,
@@ -14,21 +13,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "../ProductDetailsPage/product-detail-page.css";
 
 function ProductDetailsPage() {
-  const navigate = useNavigate();
-  const params = useParams();
-  debugger;
-  const location = useLocation();
+  const { product_name } = useParams();
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
-  const [errMsg, setErrMsg] = useState(""); // <-- to catch error message(?)
-
-  var product_name = location.state.product_name;
-  var product_description = location.state.product_description;
-  var product_category = location.state.product_category;
-  var product_price = location.state.product_price;
-  var product_quantity = location.state.product_quantity;
-  var product_image = location.state.product_image;
-  var product_id = params.product_id;
+  const navigate = useNavigate();
   var i = 0;
 
   const [counter, setCounter] = useState(1);
@@ -78,15 +66,13 @@ function ProductDetailsPage() {
   };
 
   const [productDetails, setProductDetails] = useState([]);
-  const { products } = useParams();
 
   useEffect(() => {
     setProductDetails([]);
-    FetchProduct(products).then(setProductDetails);
-  }, [products]);
+    FetchProduct().then(setProductDetails);
+  }, []);
 
   var parentDirectory = "Marketplace";
-  var childDirectory = product_category;
 
   function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -103,17 +89,7 @@ function ProductDetailsPage() {
                 <div
                   className="product-image"
                   onClick={() => {
-                    navigate(`/product-details/${key.product_name}`, {
-                      state: {
-                        product_name: key.product_name,
-                        product_description: key.product_description,
-                        product_category: key.product_category,
-                        product_price: key.product_price,
-                        product_quantity: key.product_quantity,
-                        product_image: key.product_image,
-                        product_id: key.product_id,
-                      },
-                    });
+                    navigate(`/product-details/${key.product_name}`);
                   }}
                 >
                   <img src={key.product_image} alt={key.product_name} />
@@ -121,18 +97,7 @@ function ProductDetailsPage() {
                 <p
                   className="product-name"
                   onClick={() => {
-                    navigate(`/product-details/${key.product_name}`, {
-                      state: {
-                        product_id: key.product_id,
-                        product_name: key.product_name,
-                        product_description: key.product_description,
-                        product_category: key.product_category,
-                        product_price: key.product_price,
-                        product_quantity: key.product_quantity,
-                        product_image: key.product_image,
-                        product_id: key.product_id,
-                      },
-                    });
+                    navigate(`/product-details/${key.product_name}`);
                   }}
                 >
                   {key.product_name}
@@ -171,63 +136,79 @@ function ProductDetailsPage() {
 
   return (
     <div className="item-details-page-container">
-      <div className="product-directory">
-        <p>{parentDirectory}</p>
-        <ArrowForwardIos sx={{ fontSize: "14px" }} /> <p>{childDirectory}</p>
-      </div>
-      <div className="above-container">
-        <div className="image-container">
-          <div className="discount-percentage">
-            <text>50% OFF</text>
-          </div>
-          <img src={product_image} alt={product_name}></img>
-        </div>
-        <div className="item-info-container">
-          <div className="item-info">
-            <p className="item-name">{product_name}</p>
-            <p className="description-header">Description</p>
-            <p className="description">{product_description}</p>
-          </div>
-          <hr></hr>
-          <div className="actions">
-            <div className="price-quantity">
-              <div className="only-price">
-                <p className="new-price">
-                  Price:<p className="RM">RM</p>
-                  <p className="price-value">{product_price.toFixed(2)}</p>
-                </p>
-                <p className="old-price">
-                  <strike>RM16</strike>
-                </p>
+      {productDetails
+        .filter((list) => list.product_name === product_name)
+        .map((obj) => (
+          <div>
+            {console.log(obj.product_id)}
+            <div className="product-directory">
+              <p>{parentDirectory}</p>
+              <ArrowForwardIos sx={{ fontSize: "14px" }} />{" "}
+              <p>{obj.product_category}</p>
+            </div>
+            <div className="above-container">
+              <div className="image-container">
+                <div className="discount-percentage">
+                  <text>50% OFF</text>
+                </div>
+                <img src={obj.product_image} alt={obj.product_name}></img>
               </div>
+              <div className="item-info-container">
+                <div className="item-info">
+                  <p className="item-name">{obj.product_name}</p>
+                  <p className="description-header">Description</p>
+                  <p className="description">{obj.product_description}</p>
+                </div>
+                <hr></hr>
+                <div className="actions">
+                  <div className="price-quantity">
+                    <div className="only-price">
+                      <p className="new-price">
+                        Price:<p className="RM">RM</p>
+                        <p className="price-value">
+                          {obj.product_price.toFixed(2)}
+                        </p>
+                      </p>
+                      <p className="old-price">
+                        <strike>RM16</strike>
+                      </p>
+                    </div>
 
-              <div className="quantity-adjust">
-                <p className="quantity-header">Quantity:</p>
-                <div className="quantity-container">
-                  <IndeterminateCheckBoxOutlined
-                    onClick={handleSub}
-                    className="minus-btn"
-                  />
-                  <div className="quantity-value">{counter}</div>
-                  <AddBoxOutlined onClick={handleAdd} className="plus-btn" />
+                    <div className="quantity-adjust">
+                      <p className="quantity-header">Quantity:</p>
+                      <div className="quantity-container">
+                        <IndeterminateCheckBoxOutlined
+                          onClick={handleSub}
+                          className="minus-btn"
+                        />
+                        <div className="quantity-value">{counter}</div>
+                        <AddBoxOutlined
+                          onClick={handleAdd}
+                          className="plus-btn"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <button className="add-to-cart" onClick={notify}>
+                    ADD TO CART
+                  </button>
                 </div>
               </div>
             </div>
             <button className="add-to-cart" onClick={handleCartSubmit}>
               ADD TO CART
             </button>
+            <hr></hr>
+            <div className="suggestions">
+              <p className="suggestion-header">Customer Also Bought</p>
+              <hr></hr>
+              <div className="product-list-container">
+                <HorCardContainer />
+              </div>
+            </div>
+            <ToastContainer />
           </div>
-        </div>
-      </div>
-      <hr></hr>
-      <div className="suggestions">
-        <p className="suggestion-header">Customer Also Bought</p>
-        <hr></hr>
-        <div className="product-list-container">
-          <HorCardContainer />
-        </div>
-      </div>
-      <ToastContainer />
+        ))}
     </div>
   );
 }

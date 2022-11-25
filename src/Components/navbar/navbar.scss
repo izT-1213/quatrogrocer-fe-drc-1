@@ -41,6 +41,10 @@ nav {
     display: flex;
     list-style: none;
     justify-content: space-between;
+
+    li {
+      padding-right: 0.5rem;
+    }
   }
 
   .nav-right ul {
@@ -68,7 +72,7 @@ nav {
     }
 
     .search-container {
-      width: 76%;
+      width: 75.5%;
       display: flex;
       border: 0.188rem solid $white-color;
       border-radius: 0.25rem;
@@ -78,7 +82,7 @@ nav {
     }
 
     .searchTerm {
-      width: 30vw;
+      width: 100%;
       color: $primary-color;
       font-family: $secondary-fonts;
       font-weight: map-get($map: $font-weight, $key: "medium");
@@ -94,7 +98,7 @@ nav {
     }
 
     .searchButton {
-      width: 5vw;
+      width: 15%;
       border: 0.063rem solid $white-color;
       background: $white-color;
       text-align: center;
@@ -102,8 +106,17 @@ nav {
       cursor: pointer;
     }
 
-    ul li {
-      color: $white-color;
+    .nav-right-menu {
+      ul li {
+        padding: 0 0.2rem;
+        color: $white-color;
+      }
+    }
+  }
+
+  .mobile {
+    .burger {
+      display: none;
     }
   }
 }
@@ -112,7 +125,6 @@ nav {
 @media screen and (max-width: 1105px) {
   nav {
     padding: 0 0 0 1.5rem;
-    justify-content: unset;
 
     .nav-left ul {
       padding-left: 2rem;
@@ -128,12 +140,18 @@ nav {
 @media screen and (max-width: 481px) {
   nav {
     height: 4.5rem;
-    /* display: flex; */
     background-color: #009688;
     justify-content: space-between;
     padding: 0 10vw;
   }
   nav .nav-left {
     display: none;
+  }
+
+  nav .mobile {
+    .burger {
+      display: block;
+      color: $white-color;
+    }
   }
 }

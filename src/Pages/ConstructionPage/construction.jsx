@@ -19,9 +19,11 @@ function ConstructionPage() {
           The page is currently on maintenance, please come back in a short
           while.
         </p>
-        <button className="button" onClick={() => navigate("/")}>
-          Back to Home
-        </button>
+        <div className="button-container">
+          <button className="button" onClick={() => navigate("/")}>
+            Back to Home
+          </button>
+        </div>
       </div>
     </div>
   );
