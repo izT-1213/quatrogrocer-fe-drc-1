@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import jwt_decode from "jwt-decode";
-import AuthContext from "../../Components/context/AuthProvider.js";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   ArrowForwardIos,
@@ -10,6 +8,8 @@ import {
 } from "@mui/icons-material";
 import { FetchProduct, AddToCartFunc, AddToCartDiscFunc } from "../../function";
 import { ToastContainer, toast } from "react-toastify";
+import jwt_decode from "jwt-decode";
+import AuthContext from "../../Components/context/AuthProvider.js";
 import "../ProductDetailsPage/product-detail-page.css";
 
 function ProductDetailsPage() {
@@ -18,6 +18,13 @@ function ProductDetailsPage() {
   const userId = jwt_decode(jwtToken);
   const navigate = useNavigate();
   var i = 0;
+
+  const [productDetails, setProductDetails] = useState([]);
+
+  useEffect(() => {
+    setProductDetails([]);
+    FetchProduct().then(setProductDetails);
+  }, []);
 
   const [counter, setCounter] = useState(1);
   const handleAdd = () => {
@@ -31,7 +38,7 @@ function ProductDetailsPage() {
 
   const [cartValues, updateCartValues] = useState({
     user_id: userId.user_id,
-    product_id: product_id,
+    product_id: "",
     product_quantity: counter,
   });
 
@@ -43,7 +50,7 @@ function ProductDetailsPage() {
 
   const handleCartSubmit = async (e) => {
     e.preventDefault();
-    const message = await AddToCartFunc(userId.user_id, product_id, counter);
+    const message = await AddToCartFunc(userId.user_id, counter);
   };
 
   // useEffect(()=>{
@@ -61,16 +68,9 @@ function ProductDetailsPage() {
       navigate("/");
     } else {
       console.log(message);
-      setErrMsg(message.error);
+      // setErrMsg(message.error);
     }
   };
-
-  const [productDetails, setProductDetails] = useState([]);
-
-  useEffect(() => {
-    setProductDetails([]);
-    FetchProduct().then(setProductDetails);
-  }, []);
 
   var parentDirectory = "Marketplace";
 

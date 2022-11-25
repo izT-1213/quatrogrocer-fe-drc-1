@@ -41,9 +41,8 @@ function LoginPage() {
     console.log(message);
     const token = message?.data?.userJwt;
     setAuth({ emailLogin, passwd, token });
-    if (message.request.status === 200) {
+    if (message.status === 200) {
       navigate(from.toString(), { replace: true });
-      // console.log(message);
     } else {
       console.log(message);
       setErrMsg(message.error);
