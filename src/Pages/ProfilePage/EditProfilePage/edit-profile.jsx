@@ -18,6 +18,7 @@ function EditProfilePage() {
   const navigate = useNavigate();
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
+  console.log(userId.user_id);
   const color = "#009688";
 
   const [passwordVisibility, setPasswordVisibility] = useState(false);

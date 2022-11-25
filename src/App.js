@@ -40,10 +40,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="marketplace" element={<ProductPage />} />
           <Route path="category/:category" element={<CategoryPage />} />
-          <Route
-            path="product-details/:product_name"
-            element={<ProductDetailsPage />}
-          />
+
           <Route path="about" element={<AboutPage />} />
 
           {/* Public pages but not available if not logged out */}
@@ -52,6 +49,10 @@ function App() {
 
           {/* Protected pages */}
           <Route element={<RequireAuth />}>
+            <Route
+              path="product-details/:product_name"
+              element={<ProductDetailsPage />}
+            />
             <Route path="profile" element={<UserProfilePage />} />
             <Route path="address" element={<YourShippingAddressPage />} />
             <Route path="add-address" element={<AddAddressPage />} />
