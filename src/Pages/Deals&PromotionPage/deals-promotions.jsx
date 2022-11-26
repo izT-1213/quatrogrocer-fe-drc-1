@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useParams } from "react-router";
-import { FetchProduct } from "../../function";
+import { FetchDiscountProduct } from "../../function";
 import {
   AddShoppingCart,
   ArrowBackIos,
@@ -9,6 +9,7 @@ import {
 } from "@mui/icons-material";
 import { ToastContainer, toast } from "react-toastify";
 import "../Deals&PromotionPage/deals-promotions.css";
+import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
 
 function DealsPromotionsPage() {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ function DealsPromotionsPage() {
 
   useEffect(() => {
     setProductDetails([]);
-    FetchProduct(products).then(setProductDetails);
+    FetchDiscountProduct(products).then(setProductDetails);
   }, [products]);
 
   const PerPageChange = (value) => {
@@ -88,41 +89,44 @@ function DealsPromotionsPage() {
               <div
                 className="product-image"
                 onClick={() => {
-                  navigate(`/product-details/${data.product_name}`, {
+                  navigate(`/product-details/${data.discount_product_name}`, {
                     state: {
-                      product_name: data.product_name,
-                      product_description: data.product_description,
-                      product_category: data.product_category,
-                      product_price: data.product_price,
-                      product_quantity: data.product_quantity,
-                      product_image: data.product_image,
-                      product_id: data.product_id,
+                      discount_product_name: data.discount_product_name,
+                      discount_product_description:
+                        data.discount_product_description,
+                      discount_product_category: data.discount_product_category,
+                      discount_product_price: data.discount_product_price,
+                      discount_product_quantity: data.discount_product_quantity,
+                      discount_product_image: data.discount_product_image,
+                      discount_product_id: data.discount_product_id,
                     },
                   });
                 }}
               >
-                <img src={data.product_image} />
+                <img src={data.discount_product_image} />
               </div>
               <p
                 className="product-name"
                 onClick={() => {
-                  navigate(`/product-details/${data.product_name}`, {
+                  navigate(`/product-details/${data.discount_product_name}`, {
                     state: {
-                      product_name: data.product_name,
-                      product_description: data.product_description,
-                      product_category: data.product_category,
-                      product_price: data.product_price,
-                      product_quantity: data.product_quantity,
-                      product_image: data.product_image,
-                      product_id: data.product_id,
+                      discount_product_name: data.discount_product_name,
+                      discount_product_description:
+                        data.discount_product_description,
+                      discount_product_category: data.discount_product_category,
+                      discount_product_price: data.discount_product_price,
+                      discount_product_quantity: data.discount_product_quantity,
+                      discount_product_image: data.discount_product_image,
+                      discount_product_id: data.discount_product_id,
                     },
                   });
                 }}
               >
-                {data.product_name}
+                {data.discount_product_name}
               </p>
               <p className="product-price">
-                <p className="RM">RM</p> {data.product_price.toFixed(2)}
+                <p className="RM">RM</p>{" "}
+                {data.discount_product_price.toFixed(2)}
               </p>
               <div className="button-container">
                 <button className="add-to-cart-btn" onClick={notify}>
@@ -144,6 +148,22 @@ function DealsPromotionsPage() {
             <h5>Deals & Promotions</h5>
           </div>
           <hr></hr>
+          <div className="filter-info">
+            <Pagination
+              className="pagination-data"
+              showTotal={(total, range) =>
+                `Showing ${range[0]}-${range[1]} of ${total}`
+              }
+              onChange={PaginationChange}
+              total={productDetails.length}
+              current={current}
+              pageSize={size}
+              showSizeChanger={false}
+              itemRender={PrevNextArrow}
+              onShowSizeChange={PerPageChange}
+              showTitle={false}
+            />
+          </div>
           <div className="product-cards">
             <MediumHorCard />
           </div>

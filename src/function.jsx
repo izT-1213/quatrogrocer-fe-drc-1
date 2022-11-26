@@ -119,7 +119,7 @@ async function FetchProduct() {
 async function FetchDiscountProduct() {
   try {
     const response = await Axios.get(
-      "http://localhost:5004/quatro_discount_product/get"
+      "http://localhost:5004/quatro_product_discount/get"
       //{ withCredentials: true }
     );
     return response.data.result;

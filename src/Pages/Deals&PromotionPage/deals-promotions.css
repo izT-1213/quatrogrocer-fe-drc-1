@@ -59,8 +59,7 @@ a:active {
 }
 
 .deals-promotions-page {
-  height: 50rem;
-  display: flex;
+  height: 75rem;
   padding: 0 18rem;
 }
 
@@ -162,6 +161,7 @@ a:active {
 
 @media screen and (max-width: 961px) {
   .deals-promotions-page {
+    height: 136rem;
     padding: 0 2rem;
   }
 }/*# sourceMappingURL=deals-promotions.css.map */
