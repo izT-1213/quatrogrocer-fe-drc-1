@@ -46,6 +46,7 @@
         padding-bottom: 2rem;
         .medium-horizontal-card {
           @include medium-horizontal-card;
+          width: 40rem;
         }
       }
     }

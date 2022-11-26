@@ -100,6 +100,7 @@ a:active {
   border-radius: 0.125rem;
   background-color: #ffffff;
   padding: 1.875rem 2.313rem;
+  width: 40rem;
 }
 .deals-promotions-section .product-cards .medium-horizontal-cards-container .card-container .medium-horizontal-card .product-image {
   grid-area: image;

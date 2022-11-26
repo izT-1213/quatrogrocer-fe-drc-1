@@ -29,12 +29,7 @@ function Home() {
   }, [products]);
   // >>>>end function<<<<
 
-  // toastify notifications
-  // const toastId = React.useRef(null);
-
   const notify = () => {
-    // if (!toast.isActive(toastId.current)) {
-    //   toastId.current =
     toast.success("Item added to cart! 🛒", {
       position: "top-right",
       autoClose: 3000,

@@ -222,13 +222,23 @@
         font-size: 2.5rem;
       }
     }
-  }
 
-  .product-section-title {
-    h5 {
-      font-size: 1.5rem;
-      font-family: $primary-fonts;
-      color: $black-color;
+    .product-section-title {
+      h5 {
+        font-size: 1.5rem;
+        font-family: $primary-fonts;
+        color: $black-color;
+      }
+    }
+
+    .product-cards {
+      .medium-horizontal-cards-container {
+        .card-container {
+          .medium-horizontal-card {
+            width: 39rem;
+          }
+        }
+      }
     }
   }
 

@@ -97,7 +97,11 @@ function ProductDetailsPage() {
                 </p>
                 <div className="button-container">
                   <button className="add-to-cart-btn">
-                    <AddShoppingCart className="cart-icon" key={index} />
+                    <AddShoppingCart
+                      className="cart-icon"
+                      onClick={notify}
+                      key={index}
+                    />
                   </button>
                 </div>
               </div>
@@ -135,7 +139,7 @@ function ProductDetailsPage() {
         </div>
         <div className="item-info-container">
           <div className="item-info">
-            <p className="item-name">{product_name}</p>
+            <h4 className="item-name">{product_name}</h4>
             <p className="description-header">Description</p>
             <p className="description">{product_description}</p>
           </div>
@@ -172,7 +176,7 @@ function ProductDetailsPage() {
       </div>
       <hr></hr>
       <div className="suggestions">
-        <p className="suggestion-header">Customer Also Bought</p>
+        <h5 className="suggestion-header">Customer Also Bought</h5>
         <hr></hr>
         <div className="product-list-container">
           <HorCardContainer />
