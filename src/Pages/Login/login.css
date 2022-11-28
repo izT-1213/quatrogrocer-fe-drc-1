@@ -229,7 +229,7 @@ p {
 
 @media screen and (max-width: 961px) {
   .login-page-container .login-container .login-container-content {
-    width: 24rem;
+    width: 26rem;
     height: 36rem;
     padding: 2rem;
   }
