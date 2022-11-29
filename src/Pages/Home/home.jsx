@@ -32,9 +32,6 @@ function Home() {
   }, [products]);
   // >>>>end function<<<<
 
-  // toastify notifications
-  // const toastId = React.useRef(null);
-
   const notify = () => {
     if (loggedIn === undefined) {
       navigate("/login");

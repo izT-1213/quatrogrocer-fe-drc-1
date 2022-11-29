@@ -166,13 +166,14 @@ function LoginPage() {
                 </div>
               </div>
               <div className="sign-up-text-center">
-                I'm new here!
-                <a>
-                  <Link to="/signup" className="signup-link">
-                    {" "}
-                    Create a new account
-                  </Link>
-                </a>
+                I'm new here!{" "}
+                <u>
+                  <a>
+                    <Link to="/signup" className="signup-link">
+                      Create a new account
+                    </Link>
+                  </a>
+                </u>
               </div>
             </form>
           </div>
