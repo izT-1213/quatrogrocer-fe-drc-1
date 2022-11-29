@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useParams } from "react-router";
 import { FetchDiscountProduct } from "../../function";
 import {
   AddShoppingCart,
@@ -13,14 +12,12 @@ import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
 
 function DealsPromotionsPage() {
   const navigate = useNavigate();
-  const location = useLocation();
 
   // Pagination
   const [perPage, setPerPage] = useState(8);
   const [size, setSize] = useState(perPage);
   const [current, setCurrent] = useState(1);
   const [productDetails, setProductDetails] = useState([]);
-  const { products } = useParams();
 
   const notify = () => {
     toast.success("Item added to cart! 🛒", {
@@ -37,8 +34,8 @@ function DealsPromotionsPage() {
 
   useEffect(() => {
     setProductDetails([]);
-    FetchDiscountProduct(products).then(setProductDetails);
-  }, [products]);
+    FetchDiscountProduct().then(setProductDetails);
+  }, []);
 
   const PerPageChange = (value) => {
     setSize(value);
@@ -89,18 +86,7 @@ function DealsPromotionsPage() {
               <div
                 className="product-image"
                 onClick={() => {
-                  navigate(`/product-details/${data.discount_product_name}`, {
-                    state: {
-                      discount_product_name: data.discount_product_name,
-                      discount_product_description:
-                        data.discount_product_description,
-                      discount_product_category: data.discount_product_category,
-                      discount_product_price: data.discount_product_price,
-                      discount_product_quantity: data.discount_product_quantity,
-                      discount_product_image: data.discount_product_image,
-                      discount_product_id: data.discount_product_id,
-                    },
-                  });
+                  navigate(`/product-details/${data.discount_product_name}`);
                 }}
               >
                 <img src={data.discount_product_image} />
@@ -108,18 +94,7 @@ function DealsPromotionsPage() {
               <p
                 className="product-name"
                 onClick={() => {
-                  navigate(`/product-details/${data.discount_product_name}`, {
-                    state: {
-                      discount_product_name: data.discount_product_name,
-                      discount_product_description:
-                        data.discount_product_description,
-                      discount_product_category: data.discount_product_category,
-                      discount_product_price: data.discount_product_price,
-                      discount_product_quantity: data.discount_product_quantity,
-                      discount_product_image: data.discount_product_image,
-                      discount_product_id: data.discount_product_id,
-                    },
-                  });
+                  navigate(`/product-details/${data.discount_product_name}`);
                 }}
               >
                 {data.discount_product_name}
@@ -142,6 +117,7 @@ function DealsPromotionsPage() {
 
   return (
     <div>
+      {console.log(productDetails)}
       <div className="deals-promotions-page">
         <div className="deals-promotions-section">
           <div className="deals-promotions-title">

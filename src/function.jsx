@@ -35,15 +35,16 @@ async function RegisterFunc(email, pass, fname, lname, dob, gender) {
   }
 }
 
-async function SearchProduct(keyword) {
+async function SearchProduct(product) {
   try {
     const response = await Axios.get(
       "http://localhost:5000/quatro_product/get",
       {
-        params: { keyword: keyword.toString() },
+        params: { product: product.toString() },
       }
     );
-    console.log(response);
+    console.log(response.data.result);
+    return response.data.result;
   } catch (err) {
     console.log(err.response.data);
     return err.response.data;
@@ -118,7 +119,7 @@ async function FetchProduct() {
 async function FetchDiscountProduct() {
   try {
     const response = await Axios.get(
-      "http://localhost:5004/quatro_product_discount/get"
+      "http://localhost:5000/quatro_product_discount/get"
       //{ withCredentials: true }
     );
     return response.data.result;

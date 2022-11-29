@@ -20,6 +20,7 @@ import ProductDetailsPage from "./Pages/ProductDetailsPage/product-detail-page";
 import EditAddressPage from "./Pages/EditAddressPage/edit-address.jsx";
 import CategoryPage from "./Pages/CategoryPage/category.jsx";
 import PaymentSuccessPage from "./Pages/PaymentSuccessPage/payment-success.jsx";
+import SearchResult from "./Pages/ReturnResultPage/return-results.jsx";
 import RequireAuth from "./Components/context/RequireAuth.js";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -40,6 +41,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="marketplace" element={<MarketplacePage />} />
           <Route path="category/:category" element={<CategoryPage />} />
+          <Route
+            path="search-result/:product_name"
+            element={<SearchResult />}
+          />
 
           <Route path="about" element={<AboutPage />} />
 
