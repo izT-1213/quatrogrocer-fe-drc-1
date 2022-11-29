@@ -107,6 +107,15 @@ a:active {
   font-weight: bold;
   color: #f04438;
 }
+.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .msg {
+  padding: 1.5rem 0 0 0;
+}
+.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .msg p {
+  font: "Poppins";
+  font-size: 17px;
+  font-weight: bold;
+  color: #009688;
+}
 .edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .left-column {
   padding: 0.625rem 5% 0 0;
   width: 50%;

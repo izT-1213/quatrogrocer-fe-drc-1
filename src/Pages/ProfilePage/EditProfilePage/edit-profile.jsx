@@ -34,6 +34,7 @@ function EditProfilePage() {
   const [formErrors, setFormErrors] = useState({});
   //oldpassword
   const [errMsg, setErrMsg] = useState("");
+  const [msg, setMsg] = useState("");
 
   const errRef = useRef();
   const handleDOBChange = (newDOB) => {
@@ -44,14 +45,26 @@ function EditProfilePage() {
     setErrMsg("");
   }, [profileValues.oldpassword]);
 
+  useEffect(() => {
+    setMsg("");
+  }, [
+    profileValues.first_name,
+    profileValues.last_name,
+    profileValues.email,
+    dob,
+    profileValues.oldpassword,
+    profileValues.password,
+  ]);
+
   const editProfile = async (e) => {
     e.preventDefault();
 
-    setFormErrors(validate(profileValues, dob));
-    // console.log(formErrors);
+    setFormErrors(validate(profileValues));
+    // console.log(validate(profileValues));
+    console.log(Object.keys(formErrors).length);
 
     if (Object.keys(formErrors).length === 0) {
-      // console.log("updating");
+      console.log("updating");
 
       const message = await UpdateProfileFunc(
         profileValues.first_name.toString(),
@@ -65,6 +78,7 @@ function EditProfilePage() {
       );
 
       if (message === undefined) {
+        setMsg("Updated input fields without error, successfully");
       } else {
         setErrMsg(message.error);
       }
@@ -82,76 +96,54 @@ function EditProfilePage() {
 
     if (values.first_name) {
       console.log("got value");
-      if (regName.test(values.first_name)) {
-        console.log("contains alphabet");
-      } else {
+      if (!regName.test(values.first_name)) {
         console.log("no contain alphabet only");
         errors.first_name = "*first name should contain only alphabets";
+      } else {
+        console.log("contains alphabet");
+
+        setMsg("First name updated");
       }
     }
 
     if (values.last_name) {
       console.log("got value");
-      if (regName.test(values.last_name)) {
-        console.log("contains alphabet");
-      } else {
+      if (!regName.test(values.last_name)) {
         console.log("no contain alphabet only");
         errors.last_name = "*last name should contain only alphabets";
+      } else {
+        console.log("contains alphabet");
+
+        setMsg("Last name updated");
       }
     }
 
     if (values.email) {
       console.log("got value");
-      if (regEmail.test(values.email)) {
-        console.log("proper email format");
-      } else {
+      if (!regEmail.test(values.email)) {
         console.log("wrong email format");
         errors.email = "*wrong email format";
+      } else {
+        console.log("proper email format");
+
+        setMsg("Email updated");
       }
     }
 
     if (values.password) {
-      if (values.password && !values.oldpassword) {
-        errors.password = "Please input old password to change new password";
+      if (!values.password || !values.oldpassword) {
+        errors.password = "Old and new password needed to change password";
       } else if (values.password.length < 8) {
         errors.password = "Password should consists at least 8 characters";
       } else if (!regPass.test(values.password)) {
         errors.password =
           "Password should consists of at least 1 lowercase, 1 uppercase, 1 numeric and 1 special character";
+      } else {
+        console.log("proper password");
+
+        // setMsg("Updated input fields without error, successfully");
       }
     }
-    return errors;
-
-    // if (!values.first_name) {
-    //   errors.first_name = "*First Name is required";
-    // }
-    // if (!values.last_name) {
-    //   errors.last_name = "*Last Name is required";
-    // }
-    // if (!values.email) {
-    //   errors.email = "*Email is required";
-    // }
-
-    // if (!dob) {
-    //   errors.dob = "*DOB is required";
-    // }
-
-    // if (!values.oldpassword) {
-    //   errors.oldpassword = "*Old password is required";
-    // }
-
-    // if (!values.password) {
-    //   errors.password = "*New Password is required";
-    // }
-
-    // if pw1 === pw2
-    //editProfile
-    //else
-    //throw error
-    //
-    //
-    //
-
     return errors;
   };
 
@@ -412,6 +404,17 @@ function EditProfilePage() {
                     </p>
                   )}
                 </div>
+                <div className="msg">
+                  {msg && (
+                    <p
+                      ref={errRef}
+                      className={msg ? "errmsg" : "offscreen"}
+                      aria-live="assertive"
+                    >
+                      {msg}
+                    </p>
+                  )}
+                </div>
               </td>
 
               <td>
@@ -479,11 +482,12 @@ function EditProfilePage() {
             className="submit-edit"
             type="submit"
             disabled={
-              profileValues.email ||
-              profileValues.first_name ||
-              profileValues.last_name ||
-              dob ||
-              (profileValues.oldpassword && profileValues.password)
+              profileValues.oldpassword &&
+              profileValues.password &&
+              (profileValues.email ||
+                profileValues.first_name ||
+                profileValues.last_name ||
+                dob)
                 ? false
                 : true
             }
