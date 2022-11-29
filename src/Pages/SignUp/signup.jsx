@@ -82,7 +82,7 @@ function SignUpPage() {
           <div className="sign-up-form-content">
             <form className="sign-up-form" onSubmit={handleSubmit}>
               <h3 className="sign-up-form-title">Sign Up</h3>
-              <div className="sign-up-form-table">
+              <div classNRegisterFuncame="sign-up-form-table">
                 <tr>
                   <td className="left-col-line-1">FIRST NAME</td>
                   <td className="right-col-line-1">LAST NAME</td>

@@ -31,7 +31,7 @@ function ProductDetailsPage() {
 
   const [cartValues, updateCartValues] = useState({
     user_id: userId.user_id,
-    product_id: product_id,
+    product_id: "",
     product_quantity: counter,
   });
 
@@ -43,7 +43,7 @@ function ProductDetailsPage() {
 
   const handleCartSubmit = async (e) => {
     e.preventDefault();
-    const message = await AddToCartFunc(userId.user_id, product_id, counter);
+    const message = await AddToCartFunc(userId.user_id, counter);
   };
 
   // useEffect(()=>{
@@ -61,16 +61,8 @@ function ProductDetailsPage() {
       navigate("/");
     } else {
       console.log(message);
-      setErrMsg(message.error);
     }
   };
-
-  const [productDetails, setProductDetails] = useState([]);
-
-  useEffect(() => {
-    setProductDetails([]);
-    FetchProduct().then(setProductDetails);
-  }, []);
 
   var parentDirectory = "Marketplace";
 
