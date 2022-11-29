@@ -70,7 +70,11 @@ a:active {
   align-items: center;
   padding: 0px;
   gap: 1rem;
-  padding: 2.5rem 0 2.5rem 0;
+  padding: 2.5rem 0 1.5rem 0;
+}
+.item-details-page-container .product-directory h5 {
+  font-weight: 700;
+  font-size: 18px;
 }
 .item-details-page-container .product-directory p {
   font-family: "Lexend Deca";

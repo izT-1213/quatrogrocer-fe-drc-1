@@ -1,11 +1,30 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
+import { GetUserAddress, FetchUser } from "../../function.jsx";
 import AuthContext from "../../Components/context/AuthProvider.js";
 import "../ProfilePage/profile.css";
 
 function UserProfilePage() {
-  const { setAuth } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { setAuth } = useContext(AuthContext);
+  const jwtToken = useContext(AuthContext).auth?.token;
+  const userId = jwt_decode(jwtToken);
+
+  const [addressDetails, setAddressDetails] = useState({});
+
+  const [profileDetails, setProfileDetails] = useState({});
+
+  useEffect(() => {
+    setAddressDetails({});
+
+    GetUserAddress(userId.user_id).then(setAddressDetails);
+  }, [userId.user_id]);
+
+  useEffect(() => {
+    setProfileDetails({});
+    FetchUser(userId.user_id).then(setProfileDetails);
+  }, [userId.user_id]);
 
   const logout = async () => {
     setAuth({});
@@ -64,19 +83,19 @@ function UserProfilePage() {
               </td>
             </tr>
             <tr>
-              <td className="address">71, Persiaran Tengku Ampuan Rahimah</td>
+              <td className="address">{addressDetails[0]?.address_line_1}</td>
             </tr>
             <tr>
-              <td className="address">Taman Sri Andalas</td>
+              <td className="address">{addressDetails[0]?.address_line_2}</td>
             </tr>
             <tr>
-              <td className="address">41200</td>
+              <td className="address">{addressDetails[0]?.address_line_3}</td>
             </tr>
             <tr>
-              <td className="address">Klang</td>
+              <td className="address">{addressDetails[0]?.postcode}</td>
             </tr>
             <tr>
-              <td className="address">Selangor</td>
+              <td className="address">{addressDetails[0]?.state}</td>
             </tr>
             <tr>
               <td>60186907892</td>
