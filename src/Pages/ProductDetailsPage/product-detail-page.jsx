@@ -6,7 +6,13 @@ import {
   IndeterminateCheckBoxOutlined,
   AddShoppingCart,
 } from "@mui/icons-material";
-import { FetchProduct, AddToCartFunc, AddToCartDiscFunc } from "../../function";
+import {
+  FetchProduct,
+  SearchProduct,
+  FetchDiscountProduct,
+  AddToCartFunc,
+  AddToCartDiscFunc,
+} from "../../function";
 import { ToastContainer, toast } from "react-toastify";
 import jwt_decode from "jwt-decode";
 import AuthContext from "../../Components/context/AuthProvider.js";
@@ -20,10 +26,22 @@ function ProductDetailsPage() {
   var i = 0;
 
   const [productDetails, setProductDetails] = useState([]);
+  const [productRec, setProductRec] = useState([]);
+  const [discountProductDetails, setDiscountProductDetails] = useState([]);
 
   useEffect(() => {
     setProductDetails([]);
-    FetchProduct(product_name).then(setProductDetails);
+    SearchProduct(product_name).then(setProductDetails);
+  }, []);
+
+  useEffect(() => {
+    setProductRec([]);
+    FetchProduct().then(setProductRec);
+  }, []);
+
+  useEffect(() => {
+    setDiscountProductDetails([]);
+    FetchDiscountProduct().then(setDiscountProductDetails);
   }, []);
 
   const [counter, setCounter] = useState(1);
@@ -51,7 +69,6 @@ function ProductDetailsPage() {
   const handleCartSubmit = async (e, product_id) => {
     e.preventDefault();
     const message = await AddToCartFunc(userId.user_id, product_id, counter);
-    console.log(message);
 
     if (message.status === 200) {
       toast.success(`${message.data.message}  🛒`, {
@@ -75,7 +92,7 @@ function ProductDetailsPage() {
   const HorCardContainer = () => (
     <div className="horizontal-cards-container">
       {/* mapping api products */}
-      {productDetails
+      {productRec
         ?.slice((i = randomInteger(1, 93)), i + 6)
         .map(function (key, index) {
           return (
@@ -118,81 +135,160 @@ function ProductDetailsPage() {
 
   return (
     <div className="item-details-page-container">
-      {console.log(product_name)}
-      {productDetails
-        ?.filter((list) => list.product_name === product_name)
-        .map((obj) => (
-          <div>
-            {console.log(obj.product_id)}
-            <div className="product-directory">
-              <p>{parentDirectory}</p>
-              <ArrowForwardIos sx={{ fontSize: "14px" }} />{" "}
-              <p>{obj.product_category}</p>
-            </div>
-            <div className="above-container">
-              <div className="image-container">
-                <div className="discount-percentage">
-                  <text>50% OFF</text>
+      {productDetails.length !== 0
+        ? productDetails
+            ?.filter((list) => list.product_name === product_name)
+            .map((obj) => (
+              <div>
+                {console.log("true")}
+                <div className="product-directory">
+                  <p>{parentDirectory}</p>
+                  <ArrowForwardIos sx={{ fontSize: "14px" }} />{" "}
+                  <p>{obj.product_category}</p>
                 </div>
-                <img src={obj.product_image} alt={obj.product_name}></img>
-              </div>
-              <div className="item-info-container">
-                <div className="item-info">
-                  <p className="item-name">{obj.product_name}</p>
-                  <p className="description-header">Description</p>
-                  <p className="description">{obj.product_description}</p>
-                </div>
-                <hr></hr>
-                <div className="actions">
-                  <div className="price-quantity">
-                    <div className="only-price">
-                      <p className="new-price">
-                        Price:<p className="RM">RM</p>
-                        <p className="price-value">
-                          {obj.product_price.toFixed(2)}
-                        </p>
-                      </p>
-                      <p className="old-price">
-                        <strike>RM16</strike>
-                      </p>
+                <div className="above-container">
+                  <div className="image-container">
+                    <div className="discount-percentage">
+                      <text>50% OFF</text>
                     </div>
+                    <img src={obj.product_image} alt={obj.product_name}></img>
+                  </div>
+                  <div className="item-info-container">
+                    <div className="item-info">
+                      <p className="item-name">{obj.product_name}</p>
+                      <p className="description-header">Description</p>
+                      <p className="description">{obj.product_description}</p>
+                    </div>
+                    <hr></hr>
+                    <div className="actions">
+                      <div className="price-quantity">
+                        <div className="only-price">
+                          <p className="new-price">
+                            Price:<p className="RM">RM</p>
+                            <p className="price-value">
+                              {obj.product_price.toFixed(2)}
+                            </p>
+                          </p>
+                          <p className="old-price">
+                            <strike>RM16</strike>
+                          </p>
+                        </div>
 
-                    <div className="quantity-adjust">
-                      <p className="quantity-header">Quantity:</p>
-                      <div className="quantity-container">
-                        <IndeterminateCheckBoxOutlined
-                          onClick={handleSub}
-                          className="minus-btn"
-                        />
-                        <div className="quantity-value">{counter}</div>
-                        <AddBoxOutlined
-                          onClick={handleAdd}
-                          className="plus-btn"
-                        />
+                        <div className="quantity-adjust">
+                          <p className="quantity-header">Quantity:</p>
+                          <div className="quantity-container">
+                            <IndeterminateCheckBoxOutlined
+                              onClick={handleSub}
+                              className="minus-btn"
+                            />
+                            <div className="quantity-value">{counter}</div>
+                            <AddBoxOutlined
+                              onClick={handleAdd}
+                              className="plus-btn"
+                            />
+                          </div>
+                        </div>
                       </div>
+                      <button
+                        className="add-to-cart"
+                        onClick={(e) => {
+                          handleCartSubmit(e, obj.product_id);
+                        }}
+                      >
+                        ADD TO CART
+                      </button>
                     </div>
                   </div>
-                  <button
-                    className="add-to-cart"
-                    onClick={(e) => {
-                      handleCartSubmit(e, obj.product_id);
-                    }}
-                  >
-                    ADD TO CART
-                  </button>
                 </div>
+                <div className="suggestions">
+                  <p className="suggestion-header">Customer Also Bought</p>
+                  <hr></hr>
+                  <div className="product-list-container">
+                    <HorCardContainer />
+                  </div>
+                </div>
+                <ToastContainer />
               </div>
-            </div>
-            <div className="suggestions">
-              <p className="suggestion-header">Customer Also Bought</p>
-              <hr></hr>
-              <div className="product-list-container">
-                <HorCardContainer />
+            ))
+        : discountProductDetails
+            ?.filter((list) => list.discount_product_name === product_name)
+            .map((obj) => (
+              <div>
+                {console.log(obj.discount_product_id)}
+                <div className="product-directory">
+                  <p>{parentDirectory}</p>
+                  <ArrowForwardIos sx={{ fontSize: "14px" }} />{" "}
+                  <p>{obj.discount_product_category}</p>
+                </div>
+                <div className="above-container">
+                  <div className="image-container">
+                    <div className="discount-percentage">
+                      <text>50% OFF</text>
+                    </div>
+                    <img
+                      src={obj.discount_product_image}
+                      alt={obj.discount_product_name}
+                    ></img>
+                  </div>
+                  <div className="item-info-container">
+                    <div className="item-info">
+                      <p className="item-name">{obj.discount_product_name}</p>
+                      <p className="description-header">Description</p>
+                      <p className="description">
+                        {obj.discount_product_description}
+                      </p>
+                    </div>
+                    <hr></hr>
+                    <div className="actions">
+                      <div className="price-quantity">
+                        <div className="only-price">
+                          <p className="new-price">
+                            Price:<p className="RM">RM</p>
+                            <p className="price-value">
+                              {obj.discount_product_price.toFixed(2)}
+                            </p>
+                          </p>
+                          <p className="old-price">
+                            <strike>RM16</strike>
+                          </p>
+                        </div>
+
+                        <div className="quantity-adjust">
+                          <p className="quantity-header">Quantity:</p>
+                          <div className="quantity-container">
+                            <IndeterminateCheckBoxOutlined
+                              onClick={handleSub}
+                              className="minus-btn"
+                            />
+                            <div className="quantity-value">{counter}</div>
+                            <AddBoxOutlined
+                              onClick={handleAdd}
+                              className="plus-btn"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        className="add-to-cart"
+                        onClick={(e) => {
+                          handleCartSubmit(e, obj.discount_product_id);
+                        }}
+                      >
+                        ADD TO CART
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div className="suggestions">
+                  <p className="suggestion-header">Customer Also Bought</p>
+                  <hr></hr>
+                  <div className="product-list-container">
+                    <HorCardContainer />
+                  </div>
+                </div>
+                <ToastContainer />
               </div>
-            </div>
-            <ToastContainer />
-          </div>
-        ))}
+            ))}
     </div>
   );
 }

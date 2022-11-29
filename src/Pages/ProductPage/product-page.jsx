@@ -92,17 +92,7 @@ function MarketplacePage() {
               <div
                 className="product-image"
                 onClick={() => {
-                  navigate(`/product-details/${data.product_name}`, {
-                    state: {
-                      product_name: data.product_name,
-                      product_description: data.product_description,
-                      product_category: data.product_category,
-                      product_price: data.product_price,
-                      product_quantity: data.product_quantity,
-                      product_image: data.product_image,
-                      product_id: data.product_id,
-                    },
-                  });
+                  navigate(`/product-details/${data.product_name}`);
                 }}
               >
                 <img src={data.product_image} />
@@ -110,18 +100,7 @@ function MarketplacePage() {
               <p
                 className="product-name"
                 onClick={() => {
-                  debugger;
-                  navigate(`/product-details/${data.product_id}`, {
-                    state: {
-                      product_name: data.product_name,
-                      product_description: data.product_description,
-                      product_category: data.product_category,
-                      product_price: data.product_price,
-                      product_quantity: data.product_quantity,
-                      product_image: data.product_image,
-                      product_id: data.product_id,
-                    },
-                  });
+                  navigate(`/product-details/${data.product_name}`);
                 }}
               >
                 {data.product_name}
