@@ -18,7 +18,6 @@ function EditProfilePage() {
   const navigate = useNavigate();
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
-  console.log(userId.user_id);
   const color = "#009688";
 
   const [passwordVisibility, setPasswordVisibility] = useState(false);
@@ -28,41 +27,50 @@ function EditProfilePage() {
     first_name: "",
     last_name: "",
     email: "",
+    phone_number: "",
     password: "",
     oldpassword: "",
   });
 
   const [formErrors, setFormErrors] = useState({});
+  //oldpassword
+  const [errMsg, setErrMsg] = useState("");
+
   const errRef = useRef();
   const handleDOBChange = (newDOB) => {
     setDOB(newDOB);
   };
-
-  // useEffect(() => {
-  //   // console.log(formErrors);
-  //   if (Object.keys(formErrors).length === 0) {
-  //     console.log(profileValues);
-  //   }
-  // }, [formErrors]);
+  //
+  useEffect(() => {
+    setErrMsg("");
+  }, [profileValues.oldpassword]);
 
   const editProfile = async (e) => {
     e.preventDefault();
-    // console.log(profileValues);
-    // console.log(validate(profileValues));
-    setFormErrors(validate(profileValues, dob));
-    console.log(formErrors);
 
-    if (!formErrors) {
-      UpdateProfileFunc(
+    setFormErrors(validate(profileValues, dob));
+    // console.log(formErrors);
+
+    if (Object.keys(formErrors).length === 0) {
+      // console.log("updating");
+
+      const message = await UpdateProfileFunc(
         profileValues.first_name.toString(),
         profileValues.last_name.toString(),
-        profileValues.email.toString(),
         dob.toString(),
-        profileValues.oldpassword.toString(),
-        profileValues.password.toString(),
+        profileValues.email.toString(),
+        profileValues.phone_number.toString(),
+        profileValues.oldpassword,
+        profileValues.password,
         userId.user_id
       );
-      navigate("/profile");
+
+      if (message === undefined) {
+      } else {
+        setErrMsg(message.error);
+      }
+
+      // navigate("/profile");
     }
   };
 
@@ -70,35 +78,50 @@ function EditProfilePage() {
     const errors = {};
     var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     var regName = /^[A-Za-z]+$/;
+    var regPass =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 
-    if (!regName.test(values.first_name)) {
-      errors.first_name = "*Should contain only alphabets";
-    }
-    if (!regName.test(values.last_name)) {
-      errors.last_name = "*Should contain only alphabets";
-    }
-    if (!regEmail.test(values.email)) {
-      errors.email = "*Email format not correct";
-    }
-
-    if (!values.oldpassword) {
-      errors.oldpassword = "*Old password is required";
+    if (values.first_name) {
+      console.log("got value");
+      if (regName.test(values.first_name)) {
+        console.log("contains alphabet");
+      } else {
+        console.log("no contain alphabet only");
+        errors.first_name = "*first name should contain only alphabets";
+      }
     }
 
-    if (!values.password) {
-      errors.password = "*New Password is required";
+    if (values.last_name) {
+      console.log("got value");
+      if (regName.test(values.last_name)) {
+        console.log("contains alphabet");
+      } else {
+        console.log("no contain alphabet only");
+        errors.last_name = "*last name should contain only alphabets";
+      }
     }
 
-    //   if (oldPass !== newPass){
-    //   }
-    //   // if pw1 === pw2
-    //   //editProfile
-    //   //else
-    //   //throw error
-    //   //
-    //   //
-    //   //
-    //   editProfile;
+    if (values.email) {
+      console.log("got value");
+      if (regEmail.test(values.email)) {
+        console.log("proper email format");
+      } else {
+        console.log("wrong email format");
+        errors.email = "*wrong email format";
+      }
+    }
+
+    if (values.password) {
+      if (values.password && !values.oldpassword) {
+        errors.password = "Please input old password to change new password";
+      } else if (values.password.length < 8) {
+        errors.password = "Password should consists at least 8 characters";
+      } else if (!regPass.test(values.password)) {
+        errors.password =
+          "Password should consists of at least 1 lowercase, 1 uppercase, 1 numeric and 1 special character";
+      }
+    }
+
     return errors;
   };
 
@@ -137,10 +160,12 @@ function EditProfilePage() {
                   className="form-control-mt-1"
                   placeholder="First Name"
                   onChange={(e) => {
-                    updateProfileValues({
-                      ...profileValues,
-                      first_name: e.target.value,
-                    });
+                    validate(
+                      updateProfileValues({
+                        ...profileValues,
+                        first_name: e.target.value,
+                      })
+                    );
                   }}
                   value={profileValues.first_name}
                 />
@@ -152,10 +177,12 @@ function EditProfilePage() {
                   className="form-control-mt-1"
                   placeholder="Last Name"
                   onChange={(e) => {
-                    updateProfileValues({
-                      ...profileValues,
-                      last_name: e.target.value,
-                    });
+                    validate(
+                      updateProfileValues({
+                        ...profileValues,
+                        last_name: e.target.value,
+                      })
+                    );
                   }}
                   value={profileValues.last_name}
                 />
@@ -215,7 +242,7 @@ function EditProfilePage() {
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DesktopDatePicker
                     className="form-control-mt-1"
-                    InputProps={{ disableUnderline: true }}
+                    InputProps={{ readOnly: true, disableUnderline: true }}
                     inputFormat="MM/DD/YYYY"
                     value={dob}
                     onChange={handleDOBChange}
@@ -345,19 +372,18 @@ function EditProfilePage() {
               <td>
                 {" "}
                 <div className="errMsg">
-                  {formErrors.oldpassword && (
+                  {errMsg && (
                     <p
                       ref={errRef}
-                      className={
-                        formErrors.oldpassword ? "errmsg" : "offscreen"
-                      }
+                      className={errMsg ? "errmsg" : "offscreen"}
                       aria-live="assertive"
                     >
-                      {formErrors.oldpassword}
+                      {errMsg}
                     </p>
                   )}
                 </div>
               </td>
+
               <td>
                 {" "}
                 <div className="errMsg">

@@ -130,8 +130,9 @@ async function FetchDiscountProduct() {
 async function UpdateProfileFunc(
   first_name,
   last_name,
-  email,
   date_of_birth,
+  email,
+  phone_number,
   oldPassword,
   password,
   user_id
@@ -143,8 +144,9 @@ async function UpdateProfileFunc(
       {
         first_name: first_name,
         last_name: last_name,
-        email: email,
         date_of_birth: date_of_birth,
+        email: email,
+        phone_number: phone_number,
         oldPassword: oldPassword,
         password: password,
         user_id: user_id,
@@ -153,6 +155,7 @@ async function UpdateProfileFunc(
     );
   } catch (err) {
     console.log(err.response.data);
+    return err.response.data;
   }
 }
 
@@ -171,6 +174,7 @@ async function AddToCartFunc(user_id, product_id, product_quantity) {
     return response;
   } catch (err) {
     console.log(err.response.data);
+    return err.response.data;
   }
 }
 

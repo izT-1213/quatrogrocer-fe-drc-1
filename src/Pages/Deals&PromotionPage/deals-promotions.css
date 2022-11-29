@@ -162,7 +162,7 @@ a:active {
 
 @media screen and (max-width: 961px) {
   .deals-promotions-page {
-    height: 76rem;
+    height: 100%;
     padding: 0 2rem;
   }
   .deals-promotions-section .product-cards .medium-horizontal-cards-container .card-container .medium-horizontal-card {
