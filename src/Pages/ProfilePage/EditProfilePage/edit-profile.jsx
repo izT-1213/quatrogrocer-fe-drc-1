@@ -10,15 +10,14 @@ import { UpdateProfileFunc } from "../../../function";
 
 import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-
 import AuthContext from "../../../Components/context/AuthProvider.js";
 import jwt_decode from "jwt-decode";
 
 function EditProfilePage() {
-  const navigate = useNavigate();
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
   const color = "#009688";
+  const navigate = useNavigate();
 
   const [passwordVisibility, setPasswordVisibility] = useState(false);
   const [dob, setDOB] = useState("");
@@ -121,6 +120,37 @@ function EditProfilePage() {
           "Password should consists of at least 1 lowercase, 1 uppercase, 1 numeric and 1 special character";
       }
     }
+    return errors;
+
+    // if (!values.first_name) {
+    //   errors.first_name = "*First Name is required";
+    // }
+    // if (!values.last_name) {
+    //   errors.last_name = "*Last Name is required";
+    // }
+    // if (!values.email) {
+    //   errors.email = "*Email is required";
+    // }
+
+    // if (!dob) {
+    //   errors.dob = "*DOB is required";
+    // }
+
+    // if (!values.oldpassword) {
+    //   errors.oldpassword = "*Old password is required";
+    // }
+
+    // if (!values.password) {
+    //   errors.password = "*New Password is required";
+    // }
+
+    // if pw1 === pw2
+    //editProfile
+    //else
+    //throw error
+    //
+    //
+    //
 
     return errors;
   };
@@ -458,7 +488,7 @@ function EditProfilePage() {
                 : true
             }
             onClick={
-              // validate();
+              // validate
               editProfile
             }
           >
