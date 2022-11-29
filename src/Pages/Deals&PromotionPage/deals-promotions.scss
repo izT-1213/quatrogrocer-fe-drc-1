@@ -9,9 +9,8 @@
 }
 
 .deals-promotions-page {
-  height: 50rem;
-  display: flex;
-  padding: 0 19.5rem;
+  height: 75rem;
+  padding: 0 18rem;
 }
 
 .deals-promotions-section {
@@ -29,5 +28,46 @@
     width: 18rem;
     background-color: $primary-color;
     border: 3px solid $primary-color;
+  }
+
+  .product-cards {
+    padding: 2rem 0 0;
+    height: 43.375rem;
+    width: 100%;
+
+    .medium-horizontal-cards-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+      height: 100%;
+
+      .card-container {
+        padding-bottom: 2rem;
+        .medium-horizontal-card {
+          @include medium-horizontal-card;
+          width: 40rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 961px) {
+  .deals-promotions-page {
+    height: 100%;
+    padding: 0 2rem;
+  }
+
+  .deals-promotions-section {
+    .product-cards {
+      .medium-horizontal-cards-container {
+        .card-container {
+          .medium-horizontal-card {
+            width: 25.75rem;
+          }
+        }
+      }
+    }
   }
 }

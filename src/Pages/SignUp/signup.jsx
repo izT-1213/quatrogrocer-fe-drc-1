@@ -292,13 +292,14 @@ function SignUpPage() {
                 </div>
               </div>
               <div className="sign-in-text-center">
-                Already have an account?
-                <a>
-                  <Link to="/login" className="signin-link">
-                    {" "}
-                    Log In
-                  </Link>
-                </a>
+                Already have an account?{" "}
+                <u>
+                  <a>
+                    <Link to="/login" className="signin-link">
+                      Log In
+                    </Link>
+                  </a>
+                </u>
               </div>
             </form>
           </div>

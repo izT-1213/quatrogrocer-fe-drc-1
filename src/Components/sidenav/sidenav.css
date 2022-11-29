@@ -54,7 +54,7 @@ a:active {
 
 .side-nav {
   height: 100%;
-  width: 27.56rem;
+  width: 15rem;
   background-color: #ffffff;
   box-shadow: 0.625rem 0 1rem -0.25rem rgba(16, 24, 40, 0.04), 0.25rem 0 0.5rem -0.125rem rgba(16, 24, 40, 0.04);
 }
@@ -78,4 +78,14 @@ a:active {
 }
 .side-nav .category-list ul li:hover {
   color: #009688;
+}
+
+@media screen and (max-width: 961px) {
+  .side-nav {
+    height: 100%;
+    width: 18rem;
+  }
+  .side-nav .side-nav-title h4 {
+    font-size: 1.75rem;
+  }
 }/*# sourceMappingURL=sidenav.css.map */

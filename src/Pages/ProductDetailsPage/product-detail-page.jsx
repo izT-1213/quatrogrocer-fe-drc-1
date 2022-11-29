@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import jwt_decode from "jwt-decode";
-import AuthContext from "../../Components/context/AuthProvider.js";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   ArrowForwardIos,
@@ -10,6 +8,8 @@ import {
 } from "@mui/icons-material";
 import { FetchProduct, AddToCartFunc, AddToCartDiscFunc } from "../../function";
 import { ToastContainer, toast } from "react-toastify";
+import jwt_decode from "jwt-decode";
+import AuthContext from "../../Components/context/AuthProvider.js";
 import "../ProductDetailsPage/product-detail-page.css";
 
 function ProductDetailsPage() {
@@ -18,6 +18,13 @@ function ProductDetailsPage() {
   const userId = jwt_decode(jwtToken);
   const navigate = useNavigate();
   var i = 0;
+
+  const [productDetails, setProductDetails] = useState([]);
+
+  useEffect(() => {
+    setProductDetails([]);
+    FetchProduct(product_name).then(setProductDetails);
+  }, []);
 
   const [counter, setCounter] = useState(1);
   const handleAdd = () => {
@@ -29,26 +36,37 @@ function ProductDetailsPage() {
     }
   };
 
-  const [cartValues, updateCartValues] = useState({
-    user_id: userId.user_id,
-    product_id: "",
-    product_quantity: counter,
-  });
+  // const [cartValues, updateCartValues] = useState({
+  //   user_id: userId.user_id,
+  //   product_id: "",
+  //   product_quantity: 0,
+  // });
 
-  const [cartDiscountValues, updateDiscountCartValues] = useState({
-    user_id: userId.user_id,
-    discount_product_id: "",
-    product_quantity: "",
-  });
+  // const [cartDiscountValues, updateDiscountCartValues] = useState({
+  //   user_id: userId.user_id,
+  //   discount_product_id: "",
+  //   product_quantity: 0,
+  // });
 
-  const handleCartSubmit = async (e) => {
+  const handleCartSubmit = async (e, product_id) => {
     e.preventDefault();
-    const message = await AddToCartFunc(userId.user_id, counter);
+    const message = await AddToCartFunc(userId.user_id, product_id, counter);
+    console.log(message);
+
+    if (message.status === 200) {
+      toast.success(`${message.data.message}  🛒`, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
-  // useEffect(()=>{
-  //   updateCartValues([])
-  // })
   const handleDiscountCartSubmit = async (e) => {
     e.preventDefault();
     const message = await AddToCartDiscFunc(
@@ -56,12 +74,6 @@ function ProductDetailsPage() {
       cartDiscountValues.discount_product_id,
       cartDiscountValues.product_quantity
     );
-
-    if (message === undefined) {
-      navigate("/");
-    } else {
-      console.log(message);
-    }
   };
 
   var parentDirectory = "Marketplace";
@@ -113,23 +125,11 @@ function ProductDetailsPage() {
     </div>
   );
 
-  const notify = () => {
-    toast.success("Item added to cart! 🛒", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
-
   return (
     <div className="item-details-page-container">
+      {console.log(product_name)}
       {productDetails
-        .filter((list) => list.product_name === product_name)
+        ?.filter((list) => list.product_name === product_name)
         .map((obj) => (
           <div>
             {console.log(obj.product_id)}
@@ -181,16 +181,17 @@ function ProductDetailsPage() {
                       </div>
                     </div>
                   </div>
-                  <button className="add-to-cart" onClick={notify}>
+                  <button
+                    className="add-to-cart"
+                    onClick={(e) => {
+                      handleCartSubmit(e, obj.product_id);
+                    }}
+                  >
                     ADD TO CART
                   </button>
                 </div>
               </div>
             </div>
-            <button className="add-to-cart" onClick={handleCartSubmit}>
-              ADD TO CART
-            </button>
-            <hr></hr>
             <div className="suggestions">
               <p className="suggestion-header">Customer Also Bought</p>
               <hr></hr>
