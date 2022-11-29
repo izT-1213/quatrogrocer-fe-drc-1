@@ -253,7 +253,7 @@ a:active {
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
   display: grid;
   grid-template-areas: "image name name" "image name name" "image price button";
-  width: 22vw;
+  width: 21vw;
   height: 21.7vh;
   border-radius: 0.125rem;
   background-color: #ffffff;
@@ -778,7 +778,7 @@ a:active {
     box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
     display: grid;
     grid-template-areas: "image name name" "image name name" "image price button";
-    width: 22vw;
+    width: 21vw;
     height: 21.7vh;
     border-radius: 0.125rem;
     background-color: #ffffff;
@@ -1066,7 +1066,7 @@ a:active {
     box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
     display: grid;
     grid-template-areas: "image name name" "image name name" "image price button";
-    width: 22vw;
+    width: 21vw;
     height: 21.7vh;
     border-radius: 0.125rem;
     background-color: #ffffff;
