@@ -10,7 +10,7 @@ import { UpdateProfileFunc } from "../../../function";
 
 import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import dayjs from "dayjs";
+
 import AuthContext from "../../../Components/context/AuthProvider.js";
 import jwt_decode from "jwt-decode";
 
@@ -22,7 +22,7 @@ function EditProfilePage() {
   const color = "#009688";
 
   const [passwordVisibility, setPasswordVisibility] = useState(false);
-  const [dob, setDOB] = useState(dayjs(""));
+  const [dob, setDOB] = useState("");
 
   const [profileValues, updateProfileValues] = useState({
     first_name: "",
@@ -66,21 +66,19 @@ function EditProfilePage() {
     }
   };
 
-  const validate = (values, dob) => {
+  const validate = (values) => {
     const errors = {};
-    // const regex=
-    if (!values.first_name) {
-      errors.first_name = "*First Name is required";
-    }
-    if (!values.last_name) {
-      errors.last_name = "*Last Name is required";
-    }
-    if (!values.email) {
-      errors.email = "*Email is required";
-    }
+    var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var regName = /^[A-Za-z]+$/;
 
-    if (!dob) {
-      errors.dob = "*DOB is required";
+    if (!regName.test(values.first_name)) {
+      errors.first_name = "*Should contain only alphabets";
+    }
+    if (!regName.test(values.last_name)) {
+      errors.last_name = "*Should contain only alphabets";
+    }
+    if (!regEmail.test(values.email)) {
+      errors.email = "*Email format not correct";
     }
 
     if (!values.oldpassword) {
@@ -424,6 +422,15 @@ function EditProfilePage() {
           <button
             className="submit-edit"
             type="submit"
+            disabled={
+              profileValues.email ||
+              profileValues.first_name ||
+              profileValues.last_name ||
+              dob ||
+              (profileValues.oldpassword && profileValues.password)
+                ? false
+                : true
+            }
             onClick={
               // validate();
               editProfile

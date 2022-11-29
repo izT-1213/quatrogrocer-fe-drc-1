@@ -204,4 +204,16 @@ a:active {
 }
 .edit-profile-page-container .buttons-container .submit-button-container .submit-edit:hover {
   background-color: #ff5722;
+}
+.edit-profile-page-container .buttons-container .submit-button-container .submit-edit:disabled,
+.edit-profile-page-container .buttons-container .submit-button-container .submit-edit button[disabled] {
+  background-color: #9e9e9e;
+  color: #666666;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 961px) {
+  .edit-profile-page-container {
+    padding: 2.188rem 2rem;
+  }
 }/*# sourceMappingURL=edit-profile.css.map */

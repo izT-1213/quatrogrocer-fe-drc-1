@@ -185,7 +185,20 @@
         &:hover {
           background-color: $secondary-hover-color;
         }
+        &:disabled,
+        button[disabled] {
+          background-color: $grey-color;
+          color: #666666;
+
+          pointer-events: none;
+        }
       }
     }
+  }
+}
+
+@media screen and (max-width: 961px) {
+  .edit-profile-page-container {
+    padding: 2.188rem 2rem;
   }
 }
