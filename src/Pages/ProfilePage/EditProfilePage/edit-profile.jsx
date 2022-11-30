@@ -35,6 +35,7 @@ function EditProfilePage() {
   //oldpassword
   const [errMsg, setErrMsg] = useState("");
   const [msg, setMsg] = useState("");
+  const [confirmMsg, setConfirmMsg] = useState("");
 
   const errRef = useRef();
   const handleDOBChange = (newDOB) => {
@@ -58,14 +59,20 @@ function EditProfilePage() {
 
   const editProfile = async (e) => {
     e.preventDefault();
-
+    console.log(errRef.current);
     // console.log(validate(profileValues));
-    console.log(setFormErrors(validate(profileValues)));
+    setFormErrors(validate(profileValues));
+    console.log(errRef.current);
+    if (validate(profileValues === true)) {
+      setConfirmMsg("Please click again to confirm");
+    }
+    console.log(formErrors.last_name);
+    console.log(Object.keys(formErrors).length);
+    Object.keys(formErrors).map((key) => {
+      console.log(formErrors[key]);
+    });
 
-    if (
-      Object.keys(formErrors).length === 0 ||
-      setFormErrors(validate(profileValues == undefined))
-    ) {
+    if (Object.keys(formErrors).length === 0) {
       // if (!formErrors) {
       console.log(Object.keys(formErrors).length);
       console.log(userId.user_id);
@@ -125,6 +132,7 @@ function EditProfilePage() {
         if (message1 === undefined) {
           setMsg("Updated successfully");
           setErrMsg("");
+          navigate("/profile");
         } else {
           setErrMsg(message1.error);
         }
@@ -144,6 +152,7 @@ function EditProfilePage() {
         );
         if (message2 === undefined) {
           setMsg("Updated successfully");
+          navigate("/profile");
         } else {
           setErrMsg(message2.error);
         }
@@ -165,8 +174,12 @@ function EditProfilePage() {
       if (!regName.test(values.first_name)) {
         console.log("no contain alphabet only");
         errors.first_name = "*first name should contain only alphabets";
+      } else if (!values.oldpassword) {
+        console.log("false");
+        errors.oldpassword = "Please key in current password to update changes";
       } else {
         console.log("contains alphabet");
+        return true;
       }
     }
 
@@ -175,8 +188,12 @@ function EditProfilePage() {
       if (!regName.test(values.last_name)) {
         console.log("no contain alphabet only");
         errors.last_name = "*last name should contain only alphabets";
+      } else if (!values.oldpassword) {
+        console.log("false");
+        errors.oldpassword = "Please key in current password to update changes";
       } else {
         console.log("contains alphabet");
+        return true;
       }
     }
 
@@ -185,15 +202,19 @@ function EditProfilePage() {
       if (!regEmail.test(values.email)) {
         console.log("wrong email format");
         errors.email = "*wrong email format";
+      } else if (!values.oldpassword) {
+        console.log("false");
+        errors.oldpassword = "Please key in current password to update changes";
       } else {
         console.log("proper email format");
+        return true;
       }
     }
 
-    if (!values.oldpassword) {
-      console.log("false");
-      errors.oldpassword = "Please key in current password to update changes";
-    }
+    // if (!values.oldpassword) {
+    //   console.log("false");
+    //   errors.oldpassword = "Please key in current password to update changes";
+    // }
 
     // if (values.password) {
     //   if (!values.password || !values.oldpassword) {
@@ -473,17 +494,30 @@ function EditProfilePage() {
             </tr>
             <tr>
               <td>
-                {" "}
                 <div className="errMsg">
-                  {formErrors.oldpassword && (
-                    <p
-                      ref={errRef}
-                      className={errMsg ? "errmsg" : "offscreen"}
-                      aria-live="assertive"
-                    >
-                      {formErrors.oldpassword}
-                    </p>
-                  )}
+                  {formErrors.oldpassword
+                    ? formErrors.oldpassword && (
+                        <p
+                          ref={errRef}
+                          className={
+                            formErrors.oldpassword ? "errmsg" : "offscreen"
+                          }
+                          aria-live="assertive"
+                        >
+                          {formErrors.oldpassword}
+                        </p>
+                      )
+                    : errMsg
+                    ? errMsg && (
+                        <p
+                          ref={errRef}
+                          className={errMsg ? "errmsg" : "offscreen"}
+                          aria-live="assertive"
+                        >
+                          {errMsg}
+                        </p>
+                      )
+                    : ""}
                 </div>
               </td>
               <td>
@@ -579,6 +613,16 @@ function EditProfilePage() {
           >
             Submit
           </button>
+        </div>
+        <div className="msg">
+          {confirmMsg && (
+            <p
+              className={confirmMsg ? "errmsg" : "offscreen"}
+              aria-live="assertive"
+            >
+              {confirmMsg}
+            </p>
+          )}
         </div>
       </div>
     </div>
