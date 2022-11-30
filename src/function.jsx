@@ -35,18 +35,14 @@ async function RegisterFunc(email, pass, fname, lname, dob, gender) {
   }
 }
 
-async function FetchUser(user_id) {
+async function FetchUser(userId) {
   try {
-    console.log(user_id);
     const response = await Axios.post(
-      "http://localhost:5000/quatro_user/search",
-      {
-        params: { user_id: user_id },
-      }
+      `http://localhost:5000/quatro_user/search?user_id=${userId}`
     );
-    console.log(response.data.result);
     return response.data.result;
   } catch (err) {
+    console.log(err.response.data);
     return err.response.data;
   }
 }

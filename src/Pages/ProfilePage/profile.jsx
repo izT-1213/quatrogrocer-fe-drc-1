@@ -17,7 +17,6 @@ function UserProfilePage() {
 
   useEffect(() => {
     setAddressDetails({});
-
     GetUserAddress(userId.user_id).then(setAddressDetails);
   }, [userId.user_id]);
 
@@ -68,12 +67,16 @@ function UserProfilePage() {
             <tr>
               <th>
                 Available credits:<text className="RM">RM</text>
-                <text className="credit-value">200</text>
+                <text className="credit-value">
+                  {profileDetails.user_credit}
+                </text>
               </th>
               <th></th>
             </tr>
             <tr>
-              <td className="user-name">Steven James</td>
+              <td className="user-name">
+                {profileDetails.first_name} {profileDetails.last_name}
+              </td>
               <td className="edit">
                 <a>
                   <Link to="/profile/edit-profile" className="edit-link">
@@ -101,13 +104,13 @@ function UserProfilePage() {
               <td>60186907892</td>
             </tr>
             <tr>
-              <td>sjparty@gmail.com</td>
+              <td>{profileDetails.email}</td>
             </tr>
             <tr>
               <td className="view-address">
                 <a>
                   <Link to="/profile/addresses" className="view-address-link">
-                    View Addresses [1]
+                    View Addresses [{addressDetails.length}]
                   </Link>
                 </a>
               </td>
