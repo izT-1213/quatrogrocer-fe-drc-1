@@ -42,11 +42,11 @@ function ProductDetailsPage() {
   //   product_quantity: 0,
   // });
 
-  // const [cartDiscountValues, updateDiscountCartValues] = useState({
-  //   user_id: userId.user_id,
-  //   discount_product_id: "",
-  //   product_quantity: 0,
-  // });
+  const [cartDiscountValues, updateDiscountCartValues] = useState({
+    user_id: userId.user_id,
+    discount_product_id: "",
+    product_quantity: 0,
+  });
 
   const handleCartSubmit = async (e, product_id) => {
     e.preventDefault();
