@@ -70,11 +70,11 @@ function ProductDetailsPage() {
   //   product_quantity: 0,
   // });
 
-  // const [cartDiscountValues, updateDiscountCartValues] = useState({
-  //   user_id: userId.user_id,
-  //   discount_product_id: "",
-  //   product_quantity: 0,
-  // });
+  const [cartDiscountValues, updateDiscountCartValues] = useState({
+    user_id: userId.user_id,
+    discount_product_id: "",
+    product_quantity: 0,
+  });
 
   const handleCartSubmit = async (e, product_id) => {
     e.preventDefault();
@@ -92,6 +92,15 @@ function ProductDetailsPage() {
         theme: "light",
       });
     }
+  };
+
+  const handleDiscountCartSubmit = async (e) => {
+    e.preventDefault();
+    const message = await AddToCartDiscFunc(
+      cartDiscountValues.user_id,
+      cartDiscountValues.discount_product_id,
+      cartDiscountValues.product_quantity
+    );
   };
 
   var parentDirectory = "Marketplace";
