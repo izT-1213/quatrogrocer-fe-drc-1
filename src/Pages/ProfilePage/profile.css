@@ -163,4 +163,10 @@ a:active {
 }
 .profile-page-container .account-details-container .account-details-table .view-address-link {
   color: black;
+}
+
+@media screen and (max-width: 1105px) {
+  .profile-page-container {
+    padding: 32px 2rem;
+  }
 }/*# sourceMappingURL=profile.css.map */
