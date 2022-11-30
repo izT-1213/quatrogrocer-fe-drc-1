@@ -135,7 +135,6 @@ async function UpdateProfileFunc(
   email,
   phone_number,
   oldPassword,
-  password,
   user_id
 ) {
   try {
@@ -148,6 +147,24 @@ async function UpdateProfileFunc(
         date_of_birth: date_of_birth,
         email: email,
         phone_number: phone_number,
+        oldPassword: oldPassword,
+        user_id: user_id,
+      },
+      { withCredentials: true } //hassif port 3002
+    );
+  } catch (err) {
+    console.log(err.response.data);
+    return err.response.data;
+  }
+}
+
+async function UpdatePasswordFunc(oldPassword, password, user_id) {
+  console.log(password ? true : false);
+  try {
+    await Axios.post(
+      "http://localhost:5004/quatro_user/update_password",
+
+      {
         oldPassword: oldPassword,
         password: password,
         user_id: user_id,
@@ -211,6 +228,7 @@ export {
   SearchProduct,
   UpdateAddressFunc,
   UpdateProfileFunc,
+  UpdatePasswordFunc,
   AddToCartFunc,
   AddToCartDiscFunc,
 };
