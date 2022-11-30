@@ -302,8 +302,8 @@ p {
 
 @media screen and (max-width: 961px) {
   .sign-up-page-container .sign-up-container .sign-up-container-content {
-    width: 26rem;
-    height: 43.75rem;
+    width: 25rem;
+    height: 42rem;
     padding: 2rem;
   }
   .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-title {
@@ -322,5 +322,8 @@ p {
   .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .form-control-mt-1,
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-signin-btn {
     width: 90%;
+  }
+  .sign-up-page-container .signup-image-container {
+    width: 100%;
   }
 }/*# sourceMappingURL=signup.css.map */

@@ -203,8 +203,10 @@ p {
 @media screen and (max-width: 961px) {
   .login-page-container {
     .login-container {
+      width: 100%;
+
       .login-container-content {
-        width: 26rem;
+        width: 25rem;
         height: 36rem;
         padding: 2rem;
 

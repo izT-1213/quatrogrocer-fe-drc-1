@@ -295,8 +295,8 @@ p {
   .sign-up-page-container {
     .sign-up-container {
       .sign-up-container-content {
-        width: 26rem;
-        height: 43.75rem;
+        width: 25rem;
+        height: 42rem;
         padding: 2rem;
 
         .sign-up-form-content {
@@ -325,6 +325,10 @@ p {
           }
         }
       }
+    }
+
+    .signup-image-container {
+      width: 100%;
     }
   }
 }

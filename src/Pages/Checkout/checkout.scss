@@ -8,7 +8,7 @@
 }
 
 .checkout-page-container {
-  padding: 2rem 19.5rem;
+  padding: 2rem 18rem;
   display: grid;
   grid-template:
     "header header"
@@ -334,5 +334,12 @@
         }
       }
     }
+  }
+}
+
+// Tablet
+@media screen and (max-width: 961px) {
+  .checkout-page-container {
+    padding: 2rem 2rem;
   }
 }

@@ -59,12 +59,12 @@ a:active {
 }
 
 .edit-profile-page-container {
-  padding: 2.188rem 19.5rem;
+  padding: 2.5rem 18rem;
   display: grid;
   grid-template: "header return-cont" "main right" "button button";
 }
-.edit-profile-page-container .profile-page-header h1 {
-  font-size: 2.75rem;
+.edit-profile-page-container .profile-page-header h3 {
+  font-family: "Lexend Deca";
 }
 .edit-profile-page-container .return {
   grid-area: return-cont;
@@ -75,20 +75,22 @@ a:active {
   font-size: 1rem;
   font-weight: 500;
   line-height: 120%;
+  cursor: pointer;
 }
 .edit-profile-page-container .return svg {
   font-size: 1.25rem;
   align-items: center;
 }
-.edit-profile-page-container .return:hover {
+.edit-profile-page-container .return:hover,
+.edit-profile-page-container svg:hover {
   color: #00796b;
 }
 .edit-profile-page-container .edit-account-details-container {
   grid-area: main;
   padding: 0.625rem 0.625rem 0.625rem 0rem;
 }
-.edit-profile-page-container .edit-account-details-container h3 {
-  font-size: 1.875rem;
+.edit-profile-page-container .edit-account-details-container h6 {
+  font-family: "Lexend Deca";
   padding: 2rem 0;
 }
 .edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table {
@@ -127,8 +129,8 @@ a:active {
   grid-area: right;
   padding: 0.625rem 0.625rem 0.625rem 3.125rem;
 }
-.edit-profile-page-container .address-details-container h3 {
-  font-size: 1.875rem;
+.edit-profile-page-container .address-details-container h6 {
+  font-family: "Lexend Deca";
   padding: 2rem 0;
 }
 .edit-profile-page-container .address-details-container .address-details-table {
@@ -204,4 +206,19 @@ a:active {
 }
 .edit-profile-page-container .buttons-container .submit-button-container .submit-edit:hover {
   background-color: #ff5722;
+}
+
+@media screen and (max-width: 961px) {
+  .edit-profile-page-container {
+    padding: 2.5rem 2rem;
+  }
+  .edit-profile-page-container .profile-page-header h3 {
+    font-size: 2.25rem;
+  }
+  .edit-profile-page-container .edit-account-details-container h6 {
+    font-size: 1.25rem;
+  }
+  .edit-profile-page-container .address-details-container h6 {
+    font-size: 1.25rem;
+  }
 }/*# sourceMappingURL=edit-profile.css.map */

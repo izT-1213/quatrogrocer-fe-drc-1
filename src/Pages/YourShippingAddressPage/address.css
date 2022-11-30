@@ -62,7 +62,7 @@ a:active {
   height: 50rem;
   justify-content: space-between;
   display: flex;
-  padding: 2.5rem 19.5rem;
+  padding: 2.5rem 18rem;
 }
 .address-page-container .address-page-header h3 {
   font-family: "Lexend Deca";
@@ -185,4 +185,19 @@ a:active {
 }
 .address-page-container .navigation-buttons .add-address-btn:hover {
   background-color: #ff8a65;
+}
+
+@media screen and (max-width: 961px) {
+  .address-page-container {
+    padding: 2.5rem 2rem;
+  }
+  .address-page-container .address-page-header h3 {
+    font-size: 2.25rem;
+  }
+  .address-page-container .address-page-header .your-shipping-address-container p {
+    font-size: 1.5rem;
+  }
+  .address-page-container .navigation-buttons {
+    padding-top: 1rem;
+  }
 }/*# sourceMappingURL=address.css.map */

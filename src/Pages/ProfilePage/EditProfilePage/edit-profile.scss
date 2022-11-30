@@ -8,7 +8,7 @@
 }
 
 .edit-profile-page-container {
-  padding: 2.188rem 19.5rem;
+  padding: 2.5rem 18rem;
   display: grid;
   grid-template:
     "header return-cont"
@@ -16,8 +16,8 @@
     "button button";
 
   .profile-page-header {
-    h1 {
-      font-size: 2.75rem;
+    h3 {
+      font-family: $primary-fonts;
     }
   }
 
@@ -30,23 +30,24 @@
     font-size: 1rem;
     font-weight: map-get($map: $font-weight, $key: "medium");
     line-height: 120%;
+    cursor: pointer;
 
     svg {
       font-size: 1.25rem;
       align-items: center;
     }
-
-    &:hover {
-      color: $primary-hover-dark-color;
-    }
+  }
+  .return:hover,
+  svg:hover {
+    color: $primary-hover-dark-color;
   }
 
   .edit-account-details-container {
     grid-area: main;
     padding: 0.625rem 0.625rem 0.625rem 0rem;
 
-    h3 {
-      font-size: 1.875rem;
+    h6 {
+      font-family: $primary-fonts;
       padding: 2rem 0;
     }
 
@@ -94,8 +95,8 @@
     grid-area: right;
     padding: 0.625rem 0.625rem 0.625rem 3.125rem;
 
-    h3 {
-      font-size: 1.875rem;
+    h6 {
+      font-family: $primary-fonts;
       padding: 2rem 0;
     }
 
@@ -185,6 +186,31 @@
         &:hover {
           background-color: $secondary-hover-color;
         }
+      }
+    }
+  }
+}
+
+// Tablet
+@media screen and (max-width: 961px) {
+  .edit-profile-page-container {
+    padding: 2.5rem 2rem;
+
+    .profile-page-header {
+      h3 {
+        font-size: 2.25rem;
+      }
+    }
+
+    .edit-account-details-container {
+      h6 {
+        font-size: 1.25rem;
+      }
+    }
+
+    .address-details-container {
+      h6 {
+        font-size: 1.25rem;
       }
     }
   }

@@ -41,7 +41,7 @@ function EditAddressPage() {
           <h3>My Account</h3>
         </div>
         <div className="edit-new-address-container">
-          <p>Edit Address</p>
+          <h6>Edit Address</h6>
           <div className="address-form-container">
             <div className="address-form-content">
               <form className="address-form" id="form">
@@ -181,10 +181,6 @@ function EditAddressPage() {
           <ArrowBackIosIcon />
           <p onClick={() => navigate("/profile")}>Return to Account Details</p>
         </div>
-
-        <button class="back-btn" onClick={() => navigate("/address")}>
-          Return to Shipping Details
-        </button>
       </div>
     </div>
   );

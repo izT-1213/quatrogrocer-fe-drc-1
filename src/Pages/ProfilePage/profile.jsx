@@ -33,13 +33,13 @@ function UserProfilePage() {
   return (
     <div className="profile-page-container">
       <div className="profile-page-header">
-        <h1>My Account</h1>
+        <h3>My Account</h3>
       </div>
       <div className="logout">
-        <p onClick={logout}>Log out</p>
+        <p onClick={logout}>Log Out</p>
       </div>
       <div className="order-history-container">
-        <h3>Order history</h3>
+        <h6>Order history</h6>
         <div className="order-history-table-container">
           <table className="order-history-table">
             <thead>
@@ -62,12 +62,12 @@ function UserProfilePage() {
         </div>
       </div>
       <div className="account-details-container">
-        <h3>Account Details</h3>
+        <h6>Account Details</h6>
         <div>
           <table className="account-details-table">
             <tr>
               <th>
-                Available credits:<text className="RM">RM</text>
+                Available Credits:<text className="RM">RM</text>
                 <text className="credit-value">200</text>
               </th>
               <th></th>

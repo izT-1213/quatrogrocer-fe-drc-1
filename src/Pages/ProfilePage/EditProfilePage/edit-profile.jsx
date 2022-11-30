@@ -112,16 +112,14 @@ function EditProfilePage() {
   return (
     <div className="edit-profile-page-container">
       <div className="profile-page-header">
-        <h1>My Account</h1>
+        <h3>My Account</h3>
       </div>
       <div className="return">
         <ArrowBackIosIcon />
-        <p>
-          <Link to={"/profile"}>Return to Account Details</Link>
-        </p>
+        <p onClick={() => navigate("/profile")}>Return to Account Details</p>
       </div>
       <div className="edit-account-details-container">
-        <h3>Account Details</h3>
+        <h6>Account Details</h6>
         <div className="edit-account-details-table-container">
           <table className="edit-account-details-table" id="table">
             <tr className="input-label">
@@ -376,7 +374,7 @@ function EditProfilePage() {
         </div>
       </div>
       <div className="address-details-container">
-        <h3>Primary Address</h3>
+        <h6>Primary Address</h6>
         <div>
           <table className="address-details-table">
             <tr>
