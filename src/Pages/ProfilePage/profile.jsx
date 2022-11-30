@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import { GetUserAddress, FetchUser } from "../../function.jsx";
+import {
+  GetUserAddress,
+  FetchUser,
+  FetchTransaction,
+} from "../../function.jsx";
 import AuthContext from "../../Components/context/AuthProvider.js";
 import "../ProfilePage/profile.css";
-import { FetchTransaction } from "../../function";
-import jwtDecode from "jwt-decode";
 
 function UserProfilePage() {
   const navigate = useNavigate();

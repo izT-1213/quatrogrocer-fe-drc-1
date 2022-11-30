@@ -1,13 +1,30 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { AiOutlinePlusCircle } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { GetUserAddress, FetchUser } from "../../function.jsx";
+import jwt_decode from "jwt-decode";
+import AuthContext from "../../Components/context/AuthProvider.js";
 import "./address.css";
 
 function YourShippingAddressPage() {
   const navigate = useNavigate();
+  const jwtToken = useContext(AuthContext).auth?.token;
+  const userId = jwt_decode(jwtToken);
+
+  const [addressDetails, setAddressDetails] = useState({});
+
+  const [profileDetails, setProfileDetails] = useState({});
+
+  useEffect(() => {
+    setAddressDetails({});
+    GetUserAddress(userId.user_id).then(setAddressDetails);
+  }, [userId.user_id]);
+
+  useEffect(() => {
+    setProfileDetails({});
+    FetchUser(userId.user_id).then(setProfileDetails);
+  }, [userId.user_id]);
 
   return (
     <div className="address-page-container">
@@ -20,22 +37,9 @@ function YourShippingAddressPage() {
           <div className="shipping-details-table">
             <table className="address-details-table">
               <tr>
-                <th className="user-name">Steven James (Default)</th>
-              </tr>
-              <tr>
-                <td className="address">71, Persiaran Tengku Ampuan Rahimah</td>
-              </tr>
-              <tr>
-                <td className="address">Taman Sri Andalas</td>
-              </tr>
-              <tr>
-                <td className="address">41200</td>
-              </tr>
-              <tr>
-                <td className="address">Klang</td>
-              </tr>
-              <tr>
-                <td className="address">Selangor</td>
+                <th className="user-name">
+                  {profileDetails.first_name} {profileDetails.last_name}
+                </th>
               </tr>
               <tr>
                 <td>60186907892</td>
@@ -44,6 +48,37 @@ function YourShippingAddressPage() {
                 <td>sjparty@gmail.com</td>
               </tr>
             </table>
+          </div>
+          <div>
+            {addressDetails?.map(function (key, index) {
+              return (
+                <div key={index}>
+                  <tr>
+                    <td className="address">
+                      {addressDetails[index]?.address_line_1}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="address">
+                      {addressDetails[index]?.address_line_2}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="address">
+                      {addressDetails[index]?.address_line_3}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="address">
+                      {addressDetails[index]?.postcode}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="address">{addressDetails[index]?.state}</td>
+                  </tr>
+                </div>
+              );
+            })}
           </div>
           <br></br>
           <div className="links">
