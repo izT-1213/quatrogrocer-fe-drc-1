@@ -95,7 +95,7 @@ function MarketplacePage() {
                   navigate(`/product-details/${data.product_name}`);
                 }}
               >
-                <img src={data.product_image} />
+                <img src={data.product_image} alt={data.product_name} />
               </div>
               <p
                 className="product-name"

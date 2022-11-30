@@ -23,7 +23,17 @@ function ProductDetailsPage() {
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
   const navigate = useNavigate();
-  var i = 0;
+  const [i, setI] = useState(0);
+
+  function randomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  useEffect(() => {
+    if (i === 0) {
+      setI(randomInteger(1, 93));
+    }
+  });
 
   const [productDetails, setProductDetails] = useState([]);
   const [productRec, setProductRec] = useState([]);
@@ -32,7 +42,7 @@ function ProductDetailsPage() {
   useEffect(() => {
     setProductDetails([]);
     SearchProduct(product_name).then(setProductDetails);
-  }, []);
+  }, [product_name]);
 
   useEffect(() => {
     setProductRec([]);
@@ -60,11 +70,11 @@ function ProductDetailsPage() {
   //   product_quantity: 0,
   // });
 
-  // const [cartDiscountValues, updateDiscountCartValues] = useState({
-  //   user_id: userId.user_id,
-  //   discount_product_id: "",
-  //   product_quantity: 0,
-  // });
+  const [cartDiscountValues, updateDiscountCartValues] = useState({
+    user_id: userId.user_id,
+    discount_product_id: "",
+    product_quantity: 0,
+  });
 
   const handleCartSubmit = async (e, product_id) => {
     e.preventDefault();
@@ -84,52 +94,56 @@ function ProductDetailsPage() {
     }
   };
 
+  const handleDiscountCartSubmit = async (e) => {
+    e.preventDefault();
+    const message = await AddToCartDiscFunc(
+      cartDiscountValues.user_id,
+      cartDiscountValues.discount_product_id,
+      cartDiscountValues.product_quantity
+    );
+  };
+
   var parentDirectory = "Marketplace";
 
-  function randomInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
   const HorCardContainer = () => (
     <div className="horizontal-cards-container">
       {/* mapping api products */}
-      {productRec
-        ?.slice((i = randomInteger(1, 93)), i + 6)
-        .map(function (key, index) {
-          return (
-            <div className="card-container">
-              <div className="horizontal-card" key={index}>
-                <div
-                  className="product-image"
-                  onClick={() => {
-                    navigate(`/product-details/${key.product_name}`);
-                  }}
-                >
-                  <img src={key.product_image} alt={key.product_name} />
-                </div>
-                <p
-                  className="product-name"
-                  onClick={() => {
-                    navigate(`/product-details/${key.product_name}`);
-                  }}
-                >
-                  {key.product_name}
-                </p>
-                <p className="product-price">
-                  <text className="RM">RM</text> {key.product_price.toFixed(2)}
-                </p>
-                <div className="button-container">
-                  <button className="add-to-cart-btn">
-                    <AddShoppingCart
-                      className="cart-icon"
-                      key={index}
-                      onClick={(e) => handleCartSubmit(e)}
-                    />
-                  </button>
-                </div>
+      {productRec?.slice(i, i + 6).map(function (key, index) {
+        return (
+          <div className="card-container">
+            <div className="horizontal-card" key={index}>
+              <div
+                className="product-image"
+                onClick={() => {
+                  navigate(`/product-details/${key.product_name}`);
+                }}
+              >
+                <img src={key.product_image} alt={key.product_name} />
+              </div>
+              <p
+                className="product-name"
+                onClick={() => {
+                  navigate(`/product-details/${key.product_name}`);
+                }}
+              >
+                {key.product_name}
+              </p>
+              <p className="product-price">
+                <text className="RM">RM</text> {key.product_price.toFixed(2)}
+              </p>
+              <div className="button-container">
+                <button className="add-to-cart-btn">
+                  <AddShoppingCart
+                    className="cart-icon"
+                    key={index}
+                    onClick={(e) => handleCartSubmit(e)}
+                  />
+                </button>
               </div>
             </div>
-          );
-        })}
+          </div>
+        );
+      })}
     </div>
   );
 
@@ -140,7 +154,6 @@ function ProductDetailsPage() {
             ?.filter((list) => list.product_name === product_name)
             .map((obj) => (
               <div>
-                {console.log("true")}
                 <div className="product-directory">
                   <p>{parentDirectory}</p>
                   <ArrowForwardIos sx={{ fontSize: "14px" }} />{" "}
@@ -148,14 +161,11 @@ function ProductDetailsPage() {
                 </div>
                 <div className="above-container">
                   <div className="image-container">
-                    <div className="discount-percentage">
-                      <text>50% OFF</text>
-                    </div>
                     <img src={obj.product_image} alt={obj.product_name}></img>
                   </div>
                   <div className="item-info-container">
                     <div className="item-info">
-                      <p className="item-name">{obj.product_name}</p>
+                      <h5 className="item-name">{obj.product_name}</h5>
                       <p className="description-header">Description</p>
                       <p className="description">{obj.product_description}</p>
                     </div>
@@ -168,9 +178,6 @@ function ProductDetailsPage() {
                             <p className="price-value">
                               {obj.product_price.toFixed(2)}
                             </p>
-                          </p>
-                          <p className="old-price">
-                            <strike>RM16</strike>
                           </p>
                         </div>
 
@@ -200,14 +207,6 @@ function ProductDetailsPage() {
                     </div>
                   </div>
                 </div>
-                <div className="suggestions">
-                  <p className="suggestion-header">Customer Also Bought</p>
-                  <hr></hr>
-                  <div className="product-list-container">
-                    <HorCardContainer />
-                  </div>
-                </div>
-                <ToastContainer />
               </div>
             ))
         : discountProductDetails
@@ -223,7 +222,7 @@ function ProductDetailsPage() {
                 <div className="above-container">
                   <div className="image-container">
                     <div className="discount-percentage">
-                      <text>50% OFF</text>
+                      <text>25% OFF</text>
                     </div>
                     <img
                       src={obj.discount_product_image}
@@ -232,7 +231,7 @@ function ProductDetailsPage() {
                   </div>
                   <div className="item-info-container">
                     <div className="item-info">
-                      <p className="item-name">{obj.discount_product_name}</p>
+                      <h5 className="item-name">{obj.discount_product_name}</h5>
                       <p className="description-header">Description</p>
                       <p className="description">
                         {obj.discount_product_description}
@@ -249,7 +248,9 @@ function ProductDetailsPage() {
                             </p>
                           </p>
                           <p className="old-price">
-                            <strike>RM16</strike>
+                            <strike>
+                              {(obj.discount_product_price * 1.25).toFixed(2)}
+                            </strike>
                           </p>
                         </div>
 
@@ -279,16 +280,16 @@ function ProductDetailsPage() {
                     </div>
                   </div>
                 </div>
-                <div className="suggestions">
-                  <p className="suggestion-header">Customer Also Bought</p>
-                  <hr></hr>
-                  <div className="product-list-container">
-                    <HorCardContainer />
-                  </div>
-                </div>
-                <ToastContainer />
               </div>
             ))}
+      <div className="suggestions">
+        <h5 className="suggestion-header">Customer Also Bought</h5>
+        <hr></hr>
+        <div className="product-list-container">
+          <HorCardContainer />
+        </div>
+      </div>
+      <ToastContainer />
     </div>
   );
 }
