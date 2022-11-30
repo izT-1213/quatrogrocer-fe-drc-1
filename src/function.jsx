@@ -35,15 +35,47 @@ async function RegisterFunc(email, pass, fname, lname, dob, gender) {
   }
 }
 
-async function SearchProduct(keyword) {
+async function FetchUser(user_id) {
+  try {
+    console.log(user_id);
+    const response = await Axios.post(
+      "http://localhost:5000/quatro_user/search",
+      {
+        params: { user_id: user_id },
+      }
+    );
+    console.log(response.data.result);
+    return response.data.result;
+  } catch (err) {
+    return err.response.data;
+  }
+}
+
+async function SearchProduct(product) {
   try {
     const response = await Axios.get(
       "http://localhost:5004/quatro_product/get",
       {
-        params: { keyword: keyword.toString() },
+        params: { product: product.toString() },
       }
     );
-    console.log(response);
+    console.log(response.data.result);
+    return response.data.result;
+  } catch (err) {
+    console.log(err.response.data);
+    return err.response.data;
+  }
+}
+
+async function GetUserAddress(user_id) {
+  try {
+    const response = await Axios.get(
+      "http://localhost:5000/quatro_address/get",
+      {
+        params: { user_id: user_id },
+      }
+    );
+    return response.data.result;
   } catch (err) {
     console.log(err.response.data);
     return err.response.data;
@@ -71,6 +103,7 @@ async function CreateAddressFunc(
         user_id: userId,
       }
     );
+    return response.status;
   } catch (err) {
     console.log(err.response.data);
   }
@@ -118,7 +151,7 @@ async function FetchProduct() {
 async function FetchDiscountProduct() {
   try {
     const response = await Axios.get(
-      "http://localhost:5004/quatro_product_discount/get"
+      "http://localhost:5000/quatro_product_discount/get"
       //{ withCredentials: true }
     );
     return response.data.result;
@@ -212,6 +245,8 @@ export {
   // GetPasswordFunc,
   LoginFunc,
   RegisterFunc,
+  FetchUser,
+  GetUserAddress,
   CreateAddressFunc,
   FetchProduct,
   FetchDiscountProduct,

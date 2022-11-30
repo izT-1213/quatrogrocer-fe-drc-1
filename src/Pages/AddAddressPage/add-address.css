@@ -264,4 +264,10 @@ a:active {
 .add-address-page-container .navigation-container .return:hover,
 .add-address-page-container .navigation-container svg:hover {
   color: #00796b;
+}
+
+@media screen and (max-width: 1105px) {
+  .add-address-page-container {
+    padding: 2.5rem 2rem;
+  }
 }/*# sourceMappingURL=add-address.css.map */
