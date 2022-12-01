@@ -69,6 +69,16 @@
             color: $error-color;
           }
         }
+
+        .msg {
+          padding: 1.5rem 0 0 0;
+          p {
+            font: $secondary-fonts;
+            font-size: 17px;
+            font-weight: bold;
+            color: $primary-color;
+          }
+        }
         .left-column {
           padding: 0.625rem 5% 0 0;
           width: 50%;
@@ -186,32 +196,42 @@
         &:hover {
           background-color: $secondary-hover-color;
         }
+        &:disabled,
+        button[disabled] {
+          background-color: $grey-color;
+          color: #666666;
+
+          pointer-events: none;
+        }
       }
     }
   }
 }
 
 // Tablet
+// @media screen and (max-width: 961px) {
+//   .edit-profile-page-container {
+//     padding: 2.5rem 2rem;
+
+//     .profile-page-header {
+//       h3 {
+//         font-size: 2.25rem;
+//       }
+//     }
+
+//     .edit-account-details-container {
+//       h6 {
+//         font-size: 1.25rem;
+//       }
+//     }
+
+//     .address-details-container {
+//       h6 {
+//         font-size: 1.25rem;
+//       }
+//     }
 @media screen and (max-width: 961px) {
   .edit-profile-page-container {
-    padding: 2.5rem 2rem;
-
-    .profile-page-header {
-      h3 {
-        font-size: 2.25rem;
-      }
-    }
-
-    .edit-account-details-container {
-      h6 {
-        font-size: 1.25rem;
-      }
-    }
-
-    .address-details-container {
-      h6 {
-        font-size: 1.25rem;
-      }
-    }
+    padding: 2.188rem 2rem;
   }
 }

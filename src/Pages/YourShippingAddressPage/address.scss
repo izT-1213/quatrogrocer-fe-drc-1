@@ -162,22 +162,26 @@
   }
 }
 
-@media screen and (max-width: 961px) {
+// @media screen and (max-width: 961px) {
+//   .address-page-container {
+//     padding: 2.5rem 2rem;
+
+//     .address-page-header {
+//       h3 {
+//         font-size: 2.25rem;
+//       }
+
+//       .your-shipping-address-container p {
+//         font-size: 1.5rem;
+//       }
+//     }
+
+//     .navigation-buttons {
+//       padding-top: 1rem;
+//     }
+// Tablet
+@media screen and (max-width: 1105px) {
   .address-page-container {
-    padding: 2.5rem 2rem;
-
-    .address-page-header {
-      h3 {
-        font-size: 2.25rem;
-      }
-
-      .your-shipping-address-container p {
-        font-size: 1.5rem;
-      }
-    }
-
-    .navigation-buttons {
-      padding-top: 1rem;
-    }
+    padding: 32px 2rem;
   }
 }

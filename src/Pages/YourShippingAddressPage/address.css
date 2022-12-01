@@ -68,7 +68,10 @@ a:active {
   font-family: "Lexend Deca";
   padding: 0 0 2rem 0;
 }
-.address-page-container .address-page-header .your-shipping-address-container p {
+.address-page-container
+  .address-page-header
+  .your-shipping-address-container
+  p {
   font-family: "Lexend Deca";
   font-weight: 600;
   font-size: 1.875rem;
@@ -81,11 +84,20 @@ a:active {
   justify-items: flex-start;
   border-radius: 0.25rem;
 }
-.address-page-container .address-page-header .shipping-details-container .shipping-details-table .address-details-table {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .shipping-details-table
+  .address-details-table {
   width: 100%;
   border-collapse: collapse;
 }
-.address-page-container .address-page-header .shipping-details-container .shipping-details-table .address-details-table th {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .shipping-details-table
+  .address-details-table
+  th {
   font-family: "Lexend Deca";
   font-weight: 500;
   font-size: 1.5rem;
@@ -93,32 +105,57 @@ a:active {
   text-align: left;
   line-height: 120%;
 }
-.address-page-container .address-page-header .shipping-details-container .shipping-details-table .address-details-table td {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .shipping-details-table
+  .address-details-table
+  td {
   padding: 0.375rem 0rem;
   font-family: "Poppins";
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 120%;
 }
-.address-page-container .address-page-header .shipping-details-container .shipping-details-table .address-details-table .address {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .shipping-details-table
+  .address-details-table
+  .address {
   padding: 0.188rem 0rem;
 }
-.address-page-container .address-page-header .shipping-details-container .links {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .links {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.address-page-container .address-page-header .shipping-details-container .links .edit-link {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .links
+  .edit-link {
   font-family: "Poppins";
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 120%;
   padding-right: 0.5rem;
 }
-.address-page-container .address-page-header .shipping-details-container .links .edit-link:hover {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .links
+  .edit-link:hover {
   color: #00796b;
 }
-.address-page-container .address-page-header .shipping-details-container .links .vertical-line {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .links
+  .vertical-line {
   width: 11px;
   height: 1px;
   left: 35px;
@@ -126,14 +163,22 @@ a:active {
   border: 1px solid #252525;
   transform: rotate(-90deg);
 }
-.address-page-container .address-page-header .shipping-details-container .links .delete-btn {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .links
+  .delete-btn {
   font-family: "Poppins";
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 120%;
   padding-left: 0.5rem;
 }
-.address-page-container .address-page-header .shipping-details-container .links .delete-btn:hover {
+.address-page-container
+  .address-page-header
+  .shipping-details-container
+  .links
+  .delete-btn:hover {
   color: #f04438;
 }
 .address-page-container .navigation-buttons {
@@ -187,17 +232,8 @@ a:active {
   background-color: #ff8a65;
 }
 
-@media screen and (max-width: 961px) {
+@media screen and (max-width: 1105px) {
   .address-page-container {
-    padding: 2.5rem 2rem;
+    padding: 32px 2rem;
   }
-  .address-page-container .address-page-header h3 {
-    font-size: 2.25rem;
-  }
-  .address-page-container .address-page-header .your-shipping-address-container p {
-    font-size: 1.5rem;
-  }
-  .address-page-container .navigation-buttons {
-    padding-top: 1rem;
-  }
-}/*# sourceMappingURL=address.css.map */
+} /*# sourceMappingURL=address.css.map */

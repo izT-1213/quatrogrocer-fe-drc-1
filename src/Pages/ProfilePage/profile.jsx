@@ -1,7 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import { GetUserAddress, FetchUser } from "../../function.jsx";
+import {
+  GetUserAddress,
+  FetchUser,
+  FetchTransaction,
+} from "../../function.jsx";
 import AuthContext from "../../Components/context/AuthProvider.js";
 import "../ProfilePage/profile.css";
 
@@ -17,7 +21,6 @@ function UserProfilePage() {
 
   useEffect(() => {
     setAddressDetails({});
-
     GetUserAddress(userId.user_id).then(setAddressDetails);
   }, [userId.user_id]);
 
@@ -25,6 +28,13 @@ function UserProfilePage() {
     setProfileDetails({});
     FetchUser(userId.user_id).then(setProfileDetails);
   }, [userId.user_id]);
+
+  const [transactionDetails, setTransactionDetails] = useState([]);
+
+  useEffect(() => {
+    setTransactionDetails([]);
+    FetchTransaction(userId.user_id).then(setTransactionDetails);
+  }, []);
 
   const logout = async () => {
     setAuth({});
@@ -44,20 +54,33 @@ function UserProfilePage() {
           <table className="order-history-table">
             <thead>
               <tr>
-                <th>Order ID</th>
+                <th>Product Name</th>
+                <th>Product Quantity</th>
+                <th>Product Price</th>
                 <th>Date</th>
-                <th>Payment Status</th>
-                <th>Fullfillment Status</th>
                 <th>Total</th>
               </tr>
-              <tr>
-                <td>BR123</td>
-                <td>3 Nov 2022</td>
-                <td>Completed</td>
-                <td>Completed</td>
-                <td>RM123.00</td>
-              </tr>
             </thead>
+            {transactionDetails?.map((v, i) => (
+              <tr key={i}>
+                <td>{transactionDetails[i]?.product_name}</td>
+                <td>{transactionDetails[i]?.product_quantity}</td>
+                <td>RM{transactionDetails[i]?.product_price}</td>
+                <td>
+                  {new Date(
+                    transactionDetails[i]?.transaction_timestamp
+                  ).toLocaleString()}
+                </td>
+                <td>RM{transactionDetails[i]?.transaction_total}</td>
+              </tr>
+            ))}
+            {/* <tr>
+                <td>{transactionDetails[0]?.product_name}</td>
+                <td>{transactionDetails[0]?.product_quantity}</td>
+                <td>RM{transactionDetails[0]?.product_price}</td>
+                <td>{transactionDetails[0]?.transaction_timestamp}</td>
+                <td>RM{transactionDetails[0]?.transaction_total}</td>
+              </tr> */}
           </table>
         </div>
       </div>
@@ -67,13 +90,17 @@ function UserProfilePage() {
           <table className="account-details-table">
             <tr>
               <th>
-                Available Credits:<text className="RM">RM</text>
-                <text className="credit-value">200</text>
+                Available credits:<text className="RM">RM</text>
+                <text className="credit-value">
+                  {profileDetails.user_credit}
+                </text>
               </th>
               <th></th>
             </tr>
             <tr>
-              <td className="user-name">Steven James</td>
+              <td className="user-name">
+                {profileDetails.first_name} {profileDetails.last_name}
+              </td>
               <td className="edit">
                 <a>
                   <Link to="/profile/edit-profile" className="edit-link">
@@ -101,13 +128,13 @@ function UserProfilePage() {
               <td>60186907892</td>
             </tr>
             <tr>
-              <td>sjparty@gmail.com</td>
+              <td>{profileDetails.email}</td>
             </tr>
             <tr>
               <td className="view-address">
                 <a>
                   <Link to="/profile/addresses" className="view-address-link">
-                    View Addresses [1]
+                    View Addresses [{addressDetails.length}]
                   </Link>
                 </a>
               </td>

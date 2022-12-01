@@ -35,18 +35,14 @@ async function RegisterFunc(email, pass, fname, lname, dob, gender) {
   }
 }
 
-async function FetchUser(user_id) {
+async function FetchUser(userId) {
   try {
-    console.log(user_id);
     const response = await Axios.post(
-      "http://localhost:5004/quatro_user/search",
-      {
-        params: { user_id: user_id },
-      }
+      `http://localhost:5000/quatro_user/search?user_id=${userId}`
     );
-    console.log(response.data.result);
     return response.data.result;
   } catch (err) {
+    console.log(err.response.data);
     return err.response.data;
   }
 }
@@ -163,10 +159,9 @@ async function FetchDiscountProduct() {
 async function UpdateProfileFunc(
   first_name,
   last_name,
-  email,
   date_of_birth,
+  email,
   oldPassword,
-  password,
   user_id
 ) {
   try {
@@ -176,8 +171,26 @@ async function UpdateProfileFunc(
       {
         first_name: first_name,
         last_name: last_name,
-        email: email,
         date_of_birth: date_of_birth,
+        email: email,
+        oldPassword: oldPassword,
+        user_id: user_id,
+      },
+      { withCredentials: true } //hassif port 3002
+    );
+  } catch (err) {
+    console.log(err.response.data);
+    return err.response.data;
+  }
+}
+
+async function UpdatePasswordFunc(oldPassword, password, user_id) {
+  console.log(password ? true : false);
+  try {
+    await Axios.post(
+      "http://localhost:5000/quatro_user/update_password",
+
+      {
         oldPassword: oldPassword,
         password: password,
         user_id: user_id,
@@ -186,6 +199,7 @@ async function UpdateProfileFunc(
     );
   } catch (err) {
     console.log(err.response.data);
+    return err.response.data;
   }
 }
 
@@ -204,6 +218,7 @@ async function AddToCartFunc(user_id, product_id, product_quantity) {
     return response;
   } catch (err) {
     console.log(err.response.data);
+    return err.response.data;
   }
 }
 
@@ -228,6 +243,18 @@ async function AddToCartDiscFunc(
   }
 }
 
+async function FetchTransaction(user_id) {
+  try {
+    const response = await Axios.get(
+      "http://localhost:5000/quatro_transaction/get_details/" + user_id
+      //{ withCredentials: true }
+    );
+    return response.data.result;
+  } catch (err) {
+    console.log(err.response);
+  }
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export {
   // GetPasswordFunc,
@@ -241,6 +268,8 @@ export {
   SearchProduct,
   UpdateAddressFunc,
   UpdateProfileFunc,
+  UpdatePasswordFunc,
   AddToCartFunc,
   AddToCartDiscFunc,
+  FetchTransaction,
 };

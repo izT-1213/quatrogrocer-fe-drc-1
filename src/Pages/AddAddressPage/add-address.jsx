@@ -21,11 +21,10 @@ function AddAddressPage() {
 
   const addAddress = async (e) => {
     e.preventDefault();
-
     const message = await CreateAddressFunc(
-      addressValues.address_line_1,
-      addressValues.address_line_2,
-      addressValues.address_line_3,
+      addressValues.address_line_1.toString(),
+      addressValues.address_line_2.toString(),
+      addressValues.address_line_3.toString(),
       addressValues.postcode,
       addressValues.state,
       userId.user_id
@@ -68,7 +67,6 @@ function AddAddressPage() {
                       }}
                       value={addressValues.address_line_1}
                     />
-                    {console.log(addressValues.address_line_1)}
                   </div>
 
                   <div className="address-line-2">
