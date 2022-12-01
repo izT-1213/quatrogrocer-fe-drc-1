@@ -203,4 +203,25 @@ a:active {
 .edit-address-page-container .navigation-buttons .return:hover,
 .edit-address-page-container .navigation-buttons svg:hover {
   color: #00796b;
+}
+.edit-address-page-container .navigation-buttons .back-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 92%;
+  padding: 1rem;
+  margin: 0 0 0 8%;
+  gap: 0.5rem;
+  background: #009688;
+  border-radius: 0.125rem;
+  border: none;
+  align-items: center;
+  color: #ffffff;
+  font-family: "Lexend Deca";
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 120%;
+}
+.edit-address-page-container .navigation-buttons .back-btn:hover {
+  background-color: #ff8a65;
 }/*# sourceMappingURL=edit-address.css.map */
