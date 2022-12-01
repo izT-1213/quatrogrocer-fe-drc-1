@@ -58,7 +58,7 @@ function CheckoutPage() {
       </div>
       <div className="shipping-payment-content-container">
         <div className="contact-info">
-          <h2>01</h2>
+          <h1>01</h1>
           <h1>Contact Information</h1>
           <hr />
           <div className="inner-content">
@@ -68,7 +68,7 @@ function CheckoutPage() {
           </div>
         </div>
         <div className="shipping-dets">
-          <h2>02</h2>
+          <h1>02</h1>
           <h1>Shipping Details</h1>
           <hr />
           <div className="inner-content">
@@ -87,7 +87,7 @@ function CheckoutPage() {
           </div>
         </div>
         <div className="payment-dets">
-          <h2>03</h2>
+          <h1>03</h1>
           <h1>Payment Details</h1>
           <hr />
           <div className="inner-content">

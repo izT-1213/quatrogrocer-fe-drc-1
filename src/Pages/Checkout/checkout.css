@@ -70,10 +70,11 @@ a:active {
   justify-content: flex-start;
   align-items: center;
   font-weight: 500;
-  padding: 1.063rem 0 2rem 0;
+  padding: 0 0 2rem;
 }
-.checkout-page-container .checkout-page-header p {
-  padding: 0.625rem;
+.checkout-page-container .checkout-page-header svg {
+  font-size: 1rem;
+  margin: 0 0.625rem;
 }
 .checkout-page-container .shipping-payment-content-container {
   grid-area: main;
@@ -87,14 +88,10 @@ a:active {
 .checkout-page-container .shipping-payment-content-container hr {
   width: 90px;
   border: 3px solid #009688;
+  margin-top: 16px;
 }
 .checkout-page-container .shipping-payment-content-container h1 {
-  padding-bottom: 16px;
   font-size: 26px;
-}
-.checkout-page-container .shipping-payment-content-container h2 {
-  font-size: 26px;
-  font-weight: 500;
 }
 .checkout-page-container .shipping-payment-content-container h3 {
   font-size: 22px;
@@ -331,5 +328,14 @@ a:active {
 @media screen and (max-width: 961px) {
   .checkout-page-container {
     padding: 2rem 2rem;
+  }
+  .checkout-page-container .shipping-payment-content-container {
+    width: 50vw;
+  }
+  .checkout-page-container .shipping-payment-content-container h1 {
+    font-size: 1.25rem;
+  }
+  .checkout-page-container .shipping-payment-content-container h3 {
+    font-size: 1rem;
   }
 }/*# sourceMappingURL=checkout.css.map */
