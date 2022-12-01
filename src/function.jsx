@@ -88,8 +88,7 @@ async function CreateAddressFunc(
 ) {
   try {
     const response = await Axios.post(
-      "http://localhost:5000/quatro_address/create",
-      { withCredentials: true }, //hassif port 3002
+      "http://localhost:5000/quatro_address/create", //hassif port 3002
       {
         address_line_1: addLine1,
         address_line_2: addLine2,
@@ -167,7 +166,6 @@ async function UpdateProfileFunc(
   try {
     await Axios.post(
       "http://localhost:5000/quatro_user/update",
-
       {
         first_name: first_name,
         last_name: last_name,
@@ -175,8 +173,7 @@ async function UpdateProfileFunc(
         email: email,
         oldPassword: oldPassword,
         user_id: user_id,
-      },
-      { withCredentials: true } //hassif port 3002
+      } //hassif port 3002
     );
   } catch (err) {
     console.log(err.response.data);
@@ -194,8 +191,7 @@ async function UpdatePasswordFunc(oldPassword, password, user_id) {
         oldPassword: oldPassword,
         password: password,
         user_id: user_id,
-      },
-      { withCredentials: true } //hassif port 3002
+      } //hassif port 3002
     );
   } catch (err) {
     console.log(err.response.data);
@@ -211,8 +207,7 @@ async function AddToCartFunc(user_id, product_id, product_quantity) {
         user_id: user_id,
         product_id: product_id,
         product_quantity: product_quantity,
-      },
-      { withCredentials: true } //hassif port 3002
+      } //hassif port 3002
     );
     console.log(response);
     return response;
@@ -235,8 +230,7 @@ async function AddToCartDiscFunc(
         user_id: user_id,
         discount_product_id: discount_product_id,
         product_quantity: product_quantity,
-      },
-      { withCredentials: true } //hassif port 3002
+      } //hassif port 3002
     );
   } catch (err) {
     console.log(err.response.data);
@@ -247,7 +241,6 @@ async function FetchTransaction(user_id) {
   try {
     const response = await Axios.get(
       "http://localhost:5000/quatro_transaction/get_details/" + user_id
-      //{ withCredentials: true }
     );
     return response.data.result;
   } catch (err) {

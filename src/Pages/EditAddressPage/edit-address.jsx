@@ -1,19 +1,35 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Input from "@material-ui/core/Input";
 import "./edit-address.css";
-import { UpdateAddressFunc } from "../../function";
+import { UpdateAddressFunc, GetUserAddress } from "../../function";
+import jwt_decode from "jwt-decode";
+import AuthContext from "../../Components/context/AuthProvider.js";
 
 function EditAddressPage() {
+  const location = useLocation();
+  var addId = location.state.address_id;
+  console.log(addId);
+  const navigate = useNavigate();
+  const jwtToken = useContext(AuthContext).auth?.token;
+  const userId = jwt_decode(jwtToken);
+  const [addressDetails, setAddressDetails] = useState([]);
+
+  console.log(addressDetails);
+
+  useEffect(() => {
+    setAddressDetails([]);
+    GetUserAddress(userId.user_id).then(setAddressDetails);
+  }, [userId.user_id]);
+
   const [addressValues, updateAddressValues] = useState({
     address_line_1: "",
     address_line_2: "",
     address_line_3: "",
     postcode: "",
     state: "",
-    address_id: "",
+    address_id: addId,
   });
 
   const editAddress = async (e) => {
@@ -33,7 +49,6 @@ function EditAddressPage() {
     document.getElementById("form").reset();
   }
 
-  const navigate = useNavigate();
   return (
     <div className="edit-address-page-container">
       <div className="container-1">
@@ -182,7 +197,7 @@ function EditAddressPage() {
           <p onClick={() => navigate("/profile")}>Return to Account Details</p>
         </div>
 
-        <button class="back-btn" onClick={() => navigate("/address")}>
+        <button className="back-btn" onClick={() => navigate("/address")}>
           Return to Shipping Details
         </button>
       </div>

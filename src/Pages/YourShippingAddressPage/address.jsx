@@ -31,66 +31,67 @@ function YourShippingAddressPage() {
       <div className="address-page-header">
         <h3>My Account</h3>
         <div className="your-shipping-address-container">
-          <p>Your Shipping Address</p>
+          <p>Your Shipping Addresses</p>
         </div>
         <div className="shipping-details-container">
-          <div className="shipping-details-table">
-            <table className="address-details-table">
-              <tr>
-                <th className="user-name">
-                  {profileDetails.first_name} {profileDetails.last_name}
-                </th>
-              </tr>
-              <tr>
-                <td>60186907892</td>
-              </tr>
-              <tr>
-                <td>sjparty@gmail.com</td>
-              </tr>
-            </table>
+          <div className="user-details-container">
+            <h5 className="user-name">
+              {profileDetails.first_name} {profileDetails.last_name}
+            </h5>
+            <p>{profileDetails.phone_number}</p>
+            <p>{profileDetails.email}</p>
           </div>
-          <div>
+          <div className="addresses-map-container">
             {addressDetails?.map(function (key, index) {
               return (
-                <div key={index}>
-                  <tr>
-                    <td className="address">
-                      {addressDetails[index]?.address_line_1}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="address">
-                      {addressDetails[index]?.address_line_2}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="address">
-                      {addressDetails[index]?.address_line_3}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="address">
-                      {addressDetails[index]?.postcode}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="address">{addressDetails[index]?.state}</td>
-                  </tr>
+                <div className="address-card-container" key={key}>
+                  {console.log(addressDetails[index]?.address_id)}
+                  {index === 0 ? (
+                    <div>
+                      <h6>Primary address</h6>
+                      <br />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <p className="address">
+                    {addressDetails[index]?.address_line_1}
+                  </p>
+                  <p className="address">
+                    {addressDetails[index]?.address_line_2}
+                  </p>
+                  <p className="address">
+                    {addressDetails[index]?.address_line_3}
+                  </p>
+                  <p className="address">{addressDetails[index]?.postcode}</p>
+                  <p className="address">{addressDetails[index]?.state}</p>
+                  <br />
+                  <div className="links">
+                    {/* <Link to="/edit-address" className="edit-link">
+                      Edit
+                    </Link> */}
+                    <p
+                      className="edit-link"
+                      onClick={() =>
+                        navigate("/edit-address", {
+                          state: {
+                            address_id: addressDetails[index]?.address_id,
+                          },
+                        })
+                      }
+                    >
+                      Edit
+                    </p>
+
+                    <div className="vertical-line"></div>
+
+                    <Link to="/delete-address" className="delete-btn">
+                      Delete
+                    </Link>
+                  </div>
                 </div>
               );
             })}
-          </div>
-          <br></br>
-          <div className="links">
-            <Link to="/edit-address" className="edit-link">
-              Edit
-            </Link>
-
-            <div className="vertical-line"></div>
-
-            <Link to="/delete-address" className="delete-btn">
-              Delete
-            </Link>
           </div>
         </div>
       </div>
