@@ -1,0 +1,103 @@
+@import "../../Scss/colors";
+@import "../../Scss/fonts";
+@import "../../Scss/components";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+}
+
+.construction-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 19.5rem;
+
+  .construction-content {
+    height: 38.75rem;
+    text-align: center;
+
+    img {
+      width: 25rem;
+      padding: 0 0 0.5rem 0;
+    }
+
+    h2 {
+      font-family: "Lexend Deca";
+      padding: 0 0 0.5rem 0;
+      align-items: center;
+    }
+
+    .maintenance-message {
+      font-family: "Lexend Deca";
+      font-size: 1.25rem;
+      padding: 0 0 2.25rem 0;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+
+      .button {
+        padding: 1rem 2.5rem;
+        font-family: "Lexend Deca";
+        background-color: $secondary-color;
+        border-radius: 0.25rem;
+        border: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        //font style
+        color: $white-color;
+        text-transform: uppercase;
+        font-weight: map-get($map: $font-weight, $key: "bold");
+        font-size: 1rem;
+        gap: 1rem;
+
+        position: absolute;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $secondary-hover-color;
+        }
+      }
+    }
+  }
+}
+
+// Tablet
+@media screen and (max-width: 961px) {
+  .construction-container {
+    padding: 6rem 2rem;
+
+    .construction-content {
+      height: 38.5rem;
+
+      img {
+        width: 23rem;
+        padding: 0 0 0.75rem 0;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        font-family: "Lexend Deca";
+        padding: 0 0 1rem 0;
+        align-items: center;
+      }
+
+      .maintenance-message {
+        font-family: "Lexend Deca";
+        font-size: 1.125rem;
+        padding: 0 0 1.5rem 0;
+        text-align: center;
+      }
+
+      .button-container {
+        .button {
+          padding: 0.825rem 2.125rem;
+        }
+      }
+    }
+  }
+}

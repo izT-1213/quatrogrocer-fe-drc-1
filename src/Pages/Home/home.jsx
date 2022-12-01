@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ImgOverlay } from "image-overlay-react";
+import { FetchProduct } from "../../function.jsx";
+import { ToastContainer, toast } from "react-toastify";
 import {
   ArrowRightAlt,
   AddShoppingCart,
@@ -9,36 +11,18 @@ import {
   PaymentOutlined,
   AutorenewOutlined,
 } from "@mui/icons-material";
+import AuthContext from "../../Components/context/AuthProvider.js";
 import "image-overlay-react/dist/index.css";
-import { FetchProduct } from "../../function.jsx";
+import "react-toastify/dist/ReactToastify.css";
 import "./home.css";
 
 function Home() {
+  const { loggedIn } = useContext(AuthContext);
+  console.log(loggedIn);
   const navigate = useNavigate();
+  var i = 0;
 
-  // const [getProducts, setProducts] = useState([]);
-
-  // const getProductsHome = () => {
-  //   useEffect(() => {
-  //     try {
-  //       const res = FetchProduct();
-  //       setProducts(res.data);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   }, []);
-
-  //   if (!getProducts.length) return <h3>Loading...</h3>;
-
-  //   return (
-  //     <div>
-  //       {getProducts((response) => (
-  //         <img src={response.product_image} alt={response.product_name} />
-  //       ))}
-  //     </div>
-  //   );
-  // };
-
+  // >>>>fetch product list from API<<<<
   const [productDetails, setProductDetails] = useState([]);
   const { products } = useParams();
 
@@ -46,156 +30,105 @@ function Home() {
     setProductDetails([]);
     FetchProduct(products).then(setProductDetails);
   }, [products]);
+  // >>>>end function<<<<
+
+  const notify = () => {
+    if (loggedIn === undefined) {
+      navigate("/login");
+    } else {
+      toast.success("Item added to cart! 🛒", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+    // if (!toast.isActive(toastId.current)) {
+    //   toastId.current =
+  };
 
   //need to do function to map api product here
   const HorCardContainer = () => (
-    <div>
-      <table className="horizontal-cards-container">
-        <tr>
-          <td className="right-col-cards">
-            {productDetails?.map(function (key, index) {
-              return (
-                <div className="horizontal-card">
-                  <div className="product-image" key={index}>
-                    <img src={key.product_image} alt="" />
-                  </div>
-                  <p className="product-name" key={index}>
-                    {key.product_name}
-                  </p>
-                  <p className="product-price" key={index}>
-                    <text className="RM">RM</text>{" "}
-                    {key.product_price.toFixed(2)}
-                  </p>
-                  <div className="button-container">
-                    <button className="add-to-cart-btn">
-                      <AddShoppingCart className="cart-icon" />
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </td>
-          <td className="left-col-cards">
-            <div className="horizontal-card">
+    <div className="horizontal-cards-container">
+      {/* mapping api products */}
+      {productDetails?.slice(1, 7).map(function (key, index) {
+        return (
+          <div className="card-container">
+            <div className="horizontal-card" key={index}>
               <div className="product-image">
                 <img
-                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
-                  alt=""
+                  src={key.product_image}
+                  alt={key.product_name}
+                  onClick={() => {
+                    navigate(`/product-details/${key.product_name}`);
+                  }}
                 />
               </div>
-              <p className="product-name">Farm Fresh Pure Milk 2L</p>
+              <p
+                className="product-name"
+                onClick={() => {
+                  navigate(`/product-details/${key.product_name}`);
+                }}
+              >
+                {key.product_name}
+              </p>
               <p className="product-price">
-                <text className="RM">RM</text> 15.45
+                <text className="RM">RM</text> {key.product_price.toFixed(2)}
               </p>
               <div className="button-container">
-                <button className="add-to-cart-btn">
-                  <AddShoppingCart className="cart-icon" />
+                <button
+                  className="add-to-cart-btn"
+                  onClick={(e) => {
+                    notify();
+                    e.preventDefault();
+                  }}
+                >
+                  <AddShoppingCart className="cart-icon" key={index} />
                 </button>
               </div>
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td className="right-col-cards">
-            <div className="horizontal-card">
-              <div className="product-image">
-                <img
-                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
-                  alt=""
-                />
-              </div>
-              <p className="product-name">Farm Fresh Pure Milk 2L</p>
-              <p className="product-price">
-                <text className="RM">RM</text> 15.45
-              </p>
-              <div className="button-container">
-                <button className="add-to-cart-btn">
-                  <AddShoppingCart className="cart-icon" />
-                </button>
-              </div>
-            </div>
-          </td>
-          <td className="left-col-cards">
-            <div className="horizontal-card">
-              <div className="product-image">
-                <img
-                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
-                  alt=""
-                />
-              </div>
-              <p className="product-name">Farm Fresh Pure Milk 2L</p>
-              <p className="product-price">
-                <text className="RM">RM</text> 15.45
-              </p>
-              <div className="button-container">
-                <button className="add-to-cart-btn">
-                  <AddShoppingCart className="cart-icon" />
-                </button>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td className="right-col-cards">
-            <div className="horizontal-card">
-              <div className="product-image">
-                <img
-                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
-                  alt=""
-                />
-              </div>
-              <p className="product-name">Farm Fresh Pure Milk 2L</p>
-              <p className="product-price">
-                <text className="RM">RM</text> 15.45
-              </p>
-              <div className="button-container">
-                <button className="add-to-cart-btn">
-                  <AddShoppingCart className="cart-icon" />
-                </button>
-              </div>
-            </div>
-          </td>
-          <td className="left-col-cards">
-            <div className="horizontal-card">
-              <div className="product-image">
-                <img
-                  src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
-                  alt=""
-                />
-              </div>
-              <p className="product-name">Farm Fresh Pure Milk 2L</p>
-              <p className="product-price">
-                <text className="RM">RM</text> 15.45
-              </p>
-              <div className="button-container">
-                <button className="add-to-cart-btn">
-                  <AddShoppingCart className="cart-icon" />
-                </button>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </table>
+          </div>
+        );
+      })}
     </div>
   );
 
   const LargeHorCard = () => (
-    <div className="large-horizontal-card">
-      <div className="product-image">
-        <img
-          src="https://images.unsplash.com/photo-1621378580414-421cba519671?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-          alt=""
-        />
-      </div>
-      <p className="product-name">Pickle Jar 500GMS</p>
-      <p className="product-price">
-        <text className="RM">RM</text> 15.45
-      </p>
-      <div className="button-container">
-        <button className="add-to-cart-btn">
-          <AddShoppingCart className="cart-icon" />
-        </button>
-      </div>
+    <div>
+      {productDetails?.slice(6 + (i = i + 1), 7 + i).map(function (key, index) {
+        return (
+          <div className="large-horizontal-card" key={index}>
+            <div
+              className="product-image"
+              onClick={() => {
+                navigate(`/product-details/${key.product_name}`);
+              }}
+            >
+              <img src={key.product_image} alt={key.product_name} />
+            </div>
+            <p
+              className="product-name"
+              onClick={() => {
+                navigate(`/product-details/${key.product_name}`);
+              }}
+            >
+              {key.product_name}
+            </p>
+            <p className="product-price">
+              <text className="RM">RM</text> {key.product_price.toFixed(2)}
+            </p>
+            <div className="button-container">
+              <button className="add-to-cart-btn" onClick={notify}>
+                <AddShoppingCart className="cart-icon" key={index} />
+              </button>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 
@@ -207,10 +140,7 @@ function Home() {
           <h1>Fresh.</h1>
           <h1>Healthy.</h1>
           <h1>Convenient.</h1>
-          <p>
-            Stay home, we always deliver a service <br></br> more than you
-            expected.
-          </p>
+          <p>Stay home, we always deliver a service more than you expected.</p>
           <button onClick={() => navigate("/marketplace")}>Shop Now</button>
         </div>
 
@@ -227,22 +157,40 @@ function Home() {
         <hr></hr>
 
         <div className="today-top-deals-product">
-          <div className="vertical-card">
-            <div className="product-image">
-              <img
-                src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
-                alt=""
-              />
-            </div>
-            <p className="product-name">Farm Fresh Pure Milk 2L</p>
-            <p className="product-price">
-              <text className="RM">RM</text> 15.45
-            </p>
-            <div className="button-container">
-              <button className="add-to-cart-btn">
-                <AddShoppingCart className="cart-icon" />
-              </button>
-            </div>
+          <div className="vertical-card-container">
+            {productDetails?.slice(0, 1).map(function (key, index) {
+              return (
+                <div className="vertical-card">
+                  <div
+                    className="product-image"
+                    key={index}
+                    onClick={() => {
+                      navigate(`/product-details/${key.product_name}`);
+                    }}
+                  >
+                    <img src={key.product_image} alt={key.product_name} />
+                  </div>
+                  <p
+                    className="product-name"
+                    key={index}
+                    onClick={() => {
+                      navigate(`/product-details/${key.product_name}`);
+                    }}
+                  >
+                    {key.product_name}
+                  </p>
+                  <p className="product-price" key={index}>
+                    <text className="RM">RM</text>{" "}
+                    {key.product_price.toFixed(2)}
+                  </p>
+                  <div className="button-container">
+                    <button className="add-to-cart-btn" onClick={notify}>
+                      <AddShoppingCart className="cart-icon" key={index} />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
           <HorCardContainer />
         </div>
@@ -258,7 +206,7 @@ function Home() {
 
         <div className="promotion-banner-content">
           <p className="promotion-banner-header">
-            Purchase Min. RM60 And Above<br></br>To Get Free Delivery
+            Purchase Min. RM60 And Above To Get Free Delivery
           </p>
           <p className="promotion-banner-text">Terms and condition apply</p>
         </div>
@@ -294,10 +242,16 @@ function Home() {
               position="right"
               width="100%"
               height="100%"
-              fSize="3.5rem"
-              fColor="white"
             >
-              Cereal
+              <p
+                onClick={() =>
+                  navigate("/category/cereal", {
+                    state: { category: "Cereal" },
+                  })
+                }
+              >
+                Cereal
+              </p>
             </ImgOverlay>
           </div>
         </div>
@@ -311,10 +265,14 @@ function Home() {
               position="left"
               width="100%"
               height="100%"
-              fSize="3.5rem"
-              fColor="white"
             >
-              Meat
+              <p
+                onClick={() =>
+                  navigate("/category/meat", { state: { category: "Meat" } })
+                }
+              >
+                Meat
+              </p>
             </ImgOverlay>
           </div>
           <LargeHorCard />
@@ -333,7 +291,7 @@ function Home() {
 
           <div className="services-content">
             <div className="services-1">
-              <LocalOfferOutlined></LocalOfferOutlined>
+              <LocalOfferOutlined />
               <p className="services-title">Monthly Exciting Sales</p>
               <p className="services-text">
                 Limited time promotion every month!
@@ -341,13 +299,13 @@ function Home() {
             </div>
 
             <div className="services-2">
-              <PaymentOutlined></PaymentOutlined>
+              <PaymentOutlined />
               <p className="services-title">Secure Payment</p>
               <p className="services-text">Worry free checkout!</p>
             </div>
 
             <div className="services-3">
-              <AutorenewOutlined></AutorenewOutlined>
+              <AutorenewOutlined />
               <p className="services-title">Easy Returns & Refunds</p>
               <p className="services-text">
                 We got you cover without the hassle!
@@ -360,6 +318,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

@@ -53,8 +53,8 @@ function AboutPage() {
                 <h4 className="second-name">Izzati</h4>
                 <h6>About</h6>
                 <p>
-                  Hello there! I'm Hassif, currently taking the roles as
-                  cyber-security engineer and backend engineer for this project.
+                  Hey! I'm Izzati, currently taking the roles as cyber-security
+                  engineer and backend engineer for this project.
                 </p>
               </section>
             </section>
@@ -69,7 +69,7 @@ function AboutPage() {
                 <h4 className="second-name">Wong</h4>
                 <h6>About</h6>
                 <p>
-                  Hello there! I'm Hassif, currently taking the roles as
+                  Hello there! I'm Mei, currently taking the roles as
                   cyber-security engineer and backend engineer for this project.
                 </p>
               </section>
@@ -85,7 +85,7 @@ function AboutPage() {
                 <h4 className="second-name">Cheng</h4>
                 <h6>About</h6>
                 <p>
-                  Hello there! I'm Hassif, currently taking the roles as
+                  Hello there! I'm Cheng, currently taking the roles as
                   cyber-security engineer and backend engineer for this project.
                 </p>
               </section>
@@ -101,7 +101,7 @@ function AboutPage() {
                 <h4 className="second-name">Yuan</h4>
                 <h6>About</h6>
                 <p>
-                  Hello there! I'm Hassif, currently taking the roles as
+                  Hello there! I'm Shawn, currently taking the roles as
                   cyber-security engineer and backend engineer for this project.
                 </p>
               </section>

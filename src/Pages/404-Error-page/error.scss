@@ -1,7 +1,6 @@
 @import "../../Scss/colors";
 @import "../../Scss/fonts";
 
-
 *,
 *::before,
 *::after {
@@ -13,10 +12,10 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+  padding: 9rem 19.5rem;
   position: center;
-  padding: 8.938rem 0 0 0;
 
-  .pic {
+  .img {
     object-fit: cover;
   }
 
@@ -24,12 +23,8 @@
     padding: 0 0 0 6.563rem;
 
     h2 {
-      padding: 0 0 0.5rem 0;
       font-family: "Lexend Deca";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 3.5rem;
-      line-height: 120%;
+      padding: 0 0 0.5rem 0;
       display: flex;
       align-items: center;
     }
@@ -41,7 +36,7 @@
     }
 
     .button-container {
-      padding: 2rem 0 0 0;
+      padding: 2rem 0 0;
 
       .button {
         padding: 1rem 2.5rem;
@@ -55,12 +50,48 @@
         align-items: center;
         //font style
         color: $white-color;
-        font-weight: 700;
+        text-transform: uppercase;
+        font-weight: map-get($map: $font-weight, $key: "bold");
         font-size: 1rem;
-
         gap: 1rem;
 
         position: absolute;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $secondary-hover-color;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 961px) {
+  .error-image-container {
+    height: 100%;
+    padding: 9rem 2rem;
+
+    .img {
+      width: 25rem;
+    }
+
+    .error-msg-container {
+      height: 15rem;
+      padding: 2rem;
+
+      h2 {
+        font-size: 2.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .button-container {
+        padding: 1rem 0 0;
+        .button {
+          padding: 0.825rem 2.125rem;
+        }
       }
     }
   }

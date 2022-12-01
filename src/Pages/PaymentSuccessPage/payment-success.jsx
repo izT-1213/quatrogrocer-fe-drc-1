@@ -24,8 +24,8 @@ function PaymentSuccessPage() {
   var total = 26.18;
 
   return (
-    <div className="page-container">
-      <div className="page-header">
+    <div className="payment-success-container">
+      <div className="payment-success-header">
         <h1>Payment Success!</h1>
         <button className="back-btn" onClick={() => navigate("../")}>
           <SlArrowLeft />

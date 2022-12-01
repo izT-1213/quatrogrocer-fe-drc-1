@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import { TextField, FormControl, Select, MenuItem } from "@mui/material";
@@ -15,40 +15,63 @@ function SignUpPage() {
   const navigate = useNavigate();
 
   //email and password variables
-  const [emailReg, setUsernameReg] = useState("");
   const [values, setValues] = useState({
+    email: "",
     password: "",
+    firstName: "",
+    lastName: "",
+    gender: "",
+    checked: false,
     showPassword: false,
   });
+
+  //dob
+  const [dob, setDOB] = useState(dayjs(""));
+
+  //to catch error message
+  const [errMsg, setErrMsg] = useState("");
+  const userRef = useRef();
+  const errRef = useRef();
+  useEffect(() => {
+    userRef.current.focus();
+  }, []);
+
+  useEffect(() => {
+    setErrMsg("");
+  }, [values.email, values.password]);
 
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
   };
 
-  const handlePasswordChange = (prop) => (event) => {
+  const handleClickTnC = () => {
+    setValues({ ...values, checked: !values.checked });
+  };
+
+  const handleValueChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
-  const [value, setValue] = useState(dayjs(""));
-
-  const handleChange = (newValue) => {
-    setValue(newValue);
-  };
-
-  const [gender, setGender] = useState("");
-
-  const handleChangeGender = (event) => {
-    setGender(event.target.value);
+  const handleDOBChange = (newDOB) => {
+    setDOB(newDOB);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const message = await RegisterFunc(emailReg, values.password.toString());
+    const message = await RegisterFunc(
+      values.email.toString(),
+      values.password.toString(),
+      values.firstName.toString(),
+      values.lastName.toString(),
+      dob,
+      values.gender.toString()
+    );
 
-    if (message == undefined) {
-      navigate("/profile");
+    if (message === undefined) {
+      navigate("/");
     } else {
       console.log(message);
+      setErrMsg(message.error);
     }
   };
 
@@ -59,7 +82,7 @@ function SignUpPage() {
           <div className="sign-up-form-content">
             <form className="sign-up-form" onSubmit={handleSubmit}>
               <h3 className="sign-up-form-title">Sign Up</h3>
-              <div className="sign-up-form-table">
+              <div classNRegisterFuncame="sign-up-form-table">
                 <tr>
                   <td className="left-col-line-1">FIRST NAME</td>
                   <td className="right-col-line-1">LAST NAME</td>
@@ -71,6 +94,10 @@ function SignUpPage() {
                       disableUnderline={true}
                       className="form-control-mt-1"
                       placeholder="John"
+                      required={true}
+                      //fname
+                      value={values.firstName}
+                      onChange={handleValueChange("firstName")}
                     />
                   </td>
                   <td className="right-col">
@@ -79,6 +106,10 @@ function SignUpPage() {
                       disableUnderline={true}
                       className="form-control-mt-1"
                       placeholder="Doe"
+                      required={true}
+                      //lname
+                      value={values.lastName}
+                      onChange={handleValueChange("lastName")}
                     />
                   </td>
                 </tr>
@@ -88,21 +119,25 @@ function SignUpPage() {
                 </tr>
                 <tr>
                   <td className="left-col">
-                    <FormControl fullWidth>
-                      <Select
-                        variant="standard"
-                        labelId="demo-simple-select-label"
-                        className="form-control-mt-1"
-                        disableUnderline={true}
-                        id="demo-simple-select"
-                        value={gender}
-                        onChange={handleChangeGender}
-                      >
-                        <MenuItem value={"male"}>Male</MenuItem>
-                        <MenuItem value={"female"}>Female</MenuItem>
-                        <MenuItem value={"others"}>Others</MenuItem>
-                      </Select>
-                    </FormControl>
+                    <div>
+                      {" "}
+                      <FormControl fullWidth>
+                        <Select
+                          variant="standard"
+                          labelId="demo-simple-select-label"
+                          className="form-control-mt-1"
+                          disableUnderline={true}
+                          id="demo-simple-select"
+                          value={values.gender}
+                          onChange={handleValueChange("gender")}
+                          required={true}
+                        >
+                          <MenuItem value={"male"}>Male</MenuItem>
+                          <MenuItem value={"female"}>Female</MenuItem>
+                          <MenuItem value={"others"}>Others</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </div>
                   </td>
                   <td className="right-col">
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -110,8 +145,9 @@ function SignUpPage() {
                         className="form-control-mt-1"
                         InputProps={{ disableUnderline: true }}
                         inputFormat="MM/DD/YYYY"
-                        value={value}
-                        onChange={handleChange}
+                        value={dob}
+                        onChange={handleDOBChange}
+                        required={true}
                         // PaperProps={{
                         //   sx: {
                         //     "& .MuiPickersDay-root": {
@@ -144,12 +180,13 @@ function SignUpPage() {
               </div>
               <div>
                 <Input
-                  type=""
+                  type="email"
                   disableUnderline={true}
+                  ref={userRef}
                   className="form-control-mt-1"
-                  onChange={(e) => {
-                    setUsernameReg(e.target.value);
-                  }}
+                  required={true}
+                  value={values.email}
+                  onChange={handleValueChange("email")}
                 />
               </div>
               <div className="form-group-mt-3">
@@ -160,8 +197,9 @@ function SignUpPage() {
                   className="form-control-mt-1"
                   placeholder="Password"
                   type={values.showPassword ? "text" : "password"}
-                  onChange={handlePasswordChange("password")}
+                  onChange={handleValueChange("password")}
                   value={values.password}
+                  required={true}
                   disableUnderline={true}
                   endAdornment={
                     <InputAdornment position="end">
@@ -177,7 +215,12 @@ function SignUpPage() {
                 />
               </div>
               <label class="tnc">
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  required={true}
+                  value={values.checked}
+                  onClick={handleClickTnC}
+                />
                 <span class="checkmark"></span> I agree to{" "}
                 <a>
                   <Link to="/" className="tnc-link">
@@ -185,8 +228,34 @@ function SignUpPage() {
                   </Link>
                 </a>
               </label>
+              <div className="errMsg">
+                {errMsg && (
+                  <p
+                    ref={errRef}
+                    className={errMsg ? "errmsg" : "offscreen"}
+                    aria-live="assertive"
+                  >
+                    {errMsg}
+                  </p>
+                )}
+              </div>
+
               <div className="d-grid-gap-2-mt-3">
-                <button type="submit" className="signup-signin-btn">
+                <button
+                  type="submit"
+                  className="signup-signin-btn"
+                  disabled={
+                    values.email &&
+                    values.password &&
+                    values.firstName &&
+                    values.lastName &&
+                    values.gender &&
+                    dob &&
+                    values.checked
+                      ? false
+                      : true
+                  }
+                >
                   SIGN UP
                 </button>
               </div>
@@ -223,13 +292,14 @@ function SignUpPage() {
                 </div>
               </div>
               <div className="sign-in-text-center">
-                Already have an account?
-                <a>
-                  <Link to="/login" className="signin-link">
-                    {" "}
-                    Log In
-                  </Link>
-                </a>
+                Already have an account?{" "}
+                <u>
+                  <a>
+                    <Link to="/login" className="signin-link">
+                      Log In
+                    </Link>
+                  </a>
+                </u>
               </div>
             </form>
           </div>

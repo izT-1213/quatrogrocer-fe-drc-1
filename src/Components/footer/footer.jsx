@@ -30,7 +30,7 @@ const Footer = () => {
                   <Link to={"/about"}>About Us</Link>
                 </li>
                 <li>
-                  <Link to={"/career"}>Career With Us</Link>
+                  <Link to={"/maintenance"}>Career With Us</Link>
                 </li>
               </ul>
             </div>
@@ -45,9 +45,6 @@ const Footer = () => {
                   <Link to={"/best-sellers"}>Best Sellers</Link>
                 </li>
                 <li>
-                  <Link to={"/all-new"}>All New</Link>
-                </li>
-                <li>
                   <Link to={"/deals-&-promotions"}>Deals & Promotions</Link>
                 </li>
               </ul>
@@ -57,16 +54,16 @@ const Footer = () => {
               <p>POLICIES</p>
               <ul>
                 <li>
-                  <Link to={"/refund-policy"}>Refund Policy</Link>
+                  <Link to={"/maintenance"}>Refund Policy</Link>
                 </li>
                 <li>
-                  <Link to={"/privacy-policy"}>Privacy Policy</Link>
+                  <Link to={"/maintenance"}>Privacy Policy</Link>
                 </li>
                 <li>
-                  <Link to={"/shipping-policy"}>Shopping Policy</Link>
+                  <Link to={"/maintenance"}>Shipping Policy</Link>
                 </li>
                 <li>
-                  <Link to={"/terms-of-service"}>Terms of Services</Link>
+                  <Link to={"/maintenance"}>Terms of Services</Link>
                 </li>
               </ul>
             </div>

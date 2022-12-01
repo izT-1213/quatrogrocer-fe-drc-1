@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap");
+h1 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+h2 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+
+h3 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.75rem;
+}
+
+h4 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2.125rem;
+}
+
+h5 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+h6 {
+  margin: 0;
+  line-height: 120%;
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #252525;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+}
+
+.best-seller-page {
+  height: 100%;
+  display: flex;
+  padding: 0 18rem;
+}
+
+.best-seller-section {
+  height: 100%;
+}
+.best-seller-section .best-seller-title h5 {
+  font-family: "Lexend Deca";
+  color: #252525;
+  padding: 3rem 0 0.75rem 0;
+}
+.best-seller-section hr {
+  width: 8.5rem;
+  background-color: #009688;
+  border: 3px solid #009688;
+}
+
+.best-seller-product-cards {
+  width: 100%;
+  height: 62.5rem;
+  padding: 2rem 0;
+}
+.best-seller-product-cards .horizontal-cards-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  border-spacing: 1rem 1rem;
+}
+.best-seller-product-cards .horizontal-cards-container .right-col-cards {
+  border-right: 1.688rem solid transparent;
+}
+.best-seller-product-cards .horizontal-cards-container .mid-col-cards {
+  border-right: 1.688rem solid transparent;
+}
+.best-seller-product-cards .horizontal-cards-container .left-col-cards {
+  border-left: 1.688rem solid transparent;
+}
+.best-seller-product-cards .horizontal-cards-container .horizontal-card {
+  box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.02), 4px 4px 8px -2px rgba(16, 24, 40, 0.04);
+  display: grid;
+  grid-template-areas: "image name name" "image name name" "image price button";
+  width: 28.75rem;
+  height: 13.125rem;
+  border-radius: 0.125rem;
+  background-color: #ffffff;
+  padding: 1.875rem 2.313rem;
+  width: 40rem;
+}
+.best-seller-product-cards .horizontal-cards-container .horizontal-card .product-image {
+  grid-area: image;
+}
+.best-seller-product-cards .horizontal-cards-container .horizontal-card .product-image img {
+  width: 7.5rem;
+  height: 9.375rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.25rem;
+}
+.best-seller-product-cards .horizontal-cards-container .horizontal-card .product-name {
+  grid-area: name;
+  font-family: "Lexend Deca";
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 120%;
+  text-align: left;
+  padding-left: 2rem;
+}
+.best-seller-product-cards .horizontal-cards-container .horizontal-card .product-price {
+  grid-area: price;
+  color: #ff8a65;
+  font-family: "Lexend Deca";
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 120%;
+  align-self: flex-end;
+  padding-left: 2rem;
+}
+.best-seller-product-cards .horizontal-cards-container .horizontal-card .product-price .RM {
+  font-family: "Lexend Deca";
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 120%;
+  color: #252525;
+}
+.best-seller-product-cards .horizontal-cards-container .horizontal-card .button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.best-seller-product-cards .horizontal-cards-container .horizontal-card .button-container .add-to-cart-btn {
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #009688;
+  height: 2.5rem;
+  width: 2.5rem;
+  grid-area: button;
+  align-self: flex-end;
+  cursor: pointer;
+}
+.best-seller-product-cards .horizontal-cards-container .horizontal-card .button-container .add-to-cart-btn .cart-icon {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+.best-seller-product-cards .horizontal-cards-container .horizontal-card .button-container .add-to-cart-btn:hover {
+  background-color: #00796b;
+}
+
+@media screen and (max-width: 961px) {
+  .best-seller-page {
+    padding: 0 2rem;
+  }
+  .best-seller-product-cards .horizontal-cards-container .horizontal-card {
+    width: 25.75rem;
+  }
+}/*# sourceMappingURL=bestseller.css.map */

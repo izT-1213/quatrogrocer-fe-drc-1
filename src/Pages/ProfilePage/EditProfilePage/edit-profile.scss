@@ -26,7 +26,15 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-weight: 500;
+    font-family: $primary-fonts;
+    font-size: 1rem;
+    font-weight: map-get($map: $font-weight, $key: "medium");
+    line-height: 120%;
+
+    svg {
+      font-size: 1.25rem;
+      align-items: center;
+    }
 
     &:hover {
       color: $primary-hover-dark-color;
@@ -51,6 +59,25 @@
           width: auto;
         }
 
+        .errMsg {
+          padding: 1rem 0 0 0;
+          p {
+            font: $primary-fonts;
+            font-size: 12px;
+            font-weight: bold;
+            color: $error-color;
+          }
+        }
+
+        .msg {
+          padding: 1.5rem 0 0 0;
+          p {
+            font: $secondary-fonts;
+            font-size: 17px;
+            font-weight: bold;
+            color: $primary-color;
+          }
+        }
         .left-column {
           padding: 0.625rem 5% 0 0;
           width: 50%;
@@ -127,6 +154,7 @@
     display: flex;
     justify-content: center;
     grid-area: button;
+    padding: 0 3rem 0 0;
 
     .cancel {
       display: flex;
@@ -148,7 +176,7 @@
     }
 
     .submit-button-container {
-      padding: 2.188rem 2.875rem;
+      padding: 2.188rem 0rem;
       .submit-edit {
         height: 2.5rem;
         width: 6.563rem;
@@ -167,7 +195,20 @@
         &:hover {
           background-color: $secondary-hover-color;
         }
+        &:disabled,
+        button[disabled] {
+          background-color: $grey-color;
+          color: #666666;
+
+          pointer-events: none;
+        }
       }
     }
+  }
+}
+
+@media screen and (max-width: 961px) {
+  .edit-profile-page-container {
+    padding: 2.188rem 2rem;
   }
 }

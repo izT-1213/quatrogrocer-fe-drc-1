@@ -1,62 +1,97 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { AiOutlinePlusCircle } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
+import { GetUserAddress, FetchUser } from "../../function.jsx";
+import jwt_decode from "jwt-decode";
+import AuthContext from "../../Components/context/AuthProvider.js";
 import "./address.css";
-//history
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 function YourShippingAddressPage() {
   const navigate = useNavigate();
+  const jwtToken = useContext(AuthContext).auth?.token;
+  const userId = jwt_decode(jwtToken);
+
+  const [addressDetails, setAddressDetails] = useState([]);
+
+  const [profileDetails, setProfileDetails] = useState({});
+
+  useEffect(() => {
+    setAddressDetails([]);
+    GetUserAddress(userId.user_id).then(setAddressDetails);
+  }, [userId.user_id]);
+
+  useEffect(() => {
+    setProfileDetails({});
+    FetchUser(userId.user_id).then(setProfileDetails);
+  }, [userId.user_id]);
 
   return (
     <div className="address-page-container">
       <div className="address-page-header">
-        <h1>My Account</h1>
+        <h3>My Account</h3>
         <div className="your-shipping-address-container">
-          <h3>Your Shipping Address</h3>
+          <p>Your Shipping Addresses</p>
         </div>
         <div className="shipping-details-container">
-          <div className="shipping-details-table">
-            <table className="address-details-table">
-              <tr>
-                <th className="user-name">Steven James (Default)</th>
-              </tr>
-              <tr>
-                <td className="address">71, Persiaran Tengku Ampuan Rahimah</td>
-              </tr>
-              <tr>
-                <td className="address">Taman Sri Andalas</td>
-              </tr>
-              <tr>
-                <td className="address">41200</td>
-              </tr>
-              <tr>
-                <td className="address">Klang</td>
-              </tr>
-              <tr>
-                <td className="address">Selangor</td>
-              </tr>
-              <tr>
-                <td>60186907892</td>
-              </tr>
-              <tr>
-                <td>sjparty@gmail.com</td>
-              </tr>
-            </table>
+          <div className="user-details-container">
+            <h5 className="user-name">
+              {profileDetails.first_name} {profileDetails.last_name}
+            </h5>
+            <p>{profileDetails.phone_number}</p>
+            <p>{profileDetails.email}</p>
           </div>
-          <br></br>
-          <div className="links">
-            <Link to="/edit-address" className="edit-link">
-              Edit
-            </Link>
+          <div className="addresses-map-container">
+            {addressDetails?.map(function (key, index) {
+              return (
+                <div className="address-card-container" key={key}>
+                  {console.log(addressDetails[index]?.address_id)}
+                  {index === 0 ? (
+                    <div>
+                      <h6>Primary address</h6>
+                      <br />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <p className="address">
+                    {addressDetails[index]?.address_line_1}
+                  </p>
+                  <p className="address">
+                    {addressDetails[index]?.address_line_2}
+                  </p>
+                  <p className="address">
+                    {addressDetails[index]?.address_line_3}
+                  </p>
+                  <p className="address">{addressDetails[index]?.postcode}</p>
+                  <p className="address">{addressDetails[index]?.state}</p>
+                  <br />
+                  <div className="links">
+                    {/* <Link to="/edit-address" className="edit-link">
+                      Edit
+                    </Link> */}
+                    <p
+                      className="edit-link"
+                      onClick={() =>
+                        navigate("/edit-address", {
+                          state: {
+                            address_id: addressDetails[index]?.address_id,
+                          },
+                        })
+                      }
+                    >
+                      Edit
+                    </p>
 
-            <div className="vertical-line"></div>
+                    <div className="vertical-line"></div>
 
-            <Link to="/delete-address" className="delete-btn">
-              Delete
-            </Link>
+                    <Link to="/delete-address" className="delete-btn">
+                      Delete
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -64,9 +99,7 @@ function YourShippingAddressPage() {
       <div className="navigation-buttons">
         <div className="return">
           <ArrowBackIosIcon />
-          <p>
-            <Link to={"/profile"}>Return to Account Details</Link>
-          </p>
+          <p onClick={() => navigate("/profile")}>Return to Account Details</p>
         </div>
 
         <button

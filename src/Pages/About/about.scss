@@ -10,38 +10,36 @@
 }
 
 .about-page {
-  height: 145em;
-  // display: flex;
+  height: 100%;
   padding: 0 19.5rem;
 
   .about-content {
-    height: 15%;
+    height: 18.25rem;
+    padding: 0 0 2.5rem 0;
 
     .about-content-title {
       h3 {
         font-family: $primary-fonts;
-        padding: 4rem 0 0.75rem 0;
+        padding: 2.5rem 0 0.25rem 0;
       }
     }
 
     hr {
-      width: 20%;
+      width: 10%;
       background-color: $primary-color;
-      border: 3px solid $primary-color;
+      border: 0.188rem solid $primary-color;
     }
 
     .about-content-text {
-      // display: flex;
-
       p {
         font-family: $secondary-fonts;
         font-weight: map-get($map: $font-weight, $key: "medium");
         font-size: 1.25rem;
         line-height: 160%;
-        padding: 1.5rem 0 0 0;
+        padding: 2rem 0 0;
       }
 
-      .about-content-text img {
+      .about-content-text {
         width: 10rem;
       }
     }
@@ -49,16 +47,14 @@
 
   .developers-content {
     .profile {
-      font-size: 1.25rem;
-      font-family: $primary-fonts;
       display: flex;
       flex-direction: column;
       position: relative;
-      max-height: 53.125rem;
-      max-width: 62.5rem;
+      max-width: 60rem;
       animation: loadProfileAnimation 0.6s ease-in-out;
       animation-fill-mode: both;
-      padding: 0 0 5rem 0;
+      padding: 0 0 3.5rem;
+      margin: auto;
     }
 
     .profile-bg {
@@ -67,8 +63,7 @@
       right: 0;
       border-radius: 0.5rem;
       background-color: $white-color;
-      max-height: calc(100% - 4.688rem);
-      max-width: calc(100% - 6.875rem);
+      max-width: calc(100% - 5rem);
       z-index: -1;
     }
 
@@ -99,18 +94,19 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      border-radius: 0.75rem;
+      border-radius: 0.25rem;
       background-color: $secondary-color;
       opacity: 0.8;
       mix-blend-mode: screen;
     }
 
     .profile-info {
-      margin-top: 140px;
+      margin-top: 8.75rem;
       padding: 4% 6% 2%;
       position: relative;
 
       h4 {
+        font-family: $primary-fonts;
         padding: 0.5rem 0;
         position: absolute;
         animation-fill-mode: both;
@@ -177,6 +173,79 @@
       to {
         transform: translateX(0rem);
         opacity: 1;
+      }
+    }
+  }
+}
+
+// Tablet
+@media screen and (max-width: 961px) {
+  .about-page {
+    height: 100%;
+    padding: 0 2rem;
+
+    .about-content {
+      height: 17.5rem;
+      padding: 0 0 2.5rem 0;
+
+      .about-content-title {
+        h3 {
+          font-family: $primary-fonts;
+          font-size: 2.25rem;
+          padding: 2.5rem 0 0.25rem 0;
+        }
+      }
+
+      hr {
+        width: 8rem;
+        background-color: $primary-color;
+        border: 0.188rem solid $primary-color;
+      }
+
+      .about-content-text {
+        p {
+          font-family: $secondary-fonts;
+          font-weight: map-get($map: $font-weight, $key: "medium");
+          font-size: 1rem;
+          line-height: 160%;
+          padding: 2rem 0 0;
+        }
+
+        .about-content-text {
+          width: 10rem;
+        }
+      }
+    }
+
+    .developers-content {
+      .profile {
+        margin: auto;
+        max-width: 50rem;
+      }
+
+      .profile-bg {
+        max-width: calc(100% - 5rem);
+      }
+
+      .profile-info {
+        margin-top: 6.875rem;
+
+        h4 {
+          font-size: 1.75rem;
+          padding: 0.25rem 0;
+        }
+
+        .first-name {
+          animation: nameEffect 1s cubic-bezier(0, 0.2, 0.4, 1);
+          top: -85px;
+          left: -65px;
+        }
+
+        .second-name {
+          animation: nameEffect 1s cubic-bezier(0, 0, 0.3, 1);
+          top: -35px;
+          left: -25px;
+        }
       }
     }
   }

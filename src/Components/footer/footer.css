@@ -52,10 +52,6 @@ a:active {
   color: #252525;
 }
 
-a:hover {
-  color: #009688;
-}
-
 *,
 *::after,
 *::before {
@@ -67,8 +63,7 @@ footer {
   height: 32.875rem;
   background-color: #fafafa;
   color: #252525;
-  padding: 0 19.5rem;
-  color: #252525;
+  padding: 0 15vw;
 }
 footer .footer-top {
   display: flex;
@@ -96,7 +91,12 @@ footer .footer-top-right ul {
   list-style: none;
 }
 footer .footer-top-right ul li {
+  cursor: pointer;
   padding: 1rem 0 0 0;
+}
+footer .footer-top-right ul li:hover,
+footer a:hover {
+  color: #009688;
 }
 footer .line-2 {
   border: 0.125rem solid #252525;
@@ -111,6 +111,7 @@ footer .footer-bottom-left p {
   font-weight: 500;
   font-size: 1rem;
   line-height: 120%;
+  color: #252525;
 }
 footer .footer-bottom-right {
   width: 8%;
@@ -127,4 +128,29 @@ footer .footer-bottom-right ul li {
 }
 footer .footer-bottom-right ul li:hover {
   color: #009688;
+}
+
+@media screen and (max-width: 961px) {
+  footer {
+    height: 28.5rem;
+    padding: 0 2rem;
+  }
+  footer .footer-top {
+    padding: 3rem 0 8rem 0;
+  }
+  footer .footer-top-right p {
+    font-size: 1.125rem;
+  }
+  footer .footer-top-right ul {
+    font-size: 0.825rem;
+  }
+  footer .footer-bottom {
+    padding: 2rem 0;
+  }
+  footer .footer-bottom-left p {
+    font-size: 0.825rem;
+  }
+  footer .footer-bottom-right {
+    width: 12%;
+  }
 }/*# sourceMappingURL=footer.css.map */

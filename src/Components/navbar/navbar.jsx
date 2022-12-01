@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../../Images/white-logo.svg";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
+import {
+  SearchOutlined,
+  AccountCircleOutlined,
+  ShoppingBagOutlined,
+  Close,
+  Menu,
+} from "@mui/icons-material";
 import "./navbar.css";
-import MenuIcon from "@mui/icons-material/Menu";
 
 const Nav = () => {
   const navigate = useNavigate();
+  const [searchVal, setSearchVal] = useState("");
+
+  function searchField() {
+    // debugger;
+    const products = searchVal;
+    navigate(`/search-result/${products}`);
+  }
 
   return (
-    <div className="nav-container">
+    <div>
       <nav className="nav">
         <div className="nav-left">
           <Link to={"/"}>
@@ -21,9 +31,6 @@ const Nav = () => {
               alt="Quatro Grocer's Logo"
             />
           </Link>
-        </div>
-
-        <div className="nav-middle">
           <ul>
             <li onClick={() => navigate("/marketplace")}>Marketplace</li>
             <li onClick={() => navigate("/best-sellers")}>Best Sellers</li>
@@ -34,22 +41,34 @@ const Nav = () => {
         </div>
 
         <div className="nav-right">
-          <ul>
-            <li>
-              <SearchOutlinedIcon />
-            </li>
-            <li>
-              <AccountCircleOutlinedIcon onClick={() => navigate("/profile")} />
-            </li>
-            <li>
-              <ShoppingBagOutlinedIcon
-                onClick={() => navigate("/cart/checkout")}
-              />
-            </li>
-            <li>
-              <MenuIcon className="burger" />
-            </li>
-          </ul>
+          <div className="search-container">
+            <input
+              className="searchTerm"
+              type="text"
+              placeholder="Search quatrogrocer.com"
+              name="keyword"
+              onChange={(e) => setSearchVal(e.target.value)}
+              value={searchVal}
+            />
+            <button className="searchButton" onClick={searchField}>
+              <SearchOutlined />
+            </button>
+          </div>
+          <div className="nav-right-menu">
+            <ul>
+              <li>
+                <AccountCircleOutlined onClick={() => navigate("/profile")} />
+              </li>
+              <li>
+                <ShoppingBagOutlined
+                  onClick={() => navigate("/cart/checkout")}
+                />
+              </li>
+            </ul>
+          </div>
+          <div className="mobile">
+            <Menu className="burger" />
+          </div>
         </div>
       </nav>
     </div>

@@ -1,26 +1,27 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef, useEffect } from "react";
 //import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { IconButton, InputAdornment, Input } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
 import { LoginFunc } from "../../function.jsx";
-import AuthContext from "../../Components/context/AuthProvider.js";
+import useAuth from "../../Components/context/useAuth.js";
 import "../Login/login.css";
 
 function LoginPage() {
+  const navigate = useNavigate(); // <-- to navigate to profile page
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   // email and password variables
   const [emailLogin, setEmailLogin] = useState("");
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
   });
+  const { setAuth } = useAuth();
 
-  // >>>> login function component (WIP) <<<<
-  const navigate = useNavigate(); // <-- to navigate to profile page
-  const { setAuth } = useContext(AuthContext); // <-- for authentication
   const [errMsg, setErrMsg] = useState(""); // <-- to catch error message(?)
-  const [success, setSuccess] = useState(false); // <-- to check if login is successful
 
   const userRef = useRef();
   const errRef = useRef();
@@ -33,50 +34,20 @@ function LoginPage() {
     setErrMsg("");
   }, [emailLogin, values.password]);
 
-  // //calling LoginFunc from function.jsx
-  // const login = (e) => {
-  // LoginFunc(emailLogin, values.password.toString()
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const message = await LoginFunc(emailLogin, values.password.toString());
-
-
-    if (message === undefined) {
-      navigate("/profile");
-      // console.log(message);
+    const passwd = values.password.toString();
+    const message = await LoginFunc(emailLogin, passwd);
+    console.log(message);
+    const token = message?.data?.userJwt;
+    setAuth({ emailLogin, passwd, token });
+    if (message.status === 200) {
+      navigate(from.toString(), { replace: true });
     } else {
       console.log(message);
-
-      setErrMsg(JSON.stringify(message.error));
-
+      setErrMsg(message.error);
     }
-
-    // try {
-    //   const response = await login;
-    //   console.log(JSON.stringify(response?.data));
-    //   const accessToken = response?.data?.accessToken;
-    //   setAuth({ emailLogin, values, accessToken });
-    //   setEmailLogin("");
-    //   setValues("");
-    //   setSuccess(true);
-    // } catch (err) {
-    //   if (!err?.response) {
-    //     setErrMsg("No Server Response");
-    //   } else if (err.response?.status === 400) {
-    //     setErrMsg("Missing Username or Password");
-    //   } else if (err.response?.status === 401) {
-    //     setErrMsg("Unauthorized");
-    //   } else {
-    //     setErrMsg("Login Failed");
-    //   }
-    //   errRef.current.focus();
-    // }
   };
-
-  // >>>> end of login function component (WIP) <<<<
 
   //to hide and show password
   const handleClickShowPassword = () => {
@@ -142,18 +113,23 @@ function LoginPage() {
                   }
                 />
               </div>
-              <p
-                ref={errRef}
-                className={errMsg ? "errmsg" : "offscreen"}
-                aria-live="assertive"
-              >
-                {errMsg}
-              </p>
-              <p className="forgot-pwd-text">
-                <a href="#">Forgot password?</a>
-              </p>
+              <div className="errMsg">
+                {errMsg && (
+                  <p
+                    ref={errRef}
+                    className={errMsg ? "errmsg" : "offscreen"}
+                    aria-live="assertive"
+                  >
+                    {errMsg}
+                  </p>
+                )}
+              </div>
               <div className="d-grid-gap-2-mt-3">
-                <button type="submit" className="signup-login-btn">
+                <button
+                  type="submit"
+                  className="signup-login-btn"
+                  disabled={emailLogin && values.password ? false : true}
+                >
                   Log In
                 </button>
               </div>
@@ -190,13 +166,14 @@ function LoginPage() {
                 </div>
               </div>
               <div className="sign-up-text-center">
-                I'm new here!
-                <a>
-                  <Link to="/signup" className="signup-link">
-                    {" "}
-                    Create a new account
-                  </Link>
-                </a>
+                I'm new here!{" "}
+                <u>
+                  <a>
+                    <Link to="/signup" className="signup-link">
+                      Create a new account
+                    </Link>
+                  </a>
+                </u>
               </div>
             </form>
           </div>
