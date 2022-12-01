@@ -87,9 +87,10 @@ async function CreateAddressFunc(
   userId
 ) {
   try {
+    console.log(addLine1);
     const response = await Axios.post(
       "http://localhost:5004/quatro_address/create",
-      { withCredentials: true }, //hassif port 3002
+      // { withCredentials: true }, //hassif port 3002
       {
         address_line_1: addLine1,
         address_line_2: addLine2,
@@ -102,6 +103,7 @@ async function CreateAddressFunc(
     return response.status;
   } catch (err) {
     console.log(err.response.data);
+    return err.response.data;
   }
 }
 
