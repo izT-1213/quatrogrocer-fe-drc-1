@@ -8,7 +8,6 @@ import "../BestSellerPage/bestseller.css";
 
 function BestSellerPage() {
   const navigate = useNavigate();
-  const location = useLocation();
   var i = 0;
 
   const [productDetails, setProductDetails] = useState([]);

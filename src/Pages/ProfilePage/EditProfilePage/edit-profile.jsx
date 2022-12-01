@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IconButton, InputAdornment, Input } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
@@ -26,7 +26,6 @@ function EditProfilePage() {
     first_name: "",
     last_name: "",
     email: "",
-    phone_number: "",
     password: "",
     oldpassword: "",
   });
@@ -37,7 +36,6 @@ function EditProfilePage() {
   const [msg, setMsg] = useState("");
   const [confirmMsg, setConfirmMsg] = useState("");
 
-  const errRef = useRef();
   const handleDOBChange = (newDOB) => {
     setDOB(newDOB);
   };
@@ -59,31 +57,38 @@ function EditProfilePage() {
 
   const editProfile = async (e) => {
     e.preventDefault();
-    console.log(errRef.current);
     // console.log(validate(profileValues));
     setFormErrors(validate(profileValues));
-    console.log(errRef.current);
-    if (validate(profileValues === true)) {
-      setConfirmMsg("Please click again to confirm");
+    if (
+      validate(profileValues === true) &&
+      formErrors.test === "false"
+      // (!formErrors.first_name &&
+      //   !formErrors.last_name &&
+      //   !formErrors.email &&
+      //   !formErrors.dob &&
+      //   !formErrors.password))
+    ) {
+      setFormErrors(validate(profileValues));
+      if (
+        formErrors.test !== "false" &&
+        !formErrors.first_name &&
+        !formErrors.last_name &&
+        !formErrors.email &&
+        !formErrors.dob &&
+        !formErrors.password
+      ) {
+        setConfirmMsg(
+          "Please click again to confirm if there's no more error."
+        );
+      }
     }
-    console.log(formErrors.last_name);
-    console.log(Object.keys(formErrors).length);
-    Object.keys(formErrors).map((key) => {
-      console.log(formErrors[key]);
-    });
 
     if (Object.keys(formErrors).length === 0) {
-      // if (!formErrors) {
-      console.log(Object.keys(formErrors).length);
-      console.log(userId.user_id);
-      console.log("updating");
-
       if (
         (profileValues.first_name ||
           profileValues.last_name ||
           dob ||
-          profileValues.email ||
-          profileValues.phone_number) &&
+          profileValues.email) &&
         profileValues.oldpassword &&
         profileValues.password
       ) {
@@ -98,7 +103,6 @@ function EditProfilePage() {
             profileValues.last_name.toString(),
             dob.toString(),
             profileValues.email.toString(),
-            profileValues.phone_number.toString(),
             profileValues.password,
             userId.user_id
           );
@@ -114,8 +118,7 @@ function EditProfilePage() {
         (profileValues.first_name ||
           profileValues.last_name ||
           dob ||
-          profileValues.email ||
-          profileValues.phone_number) &&
+          profileValues.email) &&
         profileValues.oldpassword &&
         !profileValues.password
       ) {
@@ -124,7 +127,6 @@ function EditProfilePage() {
           profileValues.last_name.toString(),
           dob.toString(),
           profileValues.email.toString(),
-          profileValues.phone_number.toString(),
           profileValues.oldpassword,
           userId.user_id
         );
@@ -141,7 +143,6 @@ function EditProfilePage() {
         !profileValues.last_name &&
         !dob &&
         !profileValues.email &&
-        !profileValues.phone_number &&
         profileValues.oldpassword &&
         profileValues.password
       ) {
@@ -306,7 +307,6 @@ function EditProfilePage() {
                 <div className="errMsg">
                   {formErrors.first_name && (
                     <p
-                      ref={errRef}
                       className={formErrors.first_name ? "errmsg" : "offscreen"}
                       aria-live="assertive"
                     >
@@ -320,7 +320,6 @@ function EditProfilePage() {
                 <div className="errMsg">
                   {formErrors.last_name && (
                     <p
-                      ref={errRef}
                       className={formErrors.last_name ? "errmsg" : "offscreen"}
                       aria-live="assertive"
                     >
@@ -395,7 +394,6 @@ function EditProfilePage() {
                 <div className="errMsg">
                   {formErrors.email && (
                     <p
-                      ref={errRef}
                       className={formErrors.email ? "errmsg" : "offscreen"}
                       aria-live="assertive"
                     >
@@ -409,7 +407,6 @@ function EditProfilePage() {
                 <div className="errMsg">
                   {formErrors.dob && (
                     <p
-                      ref={errRef}
                       className={formErrors.dob ? "errmsg" : "offscreen"}
                       aria-live="assertive"
                     >
@@ -498,7 +495,6 @@ function EditProfilePage() {
                   {formErrors.oldpassword
                     ? formErrors.oldpassword && (
                         <p
-                          ref={errRef}
                           className={
                             formErrors.oldpassword ? "errmsg" : "offscreen"
                           }
@@ -510,7 +506,6 @@ function EditProfilePage() {
                     : errMsg
                     ? errMsg && (
                         <p
-                          ref={errRef}
                           className={errMsg ? "errmsg" : "offscreen"}
                           aria-live="assertive"
                         >
@@ -525,7 +520,6 @@ function EditProfilePage() {
                 {/* <div className="errMsg">
                   {errMsg && (
                     <p
-                      ref={errRef}
                       className={errMsg ? "errmsg" : "offscreen"}
                       aria-live="assertive"
                     >
@@ -536,7 +530,6 @@ function EditProfilePage() {
                 <div className="msg">
                   {msg && (
                     <p
-                      ref={errRef}
                       className={msg ? "errmsg" : "offscreen"}
                       aria-live="assertive"
                     >

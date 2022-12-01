@@ -12,12 +12,12 @@ function YourShippingAddressPage() {
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
 
-  const [addressDetails, setAddressDetails] = useState({});
+  const [addressDetails, setAddressDetails] = useState([]);
 
   const [profileDetails, setProfileDetails] = useState({});
 
   useEffect(() => {
-    setAddressDetails({});
+    setAddressDetails([]);
     GetUserAddress(userId.user_id).then(setAddressDetails);
   }, [userId.user_id]);
 
