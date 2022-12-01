@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { AiOutlinePlusCircle } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
-import { GetUserAddress, FetchUser } from "../../function.jsx";
+import { useNavigate } from "react-router-dom";
+import {
+  GetUserAddress,
+  FetchUser,
+  DeleteAddressFunc,
+} from "../../function.jsx";
 import jwt_decode from "jwt-decode";
 import AuthContext from "../../Components/context/AuthProvider.js";
 import "./address.css";
@@ -84,10 +88,30 @@ function YourShippingAddressPage() {
                     </p>
 
                     <div className="vertical-line"></div>
-
-                    <Link to="/delete-address" className="delete-btn">
+                    <p
+                      className="delete-btn"
+                      onClick={async (e) => {
+                        const delConfirm = window.confirm(
+                          "Are you sure you want to click this card?"
+                        );
+                        console.log(delConfirm);
+                        if (delConfirm === true) {
+                          const message = await DeleteAddressFunc(
+                            addressDetails[index]?.address_id
+                          );
+                          console.log(message);
+                          if (message === 200) {
+                            navigate("/profile");
+                          }
+                        }
+                      }}
+                    >
                       Delete
-                    </Link>
+                    </p>
+
+                    {/* <Link to="/delete-address" className="delete-btn">
+                      Delete
+                    </Link> */}
                   </div>
                 </div>
               );
