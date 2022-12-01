@@ -213,6 +213,14 @@
               &:hover {
                 background-color: $secondary-hover-color;
               }
+
+              &:disabled,
+              button[disabled] {
+                background-color: $grey-color;
+                color: #666666;
+
+                pointer-events: none;
+              }
             }
           }
         }

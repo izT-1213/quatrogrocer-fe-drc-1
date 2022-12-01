@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { CreateAddressFunc } from "../../function";
 import jwt_decode from "jwt-decode";
@@ -17,6 +17,18 @@ function AddAddressPage() {
     address_line_3: "",
     postcode: "",
     state: "",
+  });
+
+  // const [tempAddressValues, setTempAddressValues] = useState({
+  //   address_line_1: "",
+  //   address_line_2: "",
+  //   address_line_3: "",
+  //   postcode: "",
+  //   state: "",
+  // });
+
+  useEffect(() => {
+    console.log("address values", addressValues);
   });
 
   const addAddress = async (e) => {
@@ -157,6 +169,15 @@ function AddAddressPage() {
                 <button
                   className="add-address-btn"
                   type="submit"
+                  disabled={
+                    addressValues.address_line_1 &&
+                    addressValues.address_line_2 &&
+                    addressValues.address_line_3 &&
+                    addressValues.postcode &&
+                    addressValues.state
+                      ? false
+                      : true
+                  }
                   onClick={addAddress} /*onClick={handleAddAddress}*/
                 >
                   Add Address
