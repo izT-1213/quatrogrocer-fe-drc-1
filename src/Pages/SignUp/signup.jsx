@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import { TextField, FormControl, Select, MenuItem } from "@mui/material";
@@ -68,7 +68,8 @@ function SignUpPage() {
     );
 
     if (message === undefined) {
-      navigate("/");
+      alert("You have registered an account. Please login to proceed.");
+      navigate("/login");
     } else {
       console.log(message);
       setErrMsg(message.error);
@@ -306,7 +307,10 @@ function SignUpPage() {
         </div>
       </div>
       <div className="signup-image-container">
-        <img src="https://images.unsplash.com/photo-1601057366047-ec734881239b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+        <img
+          src="https://images.unsplash.com/photo-1601057366047-ec734881239b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+          alt=""
+        />
       </div>
     </div>
   );

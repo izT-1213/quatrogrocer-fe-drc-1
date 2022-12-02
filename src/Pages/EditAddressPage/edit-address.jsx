@@ -43,6 +43,7 @@ function EditAddressPage() {
     console.log(message);
 
     if (message === 200) {
+      alert("Address has been successfully edited.");
       navigate("/profile/addresses");
     }
   };

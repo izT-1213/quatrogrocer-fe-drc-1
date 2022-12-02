@@ -31,6 +31,7 @@ function AddAddressPage() {
     );
 
     if (message === 200) {
+      alert("Address is successfully added.");
       navigate("/profile");
     }
   };
