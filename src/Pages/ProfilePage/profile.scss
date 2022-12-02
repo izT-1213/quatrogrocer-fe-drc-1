@@ -122,6 +122,10 @@
         font-size: 1.25rem;
         font-weight: 500;
         color: black;
+
+        &:hover {
+          color: $primary-hover-dark-color;
+        }
       }
 
       .address {
@@ -134,6 +138,10 @@
 
       .view-address-link {
         color: black;
+
+        &:hover {
+          color: $primary-hover-dark-color;
+        }
       }
     }
   }

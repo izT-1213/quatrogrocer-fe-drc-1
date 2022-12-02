@@ -154,6 +154,9 @@ a:active {
   font-weight: 500;
   color: black;
 }
+.profile-page-container .account-details-container .account-details-table .edit-link:hover {
+  color: #00796b;
+}
 .profile-page-container .account-details-container .account-details-table .address {
   padding: 0.188rem 0;
 }
@@ -162,6 +165,9 @@ a:active {
 }
 .profile-page-container .account-details-container .account-details-table .view-address-link {
   color: black;
+}
+.profile-page-container .account-details-container .account-details-table .view-address-link:hover {
+  color: #00796b;
 }
 
 @media screen and (max-width: 961px) {

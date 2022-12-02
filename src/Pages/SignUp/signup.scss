@@ -73,6 +73,7 @@ p {
 
           .left-col {
             padding: 0 0.625rem 0 0;
+            border: 0.5rem solid white;
           }
 
           .right-col {
@@ -88,6 +89,20 @@ p {
         }
 
         .form-control-mt-1 {
+          background-color: #eeeeee;
+          border-radius: 0.25rem;
+          height: 2.5rem;
+          width: 100%;
+          font-size: 1rem;
+          padding: 0.375rem;
+
+          .MuiSelect-select {
+            padding-right: 0;
+            min-width: 4.899rem;
+          }
+        }
+
+        .form-control-mt-2 {
           background-color: #eeeeee;
           border-radius: 0.25rem;
           height: 2.5rem;

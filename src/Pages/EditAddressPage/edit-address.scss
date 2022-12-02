@@ -141,6 +141,11 @@
               gap: 0.5rem;
               border-radius: 0.125rem;
               height: 2.5rem;
+              cursor: pointer;
+
+              &:hover {
+                background-color: $secondary-hover-color;
+              }
             }
           }
         }

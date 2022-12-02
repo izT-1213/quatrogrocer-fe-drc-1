@@ -80,18 +80,31 @@ a:active {
   font-family: "Lexend Deca";
   padding: 0 0 2rem 0;
 }
-.edit-address-page-container .container-1 .edit-new-address-container .address-form-container {
+.edit-address-page-container
+  .container-1
+  .edit-new-address-container
+  .address-form-container {
   background: #ffffff;
   width: 33.75rem;
   height: 27.5rem;
   left: 0 0 0 5.125rem;
   top: 16.25rem 0 0 0;
-  box-shadow: 0rem 0.5rem 1rem -0.25rem rgba(16, 24, 40, 0.04), 0px 0.25rem 0.5rem -0.125rem rgba(16, 24, 40, 0.04);
+  box-shadow: 0rem 0.5rem 1rem -0.25rem rgba(16, 24, 40, 0.04),
+    0px 0.25rem 0.5rem -0.125rem rgba(16, 24, 40, 0.04);
 }
-.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content {
+.edit-address-page-container
+  .container-1
+  .edit-new-address-container
+  .address-form-container
+  .address-form-content {
   padding: 1.688rem;
 }
-.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form {
+.edit-address-page-container
+  .container-1
+  .edit-new-address-container
+  .address-form-container
+  .address-form-content
+  .address-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -99,59 +112,123 @@ a:active {
   gap: 1rem;
   padding: 0 0 1rem 0;
 }
-.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form label {
+.edit-address-page-container
+  .container-1
+  .edit-new-address-container
+  .address-form-container
+  .address-form-content
+  .address-form
+  label {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 120%;
 }
-.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form .address-line-container {
+.edit-address-page-container
+  .container-1
+  .edit-new-address-container
+  .address-form-container
+  .address-form-content
+  .address-form
+  .address-line-container {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
-.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form .address-line-container input[type=text] {
+.edit-address-page-container
+  .container-1
+  .edit-new-address-container
+  .address-form-container
+  .address-form-content
+  .address-form
+  .address-line-container
+  input[type="text"] {
   border-radius: 0.25rem;
   width: 28.75rem;
   background-color: #fafafa;
   font-family: "Poppins";
   padding: 0.5rem 0.75rem;
 }
-.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-1 {
+.edit-address-page-container
+  .container-1
+  .edit-new-address-container
+  .address-form-container
+  .address-form-content
+  .address-form
+  .address-line-container
+  .address-line-1 {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
-.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-2 {
+.edit-address-page-container
+  .container-1
+  .edit-new-address-container
+  .address-form-container
+  .address-form-content
+  .address-form
+  .address-line-container
+  .address-line-2 {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
-.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form .address-line-container .address-line-3 {
+.edit-address-page-container
+  .container-1
+  .edit-new-address-container
+  .address-form-container
+  .address-form-content
+  .address-form
+  .address-line-container
+  .address-line-3 {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
-.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form .postcode-and-state-container {
+.edit-address-page-container
+  .container-1
+  .edit-new-address-container
+  .address-form-container
+  .address-form-content
+  .address-form
+  .postcode-and-state-container {
   display: flex;
   flex-direction: row;
 }
-.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .address-form .postcode-and-state-container input {
+.edit-address-page-container
+  .container-1
+  .edit-new-address-container
+  .address-form-container
+  .address-form-content
+  .address-form
+  .postcode-and-state-container
+  input {
   border-radius: 0.25rem;
   width: 13.75rem;
   background-color: #fafafa;
   font-family: "Poppins";
   padding-left: 0.75rem;
 }
-.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .buttons {
+.edit-address-page-container
+  .container-1
+  .edit-new-address-container
+  .address-form-container
+  .address-form-content
+  .buttons {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   padding: 3rem 0 0 0;
   gap: 3rem;
 }
-.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .buttons .cancel-btn {
+.edit-address-page-container
+  .container-1
+  .edit-new-address-container
+  .address-form-container
+  .address-form-content
+  .buttons
+  .cancel-btn {
   background-color: transparent;
   border: none;
   font-family: "Lexend Deca";
@@ -159,7 +236,13 @@ a:active {
   font-size: 1rem;
   line-height: 120%;
 }
-.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .buttons .update-address-btn {
+.edit-address-page-container
+  .container-1
+  .edit-new-address-container
+  .address-form-container
+  .address-form-content
+  .buttons
+  .update-address-btn {
   background-color: #ff8a65;
   border: none;
   font-family: "Lexend Deca";
@@ -215,4 +298,4 @@ a:active {
   .edit-address-page-container .navigation-buttons {
     padding-top: 1rem;
   }
-}/*# sourceMappingURL=edit-address.css.map */
+} /*# sourceMappingURL=edit-address.css.map */
