@@ -75,7 +75,6 @@ function AddAddressPage() {
       setUpdatedMsg("Updated Successfully");
       setErrMsg("");
     } else {
-      console.log(message);
       setErrMsg(message.error);
       setUpdatedMsg("");
     }

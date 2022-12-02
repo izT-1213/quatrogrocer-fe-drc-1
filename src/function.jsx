@@ -141,7 +141,7 @@ async function DeleteAddressFunc(address_id) {
   try {
     console.log(address_id);
     const response = await Axios.delete(
-      `http://localhost:5000/quatro_address/delete?address_id=${address_id}`
+      `http://localhost:5004/quatro_address/delete?address_id=${address_id}`
     );
     return response.status;
   } catch (err) {
@@ -164,7 +164,7 @@ async function FetchProduct() {
 async function FetchDiscountProduct() {
   try {
     const response = await Axios.get(
-      "http://localhost:5000/quatro_product_discount/get"
+      "http://localhost:5004/quatro_product_discount/get"
       //{ withCredentials: true }
     );
     return response.data.result;
@@ -204,7 +204,7 @@ async function UpdatePasswordFunc(oldPassword, password, user_id) {
   console.log(password ? true : false);
   try {
     await Axios.post(
-      "http://localhost:5000/quatro_user/update_password",
+      "http://localhost:5004/quatro_user/update_password",
 
       {
         oldPassword: oldPassword,

@@ -130,9 +130,19 @@ function UserProfilePage() {
             <tr>
               <td className="view-address">
                 <a>
-                  <Link to="/profile/addresses" className="view-address-link">
+                  <p
+                    onClick={() => {
+                      if (addressDetails.length === 0) {
+                        navigate("/add-address");
+                      } else if (addressDetails.length !== 0) {
+                        navigate("/profile/addresses");
+                      }
+                    }}
+                    to="/profile/addresses"
+                    className="view-address-link"
+                  >
                     View Addresses [{addressDetails.length}]
-                  </Link>
+                  </p>
                 </a>
               </td>
             </tr>
