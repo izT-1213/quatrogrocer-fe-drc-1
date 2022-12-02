@@ -12,7 +12,7 @@ import {
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./product-page.css";
 import SideNav from "../../Components/sidenav/sidenav.jsx";
-import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
+import Pagination from "rc-pagination";
 
 function MarketplacePage() {
   const navigate = useNavigate();

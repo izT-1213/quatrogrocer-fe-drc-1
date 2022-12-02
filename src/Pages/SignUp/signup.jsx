@@ -214,14 +214,14 @@ function SignUpPage() {
                   }
                 />
               </div>
-              <label class="tnc">
+              <label className="tnc">
                 <input
                   type="checkbox"
                   required={true}
                   value={values.checked}
                   onClick={handleClickTnC}
                 />
-                <span class="checkmark"></span> I agree to{" "}
+                <span className="checkmark"></span> I agree to{" "}
                 <a>
                   <Link to="/" className="tnc-link">
                     Terms & Conditions

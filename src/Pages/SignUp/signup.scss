@@ -73,11 +73,12 @@ p {
 
           .left-col {
             padding: 0 0.625rem 0 0;
-            border: 0.5rem solid white;
+            border-right: 0.25rem solid white;
           }
 
           .right-col {
             padding: 0 0 0 0.625rem;
+            border-left: 0.25rem solid white;
           }
         }
 
@@ -332,11 +333,6 @@ p {
             .login-apps-icons {
               font-size: 1.25rem;
             }
-          }
-
-          .form-control-mt-1,
-          .signup-signin-btn {
-            width: 90%;
           }
         }
       }

@@ -78,7 +78,7 @@ a:active {
 }
 .deals-promotions-section .product-cards {
   padding: 2rem 0 0;
-  height: 43.375rem;
+  height: 100%;
   width: 100%;
 }
 .deals-promotions-section .product-cards .medium-horizontal-cards-container {

@@ -82,11 +82,15 @@ p {
   background-color: white;
   width: 28.75rem;
   height: 43.75rem;
-  box-shadow: 0rem 0.75rem 1rem -0.25rem rgba(16, 24, 40, 0.1), 0rem 0.25rem 0.375rem -2.125rem rgba(16, 24, 40, 0.05);
+  box-shadow: 0rem 0.75rem 1rem -0.25rem rgba(16, 24, 40, 0.1),
+    0rem 0.25rem 0.375rem -2.125rem rgba(16, 24, 40, 0.05);
   border-radius: 0.5rem;
   padding: 3.75rem;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content {
   height: 100%;
   width: 100%;
   display: flex;
@@ -94,42 +98,89 @@ p {
   justify-content: space-evenly;
   text-align: left;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-title {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .sign-up-form-title {
   font-family: "Lexend Deca";
   font-size: 2.375rem;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-table {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .sign-up-form-table {
   padding-top: 1.25rem;
   font-size: 0.875rem;
   font-family: "Lexend Deca";
   font-weight: 500;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-table .left-col-line-1 {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .sign-up-form-table
+  .left-col-line-1 {
   padding: 0 0.625rem 0.25rem 0;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-table .right-col-line-1 {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .sign-up-form-table
+  .right-col-line-1 {
   padding: 0 0 0.25rem 0.625rem;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-table .left-col-line-2 {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .sign-up-form-table
+  .left-col-line-2 {
   padding: 1rem 0.625rem 0.25rem 0;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-table .right-col-line-2 {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .sign-up-form-table
+  .right-col-line-2 {
   padding: 1rem 0 0.25rem 0.625rem;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-table .left-col {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .sign-up-form-table
+  .left-col {
   padding: 0 0.625rem 0 0;
-  border: 0.5rem solid white;
+  border-right: 0.25rem solid white;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-table .right-col {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .sign-up-form-table
+  .right-col {
   padding: 0 0 0 0.625rem;
+  border-left: 0.25rem solid white;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .form-group-mt-3 {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .form-group-mt-3 {
   font-family: "Lexend Deca";
   font-weight: 500;
   font-size: 0.875rem;
   padding: 0.75rem 0 0.25rem;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .form-control-mt-1 {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .form-control-mt-1 {
   background-color: #eeeeee;
   border-radius: 0.25rem;
   height: 2.5rem;
@@ -137,11 +188,20 @@ p {
   font-size: 1rem;
   padding: 0.375rem;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .form-control-mt-1 .MuiSelect-select {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .form-control-mt-1
+  .MuiSelect-select {
   padding-right: 0;
   min-width: 4.899rem;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .form-control-mt-2 {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .form-control-mt-2 {
   background-color: #eeeeee;
   border-radius: 0.25rem;
   height: 2.5rem;
@@ -149,14 +209,27 @@ p {
   font-size: 1rem;
   padding: 0.375rem;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .form-control-mt-2 .MuiSelect-select {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .form-control-mt-2
+  .MuiSelect-select {
   padding-right: 0;
   min-width: 4.899rem;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .d-grid-gap-2-mt-3 {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .d-grid-gap-2-mt-3 {
   padding: 1.5rem 0;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-signin-btn {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .signup-signin-btn {
   font-family: "Lexend Deca";
   font-weight: 500;
   font-size: 1rem;
@@ -174,37 +247,70 @@ p {
   border: none;
   cursor: pointer;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-signin-btn:disabled,
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-signin-btn button[disabled] {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .signup-signin-btn:disabled,
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .signup-signin-btn
+  button[disabled] {
   background-color: #9e9e9e;
   color: #666666;
   pointer-events: none;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-in-text-center {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .sign-in-text-center {
   width: 100%;
   font-size: 1rem;
   font-family: "Poppins";
   font-weight: 300;
   text-align: center;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signin-link {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .signin-link {
   color: #009688;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .line-or-box {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .line-or-box {
   display: table;
   width: 100%;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .line-1 {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .line-1 {
   width: 9rem;
   border: 0.125rem solid #009688;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .white-padding {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .white-padding {
   height: 50%;
   display: table-cell;
   padding: 0.625rem;
   background-color: white;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .or-box {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .or-box {
   color: #ffffff;
   display: table-cell;
   align-items: center;
@@ -219,23 +325,46 @@ p {
   font-size: 1rem;
   font-weight: 500;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .login-apps-container {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .login-apps-container {
   display: flex;
   justify-content: space-evenly;
   align-content: space-evenly;
   align-items: center;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .login-apps {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .login-apps {
   display: table;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .login-apps .login-apps-icons {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .login-apps
+  .login-apps-icons {
   display: table-cell;
   font-size: 1.5rem;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .login-apps .login-apps-icons svg {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .login-apps
+  .login-apps-icons
+  svg {
   color: #252525;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .tnc {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .tnc {
   display: block;
   position: relative;
   padding: 0 0 0 1.625rem;
@@ -249,23 +378,41 @@ p {
   font-family: "Lexend Deca";
   font-weight: 500;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .tnc input {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .tnc
+  input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
   width: 0;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .errMsg {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .errMsg {
   padding: 1rem 0 0 0;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .errMsg p {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .errMsg
+  p {
   font: "Lexend Deca";
   font-size: 12px;
   font-weight: bold;
   color: #f04438;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .checkmark {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .checkmark {
   position: absolute;
   top: 0;
   left: 0;
@@ -274,21 +421,48 @@ p {
   border: 0.125rem solid #009688;
   border-radius: 4px;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .checkmark:after {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .tnc:hover input ~ .checkmark {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .tnc:hover
+  input
+  ~ .checkmark {
   background-color: #fafafa;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .tnc input:checked ~ .checkmark {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .tnc
+  input:checked
+  ~ .checkmark {
   background-color: #009688;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .tnc input:checked ~ .checkmark:after {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .tnc
+  input:checked
+  ~ .checkmark:after {
   display: block;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .tnc .checkmark:after {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .tnc
+  .checkmark:after {
   left: 5px;
   top: 1px;
   width: 5px;
@@ -297,7 +471,11 @@ p {
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .tnc-link {
+.sign-up-page-container
+  .sign-up-container
+  .sign-up-container-content
+  .sign-up-form-content
+  .tnc-link {
   color: #009688;
   text-decoration: underline;
 }
@@ -309,7 +487,7 @@ p {
 }
 .sign-up-page-container .signup-image-container img {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: 100%;
 }
 
@@ -319,24 +497,34 @@ p {
     height: 42rem;
     padding: 2rem;
   }
-  .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-title {
+  .sign-up-page-container
+    .sign-up-container
+    .sign-up-container-content
+    .sign-up-form-content
+    .sign-up-form-title {
     font-size: 2rem;
   }
-  .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .line-or-box {
+  .sign-up-page-container
+    .sign-up-container
+    .sign-up-container-content
+    .sign-up-form-content
+    .line-or-box {
     width: 90%;
     margin: 0;
   }
-  .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .line-1 {
+  .sign-up-page-container
+    .sign-up-container
+    .sign-up-container-content
+    .sign-up-form-content
+    .line-1 {
     width: 130px;
   }
-  .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .login-apps .login-apps-icons {
+  .sign-up-page-container
+    .sign-up-container
+    .sign-up-container-content
+    .sign-up-form-content
+    .login-apps
+    .login-apps-icons {
     font-size: 1.25rem;
   }
-  .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .form-control-mt-1,
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-signin-btn {
-    width: 90%;
-  }
-  .sign-up-page-container .signup-image-container {
-    width: 100%;
-  }
-}/*# sourceMappingURL=signup.css.map */
+} /*# sourceMappingURL=signup.css.map */
