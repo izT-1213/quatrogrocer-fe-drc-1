@@ -41,7 +41,7 @@ function AddAddressPage() {
   ]);
 
   const [updatedMsg, setUpdatedMsg] = useState("");
-  const updatedRef = useRef();
+
   useEffect(() => {
     setUpdatedMsg("");
   }, [
@@ -63,8 +63,6 @@ function AddAddressPage() {
       addressValues.state,
       userId.user_id
     );
-
-    console.log("line 67- updated");
 
     // if (message === undefined) {
     //   navigate("/");

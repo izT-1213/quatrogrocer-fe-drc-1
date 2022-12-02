@@ -179,6 +179,24 @@ a:active {
   border-radius: 0.125rem;
   height: 2.5rem;
 }
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .errMsg {
+  padding: 1rem 0 0 0;
+}
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .errMsg p {
+  font: "Lexend Deca";
+  font-size: 12px;
+  font-weight: bold;
+  color: #f04438;
+}
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .updatedMsg {
+  padding: 1rem 0 0 0;
+}
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .updatedMsg p {
+  font: "Lexend Deca";
+  font-size: 12px;
+  font-weight: bold;
+  color: #009688;
+}
 .edit-address-page-container .navigation-buttons {
   justify-self: flex-end;
   padding-top: 1.5rem;

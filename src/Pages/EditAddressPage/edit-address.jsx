@@ -1,39 +1,86 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Input from "@material-ui/core/Input";
 import "./edit-address.css";
-import { UpdateAddressFunc } from "../../function";
+import { UpdateAddressFunc, GetUserAddress } from "../../function";
+import jwt_decode from "jwt-decode";
+import AuthContext from "../../Components/context/AuthProvider.js";
 
 function EditAddressPage() {
-  const [addressValues, updateAddressValues] = useState({
-    address_line_1: "",
-    address_line_2: "",
-    address_line_3: "",
-    postcode: "",
-    state: "",
-    address_id: "",
-  });
+  const location = useLocation();
+  const addId = location.state.address_id;
+  console.log(addId);
+  const navigate = useNavigate();
+  const jwtToken = useContext(AuthContext).auth?.token;
+  const userId = jwt_decode(jwtToken);
+  const [addressDetails, setAddressDetails] = useState([]);
+  const [addressValues, updateAddressValues] = useState([]);
+
+  useEffect(() => {
+    GetUserAddress(userId.user_id, addId).then(setAddressDetails);
+  }, []);
+
+  const [errMsg, setErrMsg] = useState("");
+  const errRef = useRef();
+
+  useEffect(() => {
+    setErrMsg("");
+  }, [
+    addressValues.address_line_1,
+    addressValues.address_line_2,
+    addressValues.address_line_3,
+    addressValues.postcode,
+    addressValues.state,
+  ]);
+
+  const [updatedMsg, setUpdatedMsg] = useState("");
+
+  useEffect(() => {
+    setUpdatedMsg("");
+  }, [
+    addressValues.address_line_1,
+    addressValues.address_line_2,
+    addressValues.address_line_3,
+    addressValues.postcode,
+    addressValues.state,
+  ]);
 
   const editAddress = async (e) => {
+    console.log(addId);
     e.preventDefault();
 
-    UpdateAddressFunc(
-      addressValues.address_line_1.toString(),
-      addressValues.address_line_2.toString(),
-      addressValues.address_line_3.toString(),
-      addressValues.postcode.toString(),
-      addressValues.state.toString(),
-      addressValues.address_id
+    const message = await UpdateAddressFunc(
+      addressValues.address_line_1
+        ? addressValues.address_line_1.toString()
+        : addressDetails.address_line_1,
+      addressValues.address_line_2
+        ? addressValues.address_line_2.toString()
+        : addressDetails.address_line_2,
+      addressValues.address_line_3
+        ? addressValues.address_line_3.toString()
+        : addressDetails.address_line_3,
+      addressValues.postcode ? addressValues.postcode : addressDetails.postcode,
+      addressValues.state
+        ? addressValues.state.toString()
+        : addressDetails.state,
+      addId
     );
+    console.log(message);
+
+    if (message === 200) {
+      navigate("/profile/addresses");
+    } else {
+      console.log(message);
+      setErrMsg(message.error);
+      setUpdatedMsg("");
+    }
   };
 
   function clearInput() {
     document.getElementById("form").reset();
   }
 
-  const navigate = useNavigate();
   return (
     <div className="edit-address-page-container">
       <div className="container-1">
@@ -53,7 +100,7 @@ function EditAddressPage() {
                       disableUnderline={true}
                       className="address-line-1"
                       id="input"
-                      placeholder="Address Line 1"
+                      placeholder={addressDetails[0]?.address_line_1}
                       onChange={(e) => {
                         updateAddressValues({
                           ...addressValues,
@@ -71,7 +118,7 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
-                      placeholder="Address Line 2"
+                      placeholder={addressDetails[0]?.address_line_2}
                       onChange={(e) => {
                         updateAddressValues({
                           ...addressValues,
@@ -89,7 +136,7 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
-                      placeholder="Address Line 3"
+                      placeholder={addressDetails[0]?.address_line_3}
                       onChange={(e) => {
                         updateAddressValues({
                           ...addressValues,
@@ -108,7 +155,7 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
-                      placeholder="Postcode"
+                      placeholder={addressDetails[0]?.postcode}
                       onChange={(e) => {
                         updateAddressValues({
                           ...addressValues,
@@ -126,7 +173,7 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
-                      placeholder="State"
+                      placeholder={addressDetails[0]?.state}
                       onChange={(e) => {
                         updateAddressValues({
                           ...addressValues,
@@ -136,23 +183,6 @@ function EditAddressPage() {
                       value={addressValues.state}
                     />
                   </div>
-                  <div className="address-id">
-                    <label>Address ID</label>
-                    <Input
-                      className="address-id"
-                      type="text"
-                      disableUnderline={true}
-                      id="input"
-                      placeholder="Address ID"
-                      onChange={(e) => {
-                        updateAddressValues({
-                          ...addressValues,
-                          address_id: e.target.value,
-                        });
-                      }}
-                      value={addressValues.address_id}
-                    />
-                  </div>
                 </div>
                 {/* <label class="default">
                   <input class="checkbox" id="input" type="checkbox" />
@@ -160,6 +190,27 @@ function EditAddressPage() {
                   Set as default address
                 </label> */}
               </form>
+              <div className="errMsg">
+                {errMsg && (
+                  <p
+                    ref={errRef}
+                    className={errMsg ? "errmsg" : "offscreen"}
+                    aria-live="assertive"
+                  >
+                    {errMsg}
+                  </p>
+                )}
+              </div>
+              <div className="updatedMsg">
+                {updatedMsg && (
+                  <p
+                    className={updatedMsg ? "errmsg" : "offscreen"}
+                    aria-live="assertive"
+                  >
+                    {updatedMsg}
+                  </p>
+                )}
+              </div>
               <div className="buttons">
                 <button className="cancel-btn" onClick={clearInput}>
                   Cancel
@@ -182,7 +233,10 @@ function EditAddressPage() {
           <p onClick={() => navigate("/profile")}>Return to Account Details</p>
         </div>
 
-        <button class="back-btn" onClick={() => navigate("/address")}>
+        <button
+          className="back-btn"
+          onClick={() => navigate("/profile/addresses")}
+        >
           Return to Shipping Details
         </button>
       </div>
