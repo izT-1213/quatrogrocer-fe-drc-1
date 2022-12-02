@@ -63,12 +63,12 @@ async function SearchProduct(product) {
   }
 }
 
-async function GetUserAddress(user_id) {
+async function GetUserAddress(user_id, address_id) {
   try {
     const response = await Axios.get(
       "http://localhost:5000/quatro_address/get",
       {
-        params: { user_id: user_id },
+        params: { user_id: user_id, address_id: address_id },
       }
     );
     return response.data.result;
@@ -113,10 +113,9 @@ async function UpdateAddressFunc(
   addressId
 ) {
   try {
-    await Axios.post(
+    const response = await Axios.post(
       "http://localhost:5000/quatro_address/update_details",
-
-      { withCredentials: true }, //hassif port 3002
+      //hassif port 3002
       {
         address_line_1: addLine1,
         address_line_2: addLine2,
@@ -126,6 +125,20 @@ async function UpdateAddressFunc(
         address_id: addressId,
       }
     );
+    return response.status;
+  } catch (err) {
+    console.log(err.response.data);
+    return err.response.data;
+  }
+}
+
+async function DeleteAddressFunc(address_id) {
+  try {
+    console.log(address_id);
+    const response = await Axios.delete(
+      `http://localhost:5000/quatro_address/delete?address_id=${address_id}`
+    );
+    return response.status;
   } catch (err) {
     console.log(err.response.data);
   }
@@ -260,6 +273,7 @@ export {
   FetchDiscountProduct,
   SearchProduct,
   UpdateAddressFunc,
+  DeleteAddressFunc,
   UpdateProfileFunc,
   UpdatePasswordFunc,
   AddToCartFunc,

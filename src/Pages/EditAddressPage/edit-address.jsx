@@ -9,40 +9,42 @@ import AuthContext from "../../Components/context/AuthProvider.js";
 
 function EditAddressPage() {
   const location = useLocation();
-  var addId = location.state.address_id;
-  console.log(addId);
+  const addId = location.state.address_id;
   const navigate = useNavigate();
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
   const [addressDetails, setAddressDetails] = useState([]);
-
-  console.log(addressDetails);
+  const [addressValues, updateAddressValues] = useState([]);
 
   useEffect(() => {
-    setAddressDetails([]);
-    GetUserAddress(userId.user_id).then(setAddressDetails);
-  }, [userId.user_id]);
-
-  const [addressValues, updateAddressValues] = useState({
-    address_line_1: "",
-    address_line_2: "",
-    address_line_3: "",
-    postcode: "",
-    state: "",
-    address_id: addId,
-  });
+    GetUserAddress(userId.user_id, addId).then(setAddressDetails);
+  }, []);
 
   const editAddress = async (e) => {
+    console.log(addId);
     e.preventDefault();
 
-    UpdateAddressFunc(
-      addressValues.address_line_1.toString(),
-      addressValues.address_line_2.toString(),
-      addressValues.address_line_3.toString(),
-      addressValues.postcode.toString(),
-      addressValues.state.toString(),
-      addressValues.address_id
+    const message = await UpdateAddressFunc(
+      addressValues.address_line_1
+        ? addressValues.address_line_1.toString()
+        : addressDetails.address_line_1,
+      addressValues.address_line_2
+        ? addressValues.address_line_2.toString()
+        : addressDetails.address_line_2,
+      addressValues.address_line_3
+        ? addressValues.address_line_3.toString()
+        : addressDetails.address_line_3,
+      addressValues.postcode ? addressValues.postcode : addressDetails.postcode,
+      addressValues.state
+        ? addressValues.state.toString()
+        : addressDetails.state,
+      addId
     );
+    console.log(message);
+
+    if (message === 200) {
+      navigate("/profile/addresses");
+    }
   };
 
   function clearInput() {
@@ -68,7 +70,7 @@ function EditAddressPage() {
                       disableUnderline={true}
                       className="address-line-1"
                       id="input"
-                      placeholder="Address Line 1"
+                      placeholder={addressDetails[0]?.address_line_1}
                       onChange={(e) => {
                         updateAddressValues({
                           ...addressValues,
@@ -86,7 +88,7 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
-                      placeholder="Address Line 2"
+                      placeholder={addressDetails[0]?.address_line_2}
                       onChange={(e) => {
                         updateAddressValues({
                           ...addressValues,
@@ -104,7 +106,7 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
-                      placeholder="Address Line 3"
+                      placeholder={addressDetails[0]?.address_line_3}
                       onChange={(e) => {
                         updateAddressValues({
                           ...addressValues,
@@ -123,7 +125,7 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
-                      placeholder="Postcode"
+                      placeholder={addressDetails[0]?.postcode}
                       onChange={(e) => {
                         updateAddressValues({
                           ...addressValues,
@@ -141,7 +143,7 @@ function EditAddressPage() {
                       type="text"
                       disableUnderline={true}
                       id="input"
-                      placeholder="State"
+                      placeholder={addressDetails[0]?.state}
                       onChange={(e) => {
                         updateAddressValues({
                           ...addressValues,
@@ -149,23 +151,6 @@ function EditAddressPage() {
                         });
                       }}
                       value={addressValues.state}
-                    />
-                  </div>
-                  <div className="address-id">
-                    <label>Address ID</label>
-                    <Input
-                      className="address-id"
-                      type="text"
-                      disableUnderline={true}
-                      id="input"
-                      placeholder="Address ID"
-                      onChange={(e) => {
-                        updateAddressValues({
-                          ...addressValues,
-                          address_id: e.target.value,
-                        });
-                      }}
-                      value={addressValues.address_id}
                     />
                   </div>
                 </div>
@@ -197,7 +182,10 @@ function EditAddressPage() {
           <p onClick={() => navigate("/profile")}>Return to Account Details</p>
         </div>
 
-        <button className="back-btn" onClick={() => navigate("/address")}>
+        <button
+          className="back-btn"
+          onClick={() => navigate("/profile/addresses")}
+        >
           Return to Shipping Details
         </button>
       </div>
