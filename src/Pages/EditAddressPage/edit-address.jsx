@@ -212,7 +212,7 @@ function EditAddressPage() {
                 )}
               </div>
               <div className="buttons">
-                <button className="cancel-btn" onClick={clearInput}>
+                <button className="cancel-btn" onClick={() => clearInput}>
                   Cancel
                 </button>
                 <button
@@ -230,15 +230,10 @@ function EditAddressPage() {
       <div className="navigation-buttons">
         <div className="return">
           <ArrowBackIosIcon />
-          <p onClick={() => navigate("/profile")}>Return to Account Details</p>
+          <p onClick={() => navigate("/profile/addresses")}>
+            Return to Shipping Details
+          </p>
         </div>
-
-        <button
-          className="back-btn"
-          onClick={() => navigate("/profile/addresses")}
-        >
-          Return to Shipping Details
-        </button>
       </div>
     </div>
   );

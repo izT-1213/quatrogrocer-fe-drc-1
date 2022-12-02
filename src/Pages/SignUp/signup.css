@@ -118,6 +118,7 @@ p {
 }
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-table .left-col {
   padding: 0 0.625rem 0 0;
+  border: 0.5rem solid white;
 }
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-table .right-col {
   padding: 0 0 0 0.625rem;
@@ -137,6 +138,18 @@ p {
   padding: 0.375rem;
 }
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .form-control-mt-1 .MuiSelect-select {
+  padding-right: 0;
+  min-width: 4.899rem;
+}
+.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .form-control-mt-2 {
+  background-color: #eeeeee;
+  border-radius: 0.25rem;
+  height: 2.5rem;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.375rem;
+}
+.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .form-control-mt-2 .MuiSelect-select {
   padding-right: 0;
   min-width: 4.899rem;
 }
