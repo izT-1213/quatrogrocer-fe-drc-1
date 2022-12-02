@@ -118,10 +118,11 @@ p {
 }
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-table .left-col {
   padding: 0 0.625rem 0 0;
-  border: 0.5rem solid white;
+  border-right: 0.25rem solid white;
 }
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-table .right-col {
   padding: 0 0 0 0.625rem;
+  border-left: 0.25rem solid white;
 }
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .form-group-mt-3 {
   font-family: "Lexend Deca";
@@ -331,9 +332,5 @@ p {
   }
   .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .login-apps .login-apps-icons {
     font-size: 1.25rem;
-  }
-  .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .form-control-mt-1,
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-signin-btn {
-    width: 90%;
   }
 }/*# sourceMappingURL=signup.css.map */
