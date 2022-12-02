@@ -8,7 +8,7 @@ import {
 } from "@mui/icons-material";
 import { ToastContainer, toast } from "react-toastify";
 import "../Deals&PromotionPage/deals-promotions.css";
-import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
+import Pagination from "rc-pagination";
 
 function DealsPromotionsPage() {
   const navigate = useNavigate();
