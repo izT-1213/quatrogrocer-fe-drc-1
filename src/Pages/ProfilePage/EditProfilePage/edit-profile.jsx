@@ -10,13 +10,16 @@ import { UpdateProfileFunc } from "../../../function";
 
 import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs from "dayjs";
 import AuthContext from "../../../Components/context/AuthProvider.js";
 import jwt_decode from "jwt-decode";
+const validator = require("validator");
 
 function EditProfilePage() {
   const navigate = useNavigate();
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
+  // console.log(userId.user_id);
   const color = "#009688";
 
   const [passwordVisibility, setPasswordVisibility] = useState(false);
@@ -36,13 +39,23 @@ function EditProfilePage() {
     setDOB(newDOB);
   };
 
+  // useEffect(() => {
+  //   // console.log(formErrors);
+  //   if (Object.keys(formErrors).length === 0) {
+  //     console.log(profileValues);
+  //   }
+  // }, [formErrors]);
+
   const editProfile = async (e) => {
     e.preventDefault();
     // console.log(profileValues);
-    console.log(validate(profileValues));
+    // console.log(validate(profileValues));
     setFormErrors(validate(profileValues, dob));
+    console.log(formErrors);
+    console.log(!formErrors);
 
-    if (Object.keys(formErrors).length === 0) {
+    // if (!formErrors) {
+    if (formErrors.empty) {
       UpdateProfileFunc(
         profileValues.first_name.toString(),
         profileValues.last_name.toString(),
@@ -52,43 +65,45 @@ function EditProfilePage() {
         profileValues.password.toString(),
         userId.user_id
       );
-
       navigate("/profile");
     }
   };
 
   const validate = (values, dob) => {
     const errors = {};
-    // const regex=
+    var regName = /^[A-Za-z'\s]*$/;
+    var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-    if (
-      !values.first_name &&
-      !values.last_name &&
-      !values.email &&
-      !dob &&
-      !values.oldpassword &&
-      !values.password
-    ) {
-      errors.first_name = "*First Name is required";
-      errors.last_name = "*Last Name is required";
-      errors.email = "*Email is required";
-      errors.dob = "*DOB is required";
-      errors.oldpassword = "*Old password is required";
-      errors.password = "*New Password is required";
-      console.log("erorrrrrrr");
+    if (!regName.test(values.first_name)) {
+      errors.first_name = "*Name should contain alphabets only";
     }
-    return errors;
+    if (!regName.test(values.last_name)) {
+      errors.last_name = "*Name should contain alphabets only";
+    }
+    // if (!validator.isEmail(values.email)) {
+    //   errors.values.email("Email not valid");
+    // }
+    if (!regEmail.test(values.email)) {
+      errors.email = "*Email format is incorrect";
+    }
 
-    // if (!values.first_name) {
-    //   errors.first_name = "*First Name is required";
-    // }
-    // if (!values.last_name) {
-    //   errors.last_name = "*Last Name is required";
-    // }
-    // if (!values.email) {
-    //   errors.email = "*Email is required";
-    // }
+    if (values.password.length < 8) {
+      errors.password = "Password should consists at least 8 characters";
+    }
 
+    // if (
+    //   !validator.isStrongPassword(values.password, {
+    //     minLength: 8,
+    //     minLowercase: 1,
+    //     minUppercase: 1,
+    //     minNumbers: 1,
+    //     minSymbols: 1,
+    //   })
+    // ) {
+    //   errors.value.password(
+    //     "Password should consists at least 1 lowercase, 1 uppercase, 1 number and 1 symbol "
+    //   );
+    // }
     // if (!dob) {
     //   errors.dob = "*DOB is required";
     // }
@@ -101,14 +116,16 @@ function EditProfilePage() {
     //   errors.password = "*New Password is required";
     // }
 
-    // if pw1 === pw2
-    //editProfile
-    //else
-    //throw error
-    //
-    //
-    //
-
+    //   if (oldPass !== newPass){
+    //   }
+    //   // if pw1 === pw2
+    //   //editProfile
+    //   //else
+    //   //throw error
+    //   //
+    //   //
+    //   //
+    //   editProfile;
     return errors;
   };
 
@@ -432,8 +449,17 @@ function EditProfilePage() {
           <button
             className="submit-edit"
             type="submit"
+            disabled={
+              profileValues.first_name ||
+              profileValues.last_name ||
+              profileValues.email ||
+              dob ||
+              (profileValues.oldpassword && profileValues.password)
+                ? false
+                : true
+            }
             onClick={
-              // validate
+              // validate();
               editProfile
             }
           >

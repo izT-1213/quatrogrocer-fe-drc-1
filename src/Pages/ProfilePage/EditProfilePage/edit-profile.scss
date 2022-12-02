@@ -182,6 +182,14 @@
         line-height: 120%;
         color: $white-color;
 
+        &:disabled,
+        button[disabled] {
+          background-color: $grey-color;
+          color: #666666;
+
+          pointer-events: none;
+        }
+
         &:hover {
           background-color: $secondary-hover-color;
         }
@@ -189,3 +197,9 @@
     }
   }
 }
+
+// @media screen and (max-width: 37.5rem) {
+//   .edit-profile-page-container {
+//     padding: 0;
+//   }
+// }
