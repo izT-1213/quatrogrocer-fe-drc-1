@@ -6,28 +6,36 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { TextField } from "@mui/material";
 import "../EditProfilePage/edit-profile.css";
 
-import { UpdatePasswordFunc, UpdateProfileFunc } from "../../../function";
+import {
+  UpdatePasswordFunc,
+  UpdateProfileFunc,
+  FetchUser,
+} from "../../../function";
 
 import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import dayjs from "dayjs";
 import AuthContext from "../../../Components/context/AuthProvider.js";
 import jwt_decode from "jwt-decode";
-const validator = require("validator");
 
 function EditProfilePage() {
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
-  // console.log(userId.user_id);
   const color = "#009688";
+  const navigate = useNavigate();
+  const [profileDetails, setProfileDetails] = useState({});
+
+  useEffect(() => {
+    setProfileDetails({});
+    FetchUser(userId.user_id).then(setProfileDetails);
+  }, [userId.user_id]);
 
   const [passwordVisibility, setPasswordVisibility] = useState(false);
   const [dob, setDOB] = useState("");
 
   const [profileValues, updateProfileValues] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
+    first_name: profileDetails.first_name,
+    last_name: profileDetails.last_name,
+    email: profileDetails.email,
     password: "",
     oldpassword: "",
   });
@@ -61,28 +69,21 @@ function EditProfilePage() {
     e.preventDefault();
     // console.log(validate(profileValues));
     setFormErrors(validate(profileValues));
+    console.log(formErrors);
+    console.log(validate(profileValues));
+
     if (
       validate(profileValues === true) &&
-      formErrors.test === "false"
+      formErrors.test !== "false"
       // (!formErrors.first_name &&
       //   !formErrors.last_name &&
       //   !formErrors.email &&
       //   !formErrors.dob &&
       //   !formErrors.password))
     ) {
-      setFormErrors(validate(profileValues));
-      if (
-        formErrors.test !== "false" &&
-        !formErrors.first_name &&
-        !formErrors.last_name &&
-        !formErrors.email &&
-        !formErrors.dob &&
-        !formErrors.password
-      ) {
-        setConfirmMsg(
-          "Please click again to confirm if there's no more error."
-        );
-      }
+      setConfirmMsg("Please click again to confirm.");
+    } else if (validate(profileValues === true) && !formErrors.test) {
+      setConfirmMsg("Please click again to confirm.");
     }
 
     if (Object.keys(formErrors).length === 0) {
@@ -101,10 +102,10 @@ function EditProfilePage() {
         );
         if (message2 === undefined) {
           const message1 = await UpdateProfileFunc(
-            profileValues.first_name.toString(),
-            profileValues.last_name.toString(),
-            dob.toString(),
-            profileValues.email.toString(),
+            profileValues.first_name,
+            profileValues.last_name,
+            dob,
+            profileValues.email,
             profileValues.password,
             userId.user_id
           );
@@ -125,10 +126,10 @@ function EditProfilePage() {
         !profileValues.password
       ) {
         const message1 = await UpdateProfileFunc(
-          profileValues.first_name.toString(),
-          profileValues.last_name.toString(),
-          dob.toString(),
-          profileValues.email.toString(),
+          profileValues.first_name,
+          profileValues.last_name,
+          dob,
+          profileValues.email,
           profileValues.oldpassword,
           userId.user_id
         );
@@ -584,6 +585,16 @@ function EditProfilePage() {
           </table>
         </div>
       </div>
+      <div className="confirmMsg">
+        {confirmMsg && (
+          <p
+            className={confirmMsg ? "errmsg" : "offscreen"}
+            aria-live="assertive"
+          >
+            {confirmMsg}
+          </p>
+        )}
+      </div>
       <div className="buttons-container">
         <button className="cancel">Cancel</button>
         <div className="submit-button-container">
@@ -602,22 +613,12 @@ function EditProfilePage() {
                 : true
             }
             onClick={
-              // validate();
+              // validate
               editProfile
             }
           >
             Submit
           </button>
-        </div>
-        <div className="msg">
-          {confirmMsg && (
-            <p
-              className={confirmMsg ? "errmsg" : "offscreen"}
-              aria-live="assertive"
-            >
-              {confirmMsg}
-            </p>
-          )}
         </div>
       </div>
     </div>
