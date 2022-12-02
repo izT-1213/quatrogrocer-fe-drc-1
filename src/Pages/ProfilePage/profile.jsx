@@ -40,6 +40,8 @@ function UserProfilePage() {
     setAuth({});
     navigate("/");
   };
+
+  console.log(addressDetails.length);
   return (
     <div className="profile-page-container">
       <div className="profile-page-header">
@@ -131,16 +133,16 @@ function UserProfilePage() {
               <td className="view-address">
                 <a>
                   <p
+                    className="view-address-link"
                     onClick={() => {
-                      if (addressDetails.length === 0) {
+                      if (addressDetails.length === undefined) {
                         navigate("/add-address");
-                      } else if (addressDetails.length !== 0) {
+                      } else if (addressDetails.length !== undefined) {
                         navigate("/profile/addresses");
                       }
                     }}
-                    to="/profile/addresses"
-                    className="view-address-link"
                   >
+                    {console.log(addressDetails.length)}
                     View Addresses [{addressDetails.length}]
                   </p>
                 </a>

@@ -54,6 +54,7 @@ function App() {
 
           {/* Protected pages */}
           <Route element={<RequireAuth />}>
+            <Route path="/" element={<Home />} />
             <Route
               path="product-details/:product_name"
               element={<ProductDetailsPage />}

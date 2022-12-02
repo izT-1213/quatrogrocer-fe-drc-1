@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import { TextField, FormControl, Select, MenuItem } from "@mui/material";
@@ -68,7 +68,8 @@ function SignUpPage() {
     );
 
     if (message === undefined) {
-      navigate("/");
+      alert("You have registered an account. Please login to proceed.");
+      navigate("/login");
     } else {
       console.log(message);
       setErrMsg(message.error);
@@ -82,7 +83,7 @@ function SignUpPage() {
           <div className="sign-up-form-content">
             <form className="sign-up-form" onSubmit={handleSubmit}>
               <h3 className="sign-up-form-title">Sign Up</h3>
-              <div classNRegisterFuncame="sign-up-form-table">
+              <div className="sign-up-form-table">
                 <tr>
                   <td className="left-col-line-1">FIRST NAME</td>
                   <td className="right-col-line-1">LAST NAME</td>
@@ -214,14 +215,14 @@ function SignUpPage() {
                   }
                 />
               </div>
-              <label class="tnc">
+              <label className="tnc">
                 <input
                   type="checkbox"
                   required={true}
                   value={values.checked}
                   onClick={handleClickTnC}
                 />
-                <span class="checkmark"></span> I agree to{" "}
+                <span className="checkmark"></span> I agree to{" "}
                 <a>
                   <Link to="/" className="tnc-link">
                     Terms & Conditions
@@ -306,7 +307,10 @@ function SignUpPage() {
         </div>
       </div>
       <div className="signup-image-container">
-        <img src="https://images.unsplash.com/photo-1601057366047-ec734881239b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+        <img
+          src="https://images.unsplash.com/photo-1601057366047-ec734881239b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+          alt=""
+        />
       </div>
     </div>
   );
