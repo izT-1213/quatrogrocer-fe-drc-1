@@ -183,7 +183,7 @@ function SignUpPage() {
                   type="email"
                   disableUnderline={true}
                   ref={userRef}
-                  className="form-control-mt-1"
+                  className="form-control-mt-2"
                   required={true}
                   value={values.email}
                   onChange={handleValueChange("email")}
@@ -194,7 +194,7 @@ function SignUpPage() {
               </div>
               <div>
                 <Input
-                  className="form-control-mt-1"
+                  className="form-control-mt-2"
                   placeholder="Password"
                   type={values.showPassword ? "text" : "password"}
                   onChange={handleValueChange("password")}
