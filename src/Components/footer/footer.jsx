@@ -53,10 +53,18 @@ const Footer = () => {
             <div className="policies-directory">
               <p>POLICIES</p>
               <ul>
-                <li>Refund Policy</li>
-                <li>Privacy Policy</li>
-                <li>Shopping Policy</li>
-                <li>Terms of Services</li>
+                <li>
+                  <Link to={"/maintenance"}>Refund Policy</Link>
+                </li>
+                <li>
+                  <Link to={"/maintenance"}>Privacy Policy</Link>
+                </li>
+                <li>
+                  <Link to={"/maintenance"}>Shopping Policy</Link>
+                </li>
+                <li>
+                  <Link to={"/maintenance"}>Terms of Services</Link>
+                </li>
               </ul>
             </div>
           </div>

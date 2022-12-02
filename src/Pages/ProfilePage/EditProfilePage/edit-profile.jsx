@@ -14,10 +14,10 @@ import AuthContext from "../../../Components/context/AuthProvider.js";
 import jwt_decode from "jwt-decode";
 
 function EditProfilePage() {
+  const navigate = useNavigate();
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
   const color = "#009688";
-  const navigate = useNavigate();
 
   const [passwordVisibility, setPasswordVisibility] = useState(false);
   const [dob, setDOB] = useState("");
@@ -52,7 +52,8 @@ function EditProfilePage() {
         profileValues.password.toString(),
         userId.user_id
       );
-      // navigate("/profile");
+
+      navigate("/profile");
     }
   };
 

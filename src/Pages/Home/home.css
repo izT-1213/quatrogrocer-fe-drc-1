@@ -167,7 +167,7 @@ a:active {
 }
 .today-top-deals hr {
   margin: 0.75rem 0 0 0;
-  width: 7.5rem;
+  width: 17.5rem;
   background-color: #009688;
   border: 3px solid #009688;
 }
@@ -430,7 +430,7 @@ a:active {
 }
 .best-choices hr {
   margin: 0.75rem 0 0 0;
-  width: 5rem;
+  width: 12rem;
   background-color: #009688;
   border: 3px solid #009688;
 }
@@ -709,13 +709,13 @@ a:active {
 
 @media screen and (max-width: 1105px) {
   .home-header {
-    padding: 0 0 0 1.5rem;
+    padding: 0 0 0 2rem;
   }
   .home-header .home-header-content {
     padding-right: 0.5rem;
   }
   .home-header .home-header-content h1 {
-    font-size: 2rem;
+    font-size: 2.75rem;
   }
   .home-header .home-header-content p {
     text-align: left;
@@ -723,11 +723,8 @@ a:active {
     padding: 0.5rem 0 1rem 0;
   }
   .home-header .home-header-content button {
-    cursor: pointer;
-    width: 14rem;
+    width: 12rem;
     height: 3rem;
-    font-family: "Lexend Deca";
-    font-size: 1rem;
   }
   .today-top-deals {
     height: 100%;
@@ -735,6 +732,15 @@ a:active {
   }
   .today-top-deals .today-top-deals-title {
     padding-top: 3rem;
+  }
+  .today-top-deals .today-top-deals-title h4 {
+    font-size: 1.75rem;
+  }
+  .today-top-deals .view-more-button p {
+    font-size: 1.125rem;
+  }
+  .today-top-deals hr {
+    width: 14rem;
   }
   .today-top-deals .today-top-deals-product {
     display: grid;
@@ -843,7 +849,7 @@ a:active {
     height: 13.25rem;
   }
   .promotion-banner .banner-image-container img {
-    width: 65vw;
+    width: 48vw;
     -o-object-fit: cover;
        object-fit: cover;
   }
@@ -852,13 +858,21 @@ a:active {
   }
   .promotion-banner .promotion-banner-content .promotion-banner-header {
     text-align: left;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
   }
   .promotion-banner .promotion-banner-content .promotion-banner-text {
     text-align: left;
+    font-size: 0.825rem;
   }
   .discount-banner {
     padding: 0 2rem;
+  }
+  .discount-banner .discount-banner-container .discount-text,
+.discount-banner .discount-banner-container .discount-code {
+    font-size: 1rem;
+  }
+  .discount-banner .discount-banner-container .discount-notes {
+    font-size: 0.625rem;
   }
   .best-choices {
     padding: 0 1rem;
@@ -866,6 +880,15 @@ a:active {
   }
   .best-choices .best-choices-title {
     padding: 2.5rem 0 0 0;
+  }
+  .best-choices .best-choices-title h4 {
+    font-size: 1.75rem;
+  }
+  .best-choices .view-more-button p {
+    font-size: 1.125rem;
+  }
+  .best-choices hr {
+    width: 9rem;
   }
   .best-choices .best-choices-product-1,
 .best-choices .best-choices-product-2 {
@@ -902,20 +925,20 @@ a:active {
     height: 12.5rem;
   }
   .separator {
-    padding: 0 2rem;
+    padding: 0 1.25rem;
   }
   .services {
-    padding: 2rem 1rem;
+    padding: 3rem 1rem 0;
   }
   .services .services-container {
     height: 20rem;
   }
   .services .services-title h4 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     padding-top: 2rem;
   }
   .services .services-content {
-    padding: 1.25rem 0;
+    padding: 1.825rem 0;
     gap: 3rem;
   }
   .services .services-content svg {

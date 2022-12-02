@@ -89,6 +89,9 @@ nav .nav-left ul {
   list-style: none;
   justify-content: space-between;
 }
+nav .nav-left ul li {
+  padding-right: 0.5rem;
+}
 nav .nav-right ul {
   padding: 0;
   width: 18%;
@@ -109,7 +112,7 @@ nav .nav-right .search-container {
   padding: 0 2rem 0 1.5rem;
 }
 nav .nav-right .search-container {
-  width: 76%;
+  width: 75.5%;
   display: flex;
   border: 0.188rem solid #ffffff;
   border-radius: 0.25rem;
@@ -118,7 +121,7 @@ nav .nav-right .search-container {
   padding: 0;
 }
 nav .nav-right .searchTerm {
-  width: 30vw;
+  width: 100%;
   color: #009688;
   font-family: "Poppins";
   font-weight: 500;
@@ -132,21 +135,24 @@ nav .nav-right .searchTerm:focus {
   font-size: 0.875rem;
 }
 nav .nav-right .searchButton {
-  width: 5vw;
+  width: 15%;
   border: 0.063rem solid #ffffff;
   background: #ffffff;
   text-align: center;
   color: #009688;
   cursor: pointer;
 }
-nav .nav-right ul li {
+nav .nav-right .nav-right-menu ul li {
+  padding: 0 0.2rem;
   color: #ffffff;
+}
+nav .mobile .burger {
+  display: none;
 }
 
 @media screen and (max-width: 1105px) {
   nav {
     padding: 0 0 0 1.5rem;
-    justify-content: unset;
   }
   nav .nav-left ul {
     padding-left: 2rem;
@@ -158,12 +164,15 @@ nav .nav-right ul li {
 @media screen and (max-width: 481px) {
   nav {
     height: 4.5rem;
-    /* display: flex; */
     background-color: #009688;
     justify-content: space-between;
     padding: 0 10vw;
   }
   nav .nav-left {
     display: none;
+  }
+  nav .mobile .burger {
+    display: block;
+    color: #ffffff;
   }
 }/*# sourceMappingURL=navbar.css.map */
