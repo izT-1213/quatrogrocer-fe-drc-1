@@ -1,38 +1,92 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { CreateAddressFunc } from "../../function";
+import jwt_decode from "jwt-decode";
 import Input from "@material-ui/core/Input";
 import "../AddAddressPage/add-address.css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { useNavigate } from "react-router-dom";
-import { CreateAddressFunc } from "../../function";
+import AuthContext from "../../Components/context/AuthProvider";
 
 function AddAddressPage() {
+  const jwtToken = useContext(AuthContext).auth?.token;
+  const navigate = useNavigate();
+  const userId = jwt_decode(jwtToken);
   const [addressValues, setAddressValues] = useState({
     address_line_1: "",
     address_line_2: "",
     address_line_3: "",
     postcode: "",
     state: "",
-    user_id: "",
   });
+
+  // const [tempAddressValues, setTempAddressValues] = useState({
+  //   address_line_1: "",
+  //   address_line_2: "",
+  //   address_line_3: "",
+  //   postcode: "",
+  //   state: "",
+  // });
+
+  const [errMsg, setErrMsg] = useState("");
+  const errRef = useRef();
+
+  useEffect(() => {
+    setErrMsg("");
+  }, [
+    addressValues.address_line_1,
+    addressValues.address_line_2,
+    addressValues.address_line_3,
+    addressValues.postcode,
+    addressValues.state,
+  ]);
+
+  const [updatedMsg, setUpdatedMsg] = useState("");
+  const updatedRef = useRef();
+  useEffect(() => {
+    setUpdatedMsg("");
+  }, [
+    addressValues.address_line_1,
+    addressValues.address_line_2,
+    addressValues.address_line_3,
+    addressValues.postcode,
+    addressValues.state,
+  ]);
 
   const addAddress = async (e) => {
     e.preventDefault();
 
-    CreateAddressFunc(
+    const message = await CreateAddressFunc(
       addressValues.address_line_1.toString(),
       addressValues.address_line_2.toString(),
       addressValues.address_line_3.toString(),
-      addressValues.postcode.toString(),
-      addressValues.state.toString(),
-      addressValues.user_id
+      addressValues.postcode,
+      addressValues.state,
+      userId.user_id
     );
+
+    console.log("line 67- updated");
+
+    // if (message === undefined) {
+    //   navigate("/");
+    // } else {
+    //   console.log(message);
+    //   setErrMsg(message.error);
+    // }
+
+    if (message === 200) {
+      setUpdatedMsg("Updated Successfully");
+      setErrMsg("");
+    } else {
+      console.log(message);
+      setErrMsg(message.error);
+      setUpdatedMsg("");
+    }
   };
 
   function clearInput() {
     document.getElementById("form").reset();
   }
-  const navigate = useNavigate();
+
   return (
     <div className="add-address-page-container">
       <div className="container-1">
@@ -64,7 +118,7 @@ function AddAddressPage() {
                   </div>
 
                   <div className="address-line-2">
-                    <label>Address Line 2</label>
+                    <label>Address Line 2*</label>
                     <Input
                       className="address-input"
                       type="text"
@@ -101,7 +155,7 @@ function AddAddressPage() {
 
                 <div className="postcode-and-state-container">
                   <div className="postcode">
-                    <label>Postcode</label>
+                    <label>Postcode*</label>
                     <Input
                       className="postcode-input"
                       type="text"
@@ -119,7 +173,7 @@ function AddAddressPage() {
                   </div>
 
                   <div className="state">
-                    <label>State</label>
+                    <label>State*</label>
                     <Input
                       className="state-input"
                       type="text"
@@ -134,22 +188,6 @@ function AddAddressPage() {
                       value={addressValues.state}
                     />
                   </div>
-                  <div className="state">
-                    <label>User ID</label>
-                    <Input
-                      className="userid-input"
-                      type="text"
-                      disableUnderline={true}
-                      id="input"
-                      onChange={(e) => {
-                        setAddressValues({
-                          ...addressValues,
-                          user_id: e.target.value,
-                        });
-                      }}
-                      value={addressValues.user_id}
-                    />
-                  </div>
                 </div>
 
                 <div className="checkbox-container">
@@ -160,6 +198,27 @@ function AddAddressPage() {
                   </label>
                 </div>
               </form>
+              <div className="errMsg">
+                {errMsg && (
+                  <p
+                    ref={errRef}
+                    className={errMsg ? "errmsg" : "offscreen"}
+                    aria-live="assertive"
+                  >
+                    {errMsg}
+                  </p>
+                )}
+              </div>
+              <div className="updatedMsg">
+                {updatedMsg && (
+                  <p
+                    className={updatedMsg ? "errmsg" : "offscreen"}
+                    aria-live="assertive"
+                  >
+                    {updatedMsg}
+                  </p>
+                )}
+              </div>
               <div className="buttons">
                 <button className="cancel-btn" onClick={clearInput}>
                   Cancel
@@ -167,6 +226,14 @@ function AddAddressPage() {
                 <button
                   className="add-address-btn"
                   type="submit"
+                  disabled={
+                    addressValues.address_line_1 &&
+                    addressValues.address_line_2 &&
+                    addressValues.postcode &&
+                    addressValues.state
+                      ? false
+                      : true
+                  }
                   onClick={addAddress} /*onClick={handleAddAddress}*/
                 >
                   Add Address
@@ -179,7 +246,9 @@ function AddAddressPage() {
       <div className="navigation-container">
         <div className="return">
           <ArrowBackIosIcon />
-          <p onClick={() => navigate("/profile")}>Return to Account Details</p>
+          <p onClick={() => navigate("/profile/addresses")}>
+            Return to Shipping Address
+          </p>
         </div>
       </div>
     </div>

@@ -8,15 +8,15 @@
   margin: 0;
 }
 
-.deals-promotions-page {
+.result-page {
   height: 75rem;
   padding: 0 18rem;
 }
 
-.deals-promotions-section {
+.result-section {
   height: 100%;
 
-  .deals-promotions-title {
+  .result-title {
     h5 {
       font-family: $primary-fonts;
       color: $black-color;
@@ -54,12 +54,12 @@
 }
 
 @media screen and (max-width: 961px) {
-  .deals-promotions-page {
+  .result-page {
     height: 100%;
     padding: 0 2rem;
   }
 
-  .deals-promotions-section {
+  .result-section {
     .product-cards {
       .medium-horizontal-cards-container {
         .card-container {

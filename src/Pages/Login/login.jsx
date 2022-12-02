@@ -41,9 +41,8 @@ function LoginPage() {
     console.log(message);
     const token = message?.data?.userJwt;
     setAuth({ emailLogin, passwd, token });
-    if (message.request.status === 200) {
+    if (message.status === 200) {
       navigate(from.toString(), { replace: true });
-      // console.log(message);
     } else {
       console.log(message);
       setErrMsg(message.error);
@@ -167,13 +166,14 @@ function LoginPage() {
                 </div>
               </div>
               <div className="sign-up-text-center">
-                I'm new here!
-                <a>
-                  <Link to="/signup" className="signup-link">
-                    {" "}
-                    Create a new account
-                  </Link>
-                </a>
+                I'm new here!{" "}
+                <u>
+                  <a>
+                    <Link to="/signup" className="signup-link">
+                      Create a new account
+                    </Link>
+                  </a>
+                </u>
               </div>
             </form>
           </div>

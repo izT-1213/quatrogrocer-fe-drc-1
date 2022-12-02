@@ -2,7 +2,7 @@ import Nav from "./Components/navbar/navbar.jsx";
 import Footer from "./Components/footer/footer.jsx";
 import Layout from "./Components/context/Layout.js";
 import Home from "./Pages/Home/home.jsx";
-import ProductPage from "./Pages/ProductPage/product-page.jsx";
+import MarketplacePage from "./Pages/ProductPage/product-page.jsx";
 import BestSellersPage from "./Pages/BestSellerPage/bestseller.jsx";
 import DealsPromotionsPage from "./Pages/Deals&PromotionPage/deals-promotions.jsx";
 import AboutPage from "./Pages/About/about.jsx";
@@ -20,6 +20,7 @@ import ProductDetailsPage from "./Pages/ProductDetailsPage/product-detail-page";
 import EditAddressPage from "./Pages/EditAddressPage/edit-address.jsx";
 import CategoryPage from "./Pages/CategoryPage/category.jsx";
 import PaymentSuccessPage from "./Pages/PaymentSuccessPage/payment-success.jsx";
+import SearchResult from "./Pages/ReturnResultPage/return-results.jsx";
 import RequireAuth from "./Components/context/RequireAuth.js";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -38,12 +39,13 @@ function App() {
 
           {/* Public pages */}
           <Route path="/" element={<Home />} />
-          <Route path="marketplace" element={<ProductPage />} />
+          <Route path="marketplace" element={<MarketplacePage />} />
           <Route path="category/:category" element={<CategoryPage />} />
           <Route
-            path="product-details/:product_name"
-            element={<ProductDetailsPage />}
+            path="search-result/:product_name"
+            element={<SearchResult />}
           />
+
           <Route path="about" element={<AboutPage />} />
 
           {/* Public pages but not available if not logged out */}
@@ -52,6 +54,10 @@ function App() {
 
           {/* Protected pages */}
           <Route element={<RequireAuth />}>
+            <Route
+              path="product-details/:product_name"
+              element={<ProductDetailsPage />}
+            />
             <Route path="profile" element={<UserProfilePage />} />
             <Route path="address" element={<YourShippingAddressPage />} />
             <Route path="add-address" element={<AddAddressPage />} />

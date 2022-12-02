@@ -14,19 +14,17 @@ import "./product-page.css";
 import SideNav from "../../Components/sidenav/sidenav.jsx";
 import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
 
-function ProductPage() {
+function MarketplacePage() {
   const navigate = useNavigate();
 
   // Pagination
-  const [perPage, setPerPage] = useState(6);
+  const [perPage, setPerPage] = useState(8);
   const [size, setSize] = useState(perPage);
   const [current, setCurrent] = useState(1);
   const [productDetails, setProductDetails] = useState([]);
   const { products } = useParams();
 
   const notify = () => {
-    // if (!toast.isActive(toastId.current)) {
-    //   toastId.current =
     toast.success("Item added to cart! 🛒", {
       position: "top-right",
       autoClose: 3000,
@@ -94,35 +92,15 @@ function ProductPage() {
               <div
                 className="product-image"
                 onClick={() => {
-                  navigate(`/product-details/${data.product_name}`, {
-                    state: {
-                      product_name: data.product_name,
-                      product_description: data.product_description,
-                      product_category: data.product_category,
-                      product_price: data.product_price,
-                      product_quantity: data.product_quantity,
-                      product_image: data.product_image,
-                      product_id: data.product_id,
-                    },
-                  });
+                  navigate(`/product-details/${data.product_name}`);
                 }}
               >
-                <img src={data.product_image} />
+                <img src={data.product_image} alt={data.product_name} />
               </div>
               <p
                 className="product-name"
                 onClick={() => {
-                  navigate(`/product-details/${data.product_name}`, {
-                    state: {
-                      product_name: data.product_name,
-                      product_description: data.product_description,
-                      product_category: data.product_category,
-                      product_price: data.product_price,
-                      product_quantity: data.product_quantity,
-                      product_image: data.product_image,
-                      product_id: data.product_id,
-                    },
-                  });
+                  navigate(`/product-details/${data.product_name}`);
                 }}
               >
                 {data.product_name}
@@ -229,4 +207,4 @@ function ProductPage() {
   );
 }
 
-export default ProductPage;
+export default MarketplacePage;

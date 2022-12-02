@@ -9,7 +9,6 @@ import {
   Menu,
 } from "@mui/icons-material";
 import "./navbar.css";
-import { SearchProduct } from "../../function";
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -17,8 +16,8 @@ const Nav = () => {
 
   function searchField() {
     // debugger;
-    const products = SearchProduct(searchVal.toString());
-    navigate("/search-result", { state: { product: products } });
+    const products = searchVal;
+    navigate(`/search-result/${products}`);
   }
 
   return (

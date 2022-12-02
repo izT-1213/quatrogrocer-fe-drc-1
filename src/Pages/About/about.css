@@ -244,7 +244,7 @@ a:active {
     padding: 0 2rem;
   }
   .about-page .about-content {
-    height: 17.75rem;
+    height: 17.5rem;
     padding: 0 0 2.5rem 0;
   }
   .about-page .about-content .about-content-title h3 {
@@ -260,7 +260,7 @@ a:active {
   .about-page .about-content .about-content-text p {
     font-family: "Poppins";
     font-weight: 500;
-    font-size: 1.125rem;
+    font-size: 1rem;
     line-height: 160%;
     padding: 2rem 0 0;
   }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import { ImgOverlay } from "image-overlay-react";
@@ -11,11 +11,14 @@ import {
   PaymentOutlined,
   AutorenewOutlined,
 } from "@mui/icons-material";
+import AuthContext from "../../Components/context/AuthProvider.js";
 import "image-overlay-react/dist/index.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./home.css";
 
 function Home() {
+  const { loggedIn } = useContext(AuthContext);
+  console.log(loggedIn);
   const navigate = useNavigate();
   var i = 0;
 
@@ -29,22 +32,23 @@ function Home() {
   }, [products]);
   // >>>>end function<<<<
 
-  // toastify notifications
-  // const toastId = React.useRef(null);
-
   const notify = () => {
+    if (loggedIn === undefined) {
+      navigate("/login");
+    } else {
+      toast.success("Item added to cart! 🛒", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     // if (!toast.isActive(toastId.current)) {
     //   toastId.current =
-    toast.success("Item added to cart! 🛒", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
   };
 
   //need to do function to map api product here
@@ -60,34 +64,14 @@ function Home() {
                   src={key.product_image}
                   alt={key.product_name}
                   onClick={() => {
-                    navigate(`/product-details/${key.product_name}`, {
-                      state: {
-                        product_name: key.product_name,
-                        product_description: key.product_description,
-                        product_category: key.product_category,
-                        product_price: key.product_price,
-                        product_quantity: key.product_quantity,
-                        product_image: key.product_image,
-                        product_id: key.product_id,
-                      },
-                    });
+                    navigate(`/product-details/${key.product_name}`);
                   }}
                 />
               </div>
               <p
                 className="product-name"
                 onClick={() => {
-                  navigate(`/product-details/${key.product_name}`, {
-                    state: {
-                      product_name: key.product_name,
-                      product_description: key.product_description,
-                      product_category: key.product_category,
-                      product_price: key.product_price,
-                      product_quantity: key.product_quantity,
-                      product_image: key.product_image,
-                      product_id: key.product_id,
-                    },
-                  });
+                  navigate(`/product-details/${key.product_name}`);
                 }}
               >
                 {key.product_name}
@@ -121,17 +105,7 @@ function Home() {
             <div
               className="product-image"
               onClick={() => {
-                navigate(`/product-details/${key.product_name}`, {
-                  state: {
-                    product_name: key.product_name,
-                    product_description: key.product_description,
-                    product_category: key.product_category,
-                    product_price: key.product_price,
-                    product_quantity: key.product_quantity,
-                    product_image: key.product_image,
-                    product_id: key.product_id,
-                  },
-                });
+                navigate(`/product-details/${key.product_name}`);
               }}
             >
               <img src={key.product_image} alt={key.product_name} />
@@ -139,17 +113,7 @@ function Home() {
             <p
               className="product-name"
               onClick={() => {
-                navigate(`/product-details/${key.product_name}`, {
-                  state: {
-                    product_name: key.product_name,
-                    product_description: key.product_description,
-                    product_category: key.product_category,
-                    product_price: key.product_price,
-                    product_quantity: key.product_quantity,
-                    product_image: key.product_image,
-                    product_id: key.product_id,
-                  },
-                });
+                navigate(`/product-details/${key.product_name}`);
               }}
             >
               {key.product_name}
@@ -201,17 +165,7 @@ function Home() {
                     className="product-image"
                     key={index}
                     onClick={() => {
-                      navigate(`/product-details/${key.product_name}`, {
-                        state: {
-                          product_name: key.product_name,
-                          product_description: key.product_description,
-                          product_category: key.product_category,
-                          product_price: key.product_price,
-                          product_quantity: key.product_quantity,
-                          product_image: key.product_image,
-                          product_id: key.product_id,
-                        },
-                      });
+                      navigate(`/product-details/${key.product_name}`);
                     }}
                   >
                     <img src={key.product_image} alt={key.product_name} />
@@ -220,17 +174,7 @@ function Home() {
                     className="product-name"
                     key={index}
                     onClick={() => {
-                      navigate(`/product-details/${key.product_name}`, {
-                        state: {
-                          product_name: key.product_name,
-                          product_description: key.product_description,
-                          product_category: key.product_category,
-                          product_price: key.product_price,
-                          product_quantity: key.product_quantity,
-                          product_image: key.product_image,
-                          product_id: key.product_id,
-                        },
-                      });
+                      navigate(`/product-details/${key.product_name}`);
                     }}
                   >
                     {key.product_name}

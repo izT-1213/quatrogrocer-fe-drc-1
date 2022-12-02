@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IconButton, InputAdornment, Input } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
@@ -6,7 +6,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { TextField } from "@mui/material";
 import "../EditProfilePage/edit-profile.css";
 
-import { UpdateProfileFunc } from "../../../function";
+import { UpdatePasswordFunc, UpdateProfileFunc } from "../../../function";
 
 import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -16,7 +16,6 @@ import jwt_decode from "jwt-decode";
 const validator = require("validator");
 
 function EditProfilePage() {
-  const navigate = useNavigate();
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
   // console.log(userId.user_id);
@@ -33,99 +32,207 @@ function EditProfilePage() {
     oldpassword: "",
   });
 
-  const [formErrors, setFormErrors] = useState({});
-  const errRef = useRef();
+  const [formErrors, setFormErrors] = useState({ test: "false" });
+  //oldpassword
+  const [errMsg, setErrMsg] = useState("");
+  const [msg, setMsg] = useState("");
+  const [confirmMsg, setConfirmMsg] = useState("");
+
   const handleDOBChange = (newDOB) => {
     setDOB(newDOB);
   };
+  //
+  useEffect(() => {
+    setErrMsg("");
+  }, [profileValues.oldpassword]);
 
-  // useEffect(() => {
-  //   // console.log(formErrors);
-  //   if (Object.keys(formErrors).length === 0) {
-  //     console.log(profileValues);
-  //   }
-  // }, [formErrors]);
+  useEffect(() => {
+    setMsg("");
+  }, [
+    profileValues.first_name,
+    profileValues.last_name,
+    profileValues.email,
+    dob,
+    profileValues.oldpassword,
+    profileValues.password,
+  ]);
 
   const editProfile = async (e) => {
     e.preventDefault();
-    // console.log(profileValues);
     // console.log(validate(profileValues));
-    setFormErrors(validate(profileValues, dob));
-    console.log(formErrors);
-    console.log(!formErrors);
+    setFormErrors(validate(profileValues));
+    if (
+      validate(profileValues === true) &&
+      formErrors.test === "false"
+      // (!formErrors.first_name &&
+      //   !formErrors.last_name &&
+      //   !formErrors.email &&
+      //   !formErrors.dob &&
+      //   !formErrors.password))
+    ) {
+      setFormErrors(validate(profileValues));
+      if (
+        formErrors.test !== "false" &&
+        !formErrors.first_name &&
+        !formErrors.last_name &&
+        !formErrors.email &&
+        !formErrors.dob &&
+        !formErrors.password
+      ) {
+        setConfirmMsg(
+          "Please click again to confirm if there's no more error."
+        );
+      }
+    }
 
-    // if (!formErrors) {
-    if (formErrors.empty) {
-      UpdateProfileFunc(
-        profileValues.first_name.toString(),
-        profileValues.last_name.toString(),
-        profileValues.email.toString(),
-        dob.toString(),
-        profileValues.oldpassword.toString(),
-        profileValues.password.toString(),
-        userId.user_id
-      );
-      navigate("/profile");
+    if (Object.keys(formErrors).length === 0) {
+      if (
+        (profileValues.first_name ||
+          profileValues.last_name ||
+          dob ||
+          profileValues.email) &&
+        profileValues.oldpassword &&
+        profileValues.password
+      ) {
+        const message2 = await UpdatePasswordFunc(
+          profileValues.oldpassword,
+          profileValues.password,
+          userId.user_id
+        );
+        if (message2 === undefined) {
+          const message1 = await UpdateProfileFunc(
+            profileValues.first_name.toString(),
+            profileValues.last_name.toString(),
+            dob.toString(),
+            profileValues.email.toString(),
+            profileValues.password,
+            userId.user_id
+          );
+          if (message1 || message2 === undefined) {
+            setMsg("Updated successfully");
+          } else {
+            setErrMsg(message1.error);
+          }
+        } else {
+          setErrMsg(message2.error);
+        }
+      } else if (
+        (profileValues.first_name ||
+          profileValues.last_name ||
+          dob ||
+          profileValues.email) &&
+        profileValues.oldpassword &&
+        !profileValues.password
+      ) {
+        const message1 = await UpdateProfileFunc(
+          profileValues.first_name.toString(),
+          profileValues.last_name.toString(),
+          dob.toString(),
+          profileValues.email.toString(),
+          profileValues.oldpassword,
+          userId.user_id
+        );
+
+        if (message1 === undefined) {
+          setMsg("Updated successfully");
+          setErrMsg("");
+          navigate("/profile");
+        } else {
+          setErrMsg(message1.error);
+        }
+      } else if (
+        !profileValues.first_name &&
+        !profileValues.last_name &&
+        !dob &&
+        !profileValues.email &&
+        profileValues.oldpassword &&
+        profileValues.password
+      ) {
+        const message2 = await UpdatePasswordFunc(
+          profileValues.oldpassword,
+          profileValues.password,
+          userId.user_id
+        );
+        if (message2 === undefined) {
+          setMsg("Updated successfully");
+          navigate("/profile");
+        } else {
+          setErrMsg(message2.error);
+        }
+      }
+
+      // navigate("/profile");
     }
   };
 
-  const validate = (values, dob) => {
+  const validate = (values) => {
     const errors = {};
-    var regName = /^[A-Za-z'\s]*$/;
     var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var regName = /^[A-Za-z]+$/;
+    // var regPass =
+    //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 
-    if (!regName.test(values.first_name)) {
-      errors.first_name = "*Name should contain alphabets only";
-    }
-    if (!regName.test(values.last_name)) {
-      errors.last_name = "*Name should contain alphabets only";
-    }
-    // if (!validator.isEmail(values.email)) {
-    //   errors.values.email("Email not valid");
-    // }
-    if (!regEmail.test(values.email)) {
-      errors.email = "*Email format is incorrect";
-    }
-
-    if (values.password.length < 8) {
-      errors.password = "Password should consists at least 8 characters";
+    if (values.first_name) {
+      console.log("got value");
+      if (!regName.test(values.first_name)) {
+        console.log("no contain alphabet only");
+        errors.first_name = "*first name should contain only alphabets";
+      } else if (!values.oldpassword) {
+        console.log("false");
+        errors.oldpassword = "Please key in current password to update changes";
+      } else {
+        console.log("contains alphabet");
+        return true;
+      }
     }
 
-    // if (
-    //   !validator.isStrongPassword(values.password, {
-    //     minLength: 8,
-    //     minLowercase: 1,
-    //     minUppercase: 1,
-    //     minNumbers: 1,
-    //     minSymbols: 1,
-    //   })
-    // ) {
-    //   errors.value.password(
-    //     "Password should consists at least 1 lowercase, 1 uppercase, 1 number and 1 symbol "
-    //   );
-    // }
-    // if (!dob) {
-    //   errors.dob = "*DOB is required";
-    // }
+    if (values.last_name) {
+      console.log("got value");
+      if (!regName.test(values.last_name)) {
+        console.log("no contain alphabet only");
+        errors.last_name = "*last name should contain only alphabets";
+      } else if (!values.oldpassword) {
+        console.log("false");
+        errors.oldpassword = "Please key in current password to update changes";
+      } else {
+        console.log("contains alphabet");
+        return true;
+      }
+    }
+
+    if (values.email) {
+      console.log("got value");
+      if (!regEmail.test(values.email)) {
+        console.log("wrong email format");
+        errors.email = "*wrong email format";
+      } else if (!values.oldpassword) {
+        console.log("false");
+        errors.oldpassword = "Please key in current password to update changes";
+      } else {
+        console.log("proper email format");
+        return true;
+      }
+    }
 
     // if (!values.oldpassword) {
-    //   errors.oldpassword = "*Old password is required";
+    //   console.log("false");
+    //   errors.oldpassword = "Please key in current password to update changes";
     // }
 
-    // if (!values.password) {
-    //   errors.password = "*New Password is required";
-    // }
+    // if (values.password) {
+    //   if (!values.password || !values.oldpassword) {
+    //     errors.password = "Old and new password needed to change password";
+    //   } else if (values.password.length < 8) {
+    //     errors.password = "Password should consists at least 8 characters";
+    //   } else if (!regPass.test(values.password)) {
+    //     errors.password =
+    //       "Password should consists of at least 1 lowercase, 1 uppercase, 1 numeric and 1 special character";
+    //   } else {
+    //     console.log("proper password");
 
-    //   if (oldPass !== newPass){
+    //     // setMsg("Updated input fields without error, successfully");
     //   }
-    //   // if pw1 === pw2
-    //   //editProfile
-    //   //else
-    //   //throw error
-    //   //
-    //   //
-    //   //
-    //   editProfile;
+    // }
     return errors;
   };
 
@@ -164,10 +271,14 @@ function EditProfilePage() {
                   className="form-control-mt-1"
                   placeholder="First Name"
                   onChange={(e) => {
-                    updateProfileValues({
-                      ...profileValues,
-                      first_name: e.target.value,
-                    });
+                    setFormErrors(
+                      validate(
+                        updateProfileValues({
+                          ...profileValues,
+                          first_name: e.target.value,
+                        })
+                      )
+                    );
                   }}
                   value={profileValues.first_name}
                 />
@@ -179,10 +290,14 @@ function EditProfilePage() {
                   className="form-control-mt-1"
                   placeholder="Last Name"
                   onChange={(e) => {
-                    updateProfileValues({
-                      ...profileValues,
-                      last_name: e.target.value,
-                    });
+                    setFormErrors(
+                      validate(
+                        updateProfileValues({
+                          ...profileValues,
+                          last_name: e.target.value,
+                        })
+                      )
+                    );
                   }}
                   value={profileValues.last_name}
                 />
@@ -194,7 +309,6 @@ function EditProfilePage() {
                 <div className="errMsg">
                   {formErrors.first_name && (
                     <p
-                      ref={errRef}
                       className={formErrors.first_name ? "errmsg" : "offscreen"}
                       aria-live="assertive"
                     >
@@ -208,7 +322,6 @@ function EditProfilePage() {
                 <div className="errMsg">
                   {formErrors.last_name && (
                     <p
-                      ref={errRef}
                       className={formErrors.last_name ? "errmsg" : "offscreen"}
                       aria-live="assertive"
                     >
@@ -230,10 +343,14 @@ function EditProfilePage() {
                   className="form-control-mt-1"
                   placeholder="Email"
                   onChange={(e) => {
-                    updateProfileValues({
-                      ...profileValues,
-                      email: e.target.value,
-                    });
+                    setFormErrors(
+                      validate(
+                        updateProfileValues({
+                          ...profileValues,
+                          email: e.target.value,
+                        })
+                      )
+                    );
                   }}
                   value={profileValues.email}
                 />
@@ -242,7 +359,7 @@ function EditProfilePage() {
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DesktopDatePicker
                     className="form-control-mt-1"
-                    InputProps={{ disableUnderline: true }}
+                    InputProps={{ readOnly: true, disableUnderline: true }}
                     inputFormat="MM/DD/YYYY"
                     value={dob}
                     onChange={handleDOBChange}
@@ -279,7 +396,6 @@ function EditProfilePage() {
                 <div className="errMsg">
                   {formErrors.email && (
                     <p
-                      ref={errRef}
                       className={formErrors.email ? "errmsg" : "offscreen"}
                       aria-live="assertive"
                     >
@@ -293,7 +409,6 @@ function EditProfilePage() {
                 <div className="errMsg">
                   {formErrors.dob && (
                     <p
-                      ref={errRef}
                       className={formErrors.dob ? "errmsg" : "offscreen"}
                       aria-live="assertive"
                     >
@@ -305,7 +420,7 @@ function EditProfilePage() {
             </tr>
 
             <tr className="input-label">
-              <td className="left-column">Old Password</td>
+              <td className="left-column">Current Password</td>
               <td className="right-column">New Password</td>
             </tr>
             <tr>
@@ -314,12 +429,16 @@ function EditProfilePage() {
                   className="form-control-mt-1"
                   type={passwordVisibility ? "text" : "password"}
                   disableUnderline={true}
-                  placeholder="Old Password"
+                  placeholder="Current Password"
                   onChange={(e) => {
-                    updateProfileValues({
-                      ...profileValues,
-                      oldpassword: e.target.value,
-                    });
+                    setFormErrors(
+                      validate(
+                        updateProfileValues({
+                          ...profileValues,
+                          oldpassword: e.target.value,
+                        })
+                      )
+                    );
                   }}
                   value={profileValues.oldpassword}
                   endAdornment={
@@ -345,10 +464,14 @@ function EditProfilePage() {
                   disableUnderline={true}
                   placeholder="New Password"
                   onChange={(e) => {
-                    updateProfileValues({
-                      ...profileValues,
-                      password: e.target.value,
-                    });
+                    setFormErrors(
+                      validate(
+                        updateProfileValues({
+                          ...profileValues,
+                          password: e.target.value,
+                        })
+                      )
+                    );
                   }}
                   value={profileValues.password}
                   endAdornment={
@@ -370,31 +493,49 @@ function EditProfilePage() {
             </tr>
             <tr>
               <td>
-                {" "}
                 <div className="errMsg">
-                  {formErrors.oldpassword && (
-                    <p
-                      ref={errRef}
-                      className={
-                        formErrors.oldpassword ? "errmsg" : "offscreen"
-                      }
-                      aria-live="assertive"
-                    >
-                      {formErrors.oldpassword}
-                    </p>
-                  )}
+                  {formErrors.oldpassword
+                    ? formErrors.oldpassword && (
+                        <p
+                          className={
+                            formErrors.oldpassword ? "errmsg" : "offscreen"
+                          }
+                          aria-live="assertive"
+                        >
+                          {formErrors.oldpassword}
+                        </p>
+                      )
+                    : errMsg
+                    ? errMsg && (
+                        <p
+                          className={errMsg ? "errmsg" : "offscreen"}
+                          aria-live="assertive"
+                        >
+                          {errMsg}
+                        </p>
+                      )
+                    : ""}
                 </div>
               </td>
               <td>
                 {" "}
-                <div className="errMsg">
-                  {formErrors.password && (
+                {/* <div className="errMsg">
+                  {errMsg && (
                     <p
-                      ref={errRef}
-                      className={formErrors.password ? "errmsg" : "offscreen"}
+                      className={errMsg ? "errmsg" : "offscreen"}
                       aria-live="assertive"
                     >
-                      {formErrors.password}
+                      {errMsg}
+                    </p>
+                  )}
+                </div> */}
+                <div className="msg">
+                  {msg && (
+                    <p
+                      className={msg ? "errmsg" : "offscreen"}
+                      aria-live="assertive"
+                    >
+                      {msg}
                     </p>
                   )}
                 </div>
@@ -450,12 +591,14 @@ function EditProfilePage() {
             className="submit-edit"
             type="submit"
             disabled={
+              profileValues.email ||
               profileValues.first_name ||
               profileValues.last_name ||
-              profileValues.email ||
               dob ||
-              (profileValues.oldpassword && profileValues.password)
-                ? false
+              profileValues.oldpassword ||
+              profileValues.password
+                ? // (profileValues.oldpassword && profileValues.password)
+                  false
                 : true
             }
             onClick={
@@ -465,6 +608,16 @@ function EditProfilePage() {
           >
             Submit
           </button>
+        </div>
+        <div className="msg">
+          {confirmMsg && (
+            <p
+              className={confirmMsg ? "errmsg" : "offscreen"}
+              aria-live="assertive"
+            >
+              {confirmMsg}
+            </p>
+          )}
         </div>
       </div>
     </div>
