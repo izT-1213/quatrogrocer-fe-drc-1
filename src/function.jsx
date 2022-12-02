@@ -38,7 +38,7 @@ async function RegisterFunc(email, pass, fname, lname, dob, gender) {
 async function FetchUser(userId) {
   try {
     const response = await Axios.post(
-      `http://localhost:5000/quatro_user/search?user_id=${userId}`
+      `http://localhost:5004/quatro_user/search?user_id=${userId}`
     );
     return response.data.result;
   } catch (err) {
@@ -87,9 +87,9 @@ async function CreateAddressFunc(
   userId
 ) {
   try {
+    console.log(addLine1);
     const response = await Axios.post(
-      "http://localhost:5004/quatro_address/create",
-      { withCredentials: true }, //hassif port 3002
+      "http://localhost:5004/quatro_address/create", //hassif port 3002
       {
         address_line_1: addLine1,
         address_line_2: addLine2,
@@ -188,7 +188,7 @@ async function UpdatePasswordFunc(oldPassword, password, user_id) {
   console.log(password ? true : false);
   try {
     await Axios.post(
-      "http://localhost:5000/quatro_user/update_password",
+      "http://localhost:5004/quatro_user/update_password",
 
       {
         oldPassword: oldPassword,
@@ -246,7 +246,7 @@ async function AddToCartDiscFunc(
 async function FetchTransaction(user_id) {
   try {
     const response = await Axios.get(
-      "http://localhost:5000/quatro_transaction/get_details/" + user_id
+      "http://localhost:5004/quatro_transaction/get_details/" + user_id
       //{ withCredentials: true }
     );
     return response.data.result;
