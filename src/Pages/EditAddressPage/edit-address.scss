@@ -208,6 +208,11 @@
               gap: 0.5rem;
               border-radius: 0.125rem;
               height: 2.5rem;
+              cursor: pointer;
+
+              &:hover {
+                background-color: $secondary-hover-color;
+              }
             }
           }
         }
@@ -241,5 +246,11 @@
     svg:hover {
       color: $primary-hover-dark-color;
     }
+  }
+}
+
+@media screen and (max-width: 961px) {
+  .edit-address-page-container {
+    padding: 2.188rem 2rem;
   }
 }

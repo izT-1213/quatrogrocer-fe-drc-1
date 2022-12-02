@@ -125,9 +125,6 @@ function UserProfilePage() {
               <td className="address">{addressDetails[0]?.state}</td>
             </tr>
             <tr>
-              <td>60186907892</td>
-            </tr>
-            <tr>
               <td>{profileDetails.email}</td>
             </tr>
             <tr>
