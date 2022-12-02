@@ -92,7 +92,7 @@ function YourShippingAddressPage() {
                       className="delete-btn"
                       onClick={async (e) => {
                         const delConfirm = window.confirm(
-                          "Are you sure you want to click this card?"
+                          "Are you sure you want to delete this address?"
                         );
                         // console.log(delConfirm);
                         if (delConfirm === true) {
