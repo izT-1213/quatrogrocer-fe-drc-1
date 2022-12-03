@@ -138,6 +138,7 @@ async function DeleteAddressFunc(address_id) {
   try {
     console.log(address_id);
     const response = await Axios.delete(
+      // `https://api.quatrogrocer.one/quatro_address/delete?address_id=${address_id}`
       `http://localhost:5000/quatro_address/delete?address_id=${address_id}`
     );
     return response.status;

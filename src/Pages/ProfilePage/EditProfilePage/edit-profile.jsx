@@ -108,7 +108,9 @@ function EditProfilePage() {
             userId.user_id
           );
           if (message1 || message2 === undefined) {
-            setMsg("Updated successfully");
+            setErrMsg("");
+            alert("Profile is updated successfully!");
+            navigate("/profile");
           } else {
             setErrMsg(message1.error);
           }
@@ -133,8 +135,8 @@ function EditProfilePage() {
         );
 
         if (message1 === undefined) {
-          setMsg("Updated successfully");
           setErrMsg("");
+          alert("Profile is updated successfully!");
           navigate("/profile");
         } else {
           setErrMsg(message1.error);
@@ -153,7 +155,7 @@ function EditProfilePage() {
           userId.user_id
         );
         if (message2 === undefined) {
-          setMsg("Updated successfully");
+          alert("Profile is updated successfully!");
           navigate("/profile");
         } else {
           setErrMsg(message2.error);

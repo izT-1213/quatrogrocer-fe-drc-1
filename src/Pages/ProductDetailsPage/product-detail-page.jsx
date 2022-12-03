@@ -136,7 +136,9 @@ function ProductDetailsPage() {
                   <AddShoppingCart
                     className="cart-icon"
                     key={index}
-                    onClick={(e) => handleCartSubmit(e)}
+                    onClick={() => {
+                      navigate(`/product-details/${key.product_name}`);
+                    }}
                   />
                 </button>
               </div>

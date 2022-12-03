@@ -18,18 +18,18 @@ function BestSellerPage() {
     FetchProduct(products).then(setProductDetails);
   }, [products]);
 
-  const notify = () => {
-    toast.success("Item added to cart! 🛒", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
+  // const notify = () => {
+  //   toast.success("Item added to cart! 🛒", {
+  //     position: "top-right",
+  //     autoClose: 3000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "light",
+  //   });
+  // };
 
   function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -86,7 +86,9 @@ function BestSellerPage() {
                   <button className="add-to-cart-btn">
                     <AddShoppingCart
                       className="cart-icon"
-                      onClick={notify}
+                      onClick={() => {
+                        navigate(`/product-details/${key.product_name}`);
+                      }}
                       key={index}
                     />
                   </button>

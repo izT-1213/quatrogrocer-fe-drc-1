@@ -17,18 +17,18 @@ function DealsPromotionsPage() {
   const [current, setCurrent] = useState(1);
   const [productDetails, setProductDetails] = useState([]);
 
-  const notify = () => {
-    toast.success("Item added to cart! 🛒", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
+  // const notify = () => {
+  //   toast.success("Item added to cart! 🛒", {
+  //     position: "top-right",
+  //     autoClose: 3000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "light",
+  //   });
+  // };
 
   useEffect(() => {
     setProductDetails([]);
@@ -101,7 +101,12 @@ function DealsPromotionsPage() {
                 {data.discount_product_price.toFixed(2)}
               </p>
               <div className="button-container">
-                <button className="add-to-cart-btn" onClick={notify}>
+                <button
+                  className="add-to-cart-btn"
+                  onClick={() => {
+                    navigate(`/product-details/${data.discount_product_name}`);
+                  }}
+                >
                   <AddShoppingCart className="cart-icon" key={index} />
                 </button>
               </div>
