@@ -74,6 +74,10 @@ function AddAddressPage() {
     if (message === 200) {
       alert("Address is successfully added.");
       navigate("/profile");
+    } else {
+      console.log(message);
+      setErrMsg(message.error);
+      setUpdatedMsg("");
     }
   };
 

@@ -60,7 +60,9 @@ function EditAddressPage() {
       addressValues.address_line_3
         ? addressValues.address_line_3.toString()
         : addressDetails.address_line_3,
-      addressValues.postcode ? addressValues.postcode : addressDetails.postcode,
+      addressValues.postcode
+        ? addressValues.postcode.toString()
+        : addressDetails.postcode,
       addressValues.state
         ? addressValues.state.toString()
         : addressDetails.state,
@@ -152,6 +154,7 @@ function EditAddressPage() {
                   <div className="postcode">
                     <label>Postcode</label>
                     <Input
+                      maxLength={5}
                       className="postcode"
                       type="text"
                       disableUnderline={true}
@@ -220,6 +223,15 @@ function EditAddressPage() {
                   className="update-address-btn"
                   type="submit"
                   onClick={editAddress}
+                  disabled={
+                    addressValues.address_line_1 &&
+                    addressValues.address_line_2 &&
+                    addressValues.address_line_3 &&
+                    addressValues.postcode &&
+                    addressValues.state
+                      ? false
+                      : true
+                  }
                 >
                   Update Address
                 </button>
