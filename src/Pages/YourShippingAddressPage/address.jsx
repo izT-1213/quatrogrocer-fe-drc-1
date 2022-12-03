@@ -133,13 +133,6 @@ function YourShippingAddressPage() {
           <AiOutlinePlusCircle />
           Add New Address
         </button>
-
-        {/* <button className="add-address-btn">
-          <Link to="/add-address" className="add-address-link">
-            <AiOutlinePlusCircle />
-            Add New Address
-          </Link>
-        </button> */}
       </div>
     </div>
   );

@@ -14,7 +14,6 @@ function SignUpPage() {
   const color = "#009688";
   const navigate = useNavigate();
 
-  //email and password variables
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -25,10 +24,8 @@ function SignUpPage() {
     showPassword: false,
   });
 
-  //dob
   const [dob, setDOB] = useState(dayjs(""));
 
-  //to catch error message
   const [errMsg, setErrMsg] = useState("");
   const userRef = useRef();
   const errRef = useRef();
@@ -95,7 +92,6 @@ function SignUpPage() {
                       className="form-control-mt-1"
                       placeholder="John"
                       required={true}
-                      //fname
                       value={values.firstName}
                       onChange={handleValueChange("firstName")}
                     />
@@ -107,7 +103,6 @@ function SignUpPage() {
                       className="form-control-mt-1"
                       placeholder="Doe"
                       required={true}
-                      //lname
                       value={values.lastName}
                       onChange={handleValueChange("lastName")}
                     />
@@ -126,6 +121,7 @@ function SignUpPage() {
                           variant="standard"
                           labelId="demo-simple-select-label"
                           className="form-control-mt-1"
+                          placeholder="Select Gender"
                           disableUnderline={true}
                           id="demo-simple-select"
                           value={values.gender}
@@ -184,6 +180,7 @@ function SignUpPage() {
                   disableUnderline={true}
                   ref={userRef}
                   className="form-control-mt-2"
+                  placeholder="example@email.com"
                   required={true}
                   value={values.email}
                   onChange={handleValueChange("email")}

@@ -8,7 +8,7 @@ function SideNav() {
   return (
     <div className="side-nav">
       <div className="side-nav-title">
-        <h4>Category</h4>
+        <h4>Categories</h4>
       </div>
       <div className="category-list">
         <ul>

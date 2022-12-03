@@ -12,8 +12,6 @@ import Pagination from "rc-pagination";
 
 function DealsPromotionsPage() {
   const navigate = useNavigate();
-
-  // Pagination
   const [perPage, setPerPage] = useState(8);
   const [size, setSize] = useState(perPage);
   const [current, setCurrent] = useState(1);
@@ -46,7 +44,6 @@ function DealsPromotionsPage() {
   };
 
   const getData = (current, pageSize) => {
-    // Normally you should get the data from the server
     return productDetails.slice((current - 1) * pageSize, current * pageSize);
   };
 

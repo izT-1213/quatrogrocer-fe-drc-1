@@ -9,11 +9,10 @@ import useAuth from "../../Components/context/useAuth.js";
 import "../Login/login.css";
 
 function LoginPage() {
-  const navigate = useNavigate(); // <-- to navigate to profile page
+  const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  // email and password variables
   const [emailLogin, setEmailLogin] = useState("");
   const [values, setValues] = useState({
     password: "",
@@ -21,7 +20,7 @@ function LoginPage() {
   });
   const { setAuth } = useAuth();
 
-  const [errMsg, setErrMsg] = useState(""); // <-- to catch error message(?)
+  const [errMsg, setErrMsg] = useState("");
 
   const userRef = useRef();
   const errRef = useRef();
@@ -49,7 +48,6 @@ function LoginPage() {
     }
   };
 
-  //to hide and show password
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
   };
@@ -80,7 +78,7 @@ function LoginPage() {
                   disableUnderline={true}
                   ref={userRef}
                   className="form-control-mt-1"
-                  placeholder="Email Address"
+                  placeholder="example@email.com"
                   onChange={(e) => {
                     setEmailLogin(e.target.value);
                   }}

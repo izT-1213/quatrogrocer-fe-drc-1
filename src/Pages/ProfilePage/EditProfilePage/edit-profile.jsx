@@ -41,7 +41,6 @@ function EditProfilePage() {
   });
 
   const [formErrors, setFormErrors] = useState({ test: "false" });
-  //oldpassword
   const [errMsg, setErrMsg] = useState("");
   const [msg, setMsg] = useState("");
   const [confirmMsg, setConfirmMsg] = useState("");
@@ -67,7 +66,6 @@ function EditProfilePage() {
 
   const editProfile = async (e) => {
     e.preventDefault();
-    // console.log(validate(profileValues));
     setFormErrors(validate(profileValues));
     console.log(formErrors);
     console.log(validate(profileValues));
