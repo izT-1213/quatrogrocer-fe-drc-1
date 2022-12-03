@@ -88,7 +88,7 @@ function SignUpPage() {
                 <tr>
                   <td className="left-col">
                     <Input
-                      type="string"
+                      type="first-name"
                       disableUnderline={true}
                       className="form-control-mt-1"
                       placeholder="John"
@@ -99,7 +99,7 @@ function SignUpPage() {
                   </td>
                   <td className="right-col">
                     <Input
-                      type="string"
+                      type="last-name"
                       disableUnderline={true}
                       className="form-control-mt-1"
                       placeholder="Doe"
@@ -119,6 +119,7 @@ function SignUpPage() {
                       {" "}
                       <FormControl fullWidth>
                         <Select
+                          type="gender"
                           variant="standard"
                           labelId="demo-simple-select-label"
                           className="form-control-mt-1"
@@ -139,6 +140,7 @@ function SignUpPage() {
                   <td className="right-col">
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <DesktopDatePicker
+                        type="date-of-birth"
                         className="form-control-mt-1"
                         InputProps={{ disableUnderline: true }}
                         inputFormat="MM/DD/YYYY"
@@ -221,9 +223,7 @@ function SignUpPage() {
                 />
                 <span className="checkmark"></span> I agree to{" "}
                 <a>
-                  <Link to="/" className="tnc-link">
-                    Terms & Conditions
-                  </Link>
+                  <Link className="tnc-link">Terms & Conditions</Link>
                 </a>
               </label>
               <div className="errMsg">
@@ -241,7 +241,7 @@ function SignUpPage() {
               <div className="d-grid-gap-2-mt-3">
                 <button
                   type="submit"
-                  className="signup-signin-btn"
+                  className="signup-btn"
                   disabled={
                     values.email &&
                     values.password &&

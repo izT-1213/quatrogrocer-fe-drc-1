@@ -125,7 +125,7 @@ function LoginPage() {
               <div className="d-grid-gap-2-mt-3">
                 <button
                   type="submit"
-                  className="signup-login-btn"
+                  className="login-btn"
                   disabled={emailLogin && values.password ? false : true}
                 >
                   Log In
