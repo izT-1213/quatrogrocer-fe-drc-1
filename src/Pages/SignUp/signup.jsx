@@ -116,16 +116,14 @@ function SignUpPage() {
                 <tr>
                   <td className="left-col">
                     <div>
-                      {" "}
                       <FormControl fullWidth>
                         <Select
-                          type="gender"
                           variant="standard"
-                          labelId="demo-simple-select-label"
+                          labelId="gender-dropdown-list"
                           className="form-control-mt-1"
                           placeholder="Select Gender"
                           disableUnderline={true}
-                          id="demo-simple-select"
+                          id="gender-dropdown-menu"
                           value={values.gender}
                           onChange={handleValueChange("gender")}
                           required={true}
@@ -140,7 +138,7 @@ function SignUpPage() {
                   <td className="right-col">
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <DesktopDatePicker
-                        type="date-of-birth"
+                        id="date-of-birth"
                         className="form-control-mt-1"
                         InputProps={{ disableUnderline: true }}
                         inputFormat="MM/DD/YYYY"
