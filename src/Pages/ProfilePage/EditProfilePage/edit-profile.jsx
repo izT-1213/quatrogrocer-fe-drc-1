@@ -219,8 +219,6 @@ function EditProfilePage() {
 
     if (values.password && !values.oldpassword) {
       errors.oldpassword = "Current Password is required to change password";
-    } else if (!validator.isStrongPassword(values.password)) {
-      errors.password = "Password is not strong enough";
     }
 
     return errors;
