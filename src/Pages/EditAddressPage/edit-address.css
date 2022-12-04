@@ -180,6 +180,24 @@ a:active {
 .edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .buttons .update-address-btn:hover {
   background-color: #ff5722;
 }
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .errMsg {
+  padding: 1rem 0 0 0;
+}
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .errMsg p {
+  font: "Lexend Deca";
+  font-size: 12px;
+  font-weight: bold;
+  color: #f04438;
+}
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .updatedMsg {
+  padding: 1rem 0 0 0;
+}
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .updatedMsg p {
+  font: "Lexend Deca";
+  font-size: 12px;
+  font-weight: bold;
+  color: #009688;
+}
 .edit-address-page-container .navigation-buttons {
   justify-self: flex-end;
   padding-top: 1.5rem;
@@ -204,6 +222,27 @@ a:active {
 .edit-address-page-container .navigation-buttons .return:hover,
 .edit-address-page-container .navigation-buttons svg:hover {
   color: #00796b;
+}
+.edit-address-page-container .navigation-buttons .back-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 92%;
+  padding: 1rem;
+  margin: 0 0 0 8%;
+  gap: 0.5rem;
+  background: #009688;
+  border-radius: 0.125rem;
+  border: none;
+  align-items: center;
+  color: #ffffff;
+  font-family: "Lexend Deca";
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 120%;
+}
+.edit-address-page-container .navigation-buttons .back-btn:hover {
+  background-color: #ff8a65;
 }
 
 @media screen and (max-width: 961px) {

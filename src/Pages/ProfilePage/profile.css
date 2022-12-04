@@ -168,6 +168,7 @@ a:active {
 }
 .profile-page-container .account-details-container .account-details-table .view-address-link:hover {
   color: #00796b;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 961px) {

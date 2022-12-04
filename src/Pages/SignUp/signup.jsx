@@ -246,7 +246,7 @@ function SignUpPage() {
                     values.firstName &&
                     values.lastName &&
                     values.gender &&
-                    dob &&
+                    values.dob &&
                     values.checked
                       ? false
                       : true

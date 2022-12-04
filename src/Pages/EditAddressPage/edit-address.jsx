@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Input from "@material-ui/core/Input";
@@ -10,6 +10,7 @@ import AuthContext from "../../Components/context/AuthProvider.js";
 function EditAddressPage() {
   const location = useLocation();
   const addId = location.state.address_id;
+  console.log(addId);
   const navigate = useNavigate();
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
@@ -19,6 +20,31 @@ function EditAddressPage() {
   useEffect(() => {
     GetUserAddress(userId.user_id, addId).then(setAddressDetails);
   }, []);
+
+  const [errMsg, setErrMsg] = useState("");
+  const errRef = useRef();
+
+  useEffect(() => {
+    setErrMsg("");
+  }, [
+    addressValues.address_line_1,
+    addressValues.address_line_2,
+    addressValues.address_line_3,
+    addressValues.postcode,
+    addressValues.state,
+  ]);
+
+  const [updatedMsg, setUpdatedMsg] = useState("");
+
+  useEffect(() => {
+    setUpdatedMsg("");
+  }, [
+    addressValues.address_line_1,
+    addressValues.address_line_2,
+    addressValues.address_line_3,
+    addressValues.postcode,
+    addressValues.state,
+  ]);
 
   const editAddress = async (e) => {
     console.log(addId);
@@ -34,7 +60,9 @@ function EditAddressPage() {
       addressValues.address_line_3
         ? addressValues.address_line_3.toString()
         : addressDetails.address_line_3,
-      addressValues.postcode ? addressValues.postcode : addressDetails.postcode,
+      addressValues.postcode
+        ? addressValues.postcode.toString()
+        : addressDetails.postcode,
       addressValues.state
         ? addressValues.state.toString()
         : addressDetails.state,
@@ -45,6 +73,10 @@ function EditAddressPage() {
     if (message === 200) {
       alert("Address has been successfully edited.");
       navigate("/profile/addresses");
+    } else {
+      console.log(message);
+      setErrMsg(message.error);
+      setUpdatedMsg("");
     }
   };
 
@@ -122,6 +154,7 @@ function EditAddressPage() {
                   <div className="postcode">
                     <label>Postcode</label>
                     <Input
+                      maxLength={5}
                       className="postcode"
                       type="text"
                       disableUnderline={true}
@@ -161,6 +194,27 @@ function EditAddressPage() {
                   Set as default address
                 </label> */}
               </form>
+              <div className="errMsg">
+                {errMsg && (
+                  <p
+                    ref={errRef}
+                    className={errMsg ? "errmsg" : "offscreen"}
+                    aria-live="assertive"
+                  >
+                    {errMsg}
+                  </p>
+                )}
+              </div>
+              <div className="updatedMsg">
+                {updatedMsg && (
+                  <p
+                    className={updatedMsg ? "errmsg" : "offscreen"}
+                    aria-live="assertive"
+                  >
+                    {updatedMsg}
+                  </p>
+                )}
+              </div>
               <div className="buttons">
                 <button className="cancel-btn" onClick={() => clearInput}>
                   Cancel
@@ -169,6 +223,15 @@ function EditAddressPage() {
                   className="update-address-btn"
                   type="submit"
                   onClick={editAddress}
+                  disabled={
+                    addressValues.address_line_1 &&
+                    addressValues.address_line_2 &&
+                    addressValues.address_line_3 &&
+                    addressValues.postcode &&
+                    addressValues.state
+                      ? false
+                      : true
+                  }
                 >
                   Update Address
                 </button>
