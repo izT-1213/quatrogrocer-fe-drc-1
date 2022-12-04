@@ -202,6 +202,7 @@ async function UpdateProfileFunc(
 
 async function UpdatePasswordFunc(oldPassword, password, user_id) {
   console.log(password ? true : false);
+
   try {
     await Axios.post(
       "http://localhost:5004/quatro_user/update_password",

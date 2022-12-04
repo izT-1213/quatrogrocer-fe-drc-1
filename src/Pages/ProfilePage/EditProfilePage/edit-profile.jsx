@@ -5,6 +5,7 @@ import { Visibility, VisibilityOff } from "@material-ui/icons";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { TextField } from "@mui/material";
 import "../EditProfilePage/edit-profile.css";
+import validator from "validator";
 
 import {
   UpdatePasswordFunc,
@@ -170,72 +171,58 @@ function EditProfilePage() {
 
   const validate = (values) => {
     const errors = {};
-    var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    var regName = /^[A-Za-z]+$/;
+
     // var regPass =
     //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 
+    // if (values.first_name) {
+    //   if (!regName.test(values.first_name)) {
+    //     errors.first_name = "*first name should contain only alphabets";
+    //   } else if (!values.oldpassword) {
+    //     errors.oldpassword = "Please key in current password to update changes";
+    //   } else {
+    //     return true;
+    //   }
+    // }
+
     if (values.first_name) {
-      console.log("got value");
-      if (!regName.test(values.first_name)) {
-        console.log("no contain alphabet only");
-        errors.first_name = "*first name should contain only alphabets";
-      } else if (!values.oldpassword) {
-        console.log("false");
+      if (!validator.isAlpha(values.first_name)) {
+        errors.first_name = "*First name should contain only alphabets";
+      } else if (validator.isEmpty(values.oldpassword)) {
         errors.oldpassword = "Please key in current password to update changes";
       } else {
-        console.log("contains alphabet");
         return true;
       }
     }
 
     if (values.last_name) {
-      console.log("got value");
-      if (!regName.test(values.last_name)) {
-        console.log("no contain alphabet only");
-        errors.last_name = "*last name should contain only alphabets";
-      } else if (!values.oldpassword) {
-        console.log("false");
-        errors.oldpassword = "Please key in current password to update changes";
+      if (!validator.isAlpha(values.last_name)) {
+        errors.last_name = "*Last name should contain only alphabets";
+      } else if (validator.isEmpty(values.oldpassword)) {
+        errors.oldpassword =
+          "*Please key in current password to update changes";
       } else {
-        console.log("contains alphabet");
         return true;
       }
     }
 
     if (values.email) {
-      console.log("got value");
-      if (!regEmail.test(values.email)) {
-        console.log("wrong email format");
-        errors.email = "*wrong email format";
-      } else if (!values.oldpassword) {
-        console.log("false");
-        errors.oldpassword = "Please key in current password to update changes";
+      if (!validator.isEmail(values.email)) {
+        errors.email = "*Email is in incorrect format";
+      } else if (validator.isEmpty(values.oldpassword)) {
+        errors.oldpassword =
+          "*Please key in current password to update changes";
       } else {
-        console.log("proper email format");
         return true;
       }
     }
 
-    // if (!values.oldpassword) {
-    //   console.log("false");
-    //   errors.oldpassword = "Please key in current password to update changes";
-    // }
+    if (values.password && !values.oldpassword) {
+      errors.oldpassword = "Current Password is required to change password";
+    } else if (!validator.isStrongPassword(values.password)) {
+      errors.password = "Password is not strong enough";
+    }
 
-    // if (values.password) {
-    //   if (!values.password || !values.oldpassword) {
-    //     errors.password = "Old and new password needed to change password";
-    //   } else if (values.password.length < 8) {
-    //     errors.password = "Password should consists at least 8 characters";
-    //   } else if (!regPass.test(values.password)) {
-    //     errors.password =
-    //       "Password should consists of at least 1 lowercase, 1 uppercase, 1 numeric and 1 special character";
-    //   } else {
-    //     console.log("proper password");
-
-    //     // setMsg("Updated input fields without error, successfully");
-    //   }
-    // }
     return errors;
   };
 

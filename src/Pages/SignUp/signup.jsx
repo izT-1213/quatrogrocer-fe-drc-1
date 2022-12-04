@@ -149,6 +149,7 @@ function SignUpPage() {
                         value={dob}
                         onChange={handleDOBChange}
                         required={true}
+                        disableFuture={true}
                         // PaperProps={{
                         //   sx: {
                         //     "& .MuiPickersDay-root": {
@@ -224,7 +225,7 @@ function SignUpPage() {
                 />
                 <span className="checkmark"></span> I agree to{" "}
                 <a>
-                  <Link to="/" className="tnc-link">
+                  <Link to="/terms" className="tnc-link">
                     Terms & Conditions
                   </Link>
                 </a>
