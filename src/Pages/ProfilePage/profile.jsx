@@ -67,13 +67,13 @@ function UserProfilePage() {
               <tr key={i}>
                 <td>{transactionDetails[i]?.product_name}</td>
                 <td>{transactionDetails[i]?.product_quantity}</td>
-                <td>RM{transactionDetails[i]?.product_price}</td>
+                <td>RM{transactionDetails[i]?.product_price.toFixed(2)}</td>
                 <td>
                   {new Date(
                     transactionDetails[i]?.transaction_timestamp
                   ).toLocaleString()}
                 </td>
-                <td>RM{transactionDetails[i]?.transaction_total}</td>
+                <td>RM{transactionDetails[i]?.transaction_total.toFixed(2)}</td>
               </tr>
             ))}
             {/* <tr>

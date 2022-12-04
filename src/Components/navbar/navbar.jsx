@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../../Images/white-logo.svg";
+import { SearchProduct } from "../../function";
 import {
   SearchOutlined,
   AccountCircleOutlined,
   ShoppingBagOutlined,
-  Close,
   Menu,
 } from "@mui/icons-material";
 import "./navbar.css";
@@ -14,11 +14,22 @@ const Nav = () => {
   const navigate = useNavigate();
   const [searchVal, setSearchVal] = useState("");
 
-  function searchField() {
+  const [searchedProducts, setSearchedProducts] = useState([]);
+
+  async function searchField() {
     // debugger;
     const products = searchVal;
+    SearchProduct(products).then((response) => {
+      console.log(response.length);
+      if (response.length === 0) {
+        navigate("/no-result", { state: { searchedTerm: products } });
+      }
+      setSearchedProducts(response);
+    });
     navigate(`/search-result/${products}`);
   }
+
+  console.log(searchedProducts.length);
 
   return (
     <div>

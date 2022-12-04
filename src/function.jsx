@@ -1,4 +1,5 @@
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 async function LoginFunc(email, pass) {
   try {
@@ -276,6 +277,67 @@ async function FetchTransaction(user_id) {
   }
 }
 
+async function CheckoutProcess(user_id) {
+  try {
+    const response1 = await Axios.post(
+      // "https://api.quatrogrocer.one/quatro_cart/push"
+      "http://localhost:5000/quatro_cart/push",
+      { user_id: user_id }
+    );
+
+    if (response1.status === 200) {
+      try {
+        const response2 = await Axios.post(
+          // "https://api.quatrogrocer.one/quatro_transaction/update"
+          "http://localhost:5000/quatro_transaction/update",
+          { user_id: user_id }
+        );
+
+        if (response2.status === 200) {
+          try {
+            const response = await Axios.post(
+              // "https://api.quatrogrocer.one/quatro_transaction/checkout"
+              "http://localhost:5000/quatro_transaction/checkout",
+              { user_id: user_id }
+            );
+            console.log(response.data.result);
+            return response.data.result;
+          } catch (err) {
+            console.log(err.response);
+          }
+        }
+      } catch (err) {
+        console.log(err.response);
+      }
+    }
+  } catch (err) {
+    console.log(err.response);
+  }
+}
+
+async function DeleteCart(user_id) {
+  try {
+    await Axios.post(
+      // "https://api.quatrogrocer.one/quatro_cart/delete"
+      "http://localhost:5000/quatro_cart/delete",
+      { user_id: user_id }
+    );
+  } catch (err) {}
+}
+
+async function PaidCheckout(user_id) {
+  try {
+    const response = await Axios.post(
+      // "https://api.quatrogrocer.one/quatro_transaction/update_payment"
+      "http://localhost:5000/quatro_transaction/update_payment",
+      { user_id: user_id }
+    );
+    return response;
+  } catch (err) {
+    console.log(err.response);
+  }
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export {
   // GetPasswordFunc,
@@ -294,4 +356,7 @@ export {
   AddToCartFunc,
   AddToCartDiscFunc,
   FetchTransaction,
+  CheckoutProcess,
+  DeleteCart,
+  PaidCheckout,
 };

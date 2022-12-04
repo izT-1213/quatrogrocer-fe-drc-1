@@ -49,7 +49,6 @@ function YourShippingAddressPage() {
             {addressDetails?.map(function (key, index) {
               return (
                 <div className="address-card-container" key={key}>
-                  {console.log(addressDetails[index]?.address_id)}
                   {index === 0 ? (
                     <div>
                       <h6>Primary address</h6>
