@@ -587,6 +587,16 @@ function EditProfilePage() {
           </table>
         </div>
       </div>
+      <div className="confirmMsg">
+        {confirmMsg && (
+          <p
+            className={confirmMsg ? "errmsg" : "offscreen"}
+            aria-live="assertive"
+          >
+            {confirmMsg}
+          </p>
+        )}
+      </div>
       <div className="buttons-container">
         <button className="cancel">Cancel</button>
         <div className="submit-button-container">
@@ -611,16 +621,6 @@ function EditProfilePage() {
           >
             Submit
           </button>
-        </div>
-        <div className="msg">
-          {confirmMsg && (
-            <p
-              className={confirmMsg ? "errmsg" : "offscreen"}
-              aria-live="assertive"
-            >
-              {confirmMsg}
-            </p>
-          )}
         </div>
       </div>
     </div>

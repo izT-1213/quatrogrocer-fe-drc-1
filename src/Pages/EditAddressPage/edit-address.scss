@@ -213,6 +213,34 @@
               &:hover {
                 background-color: $secondary-hover-color;
               }
+
+              &:disabled,
+              button[disabled] {
+                background-color: $grey-color;
+                color: #666666;
+
+                pointer-events: none;
+              }
+            }
+          }
+
+          .errMsg {
+            padding: 1rem 0 0 0;
+            p {
+              font: $primary-fonts;
+              font-size: 12px;
+              font-weight: bold;
+              color: $error-color;
+            }
+          }
+
+          .updatedMsg {
+            padding: 1rem 0 0 0;
+            p {
+              font: $primary-fonts;
+              font-size: 12px;
+              font-weight: bold;
+              color: $primary-color;
             }
           }
         }
@@ -245,6 +273,30 @@
     .return:hover,
     svg:hover {
       color: $primary-hover-dark-color;
+    }
+
+    .back-btn {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 92%;
+      padding: 1rem;
+      margin: 0 0 0 8%;
+      gap: 0.5rem;
+      background: $primary-color;
+      border-radius: 0.125rem;
+      border: none;
+      align-items: center;
+      // font styling
+      color: $white-color;
+      font-family: $primary-fonts;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      font-size: 0.875rem;
+      line-height: 120%;
+
+      &:hover {
+        background-color: $secondary-color;
+      }
     }
   }
 }

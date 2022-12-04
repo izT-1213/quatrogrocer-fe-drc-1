@@ -17,7 +17,15 @@ const Nav = () => {
   function searchField() {
     // debugger;
     const products = searchVal;
-    navigate(`/search-result/${products}`);
+    const regSearch=/[A-Za-z0-9]/;
+    
+    if (products == "") {
+      navigate(`/no-result`);
+    } else if (!regSearch.test(products)) {
+      navigate(`/no-result`);
+    }else {
+      navigate(`/search-result/${products}`);
+    }
   }
 
   return (

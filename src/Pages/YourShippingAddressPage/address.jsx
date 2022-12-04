@@ -49,7 +49,7 @@ function YourShippingAddressPage() {
             {addressDetails?.map(function (key, index) {
               return (
                 <div className="address-card-container" key={key}>
-                  {console.log(addressDetails[index]?.address_id)}
+                  {/* {console.log(addressDetails[index]?.address_id)} */}
                   {index === 0 ? (
                     <div>
                       <h6>Primary address</h6>
@@ -92,9 +92,9 @@ function YourShippingAddressPage() {
                       className="delete-btn"
                       onClick={async (e) => {
                         const delConfirm = window.confirm(
-                          "Are you sure you want to click this card?"
+                          "Are you sure you want to delete this address?"
                         );
-                        console.log(delConfirm);
+                        // console.log(delConfirm);
                         if (delConfirm === true) {
                           const message = await DeleteAddressFunc(
                             addressDetails[index]?.address_id

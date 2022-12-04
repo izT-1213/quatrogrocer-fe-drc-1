@@ -69,13 +69,13 @@
           }
         }
 
-        .msg {
+        .confirmMsg {
           padding: 1.5rem 0 0 0;
           p {
             font: $secondary-fonts;
             font-size: 17px;
             font-weight: bold;
-            color: $primary-color;
+            color: $secondary-color;
           }
         }
         .left-column {
@@ -149,7 +149,14 @@
       }
     }
   }
-
+  .confirmMsg {
+    p {
+      font: $secondary-fonts;
+      font-size: 17px;
+      font-weight: bold;
+      color: $secondary-color;
+    }
+  }
   .buttons-container {
     display: flex;
     justify-content: center;
@@ -191,6 +198,14 @@
         font-size: 16px;
         line-height: 120%;
         color: $white-color;
+
+        &:disabled,
+        button[disabled] {
+          background-color: $grey-color;
+          color: #666666;
+
+          pointer-events: none;
+        }
 
         &:hover {
           background-color: $secondary-hover-color;
