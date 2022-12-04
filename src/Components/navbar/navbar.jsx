@@ -19,14 +19,17 @@ const Nav = () => {
   async function searchField() {
     // debugger;
     const products = searchVal;
+    const regSearch = /[A-Za-z0-9]/;
     SearchProduct(products).then((response) => {
       console.log(response.length);
       if (response.length === 0) {
         navigate("/no-result", { state: { searchedTerm: products } });
+      } else if (!regSearch.test(products)) {
+        navigate(`/no-result`, { state: { searchedTerm: products } });
+      } else {
+        navigate(`/search-result/${products}`);
       }
-      setSearchedProducts(response);
     });
-    navigate(`/search-result/${products}`);
   }
 
   console.log(searchedProducts.length);

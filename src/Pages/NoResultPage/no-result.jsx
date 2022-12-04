@@ -6,6 +6,7 @@ function NoResultPage() {
   const location = useLocation();
   var term = location.state.searchedTerm;
   const navigate = useNavigate();
+
   return (
     <div className="page-container">
       <div className="page-header">
