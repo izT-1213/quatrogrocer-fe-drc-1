@@ -12,6 +12,7 @@ import "./payment-success.css";
 
 function PaymentSuccessPage() {
   var shipping = 6.0;
+
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
   var sum = 0;
@@ -21,7 +22,10 @@ function PaymentSuccessPage() {
 
   const location = useLocation();
   var addId = location.state.address_id;
-  console.log(addId);
+  var total_items = location.state.total_items;
+
+  console.log(location.state);
+  console.log(total_items);
 
   useEffect(() => {
     setAddressDetails([]);
@@ -40,7 +44,7 @@ function PaymentSuccessPage() {
   const selectedAddress = addressDetails.filter(
     (obj) => obj.address_id === addId
   );
-  for (var i = 0; i < cartList?.length; i++) {
+  for (var i = 0; i < total_items; i++) {
     sum = sum + cartList[i]?.transaction_total;
   }
 
@@ -90,7 +94,7 @@ function PaymentSuccessPage() {
           </div>
           <div className="order-summary">
             <div className="cart-content">
-              {cartList?.map(function (key, index) {
+              {cartList?.slice(0, total_items).map(function (key, index) {
                 return (
                   <div className="product-card">
                     <div className="product-image">

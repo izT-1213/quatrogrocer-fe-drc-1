@@ -32,6 +32,7 @@ function CheckoutPage() {
   const [showVoucherInput, setVoucherInput] = useState(false);
   const ref = useRef(null);
   var sum = 0;
+  var total_items = 0;
 
   const [cartList, setCartList] = useState([]);
 
@@ -56,8 +57,12 @@ function CheckoutPage() {
   }, [userId.user_id]);
 
   useEffect(() => {
-    CheckoutProcess(userId.user_id).then(setCartList);
-    DeleteCart(userId.user_id);
+    CheckoutProcess(userId.user_id).then((response) => {
+      if (response.length > 0) {
+        setCartList(response);
+        DeleteCart(userId.user_id);
+      }
+    });
   }, [userId.user_id]);
 
   const [selectedAddress, setSelectedAddress] = useState({ address: "" });
@@ -78,6 +83,7 @@ function CheckoutPage() {
 
   for (var i = 0; i < cartList?.length; i++) {
     sum = sum + cartList[i]?.transaction_total;
+    total_items = total_items + 1;
   }
 
   const VoucherInput = () => (
@@ -213,7 +219,10 @@ function CheckoutPage() {
               const response = await PaidCheckout(userId.user_id);
               if (response.status === 200) {
                 navigate("payment-success", {
-                  state: { address_id: selectedAddress.address },
+                  state: {
+                    address_id: selectedAddress.address,
+                    total_items: total_items,
+                  },
                 });
               }
             }}

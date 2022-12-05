@@ -61,19 +61,24 @@ function UserProfilePage() {
                 <th>Total</th>
               </tr>
             </thead>
-            {transactionDetails?.map((v, i) => (
-              <tr key={i}>
-                <td>{transactionDetails[i]?.product_name}</td>
-                <td>{transactionDetails[i]?.product_quantity}</td>
-                <td>RM{transactionDetails[i]?.product_price.toFixed(2)}</td>
-                <td>
-                  {new Date(
-                    transactionDetails[i]?.transaction_timestamp
-                  ).toLocaleString()}
-                </td>
-                <td>RM{transactionDetails[i]?.transaction_total.toFixed(2)}</td>
-              </tr>
-            ))}
+            <tbody>
+              {transactionDetails?.map((v, i) => (
+                <tr key={i}>
+                  <td>{transactionDetails[i]?.product_name}</td>
+                  <td>{transactionDetails[i]?.product_quantity}</td>
+                  <td>RM{transactionDetails[i]?.product_price.toFixed(2)}</td>
+                  <td>
+                    {new Date(
+                      transactionDetails[i]?.transaction_timestamp
+                    ).toLocaleString()}
+                  </td>
+                  <td>
+                    RM{transactionDetails[i]?.transaction_total.toFixed(2)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+
             {/* <tr>
                 <td>{transactionDetails[0]?.product_name}</td>
                 <td>{transactionDetails[0]?.product_quantity}</td>
