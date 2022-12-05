@@ -321,4 +321,57 @@ a:active {
 }
 .checkout-page-container .order-summary-container .order-summary .total table .total-row {
   border-top: 0.125rem solid black;
+}
+
+@media screen and (max-width: 1105px) {
+  .checkout-page-container {
+    padding: 2rem;
+  }
+  .checkout-page-container .checkout-page-header {
+    padding: 1rem;
+  }
+  .checkout-page-container .shipping-payment-content-container {
+    padding: 1.5rem;
+    width: 52vw;
+    height: 100vh;
+  }
+  .checkout-page-container .order-summary-container .order-summary {
+    width: 35vw;
+    height: 100vh;
+  }
+  .checkout-page-container .order-summary-container .order-summary h3 {
+    padding: 1.5rem;
+  }
+  .checkout-page-container .order-summary-container .order-summary .cart-content {
+    padding: 0 1rem 0.5rem 1rem;
+  }
+  .checkout-page-container .order-summary-container .order-summary .cart-content .product-card {
+    width: 18.8rem;
+  }
+  .checkout-page-container .order-summary-container .order-summary .vouchers {
+    padding: 1rem;
+  }
+  .checkout-page-container .order-summary-container .order-summary .vouchers .voucher-box .voucher-arrow {
+    height: 4rem;
+  }
+  .checkout-page-container .order-summary-container .order-summary .vouchers .voucher-box .voucher-texts {
+    width: 15.5rem;
+  }
+  .checkout-page-container .order-summary-container .order-summary .vouchers .voucher-box .voucher-texts .title {
+    padding: 0.5rem 0 0 1rem;
+  }
+  .checkout-page-container .order-summary-container .order-summary .vouchers .voucher-box .voucher-texts .desc {
+    text-align: left;
+    padding: 0 0 0 1rem;
+  }
+  .checkout-page-container .order-summary-container .order-summary .vouchers .voucher-box .voucher-texts .input {
+    font-size: 1.3rem;
+  }
+  .checkout-page-container .order-summary-container .order-summary .vouchers .voucher-box .voucher-texts .input .MuiInputBase-input {
+    height: 4rem;
+    padding: 1px 2px;
+  }
+  .checkout-page-container .order-summary-container .order-summary .total {
+    padding: 1rem;
+  }
 }/*# sourceMappingURL=checkout.css.map */
