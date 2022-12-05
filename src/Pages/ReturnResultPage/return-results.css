@@ -59,7 +59,7 @@ a:active {
 }
 
 .result-page {
-  height: 75rem;
+  height: 100%;
   padding: 0 18rem;
 }
 
@@ -78,7 +78,6 @@ a:active {
 }
 .result-section .product-cards {
   padding: 2rem 0 0;
-  height: 43.375rem;
   width: 100%;
 }
 .result-section .product-cards .medium-horizontal-cards-container {
