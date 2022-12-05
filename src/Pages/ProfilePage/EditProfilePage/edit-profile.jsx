@@ -351,7 +351,8 @@ function EditProfilePage() {
                     inputFormat="MM/DD/YYYY"
                     value={dob}
                     onChange={handleDOBChange}
-                    required={true}
+                    maxDate={Date.now()}
+                    required={true} 
                     // PaperProps={{
                     //   sx: {
                     //     "& .MuiPickersDay-root": {
@@ -589,12 +590,12 @@ function EditProfilePage() {
             className="submit-edit"
             type="submit"
             disabled={
-              profileValues.email ||
-              profileValues.first_name ||
-              profileValues.last_name ||
-              dob ||
-              profileValues.oldpassword ||
-              profileValues.password
+              profileValues.oldpassword &&
+              (profileValues.email ||
+                profileValues.first_name ||
+                profileValues.last_name ||
+                dob ||
+                profileValues.password)
                 ? // (profileValues.oldpassword && profileValues.password)
                   false
                 : true
