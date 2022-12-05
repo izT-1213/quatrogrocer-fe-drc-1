@@ -10,6 +10,7 @@ import {
   UpdatePasswordFunc,
   UpdateProfileFunc,
   FetchUser,
+  GetUserAddress,
 } from "../../../function";
 
 import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
@@ -27,6 +28,12 @@ function EditProfilePage() {
   useEffect(() => {
     setProfileDetails({});
     FetchUser(userId.user_id).then(setProfileDetails);
+  }, [userId.user_id]);
+
+  const [addressDetails, setAddressDetails] = useState([]);
+
+  useEffect(() => {
+    GetUserAddress(userId.user_id).then(setAddressDetails);
   }, [userId.user_id]);
 
   const [passwordVisibility, setPasswordVisibility] = useState(false);
@@ -67,18 +74,8 @@ function EditProfilePage() {
   const editProfile = async (e) => {
     e.preventDefault();
     setFormErrors(validate(profileValues));
-    console.log(formErrors);
-    console.log(validate(profileValues));
 
-    if (
-      validate(profileValues === true) &&
-      formErrors.test !== "false"
-      // (!formErrors.first_name &&
-      //   !formErrors.last_name &&
-      //   !formErrors.email &&
-      //   !formErrors.dob &&
-      //   !formErrors.password))
-    ) {
+    if (validate(profileValues === true) && formErrors.test !== "false") {
       setConfirmMsg("Please click again to confirm.");
     } else if (validate(profileValues === true) && !formErrors.test) {
       setConfirmMsg("Please click again to confirm.");
@@ -161,8 +158,6 @@ function EditProfilePage() {
           setErrMsg(message2.error);
         }
       }
-
-      // navigate("/profile");
     }
   };
 
@@ -170,8 +165,6 @@ function EditProfilePage() {
     const errors = {};
     var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     var regName = /^[A-Za-z]+$/;
-    // var regPass =
-    //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 
     if (values.first_name) {
       console.log("got value");
@@ -214,26 +207,6 @@ function EditProfilePage() {
         return true;
       }
     }
-
-    // if (!values.oldpassword) {
-    //   console.log("false");
-    //   errors.oldpassword = "Please key in current password to update changes";
-    // }
-
-    // if (values.password) {
-    //   if (!values.password || !values.oldpassword) {
-    //     errors.password = "Old and new password needed to change password";
-    //   } else if (values.password.length < 8) {
-    //     errors.password = "Password should consists at least 8 characters";
-    //   } else if (!regPass.test(values.password)) {
-    //     errors.password =
-    //       "Password should consists of at least 1 lowercase, 1 uppercase, 1 numeric and 1 special character";
-    //   } else {
-    //     console.log("proper password");
-
-    //     // setMsg("Updated input fields without error, successfully");
-    //   }
-    // }
     return errors;
   };
 
@@ -364,24 +337,14 @@ function EditProfilePage() {
                     onChange={handleDOBChange}
                     required={true}
                     maxDate={Date.now()}
-                    // PaperProps={{
-                    //   sx: {
-                    //     "& .MuiPickersDay-root": {
-                    //       "&.Mui-selected": {
-                    //         backgroundColor: { backgroundColor: color },
-                    //       },
-                    //     },
-                    //     "& .MuiPickersMonth-root": {
-                    //       "&.Mui-selected": {
-                    //         backgroundColor: { backgroundColor: color },
-                    //       },
-                    //     },
-                    //   },
-                    // }}
                     renderInput={(params) => (
                       <TextField
                         variant="standard"
                         {...params}
+                        inputProps={{
+                          ...params.inputProps,
+                          readOnly: true,
+                        }}
                         sx={{ button: { color } }}
                       />
                     )}
@@ -519,17 +482,6 @@ function EditProfilePage() {
                 </div>
               </td>
               <td>
-                {" "}
-                {/* <div className="errMsg">
-                  {errMsg && (
-                    <p
-                      className={errMsg ? "errmsg" : "offscreen"}
-                      aria-live="assertive"
-                    >
-                      {errMsg}
-                    </p>
-                  )}
-                </div> */}
                 <div className="msg">
                   {msg && (
                     <p
@@ -550,34 +502,32 @@ function EditProfilePage() {
         <div>
           <table className="address-details-table">
             <tr>
-              <th className="user-name">Steven James</th>
+              <th className="user-name">
+                {profileDetails.first_name} {profileDetails.last_name}
+              </th>
             </tr>
             <tr>
-              <td className="address">71, Persiaran Tengku Ampuan Rahimah</td>
+              <td className="address">{addressDetails[0]?.address_line_1}</td>
             </tr>
             <tr>
-              <td className="address">Taman Sri Andalas</td>
+              <td className="address">{addressDetails[0]?.address_line_2}</td>
             </tr>
             <tr>
-              <td className="address">41200</td>
+              <td className="address">{addressDetails[0]?.address_line_3}</td>
             </tr>
             <tr>
-              <td className="address">Klang</td>
+              <td className="address">
+                {addressDetails[0]?.postcode} {addressDetails[0]?.state}
+              </td>
             </tr>
             <tr>
-              <td className="address">Selangor</td>
-            </tr>
-            <tr>
-              <td>60186907892</td>
-            </tr>
-            <tr>
-              <td>sjparty@gmail.com</td>
+              <td>{profileDetails.email}</td>
             </tr>
             <tr>
               <td className="view-address">
                 <a>
                   <Link to="/profile/addresses" className="view-address-link">
-                    View Addresses [1]
+                    View Addresses [{addressDetails.length}]
                   </Link>
                 </a>
               </td>
@@ -610,14 +560,10 @@ function EditProfilePage() {
                 profileValues.last_name ||
                 dob ||
                 profileValues.password)
-                ? // (profileValues.oldpassword && profileValues.password)
-                  false
+                ? false
                 : true
             }
-            onClick={
-              // validate
-              editProfile
-            }
+            onClick={editProfile}
           >
             Submit
           </button>

@@ -163,6 +163,10 @@ function SignUpPage() {
                           <TextField
                             variant="standard"
                             {...params}
+                            inputProps={{
+                              ...params.inputProps,
+                              readOnly: true,
+                            }}
                             sx={{ button: { color } }}
                           />
                         )}

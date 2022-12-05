@@ -56,8 +56,12 @@ function CheckoutPage() {
   }, [userId.user_id]);
 
   useEffect(() => {
-    CheckoutProcess(userId.user_id).then(setCartList);
-    DeleteCart(userId.user_id);
+    CheckoutProcess(userId.user_id).then((response) => {
+      if (response.length > 0) {
+        setCartList(response);
+        DeleteCart(userId.user_id);
+      }
+    });
   }, [userId.user_id]);
 
   const [selectedAddress, setSelectedAddress] = useState({ address: "" });
