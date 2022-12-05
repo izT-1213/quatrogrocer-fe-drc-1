@@ -41,9 +41,8 @@ function CheckoutPage() {
   const [radioValue, setRadioValue] = useState("quatro-credits");
 
   useEffect(() => {
-    setAddressDetails([]);
     GetUserAddress(userId.user_id).then((response) => {
-      if (response.status === 404) {
+      if (response.length === undefined) {
         navigate("/add-address");
       } else {
         setAddressDetails(response);
@@ -116,24 +115,23 @@ function CheckoutPage() {
   return (
     <div className="checkout-page-container">
       <div className="checkout-page-header">
-        <p>Cart</p> <ArrowForwardIos />
         <p>Checkout</p>
       </div>
       <div className="shipping-payment-content-container">
         <div className="contact-info">
-          <h2>01</h2>
+          <h1>01</h1>
           <h1>Contact Information</h1>
           <hr />
           <div className="inner-content">
             <p className="user-name">
-              {profileDetails.first_name} {profileDetails.last_name}
+              {profileDetails?.first_name} {profileDetails?.last_name}
             </p>
-            <p className="email-addr">{profileDetails.email}</p>
+            <p className="email-addr">{profileDetails?.email}</p>
             {/* <p className="phone-num">60186907892</p> */}
           </div>
         </div>
         <div className="shipping-dets">
-          <h2>02</h2>
+          <h1>02</h1>
           <h1>Shipping Details</h1>
           <hr />
           <div className="inner-content">
@@ -167,7 +165,7 @@ function CheckoutPage() {
           </div>
         </div>
         <div className="payment-dets">
-          <h2>03</h2>
+          <h1>03</h1>
           <h1>Payment Details</h1>
           <hr />
           <div className="inner-content">
@@ -227,7 +225,7 @@ function CheckoutPage() {
       </div>
       <div className="order-summary-container">
         <div className="order-summary">
-          <h3>Order Summary</h3>
+          <h1>Order Summary</h1>
           <div className="cart-content">
             {cartList?.map(function (key, index) {
               return (

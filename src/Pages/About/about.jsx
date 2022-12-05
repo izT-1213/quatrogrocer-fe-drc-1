@@ -1,11 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import about_img from "./../../Images/about.png";
 import "./about.css";
 
 function AboutPage() {
-  const navigate = useNavigate();
-
   return (
     <div>
       <div className="about-page">
@@ -23,7 +19,6 @@ function AboutPage() {
               a fast, convenient, and easy shoppig experience to our beloved
               customers.
             </p>
-            {/* <img src={about_img} /> */}
           </div>
         </div>
 

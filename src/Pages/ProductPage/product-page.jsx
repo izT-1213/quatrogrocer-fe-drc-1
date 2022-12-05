@@ -51,7 +51,6 @@ function MarketplacePage() {
   };
 
   const getData = (current, pageSize) => {
-    // Normally you should get the data from the server
     return productDetails.slice((current - 1) * pageSize, current * pageSize);
   };
 

@@ -19,7 +19,6 @@ function SearchResult() {
     SearchProduct(product_name).then(setSearchedProducts);
   }, [product_name]);
 
-  //pagination
   const [perPage, setPerPage] = useState(8);
   const [size, setSize] = useState(perPage);
   const [current, setCurrent] = useState(1);
@@ -33,7 +32,6 @@ function SearchResult() {
   };
 
   const getData = (current, pageSize) => {
-    // Normally you should get the data from the server
     return searchedProducts.slice((current - 1) * pageSize, current * pageSize);
   };
 

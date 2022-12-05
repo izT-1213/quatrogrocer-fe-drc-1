@@ -165,6 +165,9 @@ a:active {
     height: 100%;
     padding: 0 2rem;
   }
+  .deals-promotions-section .product-cards {
+    height: 100%;
+  }
   .deals-promotions-section .product-cards .medium-horizontal-cards-container .card-container .medium-horizontal-card {
     width: 25.75rem;
   }

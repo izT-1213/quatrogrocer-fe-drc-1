@@ -92,7 +92,7 @@ function AddAddressPage() {
           <h3>My Account</h3>
         </div>
         <div className="add-new-address-container">
-          <p>Add New Address</p>
+          <h6>Add New Address</h6>
           <div className="address-form-container">
             <div className="address-form-content">
               <form className="address-form" id="form">
@@ -218,7 +218,7 @@ function AddAddressPage() {
                 )}
               </div>
               <div className="buttons">
-                <button className="cancel-btn" onClick={clearInput}>
+                <button className="cancel-btn" onClick={navigate("/profile")}>
                   Cancel
                 </button>
                 <button

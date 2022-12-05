@@ -59,8 +59,8 @@ a:active {
 }
 
 .add-address-page-container {
-  height: 50rem;
-  padding: 2.5rem 19.5rem;
+  height: 46rem;
+  padding: 2.5rem 18rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -76,11 +76,8 @@ a:active {
   display: flex;
   flex-direction: column;
 }
-.add-address-page-container .container-1 .add-new-address-container p {
+.add-address-page-container .container-1 .add-new-address-container h6 {
   font-family: "Lexend Deca";
-  font-weight: 600;
-  font-size: 1.875rem;
-  line-height: 120%;
   padding: 0 0 2rem 0;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container {
@@ -290,8 +287,17 @@ a:active {
   color: #00796b;
 }
 
-@media screen and (max-width: 1105px) {
+@media screen and (max-width: 961px) {
   .add-address-page-container {
     padding: 2.5rem 2rem;
+  }
+  .add-address-page-container .container-1 .my-account-header h3 {
+    font-size: 2.25rem;
+  }
+  .add-address-page-container .container-1 .add-new-address-container h6 {
+    font-size: 1.25rem;
+  }
+  .add-address-page-container .navigation-container {
+    padding-top: 1rem;
   }
 }/*# sourceMappingURL=add-address.css.map */

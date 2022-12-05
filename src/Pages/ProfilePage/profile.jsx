@@ -15,12 +15,11 @@ function UserProfilePage() {
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
 
-  const [addressDetails, setAddressDetails] = useState({});
+  const [addressDetails, setAddressDetails] = useState([]);
 
   const [profileDetails, setProfileDetails] = useState({});
 
   useEffect(() => {
-    setAddressDetails({});
     GetUserAddress(userId.user_id).then(setAddressDetails);
   }, [userId.user_id]);
 
@@ -41,17 +40,16 @@ function UserProfilePage() {
     navigate("/");
   };
 
-  console.log(addressDetails.length);
   return (
     <div className="profile-page-container">
       <div className="profile-page-header">
-        <h1>My Account</h1>
+        <h3>My Account</h3>
       </div>
       <div className="logout">
-        <p onClick={logout}>Log out</p>
+        <p onClick={logout}>Log Out</p>
       </div>
       <div className="order-history-container">
-        <h3>Order history</h3>
+        <h6>Order history</h6>
         <div className="order-history-table-container">
           <table className="order-history-table">
             <thead>
@@ -87,7 +85,7 @@ function UserProfilePage() {
         </div>
       </div>
       <div className="account-details-container">
-        <h3>Account Details</h3>
+        <h6>Account Details</h6>
         <div>
           <table className="account-details-table">
             <tr>
@@ -143,7 +141,11 @@ function UserProfilePage() {
                     }}
                   >
                     {console.log(addressDetails.length)}
-                    View Addresses [{addressDetails.length}]
+                    View Addresses [
+                    {addressDetails.length === undefined
+                      ? 0
+                      : addressDetails.length}
+                    ]
                   </p>
                 </a>
               </td>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
 import { FetchProduct } from "../../function";
 import { AddShoppingCart } from "@mui/icons-material";
@@ -37,7 +37,6 @@ function BestSellerPage() {
 
   const HorCardContainer = () => (
     <div className="horizontal-cards-container">
-      {/* mapping api products */}
       {productDetails
         ?.slice((i = randomInteger(1, 93)), i + 8)
         .map(function (key, index) {

@@ -21,12 +21,16 @@ function YourShippingAddressPage() {
   const [profileDetails, setProfileDetails] = useState({});
 
   useEffect(() => {
-    setAddressDetails([]);
-    GetUserAddress(userId.user_id).then(setAddressDetails);
+    GetUserAddress(userId.user_id).then((response) => {
+      if (response.length === undefined) {
+        navigate("/add-address");
+      } else {
+        setAddressDetails(response);
+      }
+    });
   }, [userId.user_id]);
 
   useEffect(() => {
-    setProfileDetails({});
     FetchUser(userId.user_id).then(setProfileDetails);
   }, [userId.user_id]);
 
@@ -91,7 +95,7 @@ function YourShippingAddressPage() {
                       className="delete-btn"
                       onClick={async (e) => {
                         const delConfirm = window.confirm(
-                          "Are you sure you want to delete this address?"
+                          "Do you want to delete the adress?"
                         );
                         // console.log(delConfirm);
                         if (delConfirm === true) {
@@ -132,13 +136,6 @@ function YourShippingAddressPage() {
           <AiOutlinePlusCircle />
           Add New Address
         </button>
-
-        {/* <button className="add-address-btn">
-          <Link to="/add-address" className="add-address-link">
-            <AiOutlinePlusCircle />
-            Add New Address
-          </Link>
-        </button> */}
       </div>
     </div>
   );

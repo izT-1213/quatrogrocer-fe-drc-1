@@ -108,13 +108,13 @@ p {
   padding: 0 0.625rem 0.25rem 0;
 }
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-table .right-col-line-1 {
-  padding: 0 0 0.25rem 0.625rem;
+  padding: 0 0 0.25rem 0.9rem;
 }
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-table .left-col-line-2 {
   padding: 1rem 0.625rem 0.25rem 0;
 }
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-table .right-col-line-2 {
-  padding: 1rem 0 0.25rem 0.625rem;
+  padding: 1rem 0 0.25rem 0.9rem;
 }
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-table .left-col {
   padding: 0 0.625rem 0 0;
@@ -157,7 +157,7 @@ p {
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .d-grid-gap-2-mt-3 {
   padding: 1.5rem 0;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-signin-btn {
+.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-btn {
   font-family: "Lexend Deca";
   font-weight: 500;
   font-size: 1rem;
@@ -175,8 +175,8 @@ p {
   border: none;
   cursor: pointer;
 }
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-signin-btn:disabled,
-.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-signin-btn button[disabled] {
+.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-btn:disabled,
+.sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .signup-btn button[disabled] {
   background-color: #9e9e9e;
   color: #666666;
   pointer-events: none;
@@ -273,7 +273,7 @@ p {
   height: 18px;
   width: 18px;
   border: 0.125rem solid #009688;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .checkmark:after {
   content: "";
@@ -316,21 +316,20 @@ p {
 
 @media screen and (max-width: 961px) {
   .sign-up-page-container .sign-up-container .sign-up-container-content {
-    width: 26rem;
-    height: 43.75rem;
+    width: 25rem;
+    height: 42rem;
     padding: 2rem;
   }
   .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .sign-up-form-title {
     font-size: 2rem;
   }
-  .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .line-or-box {
-    width: 90%;
-    margin: 0;
-  }
   .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .line-1 {
-    width: 130px;
+    width: 140px;
   }
   .sign-up-page-container .sign-up-container .sign-up-container-content .sign-up-form-content .login-apps .login-apps-icons {
     font-size: 1.25rem;
+  }
+  .sign-up-page-container .signup-image-container {
+    width: 100%;
   }
 }/*# sourceMappingURL=signup.css.map */

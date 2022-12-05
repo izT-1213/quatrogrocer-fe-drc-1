@@ -29,11 +29,8 @@
       display: flex;
       flex-direction: column;
 
-      p {
+      h6 {
         font-family: $primary-fonts;
-        font-weight: map-get($map: $font-weight, $key: "semibold");
-        font-size: 1.875rem;
-        line-height: 120%;
         padding: 0 0 2rem 0;
       }
 
@@ -110,70 +107,6 @@
                 padding-left: 0.75rem;
               }
             }
-
-            // .default {
-            //   display: block;
-            //   padding-left: 26px;
-            //   // margin-top: 16px;
-            //   // margin-bottom: 8px;
-            //   position: relative;
-            //   cursor: pointer;
-            //   -webkit-user-select: none;
-            //   -moz-user-select: none;
-            //   -ms-user-select: none;
-            //   user-select: none;
-
-            //   // label {
-            //   font-family: "Lexend Deca";
-            //   font-style: normal;
-            //   font-weight: 500;
-            //   font-size: 0.9rem;
-            //   line-height: 120%;
-
-            //   // }
-            // }
-
-            // .default input {
-            //   position: absolute;
-            //   opacity: 0;
-            //   cursor: pointer;
-            //   height: 0;
-            //   width: 0;
-            // }
-            // .checkmark {
-            //   position: absolute;
-            //   top: 0;
-            //   left: 0;
-            //   height: 18px;
-            //   width: 18px;
-            //   background-color: #eee;
-            //   border-radius: 4px;
-            // }
-            // .checkmark:after {
-            //   content: "";
-            //   position: absolute;
-            //   display: none;
-            // }
-            // .default:hover input ~ .checkmark {
-            //   background-color: #ccc;
-            // }
-            // .default input:checked ~ .checkmark {
-            //   background-color: $primary-color;
-            // }
-            // .default input:checked ~ .checkmark:after {
-            //   display: block;
-            // }
-            // .default .checkmark:after {
-            //   left: 7px;
-            //   top: 3px;
-            //   width: 5px;
-            //   height: 10px;
-            //   border: solid white;
-            //   border-width: 0 3px 3px 0;
-            //   -webkit-transform: rotate(45deg);
-            //   -ms-transform: rotate(45deg);
-            //   transform: rotate(45deg);
-            // }
           }
 
           .buttons {
@@ -301,8 +234,27 @@
   }
 }
 
+// Tablet
 @media screen and (max-width: 961px) {
   .edit-address-page-container {
-    padding: 2.188rem 2rem;
+    padding: 2.5rem 2rem;
+
+    .container-1 {
+      .my-account-header {
+        h3 {
+          font-size: 2.25rem;
+        }
+      }
+
+      .edit-new-address-container {
+        h6 {
+          font-size: 1.25rem;
+        }
+      }
+    }
+
+    .navigation-buttons {
+      padding-top: 1rem;
+    }
   }
 }

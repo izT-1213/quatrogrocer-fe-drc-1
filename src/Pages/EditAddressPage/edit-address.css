@@ -76,11 +76,8 @@ a:active {
   display: flex;
   flex-direction: column;
 }
-.edit-address-page-container .container-1 .edit-new-address-container p {
+.edit-address-page-container .container-1 .edit-new-address-container h6 {
   font-family: "Lexend Deca";
-  font-weight: 600;
-  font-size: 1.875rem;
-  line-height: 120%;
   padding: 0 0 2rem 0;
 }
 .edit-address-page-container .container-1 .edit-new-address-container .address-form-container {
@@ -256,6 +253,15 @@ a:active {
 
 @media screen and (max-width: 961px) {
   .edit-address-page-container {
-    padding: 2.188rem 2rem;
+    padding: 2.5rem 2rem;
+  }
+  .edit-address-page-container .container-1 .my-account-header h3 {
+    font-size: 2.25rem;
+  }
+  .edit-address-page-container .container-1 .edit-new-address-container h6 {
+    font-size: 1.25rem;
+  }
+  .edit-address-page-container .navigation-buttons {
+    padding-top: 1rem;
   }
 }/*# sourceMappingURL=edit-address.css.map */

@@ -14,7 +14,6 @@ function SignUpPage() {
   const color = "#009688";
   const navigate = useNavigate();
 
-  //email and password variables
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -25,10 +24,8 @@ function SignUpPage() {
     showPassword: false,
   });
 
-  //dob
   const [dob, setDOB] = useState(dayjs(""));
 
-  //to catch error message
   const [errMsg, setErrMsg] = useState("");
   const userRef = useRef();
   const errRef = useRef();
@@ -91,24 +88,22 @@ function SignUpPage() {
                 <tr>
                   <td className="left-col">
                     <Input
-                      type="string"
+                      type="first-name"
                       disableUnderline={true}
                       className="form-control-mt-1"
                       placeholder="John"
                       required={true}
-                      //fname
                       value={values.firstName}
                       onChange={handleValueChange("firstName")}
                     />
                   </td>
                   <td className="right-col">
                     <Input
-                      type="string"
+                      type="last-name"
                       disableUnderline={true}
                       className="form-control-mt-1"
                       placeholder="Doe"
                       required={true}
-                      //lname
                       value={values.lastName}
                       onChange={handleValueChange("lastName")}
                     />
@@ -121,14 +116,14 @@ function SignUpPage() {
                 <tr>
                   <td className="left-col">
                     <div>
-                      {" "}
                       <FormControl fullWidth>
                         <Select
                           variant="standard"
-                          labelId="demo-simple-select-label"
+                          labelId="gender-dropdown-list"
                           className="form-control-mt-1"
+                          placeholder="Select Gender"
                           disableUnderline={true}
-                          id="demo-simple-select"
+                          id="gender-dropdown-menu"
                           value={values.gender}
                           onChange={handleValueChange("gender")}
                           required={true}
@@ -143,6 +138,7 @@ function SignUpPage() {
                   <td className="right-col">
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <DesktopDatePicker
+                        id="date-of-birth"
                         className="form-control-mt-1"
                         InputProps={{ disableUnderline: true }}
                         inputFormat="MM/DD/YYYY"
@@ -186,6 +182,7 @@ function SignUpPage() {
                   disableUnderline={true}
                   ref={userRef}
                   className="form-control-mt-2"
+                  placeholder="example@email.com"
                   required={true}
                   value={values.email}
                   onChange={handleValueChange("email")}
@@ -225,9 +222,7 @@ function SignUpPage() {
                 />
                 <span className="checkmark"></span> I agree to{" "}
                 <a>
-                  <Link to="/terms" className="tnc-link">
-                    Terms & Conditions
-                  </Link>
+                  <Link className="tnc-link">Terms & Conditions</Link>
                 </a>
               </label>
               <div className="errMsg">
@@ -245,7 +240,7 @@ function SignUpPage() {
               <div className="d-grid-gap-2-mt-3">
                 <button
                   type="submit"
-                  className="signup-signin-btn"
+                  className="signup-btn"
                   disabled={
                     values.email &&
                     values.password &&
