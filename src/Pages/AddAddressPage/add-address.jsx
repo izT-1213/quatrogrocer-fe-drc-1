@@ -82,7 +82,7 @@ function AddAddressPage() {
   };
 
   function clearInput() {
-    document.getElementById("form").reset();
+    navigate("/profile");
   }
 
   return (
@@ -218,7 +218,7 @@ function AddAddressPage() {
                 )}
               </div>
               <div className="buttons">
-                <button className="cancel-btn" onClick={navigate("/profile")}>
+                <button className="cancel-btn" onClick={clearInput}>
                   Cancel
                 </button>
                 <button
