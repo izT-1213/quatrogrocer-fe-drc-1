@@ -90,7 +90,7 @@ async function CreateAddressFunc(
   try {
     console.log(addLine1);
     const response = await Axios.post(
-      "http://localhost:5004/quatro_address/create", //hassif port 3002
+      "https://api.quatrogrocer.one/quatro_address/create", //hassif port 3002
       {
         address_line_1: addLine1,
         address_line_2: addLine2,
@@ -117,7 +117,7 @@ async function UpdateAddressFunc(
 ) {
   try {
     const response = await Axios.post(
-      "http://localhost:5004/quatro_address/update_details",
+      "https://api.quatrogrocer.one/quatro_address/update_details",
 
       { withCredentials: true }, //hassif port 3002
       {
