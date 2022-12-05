@@ -8,27 +8,37 @@
   margin: 0;
 }
 
-.payment-success {
+.payment-success-container {
   padding: 3rem 19.5rem;
-  .payment-succes-header {
+
+  .payment-success-header {
     display: flex;
     justify-content: space-between;
-    font-family: "Lexend Deca";
     font-style: normal;
     font-weight: 700;
     font-size: 44px;
     line-height: 120%;
-    color: $primary-color;
-    .back-btn {
-      @include return-button;
+    padding-bottom: 1rem;
+
+    .return {
       display: flex;
-      justify-content: flex-end;
       align-items: center;
-      font-weight: 500;
-      padding: 0 0 0 0;
+      font-family: $primary-fonts;
+      font-size: 1rem;
+      font-weight: map-get($map: $font-weight, $key: "medium");
+      line-height: 120%;
 
       &:hover {
         color: $primary-hover-dark-color;
+      }
+
+      .link-style:hover {
+        color: $primary-hover-dark-color;
+      }
+
+      svg {
+        font-size: 1.25rem;
+        align-items: center;
       }
     }
   }
@@ -261,8 +271,9 @@
 //   }
 // }
 
-@media screen and (max-width: 37.5rem) {
-  .page-container {
-    padding: 2rem 3rem;
+// Tablet
+@media screen and (max-width: 1105px) {
+  .payment-success-container {
+    padding: 32px 2rem;
   }
 }

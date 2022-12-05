@@ -1,36 +1,59 @@
-// import React, { useState } from "react";
-// import { Link } from "react-router-dom";
-// import Input from "@material-ui/core/Input";
+import React, { useState, useEffect, useContext } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import {
+  GetUserAddress,
+  FetchUser,
+  FetchTransaction,
+} from "../../function.jsx";
+import jwt_decode from "jwt-decode";
+import AuthContext from "../../Components/context/AuthProvider.js";
 import "./payment-success.css";
-import { SlArrowLeft } from "react-icons/sl";
-import { useNavigate } from "react-router-dom";
-// import {
-//   allPostcodes,
-//   getStates,
-//   getCities,
-//   getPostcodes,
-//   findPostcode,
-// } from "malaysia-postcodes";
-// import YourShippingAddressPage from "../address";
 
 function PaymentSuccessPage() {
-  const navigate = useNavigate();
-
-  var itemName = "China Brocoli";
-  var itemPrice = 3.59;
-  var itemQuantity = 1;
-  var subtotal = 20.18;
   var shipping = 6.0;
-  var total = 26.18;
+  const jwtToken = useContext(AuthContext).auth?.token;
+  const userId = jwt_decode(jwtToken);
+  var sum = 0;
+  const [cartList, setCartList] = useState([]);
+  const [addressDetails, setAddressDetails] = useState([]);
+  const [profileDetails, setProfileDetails] = useState({});
+
+  const location = useLocation();
+  var addId = location.state.address_id;
+  console.log(addId);
+
+  useEffect(() => {
+    setAddressDetails([]);
+    GetUserAddress(userId.user_id).then(setAddressDetails);
+  }, [userId.user_id]);
+
+  useEffect(() => {
+    setProfileDetails({});
+    FetchUser(userId.user_id).then(setProfileDetails);
+  }, [userId.user_id]);
+
+  useEffect(() => {
+    FetchTransaction(userId.user_id).then(setCartList);
+  }, [userId.user_id]);
+
+  const selectedAddress = addressDetails.filter(
+    (obj) => obj.address_id === addId
+  );
+  for (var i = 0; i < cartList?.length; i++) {
+    sum = sum + cartList[i]?.transaction_total;
+  }
 
   return (
     <div className="payment-success-container">
       <div className="payment-success-header">
         <h1>Payment Success!</h1>
-        <button className="back-btn" onClick={() => navigate("../")}>
-          <SlArrowLeft />
-          Return to Home
-        </button>
+        <div className="return">
+          <ArrowBackIosIcon />
+          <Link to={"/profile"} className="link-style">
+            Return to Account Details
+          </Link>
+        </div>
       </div>
 
       <div className="main-container">
@@ -43,55 +66,74 @@ function PaymentSuccessPage() {
               <h1 className="header-shipping-details">Shipping Details</h1>
               <div className="content-shipping-details">
                 <div className="name">
-                  <p>Steven James</p>
+                  <p>
+                    {profileDetails.first_name} {profileDetails.last_name}
+                  </p>
                 </div>
                 <div className="address">
                   <p className="address-line-1">
-                    71 Persiaran Tengku Ampuan Rahimah Taman Sri Andalas, 41200
+                    {selectedAddress[0]?.address_line_1}
                   </p>
-                  <p className="address-line-2">Klang, Selangor, Malaysia</p>
+                  <p className="address-line-2">
+                    {selectedAddress[0]?.address_line_2}
+                  </p>
+                  <p>{selectedAddress[0]?.address_line_3}</p>
+                  <p>
+                    {selectedAddress[0]?.postcode} {selectedAddress[0]?.state}
+                  </p>
                 </div>
                 <div className="number">
-                  <p>60186907892</p>
+                  <p>{profileDetails.email}</p>
                 </div>
               </div>
             </div>
           </div>
           <div className="order-summary">
             <div className="cart-content">
-              <div className="product-card">
-                <div className="product-image">
-                  <img
-                    src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-                    alt=""
-                  />
-                </div>
-                <p className="product-name">{itemName}</p>
-                <p className="product-price">RM {itemPrice.toFixed(2)}</p>
-                <div className="quantity">
-                  <p className="product-quantity">Quantity: {itemQuantity}</p>
-                </div>
-              </div>
-              <div className="product-card">
-                <div className="product-image">
-                  <img
-                    src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-                    alt=""
-                  />
-                </div>
-                <p className="product-name">{itemName}</p>
-                <p className="product-price">RM {itemPrice.toFixed(2)}</p>
-                <div className="quantity">
-                  <p className="product-quantity">Quantity: {itemQuantity}</p>
-                </div>
-              </div>
+              {cartList?.map(function (key, index) {
+                return (
+                  <div className="product-card">
+                    <div className="product-image">
+                      <img
+                        src={
+                          cartList[index]?.product_image
+                            ? cartList[index]?.product_image
+                            : cartList[index]?.discount_product_image
+                        }
+                        alt={
+                          cartList[index]?.product_name
+                            ? cartList[index]?.product_name
+                            : cartList[index]?.discount_product_name
+                        }
+                      />
+                    </div>
+                    <p className="product-name">
+                      {cartList[index]?.product_name
+                        ? cartList[index]?.product_name
+                        : cartList[index]?.discount_product_name}
+                    </p>
+                    <p className="product-price">
+                      RM
+                      {cartList[index]?.product_price
+                        ? cartList[index]?.product_price.toFixed(2)
+                        : cartList[index]?.discount_product_price.toFixed(2)}
+                    </p>
+                    <div className="quantity">
+                      <p className="product-quantity">
+                        Quantity: {cartList[index]?.product_quantity}
+                      </p>
+                    </div>
+                    {/* <p className="del">Remove</p> */}
+                  </div>
+                );
+              })}
             </div>
             <div className="calculation">
               <div>
                 <text className="title">Subtotal: RM</text>
                 <span className="value">
                   {"  "}
-                  {subtotal.toFixed(2)}
+                  {sum.toFixed(2)}
                 </span>
               </div>
               <div>
@@ -106,7 +148,7 @@ function PaymentSuccessPage() {
                 <text className="title">Total: RM</text>
                 <span className="value">
                   {"  "}
-                  {total.toFixed(2)}
+                  {(sum + 6).toFixed(2)}
                 </span>
               </div>
             </div>

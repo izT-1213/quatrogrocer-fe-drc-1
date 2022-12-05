@@ -1,20 +1,62 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "@material-ui/core/Input";
-import { RadioGroup, FormControlLabel, Radio } from "@mui/material";
+import {
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  FormControl,
+  Select,
+  MenuItem,
+} from "@mui/material";
 import {
   ArrowForwardIos,
-  ExpandMore,
-  ExpandLess,
-  AddBoxOutlined,
-  IndeterminateCheckBoxOutlined,
+  // IndeterminateCheckBoxOutlined,
+  // AddBoxOutlined,
 } from "@mui/icons-material";
+import {
+  GetUserAddress,
+  FetchUser,
+  CheckoutProcess,
+  DeleteCart,
+  PaidCheckout,
+} from "../../function.jsx";
+import jwt_decode from "jwt-decode";
+import AuthContext from "../../Components/context/AuthProvider.js";
 import "../Checkout/checkout.css";
 
 function CheckoutPage() {
   const navigate = useNavigate();
+  const jwtToken = useContext(AuthContext).auth?.token;
+  const userId = jwt_decode(jwtToken);
   const [showVoucherInput, setVoucherInput] = useState(false);
   const ref = useRef(null);
+  var sum = 0;
+
+  const [cartList, setCartList] = useState([]);
+
+  const [addressDetails, setAddressDetails] = useState([]);
+
+  const [profileDetails, setProfileDetails] = useState({});
+  const [radioValue, setRadioValue] = useState("quatro-credits");
+
+  useEffect(() => {
+    setAddressDetails([]);
+    GetUserAddress(userId.user_id).then(setAddressDetails);
+  }, [userId.user_id]);
+
+  useEffect(() => {
+    setProfileDetails({});
+    FetchUser(userId.user_id).then(setProfileDetails);
+  }, [userId.user_id]);
+
+  useEffect(() => {
+    CheckoutProcess(userId.user_id).then(setCartList);
+    DeleteCart(userId.user_id);
+  }, [userId.user_id]);
+
+  const [selectedAddress, setSelectedAddress] = useState({ address: "" });
+
   const handleClickOutside = (event) => {
     if (ref.current && !ref.current.contains(event.target)) {
       setVoucherInput(false);
@@ -28,9 +70,19 @@ function CheckoutPage() {
       document.removeEventListener("click", handleClickOutside, true);
     };
   });
+
+  for (var i = 0; i < cartList?.length; i++) {
+    sum = sum + cartList[i]?.transaction_total;
+  }
+
   const VoucherInput = () => (
     <div>
-      <Input className="input" disableUnderline={true} />
+      <Input
+        disabled={true}
+        className="input"
+        disableUnderline={true}
+        placeholder={"Under maintanaince"}
+      />
     </div>
   );
   const VoucherText = () => (
@@ -40,14 +92,19 @@ function CheckoutPage() {
     </div>
   );
 
-  const [counter, setCounter] = useState(1);
-  const handleAdd = () => {
-    setCounter(counter + 1);
-  };
-  const handleSub = () => {
-    if (counter !== 1) {
-      setCounter(counter - 1);
-    }
+  // const [counter, setCounter] = useState(1);
+  // const handleAdd = () => {
+  //   setCounter(counter + 1);
+  // };
+  // const handleSub = () => {
+  //   if (counter !== 1) {
+  //     setCounter(counter - 1);
+  //   }
+  // };
+
+  const handleValueChange = (prop) => (event) => {
+    console.log(selectedAddress);
+    setSelectedAddress({ ...selectedAddress, [prop]: event.target.value });
   };
 
   return (
@@ -61,9 +118,11 @@ function CheckoutPage() {
           <h1>Contact Information</h1>
           <hr />
           <div className="inner-content">
-            <p className="user-name">Steven James</p>
-            <p className="email-addr">sjparty@gmail.com</p>
-            <p className="phone-num">60186907892</p>
+            <p className="user-name">
+              {profileDetails.first_name} {profileDetails.last_name}
+            </p>
+            <p className="email-addr">{profileDetails.email}</p>
+            {/* <p className="phone-num">60186907892</p> */}
           </div>
         </div>
         <div className="shipping-dets">
@@ -72,17 +131,32 @@ function CheckoutPage() {
           <hr />
           <div className="inner-content">
             <h3>Shipping Address</h3>
-            <div className="user-address-dropdown">
-              <p className="user-name">Steven James</p>
-              <p className="address">
-                71 Persiaran Tengku Ampuan Rahimah Taman Sri Andalas, 41200
-                Klang, Selangor, Malaysia
-              </p>
-              <p className="phone-num">60186907892 </p>
-              <div className="addr-dropdown-icon">
-                <ExpandMore className="expand-arrow" />
-              </div>
-            </div>
+            <FormControl fullWidth>
+              <Select
+                variant="outlined"
+                labelId="demo-simple-select-label"
+                className="form-control-mt-1"
+                id="demo-simple-select"
+                required={true}
+                value={selectedAddress.address}
+                onChange={handleValueChange("address")}
+              >
+                {addressDetails?.map(function (key, index) {
+                  return (
+                    <MenuItem value={addressDetails[index]?.address_id}>
+                      {addressDetails[index]?.address_line_1}
+                      <br />
+                      {addressDetails[index]?.address_line_2}
+                      <br />
+                      {addressDetails[index]?.address_line_3}
+                      <br />
+                      {addressDetails[index]?.postcode}{" "}
+                      {addressDetails[index]?.state}
+                    </MenuItem>
+                  );
+                })}
+              </Select>
+            </FormControl>
           </div>
         </div>
         <div className="payment-dets">
@@ -92,14 +166,19 @@ function CheckoutPage() {
           <div className="inner-content">
             <h3>Payment Method</h3>
             <div className="radio-content">
-              <RadioGroup defaultValue="quatro-credits">
+              <RadioGroup
+                onChange={(e) => setRadioValue(e.target.value)}
+                defaultValue="quatro-credits"
+              >
                 <div className="quatro-creds">
                   <FormControlLabel
                     value="quatro-credits"
                     label="Quatro Credits"
                     control={<Radio className="radio-button-style" />}
                   />
-                  <div className="credit-balance">RM 200.00</div>
+                  <div className="credit-balance">
+                    RM {profileDetails?.user_credit?.toFixed(2)}
+                  </div>
                 </div>
                 <div className="options">
                   <FormControlLabel
@@ -110,10 +189,30 @@ function CheckoutPage() {
                 </div>
               </RadioGroup>
             </div>
+            <div className="errMsg">
+              <p>
+                {radioValue === "quatro-credits"
+                  ? " "
+                  : "This payment method is under maintainence."}
+              </p>
+            </div>
           </div>
         </div>
         <div className="order-submit">
-          <button type="submit" onClick={() => navigate("payment-success")}>
+          <button
+            type="submit"
+            disabled={
+              selectedAddress.address && radioValue !== "others" ? false : true
+            }
+            onClick={async () => {
+              const response = await PaidCheckout(userId.user_id);
+              if (response.status === 200) {
+                navigate("payment-success", {
+                  state: { address_id: selectedAddress.address },
+                });
+              }
+            }}
+          >
             {" "}
             Place Order{" "}
           </button>
@@ -123,22 +222,46 @@ function CheckoutPage() {
         <div className="order-summary">
           <h1>Order Summary</h1>
           <div className="cart-content">
-            <div className="product-card">
-              <div className="product-image">
-                <img
-                  src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-                  alt=""
-                />
-              </div>
-              <p className="product-name">China Brocoli</p>
-              <p className="product-price">RM 3.59</p>
-              <div className="quantity-adjust">
-                <IndeterminateCheckBoxOutlined onClick={handleSub} />
-                <div className="quantity-value">{counter}</div>
-                <AddBoxOutlined onClick={handleAdd} />
-              </div>
-              <p className="del">Remove</p>
-            </div>
+            {cartList?.map(function (key, index) {
+              return (
+                <div className="product-card">
+                  <div className="product-image">
+                    <img
+                      src={
+                        cartList[index]?.product_image
+                          ? cartList[index]?.product_image
+                          : cartList[index]?.discount_product_image
+                      }
+                      alt={
+                        cartList[index]?.product_name
+                          ? cartList[index]?.product_name
+                          : cartList[index]?.discount_product_name
+                      }
+                    />
+                  </div>
+                  <p className="product-name">
+                    {cartList[index]?.product_name
+                      ? cartList[index]?.product_name
+                      : cartList[index]?.discount_product_name}
+                  </p>
+                  <p className="product-price">
+                    RM
+                    {cartList[index]?.product_price
+                      ? cartList[index]?.product_price.toFixed(2)
+                      : cartList[index]?.discount_product_price.toFixed(2)}
+                  </p>
+                  <div className="quantity-adjust">
+                    {/* <IndeterminateCheckBoxOutlined onClick={handleSub} /> */}
+                    Qty:
+                    <div className="quantity-value">
+                      {cartList[index]?.product_quantity}
+                    </div>
+                    {/* <AddBoxOutlined onClick={handleAdd} /> */}
+                  </div>
+                  {/* <p className="del">Remove</p> */}
+                </div>
+              );
+            })}
           </div>
           <div className="vouchers">
             <div className="voucher-box">
@@ -156,7 +279,7 @@ function CheckoutPage() {
                 <td className="left-col">Subtotal:</td>
                 <td className="right-col">
                   <text className="RM">RM</text>
-                  <text className="RM-value">20.18</text>
+                  <text className="RM-value">{sum.toFixed(2)}</text>
                 </td>
               </tr>
               <tr>
@@ -170,7 +293,7 @@ function CheckoutPage() {
                 <td className="left-col">Total:</td>
                 <td className="right-col">
                   <text className="RM">RM</text>
-                  <text className="RM-value">26.18</text>
+                  <text className="RM-value">{(sum + 6).toFixed(2)}</text>
                 </td>
               </tr>
             </table>

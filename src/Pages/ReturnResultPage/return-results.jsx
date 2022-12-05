@@ -14,8 +14,8 @@ function SearchResult() {
   const navigate = useNavigate();
   const { product_name } = useParams();
   const [searchedProducts, setSearchedProducts] = useState([]);
+
   useEffect(() => {
-    setSearchedProducts([]);
     SearchProduct(product_name).then(setSearchedProducts);
   }, [product_name]);
 
