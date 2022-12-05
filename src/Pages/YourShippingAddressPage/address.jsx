@@ -21,8 +21,14 @@ function YourShippingAddressPage() {
   const [profileDetails, setProfileDetails] = useState({});
 
   useEffect(() => {
-    setAddressDetails([]);
-    GetUserAddress(userId.user_id).then(setAddressDetails);
+    GetUserAddress(userId.user_id).then((response) => {
+      debugger;
+      if (!response.data.error) {
+        setAddressDetails(response);
+      } else {
+        setAddressDetails([]);
+      }
+    });
   }, [userId.user_id]);
 
   useEffect(() => {

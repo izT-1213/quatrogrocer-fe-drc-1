@@ -15,13 +15,19 @@ function UserProfilePage() {
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
 
-  const [addressDetails, setAddressDetails] = useState({});
+  const [addressDetails, setAddressDetails] = useState([]);
 
   const [profileDetails, setProfileDetails] = useState({});
 
   useEffect(() => {
-    setAddressDetails({});
-    GetUserAddress(userId.user_id).then(setAddressDetails);
+    GetUserAddress(userId.user_id).then((response) => {
+      debugger;
+      if (!response.data.error) {
+        setAddressDetails(response);
+      } else {
+        setAddressDetails([]);
+      }
+    });
   }, [userId.user_id]);
 
   useEffect(() => {
@@ -41,6 +47,7 @@ function UserProfilePage() {
     navigate("/");
   };
 
+  debugger;
   console.log(addressDetails.length);
   return (
     <div className="profile-page-container">
