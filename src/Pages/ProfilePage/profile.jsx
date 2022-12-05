@@ -141,7 +141,11 @@ function UserProfilePage() {
                     }}
                   >
                     {console.log(addressDetails.length)}
-                    View Addresses [{addressDetails.length}]
+                    View Addresses [
+                    {addressDetails.length === undefined
+                      ? 0
+                      : addressDetails.length}
+                    ]
                   </p>
                 </a>
               </td>

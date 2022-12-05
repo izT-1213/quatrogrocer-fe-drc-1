@@ -22,7 +22,7 @@ function YourShippingAddressPage() {
 
   useEffect(() => {
     GetUserAddress(userId.user_id).then((response) => {
-      if (response.data.error) {
+      if (response.length === undefined) {
         navigate("/add-address");
       } else {
         setAddressDetails(response);
