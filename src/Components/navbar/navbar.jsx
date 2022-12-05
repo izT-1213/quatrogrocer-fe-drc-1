@@ -17,7 +17,6 @@ const Nav = () => {
   const [searchedProducts, setSearchedProducts] = useState([]);
 
   async function searchField() {
-    // debugger;
     const products = searchVal;
     const regSearch = /[A-Za-z0-9]/;
     SearchProduct(products).then((response) => {

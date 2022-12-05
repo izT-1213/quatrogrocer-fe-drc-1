@@ -20,14 +20,7 @@ function UserProfilePage() {
   const [profileDetails, setProfileDetails] = useState({});
 
   useEffect(() => {
-    GetUserAddress(userId.user_id).then((response) => {
-      debugger;
-      if (!response.data.error) {
-        setAddressDetails(response);
-      } else {
-        setAddressDetails([]);
-      }
-    });
+    GetUserAddress(userId.user_id).then(setAddressDetails);
   }, [userId.user_id]);
 
   useEffect(() => {
@@ -47,8 +40,6 @@ function UserProfilePage() {
     navigate("/");
   };
 
-  debugger;
-  console.log(addressDetails.length);
   return (
     <div className="profile-page-container">
       <div className="profile-page-header">

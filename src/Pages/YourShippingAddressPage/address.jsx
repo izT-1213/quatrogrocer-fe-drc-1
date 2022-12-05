@@ -22,17 +22,15 @@ function YourShippingAddressPage() {
 
   useEffect(() => {
     GetUserAddress(userId.user_id).then((response) => {
-      debugger;
-      if (!response.data.error) {
-        setAddressDetails(response);
+      if (response.data.error) {
+        navigate("/add-address");
       } else {
-        setAddressDetails([]);
+        setAddressDetails(response);
       }
     });
   }, [userId.user_id]);
 
   useEffect(() => {
-    setProfileDetails({});
     FetchUser(userId.user_id).then(setProfileDetails);
   }, [userId.user_id]);
 

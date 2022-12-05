@@ -41,13 +41,11 @@ function CheckoutPage() {
   const [radioValue, setRadioValue] = useState("quatro-credits");
 
   useEffect(() => {
-    debugger;
     GetUserAddress(userId.user_id).then((response) => {
-      if (!response.data.error) {
-        setAddressDetails(response);
-      } else {
-        setAddressDetails([]);
+      if (response.length === undefined) {
         navigate("/add-address");
+      } else {
+        setAddressDetails(response);
       }
     });
   }, [userId.user_id]);

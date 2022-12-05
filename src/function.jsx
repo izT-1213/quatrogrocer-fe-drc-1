@@ -1,9 +1,12 @@
 import Axios from "axios";
 
+const ADDRESS = "https://api.quatrogrocer.one";
+// const ADDRESS = "http://localhost:3000";
+
 async function LoginFunc(email, pass) {
   try {
     const response = await Axios.post(
-      "https://api.quatrogrocer.one/quatro_user/login",
+      `${ADDRESS}/quatro_user/login`,
       {
         email: email,
         password: pass,
@@ -19,17 +22,14 @@ async function LoginFunc(email, pass) {
 
 async function RegisterFunc(email, pass, fname, lname, dob, gender) {
   try {
-    const response = await Axios.post(
-      "https://api.quatrogrocer.one/quatro_user/create",
-      {
-        email: email,
-        password: pass,
-        first_name: fname,
-        last_name: lname,
-        date_of_birth: dob,
-        gender: gender,
-      }
-    );
+    const response = await Axios.post(`${ADDRESS}/quatro_user/create`, {
+      email: email,
+      password: pass,
+      first_name: fname,
+      last_name: lname,
+      date_of_birth: dob,
+      gender: gender,
+    });
   } catch (err) {
     return err.response.data;
   }
@@ -38,7 +38,7 @@ async function RegisterFunc(email, pass, fname, lname, dob, gender) {
 async function FetchUser(userId) {
   try {
     const response = await Axios.post(
-      `https://api.quatrogrocer.one/quatro_user/search?user_id=${userId}`
+      `${ADDRESS}/quatro_user/search?user_id=${userId}`
     );
     return response.data.result;
   } catch (err) {
@@ -49,12 +49,9 @@ async function FetchUser(userId) {
 
 async function SearchProduct(product) {
   try {
-    const response = await Axios.get(
-      "https://api.quatrogrocer.one/quatro_product/get",
-      {
-        params: { product: product.toString() },
-      }
-    );
+    const response = await Axios.get(`${ADDRESS}/quatro_product/get`, {
+      params: { product: product.toString() },
+    });
     console.log(response.data.result);
     return response.data.result;
   } catch (err) {
@@ -64,15 +61,10 @@ async function SearchProduct(product) {
 }
 
 async function GetUserAddress(user_id, address_id) {
-  debugger;
   try {
-    const response = await Axios.get(
-      "https://api.quatrogrocer.one/quatro_address/get",
-      {
-        params: { user_id: user_id, address_id: address_id },
-      }
-    );
-    debugger;
+    const response = await Axios.get(`${ADDRESS}/quatro_address/get`, {
+      params: { user_id: user_id, address_id: address_id },
+    });
     return response.data.result;
   } catch (err) {
     console.log(err.response);
@@ -91,7 +83,7 @@ async function CreateAddressFunc(
   try {
     console.log(addLine1);
     const response = await Axios.post(
-      "https://api.quatrogrocer.one/quatro_address/create",
+      `${ADDRESS}/quatro_address/create`,
 
       // { withCredentials: true }, //hassif port 3002
 
@@ -121,7 +113,7 @@ async function UpdateAddressFunc(
 ) {
   try {
     const response = await Axios.post(
-      "https://api.quatrogrocer.one/quatro_address/update_details",
+      `${ADDRESS}/quatro_address/update_details`,
       //hassif port 3002
       {
         address_line_1: addLine1,
@@ -143,7 +135,7 @@ async function DeleteAddressFunc(address_id) {
   try {
     console.log(address_id);
     const response = await Axios.delete(
-      `https://api.quatrogrocer.one/quatro_address/delete?address_id=${address_id}`
+      `${ADDRESS}/quatro_address/delete?address_id=${address_id}`
     );
     return response.status;
   } catch (err) {
@@ -154,7 +146,7 @@ async function DeleteAddressFunc(address_id) {
 async function FetchProduct() {
   try {
     const response = await Axios.get(
-      "https://api.quatrogrocer.one/quatro_product/get"
+      `${ADDRESS}/quatro_product/get`
       //{ withCredentials: true }
     );
     return response.data.result;
@@ -166,7 +158,7 @@ async function FetchProduct() {
 async function FetchDiscountProduct() {
   try {
     const response = await Axios.get(
-      "https://api.quatrogrocer.one/quatro_product_discount/get"
+      `${ADDRESS}/quatro_product_discount/get`
       //{ withCredentials: true }
     );
     return response.data.result;
@@ -185,7 +177,7 @@ async function UpdateProfileFunc(
 ) {
   try {
     await Axios.post(
-      "https://api.quatrogrocer.one/quatro_user/update",
+      `${ADDRESS}/quatro_user/update`,
 
       {
         first_name: first_name,
@@ -206,7 +198,7 @@ async function UpdatePasswordFunc(oldPassword, password, user_id) {
   console.log(password ? true : false);
   try {
     await Axios.post(
-      "https://api.quatrogrocer.one/quatro_user/update_password",
+      `${ADDRESS}/quatro_user/update_password`,
 
       {
         oldPassword: oldPassword,
@@ -223,7 +215,7 @@ async function UpdatePasswordFunc(oldPassword, password, user_id) {
 async function AddToCartFunc(user_id, product_id, product_quantity) {
   try {
     const response = await Axios.post(
-      "https://api.quatrogrocer.one/quatro_cart/create",
+      `${ADDRESS}/quatro_cart/create`,
       {
         user_id: user_id,
         product_id: product_id,
@@ -245,7 +237,7 @@ async function AddToCartDiscFunc(
 ) {
   try {
     await Axios.post(
-      "https://api.quatrogrocer.one/quatro_cart/create_discount",
+      `${ADDRESS}/quatro_cart/create_discount`,
 
       {
         user_id: user_id,
@@ -261,7 +253,7 @@ async function AddToCartDiscFunc(
 async function FetchTransaction(user_id) {
   try {
     const response = await Axios.get(
-      "https://api.quatrogrocer.one/quatro_transaction/get_details/" + user_id
+      `${ADDRESS}/quatro_transaction/get_details/` + user_id
       //{ withCredentials: true }
     );
     return response.data.result;
@@ -274,7 +266,7 @@ async function CheckoutProcess(user_id) {
   try {
     const response1 = await Axios.post(
       // "https://api.quatrogrocer.one/quatro_cart/push"
-      "https://api.quatrogrocer.one/quatro_cart/push",
+      `${ADDRESS}/quatro_cart/push`,
       { user_id: user_id }
     );
 
@@ -282,7 +274,7 @@ async function CheckoutProcess(user_id) {
       try {
         const response2 = await Axios.post(
           // "https://api.quatrogrocer.one/quatro_transaction/update"
-          "https://api.quatrogrocer.one/quatro_transaction/update",
+          `${ADDRESS}/quatro_transaction/update`,
           { user_id: user_id }
         );
 
@@ -290,7 +282,7 @@ async function CheckoutProcess(user_id) {
           try {
             const response = await Axios.post(
               // "https://api.quatrogrocer.one/quatro_transaction/checkout"
-              "https://api.quatrogrocer.one/quatro_transaction/checkout",
+              `${ADDRESS}/quatro_transaction/checkout`,
               { user_id: user_id }
             );
             console.log(response.data.result);
@@ -312,7 +304,7 @@ async function DeleteCart(user_id) {
   try {
     await Axios.post(
       // "https://api.quatrogrocer.one/quatro_cart/delete"
-      "https://api.quatrogrocer.one/quatro_cart/delete",
+      `${ADDRESS}/quatro_cart/delete`,
       { user_id: user_id }
     );
   } catch (err) {}
@@ -322,7 +314,7 @@ async function PaidCheckout(user_id) {
   try {
     const response = await Axios.post(
       // "https://api.quatrogrocer.one/quatro_transaction/update_payment"
-      "https://api.quatrogrocer.one/quatro_transaction/update_payment",
+      `${ADDRESS}/quatro_transaction/update_payment`,
       { user_id: user_id }
     );
     return response;
