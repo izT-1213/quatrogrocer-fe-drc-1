@@ -23,19 +23,6 @@ function SearchResult() {
   const [size, setSize] = useState(perPage);
   const [current, setCurrent] = useState(1);
 
-  const notify = () => {
-    toast.success("Item added to cart! 🛒", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
-
   const PerPageChange = (value) => {
     setSize(value);
     const newPerPage = Math.ceil(searchedProducts.length / value);
@@ -101,7 +88,12 @@ function SearchResult() {
                 <p className="RM">RM</p> {data.product_price.toFixed(2)}
               </p>
               <div className="button-container">
-                <button className="add-to-cart-btn" onClick={notify}>
+                <button
+                  className="add-to-cart-btn"
+                  onClick={() => {
+                    navigate(`/product-details/${data.product_name}`);
+                  }}
+                >
                   <AddShoppingCart className="cart-icon" key={index} />
                 </button>
               </div>

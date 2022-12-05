@@ -71,19 +71,7 @@ function CategoryPage() {
     return originalElement;
   };
 
-  const notify = () => {
-    toast.success("Item added to cart! 🛒", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
-
+  //mapping product
   const MediumHorCard = () => (
     <div className="medium-horizontal-cards-container">
       {getData(current, size).map((data, index) => {
@@ -93,17 +81,7 @@ function CategoryPage() {
               <div
                 className="product-image"
                 onClick={() => {
-                  navigate(`/product-details/${data.product_name}`, {
-                    state: {
-                      product_name: data.product_name,
-                      product_description: data.product_description,
-                      product_category: data.product_category,
-                      product_price: data.product_price,
-                      product_quantity: data.product_quantity,
-                      product_image: data.product_image,
-                      product_id: data.product_id,
-                    },
-                  });
+                  navigate(`/product-details/${data.product_name}`);
                 }}
               >
                 <img src={data.product_image} />
@@ -111,17 +89,7 @@ function CategoryPage() {
               <p
                 className="product-name"
                 onClick={() => {
-                  navigate(`/product-details/${data.product_name}`, {
-                    state: {
-                      product_name: data.product_name,
-                      product_description: data.product_description,
-                      product_category: data.product_category,
-                      product_price: data.product_price,
-                      product_quantity: data.product_quantity,
-                      product_image: data.product_image,
-                      product_id: data.product_id,
-                    },
-                  });
+                  navigate(`/product-details/${data.product_name}`);
                 }}
               >
                 {data.product_name}
@@ -134,7 +102,9 @@ function CategoryPage() {
                   <AddShoppingCart
                     className="cart-icon"
                     key={index}
-                    onClick={notify}
+                    onClick={() => {
+                      navigate(`/product-details/${data.product_name}`);
+                    }}
                   />
                 </button>
               </div>

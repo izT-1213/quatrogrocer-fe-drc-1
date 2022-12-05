@@ -42,7 +42,13 @@ function CheckoutPage() {
 
   useEffect(() => {
     setAddressDetails([]);
-    GetUserAddress(userId.user_id).then(setAddressDetails);
+    GetUserAddress(userId.user_id).then((response) => {
+      if (response.status === 404) {
+        navigate("/add-address");
+      } else {
+        setAddressDetails(response);
+      }
+    });
   }, [userId.user_id]);
 
   useEffect(() => {
