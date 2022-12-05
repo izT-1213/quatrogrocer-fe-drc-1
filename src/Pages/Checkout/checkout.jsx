@@ -42,7 +42,6 @@ function CheckoutPage() {
 
   useEffect(() => {
     debugger;
-    setAddressDetails([]);
     GetUserAddress(userId.user_id).then((response) => {
       if (response.status === 404) {
         navigate("/add-address");
