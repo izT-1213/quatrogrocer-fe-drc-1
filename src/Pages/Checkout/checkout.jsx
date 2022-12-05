@@ -41,6 +41,7 @@ function CheckoutPage() {
   const [radioValue, setRadioValue] = useState("quatro-credits");
 
   useEffect(() => {
+    debugger;
     setAddressDetails([]);
     GetUserAddress(userId.user_id).then((response) => {
       if (response.status === 404) {
@@ -125,9 +126,9 @@ function CheckoutPage() {
           <hr />
           <div className="inner-content">
             <p className="user-name">
-              {profileDetails.first_name} {profileDetails.last_name}
+              {profileDetails?.first_name} {profileDetails?.last_name}
             </p>
-            <p className="email-addr">{profileDetails.email}</p>
+            <p className="email-addr">{profileDetails?.email}</p>
             {/* <p className="phone-num">60186907892</p> */}
           </div>
         </div>
