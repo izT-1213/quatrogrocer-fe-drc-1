@@ -87,7 +87,7 @@ p {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  width: 49.6vw;
+  width: 100%;
 }
 .login-page-container .login-container .login-container-content {
   justify-content: center;

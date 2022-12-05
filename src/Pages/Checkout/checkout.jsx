@@ -53,7 +53,6 @@ function CheckoutPage() {
   return (
     <div className="checkout-page-container">
       <div className="checkout-page-header">
-        <p>Cart</p> <ArrowForwardIos />
         <p>Checkout</p>
       </div>
       <div className="shipping-payment-content-container">
@@ -122,7 +121,7 @@ function CheckoutPage() {
       </div>
       <div className="order-summary-container">
         <div className="order-summary">
-          <h3>Order Summary</h3>
+          <h1>Order Summary</h1>
           <div className="cart-content">
             <div className="product-card">
               <div className="product-image">

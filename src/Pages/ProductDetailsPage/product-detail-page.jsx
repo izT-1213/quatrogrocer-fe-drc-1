@@ -103,8 +103,6 @@ function ProductDetailsPage() {
     );
   };
 
-  var parentDirectory = "Marketplace";
-
   const HorCardContainer = () => (
     <div className="horizontal-cards-container">
       {/* mapping api products */}
@@ -157,8 +155,6 @@ function ProductDetailsPage() {
             .map((obj) => (
               <div>
                 <div className="product-directory">
-                  <p>{parentDirectory}</p>
-                  <ArrowForwardIos sx={{ fontSize: "14px" }} />{" "}
                   <p>{obj.product_category}</p>
                 </div>
                 <div className="above-container">
@@ -217,8 +213,6 @@ function ProductDetailsPage() {
               <div>
                 {console.log(obj.discount_product_id)}
                 <div className="product-directory">
-                  <p>{parentDirectory}</p>
-                  <ArrowForwardIos sx={{ fontSize: "14px" }} />{" "}
                   <p>{obj.discount_product_category}</p>
                 </div>
                 <div className="above-container">

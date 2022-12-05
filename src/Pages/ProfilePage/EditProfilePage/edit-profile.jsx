@@ -594,7 +594,9 @@ function EditProfilePage() {
         )}
       </div>
       <div className="buttons-container">
-        <button className="cancel">Cancel</button>
+        <button onClick={() => navigate("/profile")} className="cancel">
+          Cancel
+        </button>
         <div className="submit-button-container">
           <button
             className="submit-edit"
