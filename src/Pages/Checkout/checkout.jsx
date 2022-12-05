@@ -32,6 +32,7 @@ function CheckoutPage() {
   const [showVoucherInput, setVoucherInput] = useState(false);
   const ref = useRef(null);
   var sum = 0;
+  var total_items = 0;
 
   const [cartList, setCartList] = useState([]);
 
@@ -82,6 +83,7 @@ function CheckoutPage() {
 
   for (var i = 0; i < cartList?.length; i++) {
     sum = sum + cartList[i]?.transaction_total;
+    total_items = total_items + 1;
   }
 
   const VoucherInput = () => (
@@ -217,7 +219,10 @@ function CheckoutPage() {
               const response = await PaidCheckout(userId.user_id);
               if (response.status === 200) {
                 navigate("payment-success", {
-                  state: { address_id: selectedAddress.address },
+                  state: {
+                    address_id: selectedAddress.address,
+                    total_items: total_items,
+                  },
                 });
               }
             }}

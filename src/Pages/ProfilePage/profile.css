@@ -99,6 +99,7 @@ a:active {
   padding: 1.5rem;
   background-color: rgb(250, 250, 250);
   height: 21rem;
+  overflow: auto;
 }
 .profile-page-container .order-history-container .order-history-table-container .order-history-table {
   border-collapse: collapse;
