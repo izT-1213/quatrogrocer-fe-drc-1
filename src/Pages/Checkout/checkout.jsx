@@ -43,10 +43,11 @@ function CheckoutPage() {
   useEffect(() => {
     debugger;
     GetUserAddress(userId.user_id).then((response) => {
-      if (response.status === 404) {
-        navigate("/add-address");
-      } else {
+      if (!response.data.error) {
         setAddressDetails(response);
+      } else {
+        setAddressDetails([]);
+        navigate("/add-address");
       }
     });
   }, [userId.user_id]);
