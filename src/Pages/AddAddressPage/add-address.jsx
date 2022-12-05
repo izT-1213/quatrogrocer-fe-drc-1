@@ -133,7 +133,7 @@ function AddAddressPage() {
                     />
                   </div>
                   <div className="address-line-3">
-                    <label>Address Line 3</label>
+                    <label>Address Line 3*</label>
                     <Input
                       className="address-input"
                       type="text"
