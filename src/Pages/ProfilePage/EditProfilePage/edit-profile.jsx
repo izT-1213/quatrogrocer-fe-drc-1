@@ -165,19 +165,6 @@ function EditProfilePage() {
   const validate = (values) => {
     const errors = {};
 
-    // var regPass =
-    //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
-
-    // if (values.first_name) {
-    //   if (!regName.test(values.first_name)) {
-    //     errors.first_name = "*first name should contain only alphabets";
-    //   } else if (!values.oldpassword) {
-    //     errors.oldpassword = "Please key in current password to update changes";
-    //   } else {
-    //     return true;
-    //   }
-    // }
-
     if (values.first_name) {
       if (!validator.isAlpha(values.first_name)) {
         errors.first_name = "*First name should contain only alphabets";
