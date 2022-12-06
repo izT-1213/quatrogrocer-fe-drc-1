@@ -74,7 +74,8 @@ function AboutPage() {
                 <h6>About</h6>
                 <p>
                   Hello there! I'm Mei, currently taking the roles as assistant
-                  front-end developer, cyber-security engineer for QuatroGrocer.
+                  front-end developer, cyber-security engineer and assistant
+                  product design for QuatroGrocer.
                 </p>
               </section>
             </section>
@@ -107,8 +108,9 @@ function AboutPage() {
                 <h4 className="second-name">Yuan</h4>
                 <h6>About</h6>
                 <p>
-                  Hello there! I'm Shawn, currently taking the roles as
-                  cyber-security engineer and backend engineer for this project.
+                  Hello there! I'm Shawn, currently taking the roles as Quality
+                  assurance software tester, Web designer and Front-end
+                  developer.
                 </p>
               </section>
             </section>
