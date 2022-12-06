@@ -206,7 +206,7 @@ function CheckoutPage() {
             disabled={
               selectedAddress.address &&
               radioValue !== "others" &&
-              sum + 6 < profileDetails.user_credi
+              sum + 6 < profileDetails.user_credit
                 ? false
                 : true
             }
