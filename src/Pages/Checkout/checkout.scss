@@ -166,6 +166,15 @@
 
         pointer-events: none;
       }
+
+      p {
+        text-align: center;
+        padding-top: 1rem;
+        font: $primary-fonts;
+        font-size: 12px;
+        font-weight: bold;
+        color: $error-color;
+      }
     }
   }
 

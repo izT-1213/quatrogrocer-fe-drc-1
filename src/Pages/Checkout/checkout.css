@@ -191,6 +191,14 @@ a:active {
   color: #666666;
   pointer-events: none;
 }
+.checkout-page-container .shipping-payment-content-container .order-submit p {
+  text-align: center;
+  padding-top: 1rem;
+  font: "Lexend Deca";
+  font-size: 12px;
+  font-weight: bold;
+  color: #f04438;
+}
 .checkout-page-container .order-summary-container {
   grid-area: right;
   display: flex;
