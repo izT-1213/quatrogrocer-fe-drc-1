@@ -1,7 +1,7 @@
 import Axios from "axios";
 
-const ADDRESS = "https://api.quatrogrocer.one";
-// const ADDRESS = "http://localhost:3000";
+// const ADDRESS = "https://api.quatrogrocer.one";
+const ADDRESS = "http://localhost:3000";
 
 async function LoginFunc(email, pass) {
   try {
@@ -196,6 +196,7 @@ async function UpdateProfileFunc(
 
 async function UpdatePasswordFunc(oldPassword, password, user_id) {
   console.log(password ? true : false);
+
   try {
     await Axios.post(
       `${ADDRESS}/quatro_user/update_password`,

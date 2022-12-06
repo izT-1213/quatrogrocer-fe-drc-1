@@ -216,7 +216,10 @@ function EditAddressPage() {
                 )}
               </div>
               <div className="buttons">
-                <button className="cancel-btn" onClick={() => clearInput}>
+                <button
+                  className="cancel-btn"
+                  onClick={() => navigate("/profile/addresses")}
+                >
                   Cancel
                 </button>
                 <button

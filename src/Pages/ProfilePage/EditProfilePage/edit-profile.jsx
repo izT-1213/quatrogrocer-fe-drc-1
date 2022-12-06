@@ -5,6 +5,7 @@ import { Visibility, VisibilityOff } from "@material-ui/icons";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { TextField } from "@mui/material";
 import "../EditProfilePage/edit-profile.css";
+import validator from "validator";
 
 import {
   UpdatePasswordFunc,
@@ -163,47 +164,35 @@ function EditProfilePage() {
 
   const validate = (values) => {
     const errors = {};
-    var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    var regName = /^[A-Za-z]+$/;
 
     if (values.first_name) {
-      console.log("got value");
-      if (!regName.test(values.first_name)) {
-        console.log("no contain alphabet only");
-        errors.first_name = "*first name should contain only alphabets";
-      } else if (!values.oldpassword) {
-        console.log("false");
+      if (!validator.isAlpha(values.first_name)) {
+        errors.first_name = "*First name should contain only alphabets";
+      } else if (validator.isEmpty(values.oldpassword)) {
         errors.oldpassword = "Please key in current password to update changes";
       } else {
-        console.log("contains alphabet");
         return true;
       }
     }
 
     if (values.last_name) {
-      console.log("got value");
-      if (!regName.test(values.last_name)) {
-        console.log("no contain alphabet only");
-        errors.last_name = "*last name should contain only alphabets";
-      } else if (!values.oldpassword) {
-        console.log("false");
-        errors.oldpassword = "Please key in current password to update changes";
+      if (!validator.isAlpha(values.last_name)) {
+        errors.last_name = "*Last name should contain only alphabets";
+      } else if (validator.isEmpty(values.oldpassword)) {
+        errors.oldpassword =
+          "*Please key in current password to update changes";
       } else {
-        console.log("contains alphabet");
         return true;
       }
     }
 
     if (values.email) {
-      console.log("got value");
-      if (!regEmail.test(values.email)) {
-        console.log("wrong email format");
-        errors.email = "*wrong email format";
-      } else if (!values.oldpassword) {
-        console.log("false");
-        errors.oldpassword = "Please key in current password to update changes";
+      if (!validator.isEmail(values.email)) {
+        errors.email = "*Email is in incorrect format";
+      } else if (validator.isEmpty(values.oldpassword)) {
+        errors.oldpassword =
+          "*Please key in current password to update changes";
       } else {
-        console.log("proper email format");
         return true;
       }
     }
