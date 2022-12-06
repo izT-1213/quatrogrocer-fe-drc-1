@@ -145,6 +145,7 @@ function SignUpPage() {
                         value={dob}
                         onChange={handleDOBChange}
                         required={true}
+                        disableFuture={true}
                         // PaperProps={{
                         //   sx: {
                         //     "& .MuiPickersDay-root": {
