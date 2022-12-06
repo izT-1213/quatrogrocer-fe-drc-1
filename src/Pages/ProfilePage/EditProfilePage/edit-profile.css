@@ -93,6 +93,12 @@ a:active {
   font-family: "Lexend Deca";
   padding: 2rem 0;
 }
+.edit-profile-page-container .edit-account-details-container p {
+  font: "Poppins";
+  font-size: 13px;
+  font-weight: bold;
+  color: #ff8a65;
+}
 .edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table {
   border-collapse: collapse;
   width: 100%;

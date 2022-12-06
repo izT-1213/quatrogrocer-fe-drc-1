@@ -215,6 +215,7 @@ function EditProfilePage() {
       </div>
       <div className="edit-account-details-container">
         <h6>Account Details</h6>
+        <p className="warning">Current password is required to save changes</p>
         <div className="edit-account-details-table-container">
           <table className="edit-account-details-table" id="table">
             <tr className="input-label">
