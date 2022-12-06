@@ -4,6 +4,7 @@ import marianne from "../../Images/mei.jpg";
 import izzati from "../../Images/izzati.jpg";
 import shawn from "../../Images/shawnlim.jpg";
 import cheng from "../../Images/shincheng.jpg";
+import hassif from "../../Images/hassif.jpg";
 
 function AboutPage() {
   return (
@@ -31,7 +32,7 @@ function AboutPage() {
             <div className="profile-bg"></div>
             <section className="profile-container">
               {/* <aside className="profile-image"></aside> */}
-              <img src={izzati} alt="Nurul Izzati" className="profile-image" />
+              <img src={hassif} alt="Hassif" className="profile-image" />
               <section className="profile-info">
                 <h4 className="first-name">Hassif</h4>
                 <h4 className="second-name">Imran</h4>
