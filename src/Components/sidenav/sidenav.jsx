@@ -116,6 +116,15 @@ function SideNav() {
           </li>
           <li
             onClick={() =>
+              navigate("/category/sauce-dressing", {
+                state: { category: "Sauce Dressing" },
+              })
+            }
+          >
+            Sauce & Dressing
+          </li>
+          <li
+            onClick={() =>
               navigate("/category/snacks", {
                 state: { category: "Snacks" },
               })
