@@ -234,6 +234,7 @@ a:active {
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .cancel-btn:hover {
   color: #ff5722;
+  cursor: pointer;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn {
   background-color: #ff8a65;
@@ -285,6 +286,7 @@ a:active {
 .add-address-page-container .navigation-container .return:hover,
 .add-address-page-container .navigation-container svg:hover {
   color: #00796b;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 961px) {

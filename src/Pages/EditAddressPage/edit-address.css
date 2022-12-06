@@ -228,6 +228,7 @@ a:active {
 .edit-address-page-container .navigation-buttons .return:hover,
 .edit-address-page-container .navigation-buttons svg:hover {
   color: #00796b;
+  cursor: pointer;
 }
 .edit-address-page-container .navigation-buttons .back-btn {
   display: flex;

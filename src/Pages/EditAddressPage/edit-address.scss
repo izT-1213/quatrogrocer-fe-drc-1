@@ -206,6 +206,7 @@
     .return:hover,
     svg:hover {
       color: $primary-hover-dark-color;
+      cursor: pointer;
     }
 
     .back-btn {

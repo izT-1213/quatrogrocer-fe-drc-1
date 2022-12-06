@@ -53,7 +53,7 @@ function PaymentSuccessPage() {
       <div className="payment-success-header">
         <h1>Payment Success!</h1>
         <div className="return">
-          <ArrowBackIosIcon />
+          <ArrowBackIosIcon onClick={() => navigate("/profile/addresses")} />
           <Link to={"/profile"} className="link-style">
             Return to Account Details
           </Link>

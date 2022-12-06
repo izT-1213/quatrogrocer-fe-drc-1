@@ -228,7 +228,7 @@ function AddAddressPage() {
       </div>
       <div className="navigation-container">
         <div className="return">
-          <ArrowBackIosIcon />
+          <ArrowBackIosIcon onClick={() => navigate("/profile/addresses")} />
           <p onClick={() => navigate("/profile/addresses")}>
             Return to Shipping Address
           </p>

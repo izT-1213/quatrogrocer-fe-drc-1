@@ -236,7 +236,7 @@ function EditAddressPage() {
       </div>
       <div className="navigation-buttons">
         <div className="return">
-          <ArrowBackIosIcon />
+          <ArrowBackIosIcon onClick={() => navigate("/profile/addresses")} />
           <p onClick={() => navigate("/profile/addresses")}>
             Return to Shipping Details
           </p>
