@@ -5,6 +5,7 @@ import {
   GetUserAddress,
   FetchUser,
   FetchTransaction,
+  DeductCredit,
 } from "../../function.jsx";
 import jwt_decode from "jwt-decode";
 import AuthContext from "../../Components/context/AuthProvider.js";
@@ -47,6 +48,14 @@ function PaymentSuccessPage() {
   for (var i = 0; i < total_items; i++) {
     sum = sum + cartList[i]?.transaction_total;
   }
+
+  // {
+  //   DeductCredit(userId.user_id, sum + 6.0);
+  // }
+
+  useEffect(() => {
+    FetchTransaction(userId.user_id).then(setCartList);
+  }, [userId.user_id]);
 
   return (
     <div className="payment-success-container">

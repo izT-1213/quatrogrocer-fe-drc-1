@@ -311,14 +311,41 @@ async function DeleteCart(user_id) {
   } catch (err) {}
 }
 
-async function PaidCheckout(user_id) {
+async function PaidCheckout(user_id, user_credit) {
   try {
     const response = await Axios.post(
       // "https://api.quatrogrocer.one/quatro_transaction/update_payment"
       `${ADDRESS}/quatro_transaction/update_payment`,
       { user_id: user_id }
     );
-    return response;
+    if (response.status === 200) {
+      try {
+        const response = await Axios.post(
+          `${ADDRESS}/quatro_user/minus_credit`,
+          {
+            user_credit: user_credit,
+            user_id: user_id,
+          }
+        );
+        console.log(response.status);
+        return response;
+      } catch (err) {
+        console.log(err.response);
+      }
+    }
+  } catch (err) {
+    console.log(err.response);
+  }
+}
+
+async function DeleteTransacCart(user_id, product_id) {
+  try {
+    const response = await Axios.post(
+      `${ADDRESS}/quatro_transaction/delete_cart`,
+      { user_id: user_id, product_id: product_id }
+    );
+    console.log(response.status);
+    return response.status;
   } catch (err) {
     console.log(err.response);
   }
@@ -344,5 +371,6 @@ export {
   FetchTransaction,
   CheckoutProcess,
   DeleteCart,
+  DeleteTransacCart,
   PaidCheckout,
 };

@@ -225,7 +225,7 @@ function SignUpPage() {
                   onClick={handleClickTnC}
                 />
                 <span className="checkmark"></span> I agree to{" "}
-                <a>
+                <a onClick={() => navigate("/maintenance")}>
                   <Link className="tnc-link">Terms & Conditions</Link>
                 </a>
               </label>

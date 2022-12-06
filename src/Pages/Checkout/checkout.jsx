@@ -20,6 +20,7 @@ import {
   CheckoutProcess,
   DeleteCart,
   PaidCheckout,
+  DeleteTransacCart,
 } from "../../function.jsx";
 import jwt_decode from "jwt-decode";
 import AuthContext from "../../Components/context/AuthProvider.js";
@@ -102,16 +103,6 @@ function CheckoutPage() {
       <p className="desc">Don’t forget to apply before checkout</p>
     </div>
   );
-
-  // const [counter, setCounter] = useState(1);
-  // const handleAdd = () => {
-  //   setCounter(counter + 1);
-  // };
-  // const handleSub = () => {
-  //   if (counter !== 1) {
-  //     setCounter(counter - 1);
-  //   }
-  // };
 
   const handleValueChange = (prop) => (event) => {
     console.log(selectedAddress);
@@ -213,10 +204,14 @@ function CheckoutPage() {
           <button
             type="submit"
             disabled={
-              selectedAddress.address && radioValue !== "others" ? false : true
+              selectedAddress.address &&
+              radioValue !== "others" &&
+              sum + 6 < profileDetails.user_credit
+                ? false
+                : true
             }
             onClick={async () => {
-              const response = await PaidCheckout(userId.user_id);
+              const response = await PaidCheckout(userId.user_id, sum + 6);
               if (response.status === 200) {
                 navigate("payment-success", {
                   state: {
@@ -230,6 +225,12 @@ function CheckoutPage() {
             {" "}
             Place Order{" "}
           </button>
+          <p>
+            {console.log(profileDetails.user_credit < sum)}
+            {sum + 6 < profileDetails.user_credit
+              ? " "
+              : "You don't have enough credits to do this transaction."}
+          </p>
         </div>
       </div>
       <div className="order-summary-container">
@@ -272,7 +273,27 @@ function CheckoutPage() {
                     </div>
                     {/* <AddBoxOutlined onClick={handleAdd} /> */}
                   </div>
-                  {/* <p className="del">Remove</p> */}
+                  <p
+                    className="del"
+                    onClick={async () => {
+                      const response = await DeleteTransacCart(
+                        userId.user_id,
+                        cartList[index]?.product_id
+                      );
+                      console.log(response);
+                      if (response === 200) {
+                        if (
+                          !alert(
+                            "Item deleted successfully. Please return back to cart to continue your transaction."
+                          )
+                        ) {
+                          navigate("/profile");
+                        }
+                      }
+                    }}
+                  >
+                    Remove
+                  </p>
                 </div>
               );
             })}
