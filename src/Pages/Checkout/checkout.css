@@ -215,7 +215,7 @@ a:active {
 }
 .checkout-page-container .order-summary-container .order-summary .cart-content .product-card {
   display: grid;
-  grid-template: "image name name name" "image price price price" "image quantity quantity quantity";
+  grid-template: "image name name name" "image price price price" "image quantity quantity quantity" "image del del del";
   box-shadow: 0rem 0.75rem 1rem -0.25rem rgba(16, 24, 40, 0.1), 0rem 0.25rem 0.375rem -0.125rem rgba(16, 24, 40, 0.05);
   padding: 0.75rem;
   font-size: 1.05rem;
@@ -248,6 +248,12 @@ a:active {
 .checkout-page-container .order-summary-container .order-summary .cart-content .product-card .quantity-adjust .quantity-value {
   align-self: center;
   padding: 0 1.125rem;
+}
+.checkout-page-container .order-summary-container .order-summary .cart-content .product-card .del {
+  grid-area: del;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
 }
 .checkout-page-container .order-summary-container .order-summary .vouchers {
   padding: 2.5rem;
