@@ -64,13 +64,6 @@ function AddAddressPage() {
       userId.user_id
     );
 
-    // if (message === undefined) {
-    //   navigate("/");
-    // } else {
-    //   console.log(message);
-    //   setErrMsg(message.error);
-    // }
-
     if (message === 200) {
       alert("Address is successfully added.");
       navigate("/profile");
@@ -186,14 +179,6 @@ function AddAddressPage() {
                       value={addressValues.state}
                     />
                   </div>
-                </div>
-
-                <div className="checkbox-container">
-                  <label class="default">
-                    <input type="checkbox" />
-                    <span class="checkmark"></span>
-                    Set as default address
-                  </label>
                 </div>
               </form>
               <div className="errMsg">

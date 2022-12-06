@@ -80,10 +80,6 @@ function EditAddressPage() {
     }
   };
 
-  function clearInput() {
-    document.getElementById("form").reset();
-  }
-
   return (
     <div className="edit-address-page-container">
       <div className="container-1">
@@ -188,11 +184,6 @@ function EditAddressPage() {
                     />
                   </div>
                 </div>
-                {/* <label class="default">
-                  <input class="checkbox" id="input" type="checkbox" />
-                  <span class="checkmark"></span>
-                  Set as default address
-                </label> */}
               </form>
               <div className="errMsg">
                 {errMsg && (
