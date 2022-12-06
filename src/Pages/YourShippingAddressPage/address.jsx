@@ -125,7 +125,7 @@ function YourShippingAddressPage() {
 
       <div className="navigation-buttons">
         <div className="return">
-          <ArrowBackIosIcon onClick={() => navigate("/profile/addresses")} />
+          <ArrowBackIosIcon onClick={() => navigate("/profile")} />
           <p onClick={() => navigate("/profile")}>Return to Account Details</p>
         </div>
 

@@ -12,7 +12,7 @@ import "./payment-success.css";
 
 function PaymentSuccessPage() {
   var shipping = 6.0;
-
+  const navigate = useNavigate();
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
   var sum = 0;

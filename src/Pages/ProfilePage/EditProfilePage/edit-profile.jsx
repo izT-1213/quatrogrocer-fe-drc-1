@@ -213,7 +213,7 @@ function EditProfilePage() {
         <h3>My Account</h3>
       </div>
       <div className="return">
-        <ArrowBackIosIcon onClick={() => navigate("/profile/addresses")} />
+        <ArrowBackIosIcon />
         <p onClick={() => navigate("/profile")}>Return to Account Details</p>
       </div>
       <div className="edit-account-details-container">
