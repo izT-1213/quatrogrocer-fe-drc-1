@@ -1,7 +1,7 @@
 import Axios from "axios";
 
-// const ADDRESS = "https://api.quatrogrocer.one";
-const ADDRESS = "http://localhost:5000";
+const ADDRESS = "https://api.quatrogrocer.one";
+// const ADDRESS = "http://localhost:5000";
 
 async function LoginFunc(email, pass) {
   try {
