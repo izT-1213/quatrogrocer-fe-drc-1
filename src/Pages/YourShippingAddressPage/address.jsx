@@ -74,9 +74,6 @@ function YourShippingAddressPage() {
                   <p className="address">{addressDetails[index]?.state}</p>
                   <br />
                   <div className="links">
-                    {/* <Link to="/edit-address" className="edit-link">
-                      Edit
-                    </Link> */}
                     <p
                       className="edit-link"
                       onClick={() =>
@@ -97,12 +94,10 @@ function YourShippingAddressPage() {
                         const delConfirm = window.confirm(
                           "Do you want to delete the adress?"
                         );
-                        // console.log(delConfirm);
                         if (delConfirm === true) {
                           const message = await DeleteAddressFunc(
                             addressDetails[index]?.address_id
                           );
-                          console.log(message);
                           if (message === 200) {
                             navigate("/profile");
                           }
@@ -111,10 +106,6 @@ function YourShippingAddressPage() {
                     >
                       Delete
                     </p>
-
-                    {/* <Link to="/delete-address" className="delete-btn">
-                      Delete
-                    </Link> */}
                   </div>
                 </div>
               );

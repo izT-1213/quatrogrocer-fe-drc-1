@@ -25,9 +25,6 @@ function PaymentSuccessPage() {
   var addId = location.state.address_id;
   var total_items = location.state.total_items;
 
-  console.log(location.state);
-  console.log(total_items);
-
   useEffect(() => {
     setAddressDetails([]);
     GetUserAddress(userId.user_id).then(setAddressDetails);
@@ -48,10 +45,6 @@ function PaymentSuccessPage() {
   for (var i = 0; i < total_items; i++) {
     sum = sum + cartList[i]?.transaction_total;
   }
-
-  // {
-  //   DeductCredit(userId.user_id, sum + 6.0);
-  // }
 
   useEffect(() => {
     FetchTransaction(userId.user_id).then(setCartList);
@@ -136,7 +129,6 @@ function PaymentSuccessPage() {
                         Quantity: {cartList[index]?.product_quantity}
                       </p>
                     </div>
-                    {/* <p className="del">Remove</p> */}
                   </div>
                 );
               })}

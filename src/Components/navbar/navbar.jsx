@@ -20,8 +20,6 @@ const Nav = () => {
     const products = searchVal;
     const regSearch = /[A-Za-z0-9]/;
     SearchProduct(products).then((response) => {
-      console.log(response.length);
-
       if (products) {
         if (response.length === 0) {
           navigate("/no-result", { state: { searchedTerm: products } });
@@ -39,8 +37,6 @@ const Nav = () => {
       }
     });
   }
-
-  console.log(searchedProducts.length);
 
   return (
     <div>

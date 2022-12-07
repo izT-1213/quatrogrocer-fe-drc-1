@@ -10,7 +10,6 @@ import AuthContext from "../../Components/context/AuthProvider.js";
 function EditAddressPage() {
   const location = useLocation();
   const addId = location.state.address_id;
-  console.log(addId);
   const navigate = useNavigate();
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
@@ -47,7 +46,6 @@ function EditAddressPage() {
   ]);
 
   const editAddress = async (e) => {
-    console.log(addId);
     e.preventDefault();
 
     const message = await UpdateAddressFunc(
@@ -68,13 +66,11 @@ function EditAddressPage() {
         : addressDetails.state,
       addId
     );
-    console.log(message);
 
     if (message === 200) {
       alert("Address has been successfully edited.");
       navigate("/profile/addresses");
     } else {
-      console.log(message);
       setErrMsg(message.error);
       setUpdatedMsg("");
     }

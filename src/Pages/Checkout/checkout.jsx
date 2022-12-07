@@ -9,11 +9,7 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import {
-  ArrowForwardIos,
-  // IndeterminateCheckBoxOutlined,
-  // AddBoxOutlined,
-} from "@mui/icons-material";
+import { ArrowForwardIos } from "@mui/icons-material";
 import {
   GetUserAddress,
   FetchUser,
@@ -105,7 +101,6 @@ function CheckoutPage() {
   );
 
   const handleValueChange = (prop) => (event) => {
-    console.log(selectedAddress);
     setSelectedAddress({ ...selectedAddress, [prop]: event.target.value });
   };
 
@@ -226,7 +221,6 @@ function CheckoutPage() {
             Place Order{" "}
           </button>
           <p>
-            {console.log(profileDetails.user_credit < sum)}
             {sum + 6 < profileDetails.user_credit
               ? " "
               : "You don't have enough credits to do this transaction."}
@@ -266,12 +260,10 @@ function CheckoutPage() {
                       : cartList[index]?.discount_product_price.toFixed(2)}
                   </p>
                   <div className="quantity-adjust">
-                    {/* <IndeterminateCheckBoxOutlined onClick={handleSub} /> */}
                     Qty:
                     <div className="quantity-value">
                       {cartList[index]?.product_quantity}
                     </div>
-                    {/* <AddBoxOutlined onClick={handleAdd} /> */}
                   </div>
                   <p
                     className="del"
@@ -280,7 +272,6 @@ function CheckoutPage() {
                         userId.user_id,
                         cartList[index]?.product_id
                       );
-                      console.log(response);
                       if (response === 200) {
                         if (
                           !alert(

@@ -338,7 +338,6 @@ function EditProfilePage() {
                     views={["year", "month", "day"]}
                   />
                 </LocalizationProvider>
-                {console.log(dob)}
               </td>
             </tr>
             <tr>

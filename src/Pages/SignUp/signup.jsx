@@ -68,7 +68,6 @@ function SignUpPage() {
       alert("You have registered an account. Please login to proceed.");
       navigate("/login");
     } else {
-      console.log(message);
       setErrMsg(message.error);
     }
   };
@@ -146,20 +145,6 @@ function SignUpPage() {
                         onChange={handleDOBChange}
                         required={true}
                         disableFuture={true}
-                        // PaperProps={{
-                        //   sx: {
-                        //     "& .MuiPickersDay-root": {
-                        //       "&.Mui-selected": {
-                        //         backgroundColor: { backgroundColor: color },
-                        //       },
-                        //     },
-                        //     "& .MuiPickersMonth-root": {
-                        //       "&.Mui-selected": {
-                        //         backgroundColor: { backgroundColor: color },
-                        //       },
-                        //     },
-                        //   },
-                        // }}
                         renderInput={(params) => (
                           <TextField
                             variant="standard"

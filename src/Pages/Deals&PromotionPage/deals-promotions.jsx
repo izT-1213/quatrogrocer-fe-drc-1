@@ -17,19 +17,6 @@ function DealsPromotionsPage() {
   const [current, setCurrent] = useState(1);
   const [productDetails, setProductDetails] = useState([]);
 
-  // const notify = () => {
-  //   toast.success("Item added to cart! 🛒", {
-  //     position: "top-right",
-  //     autoClose: 3000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "light",
-  //   });
-  // };
-
   useEffect(() => {
     setProductDetails([]);
     FetchDiscountProduct().then(setProductDetails);
@@ -119,7 +106,6 @@ function DealsPromotionsPage() {
 
   return (
     <div>
-      {console.log(productDetails)}
       <div className="deals-promotions-page">
         <div className="deals-promotions-section">
           <div className="deals-promotions-title">

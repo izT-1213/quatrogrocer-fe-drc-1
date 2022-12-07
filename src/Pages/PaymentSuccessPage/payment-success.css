@@ -70,6 +70,9 @@ a:active {
   line-height: 120%;
   padding-bottom: 1rem;
 }
+.payment-success-container .payment-success-header h1 {
+  color: #009688;
+}
 .payment-success-container .payment-success-header .return {
   display: flex;
   align-items: center;

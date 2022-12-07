@@ -78,14 +78,6 @@ function UserProfilePage() {
                 </tr>
               ))}
             </tbody>
-
-            {/* <tr>
-                <td>{transactionDetails[0]?.product_name}</td>
-                <td>{transactionDetails[0]?.product_quantity}</td>
-                <td>RM{transactionDetails[0]?.product_price}</td>
-                <td>{transactionDetails[0]?.transaction_timestamp}</td>
-                <td>RM{transactionDetails[0]?.transaction_total}</td>
-              </tr> */}
           </table>
         </div>
       </div>
@@ -97,7 +89,7 @@ function UserProfilePage() {
               <th>
                 Available credits:<text className="RM">RM</text>
                 <text className="credit-value">
-                  {profileDetails.user_credit}
+                  {profileDetails?.user_credit?.toFixed(2)}
                 </text>
               </th>
               <th></th>
@@ -145,7 +137,6 @@ function UserProfilePage() {
                       }
                     }}
                   >
-                    {console.log(addressDetails.length)}
                     View Addresses [
                     {addressDetails.length === undefined
                       ? 0

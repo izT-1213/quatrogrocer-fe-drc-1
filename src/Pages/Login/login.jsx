@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-//import { useForm } from "react-hook-form";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { IconButton, InputAdornment, Input } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
@@ -37,13 +36,11 @@ function LoginPage() {
     e.preventDefault();
     const passwd = values.password.toString();
     const message = await LoginFunc(emailLogin, passwd);
-    console.log(message);
     const token = message?.data?.userJwt;
     setAuth({ emailLogin, passwd, token });
     if (message.status === 200) {
       navigate(from.toString(), { replace: true });
     } else {
-      console.log(message);
       setErrMsg(message.error);
     }
   };

@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 // const ADDRESS = "https://api.quatrogrocer.one";
-const ADDRESS = "http://localhost:5004";
+const ADDRESS = "http://localhost:5000";
 
 async function LoginFunc(email, pass) {
   try {
@@ -13,7 +13,6 @@ async function LoginFunc(email, pass) {
       },
       { withCredentials: true }
     );
-    console.log(response);
     return response;
   } catch (err) {
     return err.response.data;
@@ -42,7 +41,6 @@ async function FetchUser(userId) {
     );
     return response.data.result;
   } catch (err) {
-    console.log(err.response.data);
     return err.response.data;
   }
 }
@@ -52,10 +50,8 @@ async function SearchProduct(product) {
     const response = await Axios.get(`${ADDRESS}/quatro_product/get`, {
       params: { product: product.toString() },
     });
-    console.log(response.data.result);
     return response.data.result;
   } catch (err) {
-    console.log(err.response.data);
     return err.response.data;
   }
 }
@@ -67,7 +63,6 @@ async function GetUserAddress(user_id, address_id) {
     });
     return response.data.result;
   } catch (err) {
-    console.log(err.response);
     return err.response;
   }
 }
@@ -81,7 +76,6 @@ async function CreateAddressFunc(
   userId
 ) {
   try {
-    console.log(addLine1);
     const response = await Axios.post(
       `${ADDRESS}/quatro_address/create`,
 
@@ -98,7 +92,6 @@ async function CreateAddressFunc(
     );
     return response.status;
   } catch (err) {
-    console.log(err.response.data);
     return err.response.data;
   }
 }
@@ -126,20 +119,18 @@ async function UpdateAddressFunc(
     );
     return response.status;
   } catch (err) {
-    console.log(err.response.data);
     return err.response.data;
   }
 }
 
 async function DeleteAddressFunc(address_id) {
   try {
-    console.log(address_id);
     const response = await Axios.delete(
       `${ADDRESS}/quatro_address/delete?address_id=${address_id}`
     );
     return response.status;
   } catch (err) {
-    console.log(err.response.data);
+    return err.response.data;
   }
 }
 
@@ -151,7 +142,7 @@ async function FetchProduct() {
     );
     return response.data.result;
   } catch (err) {
-    console.log(err.response);
+    return err.response;
   }
 }
 
@@ -163,7 +154,7 @@ async function FetchDiscountProduct() {
     );
     return response.data.result;
   } catch (err) {
-    console.log(err.response);
+    return err.response;
   }
 }
 
@@ -189,14 +180,11 @@ async function UpdateProfileFunc(
       } //hassif port 3002
     );
   } catch (err) {
-    console.log(err.response.data);
     return err.response.data;
   }
 }
 
 async function UpdatePasswordFunc(oldPassword, password, user_id) {
-  console.log(password ? true : false);
-
   try {
     await Axios.post(
       `${ADDRESS}/quatro_user/update_password`,
@@ -208,7 +196,6 @@ async function UpdatePasswordFunc(oldPassword, password, user_id) {
       } //hassif port 3002
     );
   } catch (err) {
-    console.log(err.response.data);
     return err.response.data;
   }
 }
@@ -223,10 +210,8 @@ async function AddToCartFunc(user_id, product_id, product_quantity) {
         product_quantity: product_quantity,
       } //hassif port 3002
     );
-    console.log(response);
     return response;
   } catch (err) {
-    console.log(err.response.data);
     return err.response.data;
   }
 }
@@ -247,7 +232,7 @@ async function AddToCartDiscFunc(
       } //hassif port 3002
     );
   } catch (err) {
-    console.log(err.response.data);
+    return err.response.data;
   }
 }
 
@@ -259,7 +244,7 @@ async function FetchTransaction(user_id) {
     );
     return response.data.result;
   } catch (err) {
-    console.log(err.response);
+    return err.response;
   }
 }
 
@@ -286,18 +271,17 @@ async function CheckoutProcess(user_id) {
               `${ADDRESS}/quatro_transaction/checkout`,
               { user_id: user_id }
             );
-            console.log(response.data.result);
             return response.data.result;
           } catch (err) {
-            console.log(err.response);
+            return err.response;
           }
         }
       } catch (err) {
-        console.log(err.response);
+        return err.response;
       }
     }
   } catch (err) {
-    console.log(err.response);
+    return err.response;
   }
 }
 
@@ -327,14 +311,13 @@ async function PaidCheckout(user_id, user_credit) {
             user_id: user_id,
           }
         );
-        console.log(response.status);
         return response;
       } catch (err) {
-        console.log(err.response);
+        return err.response;
       }
     }
   } catch (err) {
-    console.log(err.response);
+    return err.response;
   }
 }
 
@@ -344,10 +327,9 @@ async function DeleteTransacCart(user_id, product_id) {
       `${ADDRESS}/quatro_transaction/delete_cart`,
       { user_id: user_id, product_id: product_id }
     );
-    console.log(response.status);
     return response.status;
   } catch (err) {
-    console.log(err.response);
+    return err.response;
   }
 }
 

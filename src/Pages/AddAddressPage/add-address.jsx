@@ -19,14 +19,6 @@ function AddAddressPage() {
     state: "",
   });
 
-  // const [tempAddressValues, setTempAddressValues] = useState({
-  //   address_line_1: "",
-  //   address_line_2: "",
-  //   address_line_3: "",
-  //   postcode: "",
-  //   state: "",
-  // });
-
   const [errMsg, setErrMsg] = useState("");
   const errRef = useRef();
 
@@ -68,7 +60,6 @@ function AddAddressPage() {
       alert("Address is successfully added.");
       navigate("/profile");
     } else {
-      console.log(message);
       setErrMsg(message.error);
       setUpdatedMsg("");
     }

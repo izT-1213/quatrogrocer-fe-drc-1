@@ -18,7 +18,6 @@ import "./home.css";
 
 function Home() {
   const { loggedIn } = useContext(AuthContext);
-  console.log(loggedIn);
   const navigate = useNavigate();
   var i = 0;
 
@@ -47,8 +46,6 @@ function Home() {
         theme: "light",
       });
     }
-    // if (!toast.isActive(toastId.current)) {
-    //   toastId.current =
   };
 
   //need to do function to map api product here

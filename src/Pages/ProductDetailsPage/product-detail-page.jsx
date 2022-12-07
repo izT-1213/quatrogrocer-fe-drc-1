@@ -64,12 +64,6 @@ function ProductDetailsPage() {
     }
   };
 
-  // const [cartValues, updateCartValues] = useState({
-  //   user_id: userId.user_id,
-  //   product_id: "",
-  //   product_quantity: 0,
-  // });
-
   const [cartDiscountValues, updateDiscountCartValues] = useState({
     user_id: userId.user_id,
     discount_product_id: "",
@@ -211,7 +205,6 @@ function ProductDetailsPage() {
             ?.filter((list) => list.discount_product_name === product_name)
             .map((obj) => (
               <div>
-                {console.log(obj.discount_product_id)}
                 <div className="product-directory">
                   <p>{obj.discount_product_category}</p>
                 </div>

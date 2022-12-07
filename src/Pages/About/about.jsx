@@ -92,8 +92,8 @@ function AboutPage() {
                 <h4 className="second-name">Cheng</h4>
                 <h6>About</h6>
                 <p>
-                  Hello there! I'm Cheng, currently taking the roles as
-                  cyber-security engineer and backend engineer for this project.
+                  Hello there! I'm Cheng, currently taking the roles as Software
+                  Tester and Data Analyst for this project.
                 </p>
               </section>
             </section>
