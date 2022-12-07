@@ -62,9 +62,7 @@ async function GetUserAddress(user_id, address_id) {
       params: { user_id: user_id, address_id: address_id },
     });
     return response.data.result;
-  } catch (err) {
-    return err.response;
-  }
+  } catch (err) {}
 }
 
 async function CreateAddressFunc(
@@ -243,9 +241,7 @@ async function FetchTransaction(user_id) {
       //{ withCredentials: true }
     );
     return response.data.result;
-  } catch (err) {
-    return err.response;
-  }
+  } catch (err) {}
 }
 
 async function CheckoutProcess(user_id) {

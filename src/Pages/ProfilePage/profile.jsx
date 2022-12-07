@@ -20,7 +20,13 @@ function UserProfilePage() {
   const [profileDetails, setProfileDetails] = useState({});
 
   useEffect(() => {
-    GetUserAddress(userId.user_id).then(setAddressDetails);
+    GetUserAddress(userId.user_id).then((response) => {
+      if (!response) {
+        setAddressDetails([]);
+      } else {
+        setAddressDetails(response);
+      }
+    });
   }, [userId.user_id]);
 
   useEffect(() => {
@@ -31,9 +37,14 @@ function UserProfilePage() {
   const [transactionDetails, setTransactionDetails] = useState([]);
 
   useEffect(() => {
-    setTransactionDetails([]);
-    FetchTransaction(userId.user_id).then(setTransactionDetails);
-  }, []);
+    FetchTransaction(userId.user_id).then(async (response) => {
+      if (!response) {
+        setTransactionDetails([]);
+      } else {
+        setTransactionDetails(response);
+      }
+    });
+  }, [userId.user_id]);
 
   const logout = async () => {
     setAuth({});
@@ -96,7 +107,7 @@ function UserProfilePage() {
             </tr>
             <tr>
               <td className="user-name">
-                {profileDetails.first_name} {profileDetails.last_name}
+                {profileDetails?.first_name} {profileDetails?.last_name}
               </td>
               <td className="edit">
                 <a>
@@ -122,7 +133,7 @@ function UserProfilePage() {
               <td className="address">{addressDetails[0]?.state}</td>
             </tr>
             <tr>
-              <td>{profileDetails.email}</td>
+              <td>{profileDetails?.email}</td>
             </tr>
             <tr>
               <td className="view-address">
