@@ -64,12 +64,6 @@ function ProductDetailsPage() {
     }
   };
 
-  // const [cartValues, updateCartValues] = useState({
-  //   user_id: userId.user_id,
-  //   product_id: "",
-  //   product_quantity: 0,
-  // });
-
   const [cartDiscountValues, updateDiscountCartValues] = useState({
     user_id: userId.user_id,
     discount_product_id: "",
@@ -272,7 +266,7 @@ function ProductDetailsPage() {
                       <button
                         className="add-to-cart"
                         onClick={(e) => {
-                          handleCartSubmit(e, obj.discount_product_id);
+                          navigate("/maintenance");
                         }}
                       >
                         ADD TO CART
