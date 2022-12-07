@@ -13,7 +13,7 @@ import "./payment-success.css";
 
 function PaymentSuccessPage() {
   var shipping = 6.0;
-
+  const navigate = useNavigate();
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
   var sum = 0;
@@ -62,7 +62,7 @@ function PaymentSuccessPage() {
       <div className="payment-success-header">
         <h1>Payment Success!</h1>
         <div className="return">
-          <ArrowBackIosIcon />
+          <ArrowBackIosIcon onClick={() => navigate("/profile/addresses")} />
           <Link to={"/profile"} className="link-style">
             Return to Account Details
           </Link>

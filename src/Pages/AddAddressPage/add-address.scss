@@ -207,6 +207,7 @@
               line-height: 120%;
               &:hover {
                 color: $secondary-hover-color;
+                cursor: pointer;
               }
             }
 
@@ -271,6 +272,7 @@
     .return:hover,
     svg:hover {
       color: $primary-hover-dark-color;
+      cursor: pointer;
     }
   }
 }

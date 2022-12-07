@@ -113,7 +113,7 @@
             display: flex;
             flex-direction: row;
             justify-content: flex-end;
-            padding: 3rem 0 0 0;
+            padding: 2 0 0 0;
             gap: 3rem;
 
             .cancel-btn {
@@ -123,6 +123,11 @@
               font-weight: map-get($map: $font-weight, $key: "medium");
               font-size: 1rem;
               line-height: 120%;
+
+              &:hover {
+                cursor: pointer;
+                color: $secondary-color;
+              }
             }
 
             .update-address-btn {
@@ -206,6 +211,7 @@
     .return:hover,
     svg:hover {
       color: $primary-hover-dark-color;
+      cursor: pointer;
     }
 
     .back-btn {

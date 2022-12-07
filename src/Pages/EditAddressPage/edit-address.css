@@ -148,7 +148,7 @@ a:active {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding: 3rem 0 0 0;
+  padding: 2 0 0 0;
   gap: 3rem;
 }
 .edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .buttons .cancel-btn {
@@ -158,6 +158,10 @@ a:active {
   font-weight: 500;
   font-size: 1rem;
   line-height: 120%;
+}
+.edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .buttons .cancel-btn:hover {
+  cursor: pointer;
+  color: #ff8a65;
 }
 .edit-address-page-container .container-1 .edit-new-address-container .address-form-container .address-form-content .buttons .update-address-btn {
   background-color: #ff8a65;
@@ -228,6 +232,7 @@ a:active {
 .edit-address-page-container .navigation-buttons .return:hover,
 .edit-address-page-container .navigation-buttons svg:hover {
   color: #00796b;
+  cursor: pointer;
 }
 .edit-address-page-container .navigation-buttons .back-btn {
   display: flex;

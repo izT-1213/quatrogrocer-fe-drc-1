@@ -165,13 +165,14 @@ function EditProfilePage() {
   const validate = (values) => {
     const errors = {};
 
+    // if (values.first_name||values.last_name||values.email||values.oldpassword||values.password){
+
+    // }
     if (values.first_name) {
       if (!validator.isAlpha(values.first_name)) {
         errors.first_name = "*First name should contain only alphabets";
       } else if (validator.isEmpty(values.oldpassword)) {
         errors.oldpassword = "Please key in current password to update changes";
-      } else {
-        return true;
       }
     }
 
@@ -181,8 +182,6 @@ function EditProfilePage() {
       } else if (validator.isEmpty(values.oldpassword)) {
         errors.oldpassword =
           "*Please key in current password to update changes";
-      } else {
-        return true;
       }
     }
 
@@ -192,11 +191,9 @@ function EditProfilePage() {
       } else if (validator.isEmpty(values.oldpassword)) {
         errors.oldpassword =
           "*Please key in current password to update changes";
-      } else {
-        return true;
       }
     }
-    return errors;
+    return Object.keys(errors).length ? errors : true;
   };
 
   const handleClickShowPassword = () => {
@@ -218,6 +215,7 @@ function EditProfilePage() {
       </div>
       <div className="edit-account-details-container">
         <h6>Account Details</h6>
+        <p className="warning">Current password is required to save changes</p>
         <div className="edit-account-details-table-container">
           <table className="edit-account-details-table" id="table">
             <tr className="input-label">
@@ -299,7 +297,7 @@ function EditProfilePage() {
             <tr>
               <td className="left-column">
                 <Input
-                  type="string"
+                  type="email"
                   disableUnderline={true}
                   className="form-control-mt-1"
                   placeholder="Email"

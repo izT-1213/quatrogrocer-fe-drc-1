@@ -93,7 +93,7 @@ function EditAddressPage() {
               <form className="address-form" id="form">
                 <div className="address-line-container">
                   <div className="address-line-1">
-                    <label>Address Line 1</label>
+                    <label>Address Line 1*</label>
                     <Input
                       type="text"
                       disableUnderline={true}
@@ -111,7 +111,7 @@ function EditAddressPage() {
                   </div>
 
                   <div className="address-line-2">
-                    <label>Address Line 2</label>
+                    <label>Address Line 2*</label>
                     <Input
                       className="address-line-2"
                       type="text"
@@ -129,7 +129,7 @@ function EditAddressPage() {
                   </div>
 
                   <div className="address-line-3">
-                    <label>Address Line 3</label>
+                    <label>Address Line 3*</label>
                     <Input
                       className="address-line-3"
                       type="text"
@@ -148,7 +148,7 @@ function EditAddressPage() {
                 </div>
                 <div className="postcode-and-state-container">
                   <div className="postcode">
-                    <label>Postcode</label>
+                    <label>Postcode*</label>
                     <Input
                       maxLength={5}
                       className="postcode"
@@ -167,7 +167,7 @@ function EditAddressPage() {
                   </div>
 
                   <div className="state">
-                    <label>State</label>
+                    <label>State*</label>
                     <Input
                       className="state"
                       type="text"
@@ -236,7 +236,7 @@ function EditAddressPage() {
       </div>
       <div className="navigation-buttons">
         <div className="return">
-          <ArrowBackIosIcon />
+          <ArrowBackIosIcon onClick={() => navigate("/profile/addresses")} />
           <p onClick={() => navigate("/profile/addresses")}>
             Return to Shipping Details
           </p>

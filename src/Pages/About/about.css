@@ -124,8 +124,16 @@ a:active {
   box-shadow: 0 1.563rem 2.813rem -1.25rem rgba(255, 138, 101, 0.25), inset 0 0 7.5rem rgba(255, 138, 101, 0.45);
   width: 35%;
   flex: none;
+  height: 20rem;
   background-size: cover;
   background-position: center;
+}
+.about-page .developers-content img {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .about-page .developers-content .profile-image::before {
   content: "";
@@ -155,12 +163,14 @@ a:active {
           animation: nameEffect 1s cubic-bezier(0, 0.2, 0.4, 1);
   top: -115px;
   left: -65px;
+  text-shadow: white 1px 0 10px;
 }
 .about-page .developers-content .profile-info .second-name {
   -webkit-animation: nameEffect 1s cubic-bezier(0, 0, 0.3, 1);
           animation: nameEffect 1s cubic-bezier(0, 0, 0.3, 1);
   top: -50px;
   left: -25px;
+  text-shadow: white 1px 0 10px;
 }
 .about-page .developers-content .profile-info h6 {
   font-family: "Lexend Deca";

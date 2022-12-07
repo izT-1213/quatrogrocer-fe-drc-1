@@ -21,12 +21,21 @@ const Nav = () => {
     const regSearch = /[A-Za-z0-9]/;
     SearchProduct(products).then((response) => {
       console.log(response.length);
-      if (response.length === 0) {
-        navigate("/no-result", { state: { searchedTerm: products } });
-      } else if (!regSearch.test(products)) {
-        navigate(`/no-result`, { state: { searchedTerm: products } });
+
+      if (products) {
+        if (response.length === 0) {
+          navigate("/no-result", { state: { searchedTerm: products } });
+          setSearchVal("");
+        } else if (!regSearch.test(products)) {
+          navigate(`/no-result`, { state: { searchedTerm: products } });
+          setSearchVal("");
+        } else {
+          navigate(`/search-result/${products}`);
+          setSearchVal("");
+        }
       } else {
-        navigate(`/search-result/${products}`);
+        navigate(`/error`);
+        setSearchVal("");
       }
     });
   }

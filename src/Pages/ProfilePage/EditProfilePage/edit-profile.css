@@ -93,6 +93,12 @@ a:active {
   font-family: "Lexend Deca";
   padding: 2rem 0;
 }
+.edit-profile-page-container .edit-account-details-container p {
+  font: "Poppins";
+  font-size: 13px;
+  font-weight: bold;
+  color: #ff8a65;
+}
 .edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table {
   border-collapse: collapse;
   width: 100%;
@@ -133,6 +139,46 @@ a:active {
   width: 100%;
   font-size: 1rem;
   padding: 0.375rem;
+}
+.edit-profile-page-container .address-details-container {
+  grid-area: right;
+  padding: 0.625rem 0.625rem 0.625rem 3.125rem;
+}
+.edit-profile-page-container .address-details-container h6 {
+  font-family: "Lexend Deca";
+  padding: 2rem 0;
+}
+.edit-profile-page-container .address-details-container .address-details-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.edit-profile-page-container .address-details-container .address-details-table th {
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  text-align: left;
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 120%;
+}
+.edit-profile-page-container .address-details-container .address-details-table td {
+  padding: 0.375rem 0rem;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  /* or 17px */
+}
+.edit-profile-page-container .address-details-container .address-details-table .address {
+  padding: 0.188rem 0rem;
+}
+.edit-profile-page-container .address-details-container .address-details-table .view-address {
+  padding: 0.813rem 0rem;
+}
+.edit-profile-page-container .address-details-container .address-details-table .view-address-link {
+  color: black;
 }
 .edit-profile-page-container .confirmMsg p {
   font: "Poppins";
@@ -198,5 +244,9 @@ a:active {
 @media screen and (max-width: 961px) {
   .edit-profile-page-container {
     padding: 2.188rem 2rem;
+  }
+  .edit-profile-page-container .address-details-container {
+    grid-area: right;
+    padding: 0.625rem 0 0.625rem 3.125rem;
   }
 }/*# sourceMappingURL=edit-profile.css.map */
