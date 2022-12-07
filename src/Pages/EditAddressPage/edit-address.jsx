@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Input from "@material-ui/core/Input";
@@ -20,8 +20,32 @@ function EditAddressPage() {
     GetUserAddress(userId.user_id, addId).then(setAddressDetails);
   }, []);
 
+  const [errMsg, setErrMsg] = useState("");
+  const errRef = useRef();
+
+  useEffect(() => {
+    setErrMsg("");
+  }, [
+    addressValues.address_line_1,
+    addressValues.address_line_2,
+    addressValues.address_line_3,
+    addressValues.postcode,
+    addressValues.state,
+  ]);
+
+  const [updatedMsg, setUpdatedMsg] = useState("");
+
+  useEffect(() => {
+    setUpdatedMsg("");
+  }, [
+    addressValues.address_line_1,
+    addressValues.address_line_2,
+    addressValues.address_line_3,
+    addressValues.postcode,
+    addressValues.state,
+  ]);
+
   const editAddress = async (e) => {
-    console.log(addId);
     e.preventDefault();
 
     const message = await UpdateAddressFunc(
@@ -34,22 +58,23 @@ function EditAddressPage() {
       addressValues.address_line_3
         ? addressValues.address_line_3.toString()
         : addressDetails.address_line_3,
-      addressValues.postcode ? addressValues.postcode : addressDetails.postcode,
+      addressValues.postcode
+        ? addressValues.postcode.toString()
+        : addressDetails.postcode,
       addressValues.state
         ? addressValues.state.toString()
         : addressDetails.state,
       addId
     );
-    console.log(message);
 
     if (message === 200) {
+      alert("Address has been successfully edited.");
       navigate("/profile/addresses");
+    } else {
+      setErrMsg(message.error);
+      setUpdatedMsg("");
     }
   };
-
-  function clearInput() {
-    document.getElementById("form").reset();
-  }
 
   return (
     <div className="edit-address-page-container">
@@ -58,13 +83,13 @@ function EditAddressPage() {
           <h3>My Account</h3>
         </div>
         <div className="edit-new-address-container">
-          <p>Edit Address</p>
+          <h6>Edit Address</h6>
           <div className="address-form-container">
             <div className="address-form-content">
               <form className="address-form" id="form">
                 <div className="address-line-container">
                   <div className="address-line-1">
-                    <label>Address Line 1</label>
+                    <label>Address Line 1*</label>
                     <Input
                       type="text"
                       disableUnderline={true}
@@ -82,7 +107,7 @@ function EditAddressPage() {
                   </div>
 
                   <div className="address-line-2">
-                    <label>Address Line 2</label>
+                    <label>Address Line 2*</label>
                     <Input
                       className="address-line-2"
                       type="text"
@@ -100,7 +125,7 @@ function EditAddressPage() {
                   </div>
 
                   <div className="address-line-3">
-                    <label>Address Line 3</label>
+                    <label>Address Line 3*</label>
                     <Input
                       className="address-line-3"
                       type="text"
@@ -119,8 +144,9 @@ function EditAddressPage() {
                 </div>
                 <div className="postcode-and-state-container">
                   <div className="postcode">
-                    <label>Postcode</label>
+                    <label>Postcode*</label>
                     <Input
+                      maxLength={5}
                       className="postcode"
                       type="text"
                       disableUnderline={true}
@@ -137,7 +163,7 @@ function EditAddressPage() {
                   </div>
 
                   <div className="state">
-                    <label>State</label>
+                    <label>State*</label>
                     <Input
                       className="state"
                       type="text"
@@ -154,20 +180,48 @@ function EditAddressPage() {
                     />
                   </div>
                 </div>
-                {/* <label class="default">
-                  <input class="checkbox" id="input" type="checkbox" />
-                  <span class="checkmark"></span>
-                  Set as default address
-                </label> */}
               </form>
+              <div className="errMsg">
+                {errMsg && (
+                  <p
+                    ref={errRef}
+                    className={errMsg ? "errmsg" : "offscreen"}
+                    aria-live="assertive"
+                  >
+                    {errMsg}
+                  </p>
+                )}
+              </div>
+              <div className="updatedMsg">
+                {updatedMsg && (
+                  <p
+                    className={updatedMsg ? "errmsg" : "offscreen"}
+                    aria-live="assertive"
+                  >
+                    {updatedMsg}
+                  </p>
+                )}
+              </div>
               <div className="buttons">
-                <button className="cancel-btn" onClick={() => clearInput}>
+                <button
+                  className="cancel-btn"
+                  onClick={() => navigate("/profile/addresses")}
+                >
                   Cancel
                 </button>
                 <button
                   className="update-address-btn"
                   type="submit"
                   onClick={editAddress}
+                  disabled={
+                    addressValues.address_line_1 &&
+                    addressValues.address_line_2 &&
+                    addressValues.address_line_3 &&
+                    addressValues.postcode &&
+                    addressValues.state
+                      ? false
+                      : true
+                  }
                 >
                   Update Address
                 </button>
@@ -178,7 +232,7 @@ function EditAddressPage() {
       </div>
       <div className="navigation-buttons">
         <div className="return">
-          <ArrowBackIosIcon />
+          <ArrowBackIosIcon onClick={() => navigate("/profile/addresses")} />
           <p onClick={() => navigate("/profile/addresses")}>
             Return to Shipping Details
           </p>

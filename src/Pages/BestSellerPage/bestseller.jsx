@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
 import { FetchProduct } from "../../function";
 import { AddShoppingCart } from "@mui/icons-material";
@@ -18,26 +18,12 @@ function BestSellerPage() {
     FetchProduct(products).then(setProductDetails);
   }, [products]);
 
-  const notify = () => {
-    toast.success("Item added to cart! 🛒", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
-
   function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   const HorCardContainer = () => (
     <div className="horizontal-cards-container">
-      {/* mapping api products */}
       {productDetails
         ?.slice((i = randomInteger(1, 93)), i + 8)
         .map(function (key, index) {
@@ -87,7 +73,9 @@ function BestSellerPage() {
                   <button className="add-to-cart-btn">
                     <AddShoppingCart
                       className="cart-icon"
-                      onClick={notify}
+                      onClick={() => {
+                        navigate(`/product-details/${key.product_name}`);
+                      }}
                       key={index}
                     />
                   </button>

@@ -14,28 +14,14 @@ function SearchResult() {
   const navigate = useNavigate();
   const { product_name } = useParams();
   const [searchedProducts, setSearchedProducts] = useState([]);
+
   useEffect(() => {
-    setSearchedProducts([]);
     SearchProduct(product_name).then(setSearchedProducts);
   }, [product_name]);
 
-  //pagination
   const [perPage, setPerPage] = useState(8);
   const [size, setSize] = useState(perPage);
   const [current, setCurrent] = useState(1);
-
-  const notify = () => {
-    toast.success("Item added to cart! 🛒", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
 
   const PerPageChange = (value) => {
     setSize(value);
@@ -46,7 +32,6 @@ function SearchResult() {
   };
 
   const getData = (current, pageSize) => {
-    // Normally you should get the data from the server
     return searchedProducts.slice((current - 1) * pageSize, current * pageSize);
   };
 
@@ -103,7 +88,12 @@ function SearchResult() {
                 <p className="RM">RM</p> {data.product_price.toFixed(2)}
               </p>
               <div className="button-container">
-                <button className="add-to-cart-btn" onClick={notify}>
+                <button
+                  className="add-to-cart-btn"
+                  onClick={() => {
+                    navigate(`/product-details/${data.product_name}`);
+                  }}
+                >
                   <AddShoppingCart className="cart-icon" key={index} />
                 </button>
               </div>

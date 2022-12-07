@@ -24,19 +24,6 @@ function MarketplacePage() {
   const [productDetails, setProductDetails] = useState([]);
   const { products } = useParams();
 
-  const notify = () => {
-    toast.success("Item added to cart! 🛒", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
-
   useEffect(() => {
     setProductDetails([]);
     FetchProduct(products).then(setProductDetails);
@@ -51,7 +38,6 @@ function MarketplacePage() {
   };
 
   const getData = (current, pageSize) => {
-    // Normally you should get the data from the server
     return productDetails.slice((current - 1) * pageSize, current * pageSize);
   };
 
@@ -109,7 +95,12 @@ function MarketplacePage() {
                 <p className="RM">RM</p> {data.product_price.toFixed(2)}
               </p>
               <div className="button-container">
-                <button className="add-to-cart-btn" onClick={notify}>
+                <button
+                  className="add-to-cart-btn"
+                  onClick={() => {
+                    navigate(`/product-details/${data.product_name}`);
+                  }}
+                >
                   <AddShoppingCart className="cart-icon" key={index} />
                 </button>
               </div>

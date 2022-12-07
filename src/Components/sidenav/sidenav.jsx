@@ -8,7 +8,7 @@ function SideNav() {
   return (
     <div className="side-nav">
       <div className="side-nav-title">
-        <h4>Category</h4>
+        <h4>Categories</h4>
       </div>
       <div className="category-list">
         <ul>
@@ -113,6 +113,15 @@ function SideNav() {
             }
           >
             Pet Food
+          </li>
+          <li
+            onClick={() =>
+              navigate("/category/sauce-dressing", {
+                state: { category: "Sauce Dressing" },
+              })
+            }
+          >
+            Sauce & Dressing
           </li>
           <li
             onClick={() =>

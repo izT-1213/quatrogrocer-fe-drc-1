@@ -12,25 +12,10 @@ import Pagination from "rc-pagination";
 
 function DealsPromotionsPage() {
   const navigate = useNavigate();
-
-  // Pagination
   const [perPage, setPerPage] = useState(8);
   const [size, setSize] = useState(perPage);
   const [current, setCurrent] = useState(1);
   const [productDetails, setProductDetails] = useState([]);
-
-  const notify = () => {
-    toast.success("Item added to cart! 🛒", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
 
   useEffect(() => {
     setProductDetails([]);
@@ -46,7 +31,6 @@ function DealsPromotionsPage() {
   };
 
   const getData = (current, pageSize) => {
-    // Normally you should get the data from the server
     return productDetails.slice((current - 1) * pageSize, current * pageSize);
   };
 
@@ -104,7 +88,12 @@ function DealsPromotionsPage() {
                 {data.discount_product_price.toFixed(2)}
               </p>
               <div className="button-container">
-                <button className="add-to-cart-btn" onClick={notify}>
+                <button
+                  className="add-to-cart-btn"
+                  onClick={() => {
+                    navigate(`/product-details/${data.discount_product_name}`);
+                  }}
+                >
                   <AddShoppingCart className="cart-icon" key={index} />
                 </button>
               </div>
@@ -117,7 +106,6 @@ function DealsPromotionsPage() {
 
   return (
     <div>
-      {console.log(productDetails)}
       <div className="deals-promotions-page">
         <div className="deals-promotions-section">
           <div className="deals-promotions-title">

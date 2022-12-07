@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import { TextField, FormControl, Select, MenuItem } from "@mui/material";
@@ -14,7 +14,6 @@ function SignUpPage() {
   const color = "#009688";
   const navigate = useNavigate();
 
-  //email and password variables
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -25,10 +24,8 @@ function SignUpPage() {
     showPassword: false,
   });
 
-  //dob
   const [dob, setDOB] = useState(dayjs(""));
 
-  //to catch error message
   const [errMsg, setErrMsg] = useState("");
   const userRef = useRef();
   const errRef = useRef();
@@ -68,9 +65,9 @@ function SignUpPage() {
     );
 
     if (message === undefined) {
-      navigate("/");
+      alert("You have registered an account. Please login to proceed.");
+      navigate("/login");
     } else {
-      console.log(message);
       setErrMsg(message.error);
     }
   };
@@ -90,24 +87,22 @@ function SignUpPage() {
                 <tr>
                   <td className="left-col">
                     <Input
-                      type="string"
+                      type="first-name"
                       disableUnderline={true}
                       className="form-control-mt-1"
                       placeholder="John"
                       required={true}
-                      //fname
                       value={values.firstName}
                       onChange={handleValueChange("firstName")}
                     />
                   </td>
                   <td className="right-col">
                     <Input
-                      type="string"
+                      type="last-name"
                       disableUnderline={true}
                       className="form-control-mt-1"
                       placeholder="Doe"
                       required={true}
-                      //lname
                       value={values.lastName}
                       onChange={handleValueChange("lastName")}
                     />
@@ -120,14 +115,14 @@ function SignUpPage() {
                 <tr>
                   <td className="left-col">
                     <div>
-                      {" "}
                       <FormControl fullWidth>
                         <Select
                           variant="standard"
-                          labelId="demo-simple-select-label"
+                          labelId="gender-dropdown-list"
                           className="form-control-mt-1"
+                          placeholder="Select Gender"
                           disableUnderline={true}
-                          id="demo-simple-select"
+                          id="gender-dropdown-menu"
                           value={values.gender}
                           onChange={handleValueChange("gender")}
                           required={true}
@@ -142,30 +137,22 @@ function SignUpPage() {
                   <td className="right-col">
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <DesktopDatePicker
+                        id="date-of-birth"
                         className="form-control-mt-1"
                         InputProps={{ disableUnderline: true }}
                         inputFormat="MM/DD/YYYY"
                         value={dob}
                         onChange={handleDOBChange}
                         required={true}
-                        // PaperProps={{
-                        //   sx: {
-                        //     "& .MuiPickersDay-root": {
-                        //       "&.Mui-selected": {
-                        //         backgroundColor: { backgroundColor: color },
-                        //       },
-                        //     },
-                        //     "& .MuiPickersMonth-root": {
-                        //       "&.Mui-selected": {
-                        //         backgroundColor: { backgroundColor: color },
-                        //       },
-                        //     },
-                        //   },
-                        // }}
+                        disableFuture={true}
                         renderInput={(params) => (
                           <TextField
                             variant="standard"
                             {...params}
+                            inputProps={{
+                              ...params.inputProps,
+                              readOnly: true,
+                            }}
                             sx={{ button: { color } }}
                           />
                         )}
@@ -184,6 +171,7 @@ function SignUpPage() {
                   disableUnderline={true}
                   ref={userRef}
                   className="form-control-mt-2"
+                  placeholder="example@email.com"
                   required={true}
                   value={values.email}
                   onChange={handleValueChange("email")}
@@ -222,10 +210,8 @@ function SignUpPage() {
                   onClick={handleClickTnC}
                 />
                 <span className="checkmark"></span> I agree to{" "}
-                <a>
-                  <Link to="/" className="tnc-link">
-                    Terms & Conditions
-                  </Link>
+                <a onClick={() => navigate("/maintenance")}>
+                  <Link className="tnc-link">Terms & Conditions</Link>
                 </a>
               </label>
               <div className="errMsg">
@@ -243,7 +229,7 @@ function SignUpPage() {
               <div className="d-grid-gap-2-mt-3">
                 <button
                   type="submit"
-                  className="signup-signin-btn"
+                  className="signup-btn"
                   disabled={
                     values.email &&
                     values.password &&
@@ -306,7 +292,10 @@ function SignUpPage() {
         </div>
       </div>
       <div className="signup-image-container">
-        <img src="https://images.unsplash.com/photo-1601057366047-ec734881239b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+        <img
+          src="https://images.unsplash.com/photo-1601057366047-ec734881239b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+          alt=""
+        />
       </div>
     </div>
   );

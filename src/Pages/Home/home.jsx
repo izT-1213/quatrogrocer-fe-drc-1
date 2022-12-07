@@ -18,7 +18,6 @@ import "./home.css";
 
 function Home() {
   const { loggedIn } = useContext(AuthContext);
-  console.log(loggedIn);
   const navigate = useNavigate();
   var i = 0;
 
@@ -47,8 +46,6 @@ function Home() {
         theme: "light",
       });
     }
-    // if (!toast.isActive(toastId.current)) {
-    //   toastId.current =
   };
 
   //need to do function to map api product here
@@ -82,9 +79,8 @@ function Home() {
               <div className="button-container">
                 <button
                   className="add-to-cart-btn"
-                  onClick={(e) => {
-                    notify();
-                    e.preventDefault();
+                  onClick={() => {
+                    navigate(`/product-details/${key.product_name}`);
                   }}
                 >
                   <AddShoppingCart className="cart-icon" key={index} />
@@ -122,7 +118,12 @@ function Home() {
               <text className="RM">RM</text> {key.product_price.toFixed(2)}
             </p>
             <div className="button-container">
-              <button className="add-to-cart-btn" onClick={notify}>
+              <button
+                className="add-to-cart-btn"
+                onClick={() => {
+                  navigate(`/product-details/${key.product_name}`);
+                }}
+              >
                 <AddShoppingCart className="cart-icon" key={index} />
               </button>
             </div>
@@ -184,7 +185,12 @@ function Home() {
                     {key.product_price.toFixed(2)}
                   </p>
                   <div className="button-container">
-                    <button className="add-to-cart-btn" onClick={notify}>
+                    <button
+                      className="add-to-cart-btn"
+                      onClick={() => {
+                        navigate(`/product-details/${key.product_name}`);
+                      }}
+                    >
                       <AddShoppingCart className="cart-icon" key={index} />
                     </button>
                   </div>

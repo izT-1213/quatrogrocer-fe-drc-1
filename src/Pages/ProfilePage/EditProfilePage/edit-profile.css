@@ -59,12 +59,12 @@ a:active {
 }
 
 .edit-profile-page-container {
-  padding: 2.188rem 19.5rem;
+  padding: 2.5rem 18rem;
   display: grid;
   grid-template: "header return-cont" "main right" "button button";
 }
-.edit-profile-page-container .profile-page-header h1 {
-  font-size: 2.75rem;
+.edit-profile-page-container .profile-page-header h3 {
+  font-family: "Lexend Deca";
 }
 .edit-profile-page-container .return {
   grid-area: return-cont;
@@ -75,21 +75,29 @@ a:active {
   font-size: 1rem;
   font-weight: 500;
   line-height: 120%;
+  cursor: pointer;
 }
 .edit-profile-page-container .return svg {
   font-size: 1.25rem;
   align-items: center;
 }
-.edit-profile-page-container .return:hover {
+.edit-profile-page-container .return:hover,
+.edit-profile-page-container svg:hover {
   color: #00796b;
 }
 .edit-profile-page-container .edit-account-details-container {
   grid-area: main;
   padding: 0.625rem 0.625rem 0.625rem 0rem;
 }
-.edit-profile-page-container .edit-account-details-container h3 {
-  font-size: 1.875rem;
+.edit-profile-page-container .edit-account-details-container h6 {
+  font-family: "Lexend Deca";
   padding: 2rem 0;
+}
+.edit-profile-page-container .edit-account-details-container p {
+  font: "Poppins";
+  font-size: 13px;
+  font-weight: bold;
+  color: #ff8a65;
 }
 .edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table {
   border-collapse: collapse;
@@ -107,14 +115,14 @@ a:active {
   font-weight: bold;
   color: #f04438;
 }
-.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .msg {
+.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .confirmMsg {
   padding: 1.5rem 0 0 0;
 }
-.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .msg p {
+.edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .confirmMsg p {
   font: "Poppins";
   font-size: 17px;
   font-weight: bold;
-  color: #009688;
+  color: #ff8a65;
 }
 .edit-profile-page-container .edit-account-details-container .edit-account-details-table-container .edit-account-details-table .left-column {
   padding: 0.625rem 5% 0 0;
@@ -136,8 +144,8 @@ a:active {
   grid-area: right;
   padding: 0.625rem 0.625rem 0.625rem 3.125rem;
 }
-.edit-profile-page-container .address-details-container h3 {
-  font-size: 1.875rem;
+.edit-profile-page-container .address-details-container h6 {
+  font-family: "Lexend Deca";
   padding: 2rem 0;
 }
 .edit-profile-page-container .address-details-container .address-details-table {
@@ -171,6 +179,12 @@ a:active {
 }
 .edit-profile-page-container .address-details-container .address-details-table .view-address-link {
   color: black;
+}
+.edit-profile-page-container .confirmMsg p {
+  font: "Poppins";
+  font-size: 17px;
+  font-weight: bold;
+  color: #ff8a65;
 }
 .edit-profile-page-container .buttons-container {
   display: flex;
@@ -211,6 +225,12 @@ a:active {
   line-height: 120%;
   color: #ffffff;
 }
+.edit-profile-page-container .buttons-container .submit-button-container .submit-edit:disabled,
+.edit-profile-page-container .buttons-container .submit-button-container .submit-edit button[disabled] {
+  background-color: #9e9e9e;
+  color: #666666;
+  pointer-events: none;
+}
 .edit-profile-page-container .buttons-container .submit-button-container .submit-edit:hover {
   background-color: #ff5722;
 }
@@ -224,5 +244,9 @@ a:active {
 @media screen and (max-width: 961px) {
   .edit-profile-page-container {
     padding: 2.188rem 2rem;
+  }
+  .edit-profile-page-container .address-details-container {
+    grid-area: right;
+    padding: 0.625rem 0 0.625rem 3.125rem;
   }
 }/*# sourceMappingURL=edit-profile.css.map */

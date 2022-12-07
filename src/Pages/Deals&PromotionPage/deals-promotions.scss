@@ -9,7 +9,7 @@
 }
 
 .deals-promotions-page {
-  height: 75rem;
+  height: 100%;
   padding: 0 18rem;
 }
 
@@ -61,6 +61,8 @@
 
   .deals-promotions-section {
     .product-cards {
+      height: 100%;
+
       .medium-horizontal-cards-container {
         .card-container {
           .medium-horizontal-card {

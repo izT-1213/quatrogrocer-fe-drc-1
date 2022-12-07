@@ -37,7 +37,7 @@ p {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    width: 49.6vw;
+    width: 100%;
 
     .login-container-content {
       justify-content: center;
@@ -168,7 +168,7 @@ p {
           padding: 1.5rem 0;
         }
 
-        .signup-login-btn {
+        .login-btn {
           font-family: $primary-fonts;
           font-size: 1rem;
           font-weight: map-get($map: $font-weight, $key: "medium");
@@ -203,8 +203,10 @@ p {
 @media screen and (max-width: 961px) {
   .login-page-container {
     .login-container {
+      width: 100%;
+
       .login-container-content {
-        width: 26rem;
+        width: 25rem;
         height: 36rem;
         padding: 2rem;
 
@@ -213,13 +215,8 @@ p {
             font-size: 2rem;
           }
 
-          .line-or-box {
-            width: 90%;
-            margin: 0;
-          }
-
           .line-1 {
-            width: 112px;
+            width: 140px;
           }
 
           .login-apps {
@@ -230,7 +227,7 @@ p {
 
           .form-control-mt-1,
           .signup-login-btn {
-            width: 90%;
+            width: 100%;
           }
         }
       }

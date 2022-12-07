@@ -21,12 +21,16 @@ function YourShippingAddressPage() {
   const [profileDetails, setProfileDetails] = useState({});
 
   useEffect(() => {
-    setAddressDetails([]);
-    GetUserAddress(userId.user_id).then(setAddressDetails);
+    GetUserAddress(userId.user_id).then((response) => {
+      if (response.length === undefined) {
+        navigate("/add-address");
+      } else {
+        setAddressDetails(response);
+      }
+    });
   }, [userId.user_id]);
 
   useEffect(() => {
-    setProfileDetails({});
     FetchUser(userId.user_id).then(setProfileDetails);
   }, [userId.user_id]);
 
@@ -49,7 +53,6 @@ function YourShippingAddressPage() {
             {addressDetails?.map(function (key, index) {
               return (
                 <div className="address-card-container" key={key}>
-                  {console.log(addressDetails[index]?.address_id)}
                   {index === 0 ? (
                     <div>
                       <h6>Primary address</h6>
@@ -71,9 +74,6 @@ function YourShippingAddressPage() {
                   <p className="address">{addressDetails[index]?.state}</p>
                   <br />
                   <div className="links">
-                    {/* <Link to="/edit-address" className="edit-link">
-                      Edit
-                    </Link> */}
                     <p
                       className="edit-link"
                       onClick={() =>
@@ -92,14 +92,12 @@ function YourShippingAddressPage() {
                       className="delete-btn"
                       onClick={async (e) => {
                         const delConfirm = window.confirm(
-                          "Are you sure you want to click this card?"
+                          "Do you want to delete the adress?"
                         );
-                        console.log(delConfirm);
                         if (delConfirm === true) {
                           const message = await DeleteAddressFunc(
                             addressDetails[index]?.address_id
                           );
-                          console.log(message);
                           if (message === 200) {
                             navigate("/profile");
                           }
@@ -108,10 +106,6 @@ function YourShippingAddressPage() {
                     >
                       Delete
                     </p>
-
-                    {/* <Link to="/delete-address" className="delete-btn">
-                      Delete
-                    </Link> */}
                   </div>
                 </div>
               );
@@ -122,7 +116,7 @@ function YourShippingAddressPage() {
 
       <div className="navigation-buttons">
         <div className="return">
-          <ArrowBackIosIcon />
+          <ArrowBackIosIcon onClick={() => navigate("/profile")} />
           <p onClick={() => navigate("/profile")}>Return to Account Details</p>
         </div>
 
@@ -133,13 +127,6 @@ function YourShippingAddressPage() {
           <AiOutlinePlusCircle />
           Add New Address
         </button>
-
-        {/* <button className="add-address-btn">
-          <Link to="/add-address" className="add-address-link">
-            <AiOutlinePlusCircle />
-            Add New Address
-          </Link>
-        </button> */}
       </div>
     </div>
   );

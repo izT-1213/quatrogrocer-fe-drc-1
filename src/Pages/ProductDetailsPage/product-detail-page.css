@@ -391,7 +391,6 @@ a:active {
 
 @media screen and (max-width: 961px) {
   .item-details-page-container {
-    height: 90rem;
     padding: 0 2rem;
   }
   .item-details-page-container .above-container .item-info-container {

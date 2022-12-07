@@ -59,8 +59,8 @@ a:active {
 }
 
 .add-address-page-container {
-  height: 50rem;
-  padding: 2.5rem 19.5rem;
+  height: 46rem;
+  padding: 2.5rem 18rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -76,17 +76,14 @@ a:active {
   display: flex;
   flex-direction: column;
 }
-.add-address-page-container .container-1 .add-new-address-container p {
+.add-address-page-container .container-1 .add-new-address-container h6 {
   font-family: "Lexend Deca";
-  font-weight: 600;
-  font-size: 1.875rem;
-  line-height: 120%;
   padding: 0 0 2rem 0;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container {
   background: #ffffff;
   width: 540px;
-  height: 440px;
+  height: 500px;
   box-shadow: 0px 8px 16px -4px rgba(16, 24, 40, 0.04), 0px 4px 8px -2px rgba(16, 24, 40, 0.04);
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content {
@@ -202,6 +199,24 @@ a:active {
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
 }
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .errMsg {
+  padding: 1rem 0 0 0;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .errMsg p {
+  font: "Lexend Deca";
+  font-size: 12px;
+  font-weight: bold;
+  color: #f04438;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .updatedMsg {
+  padding: 1rem 0 0 0;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .updatedMsg p {
+  font: "Lexend Deca";
+  font-size: 12px;
+  font-weight: bold;
+  color: #009688;
+}
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons {
   display: flex;
   flex-direction: row;
@@ -219,6 +234,7 @@ a:active {
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .cancel-btn:hover {
   color: #ff5722;
+  cursor: pointer;
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn {
   background-color: #ff8a65;
@@ -239,6 +255,12 @@ a:active {
 }
 .add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn:hover {
   background-color: #ff5722;
+}
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn:disabled,
+.add-address-page-container .container-1 .add-new-address-container .address-form-container .address-form-content .buttons .add-address-btn button[disabled] {
+  background-color: #9e9e9e;
+  color: #666666;
+  pointer-events: none;
 }
 .add-address-page-container .navigation-container {
   justify-items: flex-end;
@@ -264,10 +286,20 @@ a:active {
 .add-address-page-container .navigation-container .return:hover,
 .add-address-page-container .navigation-container svg:hover {
   color: #00796b;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 1105px) {
+@media screen and (max-width: 961px) {
   .add-address-page-container {
     padding: 2.5rem 2rem;
+  }
+  .add-address-page-container .container-1 .my-account-header h3 {
+    font-size: 2.25rem;
+  }
+  .add-address-page-container .container-1 .add-new-address-container h6 {
+    font-size: 1.25rem;
+  }
+  .add-address-page-container .navigation-container {
+    padding-top: 1rem;
   }
 }/*# sourceMappingURL=add-address.css.map */

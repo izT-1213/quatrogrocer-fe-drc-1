@@ -60,7 +60,7 @@ p {
           }
 
           .right-col-line-1 {
-            padding: 0 0 0.25rem 0.625rem;
+            padding: 0 0 0.25rem 0.9rem;
           }
 
           .left-col-line-2 {
@@ -68,7 +68,7 @@ p {
           }
 
           .right-col-line-2 {
-            padding: 1rem 0 0.25rem 0.625rem;
+            padding: 1rem 0 0.25rem 0.9rem;
           }
 
           .left-col {
@@ -121,7 +121,7 @@ p {
           padding: 1.5rem 0;
         }
 
-        .signup-signin-btn {
+        .signup-btn {
           font-family: $primary-fonts;
           font-weight: map-get($map: $font-weight, $key: "medium");
           font-size: 1rem;
@@ -253,7 +253,7 @@ p {
           height: 18px;
           width: 18px;
           border: 0.125rem solid $primary-color;
-          border-radius: 4px;
+          border-radius: 2px;
         }
 
         .checkmark:after {
@@ -311,8 +311,8 @@ p {
   .sign-up-page-container {
     .sign-up-container {
       .sign-up-container-content {
-        width: 26rem;
-        height: 43.75rem;
+        width: 25rem;
+        height: 42rem;
         padding: 2rem;
 
         .sign-up-form-content {
@@ -320,13 +320,8 @@ p {
             font-size: 2rem;
           }
 
-          .line-or-box {
-            width: 90%;
-            margin: 0;
-          }
-
           .line-1 {
-            width: 130px;
+            width: 140px;
           }
 
           .login-apps {
@@ -336,6 +331,10 @@ p {
           }
         }
       }
+    }
+
+    .signup-image-container {
+      width: 100%;
     }
   }
 }

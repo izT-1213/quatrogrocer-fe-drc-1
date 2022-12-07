@@ -15,12 +15,11 @@ function UserProfilePage() {
   const jwtToken = useContext(AuthContext).auth?.token;
   const userId = jwt_decode(jwtToken);
 
-  const [addressDetails, setAddressDetails] = useState({});
+  const [addressDetails, setAddressDetails] = useState([]);
 
   const [profileDetails, setProfileDetails] = useState({});
 
   useEffect(() => {
-    setAddressDetails({});
     GetUserAddress(userId.user_id).then(setAddressDetails);
   }, [userId.user_id]);
 
@@ -40,16 +39,17 @@ function UserProfilePage() {
     setAuth({});
     navigate("/");
   };
+
   return (
     <div className="profile-page-container">
       <div className="profile-page-header">
-        <h1>My Account</h1>
+        <h3>My Account</h3>
       </div>
       <div className="logout">
-        <p onClick={logout}>Log out</p>
+        <p onClick={logout}>Log Out</p>
       </div>
       <div className="order-history-container">
-        <h3>Order history</h3>
+        <h6>Order history</h6>
         <div className="order-history-table-container">
           <table className="order-history-table">
             <thead>
@@ -61,38 +61,35 @@ function UserProfilePage() {
                 <th>Total</th>
               </tr>
             </thead>
-            {transactionDetails?.map((v, i) => (
-              <tr key={i}>
-                <td>{transactionDetails[i]?.product_name}</td>
-                <td>{transactionDetails[i]?.product_quantity}</td>
-                <td>RM{transactionDetails[i]?.product_price}</td>
-                <td>
-                  {new Date(
-                    transactionDetails[i]?.transaction_timestamp
-                  ).toLocaleString()}
-                </td>
-                <td>RM{transactionDetails[i]?.transaction_total}</td>
-              </tr>
-            ))}
-            {/* <tr>
-                <td>{transactionDetails[0]?.product_name}</td>
-                <td>{transactionDetails[0]?.product_quantity}</td>
-                <td>RM{transactionDetails[0]?.product_price}</td>
-                <td>{transactionDetails[0]?.transaction_timestamp}</td>
-                <td>RM{transactionDetails[0]?.transaction_total}</td>
-              </tr> */}
+            <tbody>
+              {transactionDetails?.map((v, i) => (
+                <tr key={i}>
+                  <td>{transactionDetails[i]?.product_name}</td>
+                  <td>{transactionDetails[i]?.product_quantity}</td>
+                  <td>RM{transactionDetails[i]?.product_price.toFixed(2)}</td>
+                  <td>
+                    {new Date(
+                      transactionDetails[i]?.transaction_timestamp
+                    ).toLocaleString()}
+                  </td>
+                  <td>
+                    RM{transactionDetails[i]?.transaction_total.toFixed(2)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
         </div>
       </div>
       <div className="account-details-container">
-        <h3>Account Details</h3>
+        <h6>Account Details</h6>
         <div>
           <table className="account-details-table">
             <tr>
               <th>
                 Available credits:<text className="RM">RM</text>
                 <text className="credit-value">
-                  {profileDetails.user_credit}
+                  {profileDetails?.user_credit?.toFixed(2)}
                 </text>
               </th>
               <th></th>
@@ -130,9 +127,22 @@ function UserProfilePage() {
             <tr>
               <td className="view-address">
                 <a>
-                  <Link to="/profile/addresses" className="view-address-link">
-                    View Addresses [{addressDetails.length}]
-                  </Link>
+                  <p
+                    className="view-address-link"
+                    onClick={() => {
+                      if (addressDetails.length === undefined) {
+                        navigate("/add-address");
+                      } else if (addressDetails.length !== undefined) {
+                        navigate("/profile/addresses");
+                      }
+                    }}
+                  >
+                    View Addresses [
+                    {addressDetails.length === undefined
+                      ? 0
+                      : addressDetails.length}
+                    ]
+                  </p>
                 </a>
               </td>
             </tr>

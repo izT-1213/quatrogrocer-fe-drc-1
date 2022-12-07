@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-//import { useForm } from "react-hook-form";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { IconButton, InputAdornment, Input } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
@@ -9,11 +8,10 @@ import useAuth from "../../Components/context/useAuth.js";
 import "../Login/login.css";
 
 function LoginPage() {
-  const navigate = useNavigate(); // <-- to navigate to profile page
+  const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  // email and password variables
   const [emailLogin, setEmailLogin] = useState("");
   const [values, setValues] = useState({
     password: "",
@@ -21,7 +19,7 @@ function LoginPage() {
   });
   const { setAuth } = useAuth();
 
-  const [errMsg, setErrMsg] = useState(""); // <-- to catch error message(?)
+  const [errMsg, setErrMsg] = useState("");
 
   const userRef = useRef();
   const errRef = useRef();
@@ -38,18 +36,15 @@ function LoginPage() {
     e.preventDefault();
     const passwd = values.password.toString();
     const message = await LoginFunc(emailLogin, passwd);
-    console.log(message);
     const token = message?.data?.userJwt;
     setAuth({ emailLogin, passwd, token });
     if (message.status === 200) {
       navigate(from.toString(), { replace: true });
     } else {
-      console.log(message);
       setErrMsg(message.error);
     }
   };
 
-  //to hide and show password
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
   };
@@ -80,7 +75,7 @@ function LoginPage() {
                   disableUnderline={true}
                   ref={userRef}
                   className="form-control-mt-1"
-                  placeholder="Email Address"
+                  placeholder="example@email.com"
                   onChange={(e) => {
                     setEmailLogin(e.target.value);
                   }}
@@ -127,7 +122,7 @@ function LoginPage() {
               <div className="d-grid-gap-2-mt-3">
                 <button
                   type="submit"
-                  className="signup-login-btn"
+                  className="login-btn"
                   disabled={emailLogin && values.password ? false : true}
                 >
                   Log In

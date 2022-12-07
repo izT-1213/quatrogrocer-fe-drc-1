@@ -85,8 +85,14 @@
         inset 0 0 7.5rem rgba(255, 138, 101, 0.45);
       width: 35%;
       flex: none;
+      height: 20rem;
       background-size: cover;
       background-position: center;
+    }
+
+    img {
+      width: fit-content;
+      object-fit: cover;
     }
 
     .profile-image::before {
@@ -117,12 +123,14 @@
         animation: nameEffect 1s cubic-bezier(0, 0.2, 0.4, 1);
         top: -115px;
         left: -65px;
+        text-shadow: white 1px 0 10px;
       }
 
       .second-name {
         animation: nameEffect 1s cubic-bezier(0, 0, 0.3, 1);
         top: -50px;
         left: -25px;
+        text-shadow: white 1px 0 10px;
       }
 
       h6 {
