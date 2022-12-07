@@ -80,13 +80,19 @@ const Footer = () => {
           <div className="footer-bottom-right">
             <ul>
               <li>
-                <InstagramIcon />
+                <Link to={"/maintenance"}>
+                  <InstagramIcon />
+                </Link>
               </li>
               <li>
-                <FacebookIcon />
+                <Link to={"/maintenance"}>
+                  <FacebookIcon />
+                </Link>
               </li>
               <li>
-                <TwitterIcon />
+                <Link to={"/maintenance"}>
+                  <TwitterIcon />
+                </Link>
               </li>
             </ul>
           </div>

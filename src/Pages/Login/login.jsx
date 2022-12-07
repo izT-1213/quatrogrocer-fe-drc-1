@@ -139,23 +139,17 @@ function LoginPage() {
                 <div className="login-apps">
                   <nav className="white-padding">
                     <li className="login-apps-icons">
-                      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                        <FaGoogle />
-                      </a>
+                      <FaGoogle onClick={() => navigate("/maintenance")} />
                     </li>
                   </nav>
                   <nav className="white-padding">
                     <li className="login-apps-icons">
-                      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                        <FaFacebook />
-                      </a>
+                      <FaFacebook onClick={() => navigate("/maintenance")} />
                     </li>
                   </nav>
                   <nav className="white-padding">
                     <li className="login-apps-icons">
-                      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                        <FaApple />
-                      </a>
+                      <FaApple onClick={() => navigate("/maintenance")} />
                     </li>
                   </nav>
                 </div>
